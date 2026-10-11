@@ -12,6 +12,8 @@
 - 保留原有提交歷史，正常推送 main，不使用強制推送。
 - 本儲存庫不儲存 Sites 的網站身分、憑證、備份或動畫製作素材。
 
+- 正式網站、線上預覽及交付一律使用 https://suyungsheng-kh.github.io/one_minute/；所有站內頁面與素材使用同站相對路徑。不要自動發布到 Sites 或以 chatgpt.site 作為交付入口。根目錄 index.html 由 tools/github-entry.cjs 生成完整首頁；/docs 與 /(root) 的 Pages 設定皆可使用。
+
 - 課程與路線模板為 source/lesson.html、source/path.html；catalog.paths 決定順序，recommendations 決定首頁推薦。公開課程必須加入同系列路線，新增課程需同步 learningGoals、keyTakeaway 與練習選項。新／舊分享連結、離線導航與進度接續須驗證。
 
 - README 的動畫製作手冊與 workflows/一分鐘認識系列.md 由完整工作區匯出。修改時同步本機 one_minute/README.md 與 workflows，避免下次匯出覆蓋；只有此儲存庫時先保留修改，回到完整工作區再合併。文件包含動畫製作指令，但動畫原始專案並未隨此儲存庫提供。

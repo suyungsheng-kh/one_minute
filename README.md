@@ -6,6 +6,8 @@
 
 ## 觀看
 
+正式網站：[一分鐘認識](https://suyungsheng-kh.github.io/one_minute/)。首頁、課程頁、觀看路線與教學素材皆由 GitHub Pages 提供。後續線上預覽及交付使用此網址。
+
 下載完整儲存庫，開啟 index.html 或 docs/index.html。請保留所有子資料夾，影片與圖片皆可離線使用。
 
 ## 目錄
@@ -44,7 +46,7 @@ source/dist 是暫存產物，build 會同步到 docs。影片與系列頁的來
 
 ## GitHub Pages
 
-若要發布此網站，在儲存庫 Settings → Pages 選擇 Deploy from a branch，分支 main、資料夾 /docs。啟用後網址為 https://suyungsheng-kh.github.io/one_minute/。推送檔案本身不代表已啟用 Pages。
+正式發布使用 GitHub Pages。Settings → Pages 可選 Deploy from a branch、main、/docs；既有 main、/(root) 設定也受支援：根目錄 index.html 會直接顯示完整首頁，課程與素材引用 docs。建置與匯出都會同步這個入口，不依賴自動轉址。所有站內連結使用相對路徑，保持在 GitHub Pages；不改為其他託管網址。
 
 ## 本機來源同步
 

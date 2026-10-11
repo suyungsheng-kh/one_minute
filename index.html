@@ -1,2 +1,51 @@
 <!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=docs/index.html"><title>一分鐘認識</title></head><body><p><a href="docs/index.html">開啟一分鐘認識</a></p></body></html>
+<html lang="zh-Hant">
+<head>
+  <base href="./docs/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一分鐘，認識一個概念。用生活與遊戲例子，把好奇變成理解：看懂演算法、Scratch 變數與清單，也收錄 30 秒排序實作動畫。">
+  <meta name="theme-color" content="#f8f6ef">
+  <title>一分鐘認識｜把好奇，變成理解</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="content/catalog.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="../#main">跳到主要內容</a>
+  <header class="topbar">
+    <div class="wrap nav-inner">
+      <a class="brand" href="./" aria-label="一分鐘認識首頁"><img src="assets/mark.svg" alt="" width="34" height="34"><span>一分鐘認識<span class="brand-sub">從好奇開始</span></span></a>
+      <nav aria-label="主要導覽"><a href="../#paths">觀看路線</a><a href="../#lessons">全部課程</a><a href="../#how">怎麼學</a></nav>
+      <a class="nav-cta" href="../#lessons">開始探索 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> 一分鐘，認識一個概念</p>
+        <h1 id="hero-title">把<span class="underlined">好奇</span>，<br>變成<span class="serif-word">理解。</span></h1>
+        <p class="hero-description">從生活和遊戲裡的例子開始，<br>一次只聚焦一個重點，<br>用約一分鐘的動畫，先弄懂「它是什麼」。</p>
+        <div class="hero-actions"><a class="button primary" href="../#recommendations">選一個想認識的概念 <span aria-hidden="true">↗</span></a><a class="text-button" id="start-first" href="lesson.html?id=variables">第一次來？先認識變數 <span aria-hidden="true">→</span></a></div>
+        <div class="hero-meta"><span><b id="series-count">3</b> 個主題系列</span><i></i><span><b id="lesson-count">6</b> 個概念主題</span><i></i><span>繁體中文解說</span></div>
+      </div>
+      <div class="learning-world" aria-hidden="true">
+        <div class="world-circle"></div><span class="world-spark spark-a">✦</span><span class="world-spark spark-b">✧</span>
+        <div class="world-label label-top">讓概念，看得見。</div>
+        <div class="concept-card card-steps"><div class="card-caption"><span class="mini-dot coral"></span> 演算法／一步一步來</div><div class="recipe"><span>01<br><b>準備</b></span><i>→</i><span>02<br><b>烘烤</b></span><i>→</i><span>03<br><b>完成</b></span></div><div class="recipe-note">把事情拆成清楚的步驟</div></div>
+        <div class="concept-card card-score"><div class="card-caption"><span class="mini-dot green"></span> 變數／記住一個值</div><div class="score-body"><span class="coin">★</span><span>金幣<b>10<span>枚</span></b></span><span class="plus-tag">+3</span></div><div class="score-track"><span></span></div></div>
+        <div class="concept-card card-sort"><div class="card-caption"><span class="mini-dot blue"></span> 排序／找到對的位置</div><div class="demo-bars"><span style="--height:28%">1</span><span style="--height:44%">2</span><span style="--height:60%">3</span><span style="--height:77%">4</span><span style="--height:94%">5</span></div><div class="sort-note"><span>由小到大</span><b>✓ 整理完成</b></div></div>
+        <span class="world-label label-bottom">哦，原來是這樣！</span><svg class="doodle-arrow" viewBox="0 0 120 90"><path d="M10 10C65 2 24 85 106 61M90 48l17 13-20 9"/></svg>
+      </div>
+    </section>
+    <section class="recommendations-section wrap" id="recommendations" aria-labelledby="recommendations-title"><div class="section-heading"><div><p class="eyebrow">從一個問題，打開一個概念</p><h2 id="recommendations-title">今天，你想認識什麼？</h2></div><p>選一個有感的問題，就從這裡開始。</p></div><div class="recommendation-grid" id="recommendation-grid"></div></section>
+    <section class="series-section" id="paths" aria-labelledby="series-title"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">一集接一集，串起理解</p><h2 id="series-title">沿著一條路線，慢慢認識</h2></div><p>看過的課程會留下記號，隨時可以接著看。</p></div><div class="series-grid" id="series-grid"></div><p class="route-note">也可以直接選下面的單集；每條路線依目前已完成的課程安排。</p></div></section>
+    <section class="lessons-section wrap" id="lessons" aria-labelledby="lessons-title"><div class="section-heading"><div><p class="eyebrow">一次一個概念，慢慢累積理解</p><h2 id="lessons-title">今天，先認識哪個概念？</h2></div><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">搜尋概念</span><input id="search" type="search" placeholder="搜尋概念，例如：變數、排序" autocomplete="off"></label></div><div class="filter-row"><div class="filters" id="filters" role="group" aria-label="依系列篩選"></div><span class="results-count" id="results-count" aria-live="polite"></span></div><div class="lesson-grid" id="lesson-grid"></div><div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3>還沒找到這個概念</h3><p>換個關鍵字，或回到全部課程看看。</p><button class="button secondary" id="reset-search">顯示全部課程</button></div></section>
+    <section class="how-section wrap" id="how" aria-labelledby="how-title"><div class="how-intro"><p class="eyebrow">懂一點，再多試一點</p><h2 id="how-title">先認識一個概念，<br>再試著用用看。</h2><p>每集約一分鐘，先看懂核心概念。<br>也收錄 30 秒排序實作，觀察數字怎麼移動。</p></div><ol class="learning-steps"><li><span>01</span><div><h3>選一個想認識的概念</h3><p>變數怎麼記住分數？清單怎麼整理背包？從一個問題開始。</p></div></li><li><span>02</span><div><h3>用一分鐘，先看懂它</h3><p>跟著生活或遊戲例子，認識它的意思與用途；看不清楚就暫停、重看。</p></div></li><li><span>03</span><div><h3>用自己的話說說看</h3><p>回答一個小問題，確認你看懂了，再動手試試或進入完整教學。</p></div></li></ol></section>
+    <section class="closing wrap"><div><span class="closing-star" aria-hidden="true">✦</span><h2>今天一個概念，<br>明天多一點理解。</h2></div><a class="button primary" href="../#lessons">再認識一個概念 <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="wrap footer"><a class="brand" href="./"><img src="assets/mark.svg" alt="" width="28" height="28"><span>一分鐘認識</span></a><p>一分鐘，認識一個概念。</p><a href="../#main">回到頂端 ↑</a></footer>
+  <noscript><p class="wrap">請啟用 JavaScript 以瀏覽課程目錄。也可直接開啟 <a href="series/scratch/index.html">Scratch 教學</a>或<a href="series/sorting/index.html">排序教學</a>。</p></noscript>
+</body>
+</html>

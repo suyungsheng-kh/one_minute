@@ -5,4 +5,5 @@ if(!fs.existsSync(path.join(dist,'index.html')))throw new Error('Build source/di
 const rel=path.relative(repo,docs);if(rel!=='docs'||path.isAbsolute(rel)||fs.lstatSync(docs,{throwIfNoEntry:false})?.isSymbolicLink())throw new Error('Unsafe output directory.');
 // All docs inputs have already been copied into source/dist by build.cjs.
 if(fs.existsSync(docs))fs.rmSync(docs,{recursive:true});fs.cpSync(dist,docs,{recursive:true});
+require('./github-entry.cjs').writeEntry(repo);
 console.log(JSON.stringify({output:docs,website:true}));
