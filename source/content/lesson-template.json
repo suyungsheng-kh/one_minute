@@ -1,0 +1,21 @@
+{
+  "id": "new-lesson",
+  "series": "scratch",
+  "title": "新課程標題",
+  "subtitle": "一句話說出這一集的用途",
+  "summary": "用兩句繁體中文介紹觀眾會學到什麼。",
+  "seconds": 60,
+  "type": "概念解說",
+  "status": "draft",
+  "tags": [
+    "關鍵字"
+  ],
+  "videoSource": "docs/series/scratch/videos/new-lesson.mp4",
+  "subtitleSource": null,
+  "posterSource": "docs/posters/new-lesson.jpg",
+  "posterTime": 3,
+  "siteAnchor": "new-lesson",
+  "question": "看完動畫後，可以想一想的小問題。",
+  "answer": "答案與簡單的原因。",
+  "challenge": "觀眾可以自己嘗試的小練習。"
+}

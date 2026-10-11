@@ -1,0 +1,23 @@
+把以下物件加入 lessons.js 的 window.SCRATCH_LESSONS 陣列。
+先準備實際影片、封面和字幕；不要直接加入尚未存在的檔案路徑。
+
+{
+  id: 'new-topic',
+  title: '新主題名稱',
+  subtitle: '用一句白話說明這堂課要學什麼',
+  icon: 'assets/star.svg',
+  summary: '首頁課程卡片上的短介紹。',
+  duration: '1 分鐘',
+  video: 'videos/new-topic.mp4',
+  poster: 'assets/new-topic-poster.jpg',
+  subtitleFile: 'subtitles/new-topic.zh-TW.srt',
+  intro: ['第一段：從生活或遊戲問題開始。', '第二段：用白話介紹概念。'],
+  concept: '用一句話帶入下方例子。',
+  example: [{ label: '第一步', value: '起點' }, { label: '第二步', value: '結果' }],
+  steps: [{ title: '重點標題', text: '清楚說明操作和它的效果。' }],
+  reminder: '指出一個常見的誤解。',
+  watch: '看動畫時可以注意什麼？',
+  question: '一個能檢查是否理解的問題。',
+  answer: '答案加上一句理由。',
+  challenge: '一個能在 Scratch 裡嘗試的小任務。'
+}

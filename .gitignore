@@ -1,0 +1,9 @@
+source/dist/
+source/review/
+source/exports/
+node_modules/
+**/node_modules/
+.openai/
+.sites-runtime/
+.env
+.env.*

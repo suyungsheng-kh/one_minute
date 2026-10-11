@@ -1,0 +1,11 @@
+{
+  "name": "one-minute-learning",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix source run build",
+    "check": "npm --prefix source run check",
+    "preview": "npm --prefix source run preview",
+    "package": "npm --prefix source run package"
+  }
+}
