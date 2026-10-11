@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="從一個問題開始，觀看動畫、記住重點、做個小練習，再接著認識下一個概念。">
+  <meta name="theme-color" content="#f8f6ef"><title>概念課程｜一分鐘認識</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">
+  <script src="content/catalog.js" defer></script><script src="assets/app.js" defer></script>
+</head>
+<body data-page="lesson">
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header class="topbar"><div class="wrap nav-inner"><a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="34" height="34"><span>一分鐘認識<span class="brand-sub">從好奇開始</span></span></a><nav aria-label="主要導覽"><a href="index.html#paths">觀看路線</a><a href="index.html#lessons">全部課程</a></nav></div></header>
+  <main id="main" class="wrap course-main">
+    <nav class="breadcrumbs" aria-label="目前位置"><a href="index.html">首頁</a><span aria-hidden="true">/</span><a id="course-path-link"></a><span aria-hidden="true">/</span><span id="course-crumb"></span></nav>
+    <section id="course-error" class="empty-state" hidden><h1>這個概念還沒準備好</h1><p>先從已完成的課程開始探索。</p><a href="index.html#lessons" class="button primary">回到全部課程</a></section>
+    <div id="course-content" class="course-layout" hidden>
+      <article>
+        <header class="course-heading"><p id="course-meta" class="eyebrow"></p><h1 id="course-title"></h1><p id="course-opening" class="opening-question"></p><div class="learning-goals"><span>看完這集，你會知道</span><ul id="course-goals"></ul></div></header>
+        <section class="course-video" aria-label="教學動畫"><video id="lesson-video" controls playsinline preload="metadata"></video><p id="video-error" hidden>影片暫時無法播放，請重新整理，或進入系列教學頁。</p></section>
+        <div class="course-tools"><button id="mark-complete" class="text-button">標示已看過 ✓</button><a id="download-subtitle" class="subtitle-link" download hidden>下載旁白字幕 ↓</a><a id="full-lesson" class="subtitle-link" hidden>進入完整教學 ↗</a></div>
+        <section class="takeaway" aria-labelledby="takeaway-title"><p class="eyebrow">01 / 一句話記住</p><h2 id="takeaway-title">把概念帶走</h2><p id="course-takeaway"></p></section>
+        <section class="practice course-practice" aria-labelledby="practice-question"><p class="eyebrow">02 / 換你試試看</p><h2 id="practice-question"></h2><div id="practice-choices" class="practice-choices" role="group" aria-labelledby="practice-question"></div><p id="practice-feedback" class="practice-feedback" role="status" hidden></p><details><summary>看看答案與原因</summary><p id="practice-answer"></p></details><p class="challenge"><b>動手試試</b><span id="practice-challenge"></span></p></section>
+        <section class="next-lesson" aria-labelledby="next-title"><p class="eyebrow">03 / 接著認識</p><h2 id="next-title"></h2><p id="next-description"></p><a id="next-lesson" class="button primary"></a><a id="previous-lesson" class="text-button" hidden>← 回到上一集</a></section>
+      </article>
+      <aside class="course-sidebar" aria-labelledby="course-path-title"><p class="eyebrow">你的觀看路線</p><h2 id="course-path-title"></h2><p id="course-step"></p><ol id="course-path-steps" class="path-step-list"></ol><a id="view-path" class="text-button">查看完整路線 →</a><p class="storage-note">已看過紀錄只存在這個瀏覽器，不需登入。</p></aside>
+    </div>
+  </main>
+  <footer class="wrap footer"><a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="28" height="28"><span>一分鐘認識</span></a><p>一分鐘，認識一個概念。</p><a href="index.html#paths">探索其他路線 →</a></footer>
+  <noscript><p class="wrap">請啟用 JavaScript 以觀看課程。也可開啟 <a href="series/scratch/index.html">Scratch 教學</a>或<a href="series/sorting/index.html">排序教學</a>。</p></noscript>
+</body>
+</html>

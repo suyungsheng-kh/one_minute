@@ -17,5 +17,16 @@
   "siteAnchor": "new-lesson",
   "question": "看完動畫後，可以想一想的小問題。",
   "answer": "答案與簡單的原因。",
-  "challenge": "觀眾可以自己嘗試的小練習。"
+  "challenge": "觀眾可以自己嘗試的小練習。",
+  "openingQuestion": "用一個生活問題，引出這一集的概念。",
+  "learningGoals": [
+    "看完後能說明的一個重點"
+  ],
+  "keyTakeaway": "一句話記住這一集的核心概念。",
+  "choices": [
+    "選項一",
+    "選項二",
+    "選項三"
+  ],
+  "correctChoice": 0
 }

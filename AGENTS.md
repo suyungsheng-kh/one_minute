@@ -12,4 +12,6 @@
 - 保留原有提交歷史，正常推送 main，不使用強制推送。
 - 本儲存庫不儲存 Sites 的網站身分、憑證、備份或動畫製作素材。
 
+- 課程與路線模板為 source/lesson.html、source/path.html；catalog.paths 決定順序，recommendations 決定首頁推薦。公開課程必須加入同系列路線，新增課程需同步 learningGoals、keyTakeaway 與練習選項。新／舊分享連結、離線導航與進度接續須驗證。
+
 - README 的動畫製作手冊與 workflows/一分鐘認識系列.md 由完整工作區匯出。修改時同步本機 one_minute/README.md 與 workflows，避免下次匯出覆蓋；只有此儲存庫時先保留修改，回到完整工作區再合併。文件包含動畫製作指令，但動畫原始專案並未隨此儲存庫提供。

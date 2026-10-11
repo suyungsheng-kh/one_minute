@@ -50,6 +50,18 @@ source/dist 是暫存產物，build 會同步到 docs。影片與系列頁的來
 
 本機正式網站來源為 animation/one_minute/portal。日常先完成網站 build，再執行其 tools/export-github.cjs，便會更新 .github-publish/one_minute 這份儲存庫副本。確認差異後提交並推送；不要把整個動畫工作區或 .openai 設定上傳。
 
+## 課程頁、觀看路線與首頁推薦
+
+每集使用共用的 source/lesson.html，路線使用 source/path.html。首頁推薦、三條觀看順序及所有課程文字集中在 source/content/catalog.json。
+
+- 課程：openingQuestion 是生活問題，learningGoals 是學習目標，keyTakeaway 是一句重點；question／answer／challenge 是練習。choices 與 correctChoice（從 0 開始）提供可重試的選擇題。
+- 路線：頂層 paths 每筆含 id、series、title、description、goal、lessonIds、stepNotes、reflection。公開課程必須加入至少一條同系列路線，lessonIds 順序決定上一集與下一集。
+- 推薦：頂層 recommendations 每筆含 lesson、label、reason；startLesson 決定第一次來的快捷入口。只推薦已完成、可播放的課程。
+- 網址：lesson.html?id=variables、path.html?id=scratch；舊 #lesson/variables 分享連結可繼續使用。
+- 進度：HTTP／線上網站在目前瀏覽器保存已看過紀錄，路線可接續第一個未看過的課程；file:// 跨頁儲存行為由瀏覽器決定。答題不會自動標為已看過。
+
+更新後執行 npm run build、npm run check 與 npm run package；新增課程時請一起更新路線。
+
 <!-- animation-production-guide -->
 
 ## 動畫製作準備與完整工作流
