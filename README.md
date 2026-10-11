@@ -44,8 +44,8 @@ source/dist 是暫存產物，build 會同步到 docs。影片與系列頁的來
 
 ## GitHub Pages
 
-若要發布此網站，在儲存庫 Settings → Pages 選擇 Deploy from a branch，分支 main、資料夾 /docs。啟用後網址為 https://suyungsheng-kh.github.io/animation/。推送檔案本身不代表已啟用 Pages。
+若要發布此網站，在儲存庫 Settings → Pages 選擇 Deploy from a branch，分支 main、資料夾 /docs。啟用後網址為 https://suyungsheng-kh.github.io/one_minute/。推送檔案本身不代表已啟用 Pages。
 
 ## 本機來源同步
 
-本機正式網站來源為 animation/one_minute/portal。日常先完成網站 build，再執行其 tools/export-github.cjs，便會更新 .github-publish/animation 這份儲存庫副本。確認差異後提交並推送；不要把整個動畫工作區或 .openai 設定上傳。
+本機正式網站來源為 animation/one_minute/portal。日常先完成網站 build，再執行其 tools/export-github.cjs，便會更新 .github-publish/one_minute 這份儲存庫副本。確認差異後提交並推送；不要把整個動畫工作區或 .openai 設定上傳。
