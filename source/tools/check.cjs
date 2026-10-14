@@ -25,6 +25,18 @@ const wrong=(l.correctChoice+1)%l.choices.length;await page.click(`[data-choice=
 await page.click('.practice summary');assert.equal(await page.$eval('.practice details',e=>e.open),true);await viewportChecks(l.id);if(l.id==='variables')await page.screenshot({path:path.join(review,'lesson.png'),fullPage:true});
 const p=catalog.paths.find(p=>p.lessonIds.includes(l.id)),index=p.lessonIds.indexOf(l.id),next=await page.$eval('#next-lesson',e=>e.href);assert.equal(new URL(next).pathname.endsWith(index===p.lessonIds.length-1?'path.html':'lesson.html'),true);assert.equal(new URL(next).searchParams.get('id'),p.lessonIds[index+1]||p.id);assert.equal(await page.$eval('#previous-lesson',e=>!e.hidden),index>0);
 }result.courseTemplate=true;result.practiceKeyboard=true;
+// Verify the algorithm trilogy through real next/previous navigation and resume state.
+const trilogy=catalog.paths.find(p=>p.id==='algorithms');
+await go(base+'lesson.html?id='+trilogy.lessonIds[0]+'&path=algorithms');
+for(let i=0;i<trilogy.lessonIds.length;i++){
+assert.equal(new URL(page.url()).searchParams.get('id'),trilogy.lessonIds[i]);
+if(i>0){await clickNavigate('#previous-lesson');assert.equal(new URL(page.url()).searchParams.get('id'),trilogy.lessonIds[i-1]);await clickNavigate('#next-lesson');}
+await page.click('#mark-complete');
+if(i<trilogy.lessonIds.length-1){await clickNavigate('#view-path');assert.equal(new URL(await page.$eval('#path-start',e=>e.href)).searchParams.get('id'),trilogy.lessonIds[i+1]);await clickNavigate('#path-start');}
+else{await clickNavigate('#next-lesson');assert.equal(new URL(page.url()).searchParams.get('id'),'algorithms');assert.equal(await page.$eval('#path-progress',e=>e.textContent),`已看過 ${trilogy.lessonIds.length} / ${trilogy.lessonIds.length} 集`);}
+}
+result.algorithmTrilogy={order:trilogy.lessonIds,previousNext:true,resume:true,finalReturn:true};
+await page.evaluate(()=>localStorage.removeItem('one-minute-watched-v1'));
 // Exercise continuation, final-step return and persisted watched state across real navigation.
 await go(base+'lesson.html?id=variables&path=scratch');await page.click('#mark-complete');await clickNavigate('#next-lesson');assert.equal(await page.$eval('#course-title',e=>e.textContent),'清單');assert.equal(await page.$eval('.path-step-list .completed',e=>e.textContent),'✓ 已看過');
 await clickNavigate('#view-path');assert.ok((await page.$eval('#path-start',e=>e.href)).includes('id=lists'));await clickNavigate('#path-start');await page.waitForFunction(()=>document.getElementById('lesson-video').readyState>=1);

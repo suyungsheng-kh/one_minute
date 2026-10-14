@@ -11,7 +11,7 @@ window.ONE_MINUTE_CATALOG = {
     {
       "lesson": "algorithm-bread",
       "label": "從生活裡找答案",
-      "reason": "烤麵包的步驟，原來也能幫你理解演算法。"
+      "reason": "從烤麵包出發，用三集認識演算法的特性、流程與用途。"
     },
     {
       "lesson": "bubble-sort",
@@ -24,15 +24,19 @@ window.ONE_MINUTE_CATALOG = {
       "id": "algorithms",
       "series": "algorithms",
       "title": "把生活變成清楚的步驟",
-      "description": "從烤麵包開始，認識演算法是什麼，以及一套步驟要具備的五個特性。",
-      "goal": "能用自己的話，說明一件日常事情的步驟為什麼算是演算法。",
+      "description": "三集依序認識五大特性、循序／選擇／重複，以及為什麼需要演算法。跟著小廚師，把早餐目標變成能執行、能檢查的方法。",
+      "goal": "能用五大特性檢查步驟，選擇適合的基本流程，並說明清楚的方法如何幫助執行與修正。",
       "lessonIds": [
-        "algorithm-bread"
+        "algorithm-bread",
+        "algorithm-control-flow",
+        "algorithm-why"
       ],
       "stepNotes": {
-        "algorithm-bread": "先認識演算法，再用五大特性檢查生活步驟。"
+        "algorithm-bread": "第一集：認識演算法，用五大特性檢查步驟。",
+        "algorithm-control-flow": "第二集：用循序、選擇與重複安排早餐任務。",
+        "algorithm-why": "第三集：理解方法的用途，練習找出遺漏並修正。"
       },
-      "reflection": "把刷牙或準備早餐寫成步驟，看看是否清楚、做得到，而且會結束。"
+      "reflection": "把準備早餐寫成清楚、做得到且會結束的步驟，標出循序、選擇與重複，再請別人照著演練，檢查是否漏了什麼。"
     },
     {
       "id": "scratch",
@@ -73,7 +77,7 @@ window.ONE_MINUTE_CATALOG = {
     {
       "id": "algorithms",
       "title": "演算法",
-      "subtitle": "用烤麵包的生活例子，先認識「演算法」是什麼。",
+      "subtitle": "跟著小廚師，用三集認識演算法的特性、流程與用途。",
       "color": "coral",
       "icon": "steps",
       "siteAnchor": "",
@@ -132,6 +136,73 @@ window.ONE_MINUTE_CATALOG = {
       "video": "media/algorithm-bread.mp4",
       "subtitleFile": "subtitles/algorithm-bread.zh-TW.srt",
       "poster": "posters/algorithm-bread.jpg"
+    },
+    {
+      "id": "algorithm-control-flow",
+      "series": "algorithms",
+      "title": "循序、選擇、重複",
+      "subtitle": "小廚師的三種指令",
+      "summary": "照順序烤吐司、看條件選果醬、重複做三片早餐，認識安排步驟的三種基本流程。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "生活例子",
+        "循序",
+        "選擇",
+        "重複",
+        "演算法"
+      ],
+      "question": "「如果想吃甜的，就塗果醬；否則保留原味。」用了哪一種流程？",
+      "answer": "選擇。先判斷是否想吃甜的，再走其中一條路，不是兩條路都做。",
+      "challenge": "寫下準備三份早餐的步驟，標出哪裡依序做、哪裡看條件，以及哪一組動作重複三次後停止。",
+      "openingQuestion": "早餐要照順序做，遇到不同口味或要做三份時，又該怎麼安排？",
+      "learningGoals": [
+        "分辨循序、選擇與重複的作用",
+        "用條件與次數安排生活中的步驟"
+      ],
+      "keyTakeaway": "循序是依序做，選擇是看條件走其中一條路，重複是再做同一組動作，達到停止條件就結束。",
+      "choices": [
+        "循序：照順序把兩種口味都做一遍",
+        "選擇：看條件決定其中一條路",
+        "重複：一直塗果醬"
+      ],
+      "correctChoice": 1,
+      "video": "media/algorithm-control-flow.mp4",
+      "subtitleFile": "subtitles/algorithm-control-flow.zh-TW.srt",
+      "poster": "posters/algorithm-control-flow.jpg"
+    },
+    {
+      "id": "algorithm-why",
+      "series": "algorithms",
+      "title": "為什麼需要演算法？",
+      "subtitle": "讓小廚師不再靠猜！",
+      "summary": "把「做好早餐」的目標拆成可執行的方法，讓別人照著做、再次使用，也能逐步找出錯誤。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "生活例子",
+        "目標與方法",
+        "檢查修正",
+        "演算法"
+      ],
+      "question": "照著方法做出的吐司沒有果醬，應該怎麼處理？",
+      "answer": "逐步檢查，找出是否漏了塗果醬，補上後再測試。步驟寫清楚，仍要確認結果是否正確。",
+      "challenge": "請同學照你寫的早餐步驟口頭演練，找出一個不清楚或遺漏的地方，修改後再試一次。",
+      "openingQuestion": "只告訴機器人「做好吃的吐司」，它就知道該怎麼做嗎？",
+      "learningGoals": [
+        "分辨要達成的目標與實際執行的方法",
+        "理解清楚步驟如何幫助執行、重用及檢查修正"
+      ],
+      "keyTakeaway": "目標說明要做什麼，演算法說清楚怎麼做；方法能交給別人執行、再次使用，也要測試是否正確。",
+      "choices": [
+        "只要步驟清楚，結果一定正確",
+        "換一個人做就好，不用檢查方法",
+        "逐步檢查、補上漏掉的步驟，再測試"
+      ],
+      "correctChoice": 2,
+      "video": "media/algorithm-why.mp4",
+      "subtitleFile": "subtitles/algorithm-why.zh-TW.srt",
+      "poster": "posters/algorithm-why.jpg"
     },
     {
       "id": "variables",
