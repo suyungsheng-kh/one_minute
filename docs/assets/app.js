@@ -19,7 +19,7 @@
   function remember(l){if(!completed.includes(l.id))completed.push(l.id);try{localStorage.setItem('one-minute-watched-v1',JSON.stringify(completed));}catch{}}
   function setLink(id,href){$(id).hidden=!href;if(href)$(id).href=href;else $(id).removeAttribute('href');}
   function total(p){return members(p).reduce((sum,l)=>sum+l.seconds,0);}
-  const icons={steps:'<path d="M5 9h6v6H5zM21 9h6v6h-6zM13 22h6v6h-6zM11 12h10M24 15v5H16v2"/>',code:'<path d="m11 10-6 6 6 6m10-12 6 6-6 6m-3-15-4 22"/>',bars:'<path d="M5 28V18h5v10M14 28V11h5v17M23 28V4h5v24M3 28h27"/>'};
+  const icons={hanoi:'<path d="M6 5v21m10-21v21m10-21v21M2 27h28M2 23h8M3 19h6M4 15h4"/>',steps:'<path d="M5 9h6v6H5zM21 9h6v6h-6zM13 22h6v6h-6zM11 12h10M24 15v5H16v2"/>',code:'<path d="m11 10-6 6 6 6m10-12 6 6-6 6m-3-15-4 22"/>',bars:'<path d="M5 28V18h5v10M14 28V11h5v17M23 28V4h5v24M3 28h27"/>'};
   function home(){
     function legacy(){if(location.hash.startsWith('#lesson/'))try{const id=decodeURIComponent(location.hash.slice(8));if(lessonMap.has(id)){location.replace(courseUrl(id));return true;}}catch{}return false;}
     if(legacy())return;window.addEventListener('hashchange',legacy);

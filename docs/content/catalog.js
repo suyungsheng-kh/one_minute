@@ -71,6 +71,20 @@ window.ONE_MINUTE_CATALOG = {
         "insertion-sort": "最後把新數字插進已排好的部分。"
       },
       "reflection": "哪一種方法會先找最小值？哪一種比較相鄰的數字？哪一種像整理手上的卡牌？"
+    },
+    {
+      "id": "hanoi",
+      "series": "hanoi",
+      "title": "把大問題，交給同樣的方法",
+      "description": "先學會河內塔的規則，觀察第四步。後兩集「遞迴的想法」與「步數爆炸」準備中。",
+      "goal": "說出三條規則，看懂三個圓盤的七步搬法。",
+      "lessonIds": [
+        "hanoi-rules"
+      ],
+      "stepNotes": {
+        "hanoi-rules": "第一集：先學會規則，觀察第四步為什麼能搬最大的圓盤。"
+      },
+      "reflection": "如果增加一個圓盤，你會先搬哪一個？哪些小圓盤需要先讓開？"
     }
   ],
   "series": [
@@ -102,6 +116,15 @@ window.ONE_MINUTE_CATALOG = {
       "siteAnchor": "",
       "recommended": "bubble-sort",
       "site": "series/sorting/index.html"
+    },
+    {
+      "id": "hanoi",
+      "title": "河內塔",
+      "subtitle": "三根柱子、幾個圓盤，認識遞迴的想法。",
+      "color": "orange",
+      "icon": "hanoi",
+      "siteAnchor": "",
+      "recommended": "hanoi-rules"
     }
   ],
   "lessons": [
@@ -370,6 +393,103 @@ window.ONE_MINUTE_CATALOG = {
       "site": "series/sorting/index.html#insertion",
       "video": "series/sorting/videos/insertion-sort.mp4",
       "poster": "posters/insertion-sort.jpg"
+    },
+    {
+      "id": "hanoi-rules",
+      "series": "hanoi",
+      "title": "河內塔怎麼玩？",
+      "subtitle": "三條規則，七步搬完一座塔",
+      "summary": "一次搬一個、只拿最上面、大的不壓小的，看三個圓盤怎麼搬到目標柱。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "河內塔",
+        "規則",
+        "圓盤"
+      ],
+      "status": "published",
+      "openingQuestion": "你能把整座塔搬到另一根柱子嗎？",
+      "learningGoals": [
+        "說出河內塔的三條規則",
+        "看懂三個圓盤的七步搬法，觀察第四步"
+      ],
+      "keyTakeaway": "一次搬一個、只拿最上面、大的不壓小的；三個圓盤要七步。",
+      "question": "想把 4 號放在 2 號上面，違反哪一條規則？",
+      "choices": [
+        "一次只能搬一個",
+        "只能拿最上面的",
+        "大的不能壓在小的上面"
+      ],
+      "correctChoice": 2,
+      "answer": "大的不能壓在小的上面。4 號比 2 號大，所以不能放上去。",
+      "challenge": "用三枚大小不同的硬幣，在紙上畫三個位置，試著用七步搬完。",
+      "video": "media/hanoi-rules.mp4",
+      "subtitleFile": "subtitles/hanoi-rules.zh-TW.srt",
+      "poster": "posters/hanoi-rules.jpg"
+    },
+    {
+      "id": "hanoi-recursion",
+      "series": "hanoi",
+      "title": "遞迴的想法",
+      "subtitle": "一疊＋最大的，拆到最小就停",
+      "summary": "把上面的圓盤當成一疊，用同樣的三大步解決越來越小的問題。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "河內塔",
+        "遞迴",
+        "拆解問題",
+        "停止條件"
+      ],
+      "status": "coming-soon",
+      "openingQuestion": "四個圓盤，要怎麼想才不會亂？",
+      "learningGoals": [
+        "用一疊加最大的說明搬法",
+        "說出遞迴在只剩一個時停下來"
+      ],
+      "keyTakeaway": "遞迴就是用同樣的方法解決更小的同一個問題，而且一定要有停下來的時候。",
+      "question": "要搬五個圓盤，第一大步應該做什麼？",
+      "choices": [
+        "先搬最大的",
+        "把上面四個當成一疊先搬開",
+        "把五個一起搬到目標"
+      ],
+      "correctChoice": 1,
+      "answer": "把上面四個當成一疊先搬開。最大的上面空了，才能搬到目標。",
+      "challenge": "排隊時問前面的人自己排第幾，他再問更前面的人。這個方法在哪裡停下來？",
+      "poster": "assets/mark.svg"
+    },
+    {
+      "id": "hanoi-steps",
+      "series": "hanoi",
+      "title": "步數爆炸",
+      "subtitle": "多一個圓盤，步數翻倍再加一",
+      "summary": "從一、三、七、十五找出規律，再看六十四個圓盤要搬多久。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "河內塔",
+        "步數",
+        "規律",
+        "效率"
+      ],
+      "status": "coming-soon",
+      "openingQuestion": "圓盤越多，要搬幾步？",
+      "learningGoals": [
+        "說出翻倍再加一的規律",
+        "理解方法正確不代表能在合理時間內完成"
+      ],
+      "keyTakeaway": "每多一個圓盤，步數翻倍再加一；方法對了，不代表做得完。",
+      "question": "五個圓盤要搬幾步？",
+      "choices": [
+        "16",
+        "25",
+        "31"
+      ],
+      "correctChoice": 2,
+      "answer": "31。四個要十五步，十五乘二再加一，就是三十一步。",
+      "challenge": "八個圓盤要幾步？每秒搬一步要多久？答案：255步，4分15秒。",
+      "poster": "assets/mark.svg"
     }
   ]
 };
