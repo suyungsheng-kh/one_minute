@@ -489,6 +489,10 @@ git -C .github-publish/one_minute diff
 
 正式入口：[一分鐘認識](https://suyungsheng-kh.github.io/one_minute/)。動畫原始專案、歷史成品與聲音仍保留在本機；本次整合只重用正式影片與字幕，未重新產生配音。
 
+## Scratch、演算法與排序的銜接
+
+變數保存狀態，清單保存多筆資料，條件判斷決定動作；完整對照、常見混淆與相關單元連結見 [Scratch 與排序](guides/scratch-algorithms-sorting.md)。十二個課程與四條觀看路線都有跨單元導讀，保留既有河內塔連結、原影片與觀看進度。
+
 ## 河內塔與演算法的銜接
 
 有效性、有限性與效率的區分，以及建議觀看順序，見[河內塔與演算法](guides/hanoi-algorithms.md)。六個課程頁與兩條觀看路線提供相關單元連結，沿用既有影片及觀看紀錄。

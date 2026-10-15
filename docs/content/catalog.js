@@ -6,7 +6,7 @@ window.ONE_MINUTE_CATALOG = {
     {
       "lesson": "variables",
       "label": "第一次來，從這裡開始",
-      "reason": "遊戲怎麼記住金幣？從一個會改變的數字開始。"
+      "reason": "從記住金幣開始，再用變數、清單和條件判斷，理解排序怎麼執行。"
     },
     {
       "lesson": "algorithm-bread",
@@ -16,7 +16,7 @@ window.ONE_MINUTE_CATALOG = {
     {
       "lesson": "bubble-sort",
       "label": "想看數字動起來",
-      "reason": "用 30 秒，看相鄰的數字如何比較、交換。"
+      "reason": "用 30 秒看比較與交換，再連回保存資料和決定下一步的基本工具。"
     },
     {
       "lesson": "hanoi-rules",
@@ -48,6 +48,10 @@ window.ONE_MINUTE_CATALOG = {
           {
             "title": "從生活步驟，走向解題方法",
             "text": "認識演算法後，可以用河內塔練習把規則變成搬法、用遞迴拆小問題，再觀察步數如何隨盤數增加。這是一條延伸路線，不影響原本三集的觀看順序。"
+          },
+          {
+            "title": "用 Scratch 工具，把步驟做出來",
+            "text": "變數與清單保存執行時的資料，條件判斷實作選擇流程；再看排序，練習把比較與移動組成解題方法。河內塔的延伸連結也可繼續使用。"
           }
         ],
         "relatedLessons": [
@@ -62,6 +66,14 @@ window.ONE_MINUTE_CATALOG = {
           {
             "lesson": "hanoi-steps",
             "reason": "最後分清楚有效性、有限性與效率。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "從遊戲中的如果／否則，認識實際的選擇流程。"
+          },
+          {
+            "lesson": "bubble-sort",
+            "reason": "從相鄰比較開始，看資料與流程如何合作。"
           }
         ]
       }
@@ -82,7 +94,42 @@ window.ONE_MINUTE_CATALOG = {
         "lists": "接著把多個道具依序收進背包。",
         "conditions": "第三集：用「如果」與「否則」，決定能不能買藥水。"
       },
-      "reflection": "藥水售價 5 枚，用「金幣 < 5」判斷時，3、7、5 枚各會走哪一條分支？"
+      "reflection": "排序時，哪個工具保存整串數字？哪個記目前的位置或暫存值？哪一步用條件決定是否移動？再用金幣與背包舉一個同樣分工的例子。",
+      "connections": {
+        "title": "把遊戲工具，接到排序方法",
+        "notes": [
+          {
+            "title": "先有資料，再判斷並安排步驟",
+            "text": "變數記目前的值或位置，清單保存整串資料，條件判斷決定要不要更新或移動。演算法把這些動作排成解題方法；排序就是一個具體應用。"
+          },
+          {
+            "title": "可以先懂概念，再看三種搬法",
+            "text": "可先走完 Scratch 三集，再看排序實作；不必先會寫排序程式。看動畫時，試著指出哪裡在保存資料、哪裡做比較、哪裡依結果改變下一步。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "algorithm-bread",
+            "reason": "先建立清楚、做得到、會結束的步驟概念。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "把判斷連到選擇，再配合循序與重複。"
+          },
+          {
+            "lesson": "bubble-sort",
+            "reason": "從相鄰比較與交換開始。"
+          },
+          {
+            "lesson": "selection-sort",
+            "reason": "練習記住最小值的位置。"
+          },
+          {
+            "lesson": "insertion-sort",
+            "reason": "觀察保存新值、右移與放回的分工。"
+          }
+        ]
+      }
     },
     {
       "id": "sorting",
@@ -100,7 +147,38 @@ window.ONE_MINUTE_CATALOG = {
         "selection-sort": "再看看先找最小值的做法。",
         "insertion-sort": "最後把新數字插進已排好的部分。"
       },
-      "reflection": "哪一種方法會先找最小值？哪一種比較相鄰的數字？哪一種像整理手上的卡牌？"
+      "reflection": "三種方法各在何時比較、何時交換或右移？你會用哪些變數記進度、位置或暫存值？完成後如何確認沒有遺失項目？",
+      "connections": {
+        "title": "排序背後的三個基本工具",
+        "notes": [
+          {
+            "title": "保存、判斷、執行，各有分工",
+            "text": "三種排序都可用 Scratch 清單存資料、變數記狀態、條件判斷選動作。這是實作它們的一種方式，不代表排序只能用 Scratch 或一定只能用清單表示。"
+          },
+          {
+            "title": "比較方法，先分清楚動作",
+            "text": "比較是判斷大小，交換是兩項對調，右移是挪出空位，插入是把保存的值放好。影片次數只代表該組數字與實作，不能把不同動作直接當成同一種成本，也不能據此說某方法永遠最快。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "variables",
+            "reason": "先認識暫存值、位置與進度的保存。"
+          },
+          {
+            "lesson": "lists",
+            "reason": "分清楚項目編號、項目值與排列順序。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "看每次比較如何決定下一步。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "把基本工具組成有順序與停止條件的方法。"
+          }
+        ]
+      }
     },
     {
       "id": "hanoi",
@@ -214,7 +292,7 @@ window.ONE_MINUTE_CATALOG = {
       ],
       "correctChoice": 0,
       "connections": {
-        "title": "從五大特性，走到河內塔",
+        "title": "把五大特性用在河內塔與排序",
         "notes": [
           {
             "title": "有效性：每一步做得到",
@@ -227,6 +305,10 @@ window.ONE_MINUTE_CATALOG = {
           {
             "title": "效率：需要多少成本",
             "text": "效率關心步數、時間等成本，尤其是圓盤增加時，成本長得多快。四個圓盤要十五步；六十四個的最少步數雖然有限，耗時仍可能遠超過人的一生。"
+          },
+          {
+            "title": "資料與步驟，一起完成解題",
+            "text": "在 Scratch 裡，變數記一個值、清單保存多個項目，條件判斷決定下一步。這些工具可用來實作排序，但工具本身不會自動組成完整演算法。"
           }
         ],
         "relatedLessons": [
@@ -237,6 +319,14 @@ window.ONE_MINUTE_CATALOG = {
           {
             "lesson": "hanoi-steps",
             "reason": "看看為什麼每一步做得到、整體也會結束，仍可能要等非常久。"
+          },
+          {
+            "lesson": "variables",
+            "reason": "看執行步驟時，如何記住目前的資料。"
+          },
+          {
+            "lesson": "selection-sort",
+            "reason": "把找最小值的想法整理成清楚步驟。"
           }
         ]
       },
@@ -275,17 +365,29 @@ window.ONE_MINUTE_CATALOG = {
       ],
       "correctChoice": 1,
       "connections": {
-        "title": "從安排步驟，走到遞迴",
+        "title": "從三種流程，走向遊戲、排序與遞迴",
         "notes": [
           {
             "title": "先學會安排，再學會拆小",
             "text": "河內塔依序搬開一疊、搬最大盤、再把一疊搬回來；只剩一個時直接搬。遞迴用同樣的方法處理更小的問題，並有停止條件，不能只把它理解成一直重複動作。"
+          },
+          {
+            "title": "用排序，把三種流程組合起來",
+            "text": "依序讀取項目，用條件決定是否交換，再重複處理下一組。變數記住進度，清單保存資料；依設定的範圍與停止條件結束，才能完成整串數字的排序。"
           }
         ],
         "relatedLessons": [
           {
             "lesson": "hanoi-recursion",
             "reason": "把循序與條件的概念，連到「同樣但更小」的問題。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "用 Scratch 的如果／否則，理解選擇流程。"
+          },
+          {
+            "lesson": "bubble-sort",
+            "reason": "觀察三種流程如何一起整理一串數字。"
           }
         ]
       },
@@ -328,12 +430,24 @@ window.ONE_MINUTE_CATALOG = {
           {
             "title": "正確和快速，是不同的問題",
             "text": "方法是否得到正確結果，要靠檢查；完成它需要多少步、多少時間，則是效率問題。河內塔展示一個正確、會結束的搬法，也可能因圓盤增加而耗時極長。"
+          },
+          {
+            "title": "資料放在哪裡，不等於怎麼解題",
+            "text": "清單能保存數字，變數能記住一個值；要排好整串，還需要安排比較、移動與停止的步驟。最後檢查是否排好、項目有沒有遺失，再討論時間與動作成本。"
           }
         ],
         "relatedLessons": [
           {
             "lesson": "hanoi-steps",
             "reason": "從步數翻倍再加一，認識正確方法的時間成本。"
+          },
+          {
+            "lesson": "lists",
+            "reason": "先分清楚保存資料和整理資料的差別。"
+          },
+          {
+            "lesson": "insertion-sort",
+            "reason": "從整理卡牌的目標，看實際需要哪些步驟。"
           }
         ]
       },
@@ -370,6 +484,37 @@ window.ONE_MINUTE_CATALOG = {
         "12"
       ],
       "correctChoice": 1,
+      "connections": {
+        "title": "從記住金幣，到記住排序進度",
+        "notes": [
+          {
+            "title": "演算法執行時，也需要記住資料",
+            "text": "變數不只記金幣，也能記目前檢查的項目編號、暫時找到的最小值，或交換前要保留的值。演算法安排步驟，變數幫忙記住執行中的狀態。"
+          },
+          {
+            "title": "編號和值，不能混在一起",
+            "text": "清單「第 2 項」的編號是 2，裡面的值可能是 5。選擇排序可用變數記最小值的位置；插入排序先保存要插入的數字，才不會在右移時把它蓋掉。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "algorithm-bread",
+            "reason": "把變數放進一套清楚、做得到的解題步驟。"
+          },
+          {
+            "lesson": "bubble-sort",
+            "reason": "交換相鄰兩項前，先用變數保存其中一個值。"
+          },
+          {
+            "lesson": "selection-sort",
+            "reason": "記住目前找到的最小值，以及它的位置。"
+          },
+          {
+            "lesson": "insertion-sort",
+            "reason": "先保存待插入的值，再讓較大數字右移。"
+          }
+        ]
+      },
       "site": "series/scratch/index.html#variables",
       "video": "series/scratch/videos/scratch-variables-yunjhe-v1.mp4",
       "subtitleFile": "subtitles/variables.zh-TW.srt",
@@ -405,6 +550,37 @@ window.ONE_MINUTE_CATALOG = {
         "鑰匙"
       ],
       "correctChoice": 2,
+      "connections": {
+        "title": "從整理背包，到整理一串數字",
+        "notes": [
+          {
+            "title": "清單保存資料，演算法決定怎麼整理",
+            "text": "清單把多個項目依序存起來，卻不會自動排成由小到大。把 3、1、2 存進清單後，需要排序方法，才會得到 1、2、3。"
+          },
+          {
+            "title": "排序改順序，不應弄丟資料",
+            "text": "排序完成後，項目數與原來的值都要保留，包括重複的數字。在 Scratch 可用「替換第幾項」更新位置；刪除會讓後面編號改變，不能隨意拿來代替交換或右移。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "algorithm-why",
+            "reason": "分清楚資料、整理的目標，以及實際執行的方法。"
+          },
+          {
+            "lesson": "bubble-sort",
+            "reason": "看同一份清單如何交換相鄰項目。"
+          },
+          {
+            "lesson": "selection-sort",
+            "reason": "從尚未排好的項目中，找出最小值的位置。"
+          },
+          {
+            "lesson": "insertion-sort",
+            "reason": "把新值放進已排好的部分，完成後仍保留所有項目。"
+          }
+        ]
+      },
       "site": "series/scratch/index.html#lists",
       "video": "series/scratch/videos/scratch-lists-yunjhe-v1.mp4",
       "subtitleFile": "subtitles/lists.zh-TW.srt",
@@ -440,6 +616,37 @@ window.ONE_MINUTE_CATALOG = {
         "先走「否則」，再回頭走「如果」"
       ],
       "correctChoice": 1,
+      "connections": {
+        "title": "從能不能買藥水，到要不要移動數字",
+        "notes": [
+          {
+            "title": "條件判斷，對應演算法的選擇流程",
+            "text": "遊戲問「金幣夠不夠」，排序問「左邊是否比右邊大」或「這個值是否比目前最小值小」。先比較得到真或假，再決定要做的動作。"
+          },
+          {
+            "title": "比較過，不代表一定交換",
+            "text": "氣泡排序只有順序不對才交換；選擇排序遇到更小的值先記下位置，整輪找完才決定交換。每次比較都重新判斷，不把前一次的結果一直沿用。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "把「如果／否則」連到選擇流程，再看它如何配合循序與重複。"
+          },
+          {
+            "lesson": "bubble-sort",
+            "reason": "左邊大於右邊才交換；相等時不必因這個條件交換。"
+          },
+          {
+            "lesson": "selection-sort",
+            "reason": "找到更小的值先更新紀錄，不是每比較一次就交換。"
+          },
+          {
+            "lesson": "insertion-sort",
+            "reason": "前一個值較大才右移，找到位置或到達最前面就停止。"
+          }
+        ]
+      },
       "site": "series/scratch/index.html#conditions",
       "video": "series/scratch/videos/scratch-conditions.mp4",
       "subtitleFile": "subtitles/conditions.zh-TW.srt",
@@ -474,6 +681,37 @@ window.ONE_MINUTE_CATALOG = {
         "直接刪掉 5"
       ],
       "correctChoice": 0,
+      "connections": {
+        "title": "一對數字，串起資料、判斷與步驟",
+        "notes": [
+          {
+            "title": "清單裝數字，變數記位置",
+            "text": "在 Scratch 實作時，可用清單保存整串數字，用變數記目前比較的位置。交換前先暫存其中一項，再更新兩個位置，才不會把舊值蓋掉。"
+          },
+          {
+            "title": "先比較，再決定是否交換",
+            "text": "由小到大排時，左邊大於右邊才交換；否則保留。配合重複檢查相鄰項目與清楚的結束條件，才是一套排序方法；只比較一對還不算排完整串。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "variables",
+            "reason": "交換前先保存舊值，並記住目前的項目編號。"
+          },
+          {
+            "lesson": "lists",
+            "reason": "把整串待排序數字依序存起來。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "比較真假，決定這一對需不需要交換。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "把依序做、看條件與重複，組合成排序步驟。"
+          }
+        ]
+      },
       "site": "series/sorting/index.html#bubble",
       "video": "series/sorting/videos/bubble-sort.mp4",
       "poster": "posters/bubble-sort.jpg"
@@ -506,6 +744,37 @@ window.ONE_MINUTE_CATALOG = {
         "1"
       ],
       "correctChoice": 2,
+      "connections": {
+        "title": "找最小值，需要記住什麼？",
+        "notes": [
+          {
+            "title": "先記候選者，再掃描剩下的資料",
+            "text": "可用清單保存數字，用變數記目前最小值的位置。每看到一個更小的值，就更新位置；整輪找完後，才把最小值放到這一輪的前方。不要把項目編號和裡面的數字混在一起。"
+          },
+          {
+            "title": "兩種「選擇」，意思不同",
+            "text": "選擇排序是在挑出最小值；選擇流程是依條件走不同動作。排序會用到條件判斷，但它的名稱不代表只做一次「如果／否則」。比較很多次，也不等於交換很多次。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "variables",
+            "reason": "用變數記最小值的位置，找到更小的再更新。"
+          },
+          {
+            "lesson": "lists",
+            "reason": "知道目前檢查哪一項，還有哪些項目未排好。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "用小於判斷是否更新目前的最小值紀錄。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "看找最小值如何結合循序、選擇與重複。"
+          }
+        ]
+      },
       "site": "series/sorting/index.html#selection",
       "video": "series/sorting/videos/selection-sort.mp4",
       "poster": "posters/selection-sort.jpg"
@@ -539,6 +808,37 @@ window.ONE_MINUTE_CATALOG = {
         "放在 4 後面"
       ],
       "correctChoice": 1,
+      "connections": {
+        "title": "先保存，再挪動，最後放回去",
+        "notes": [
+          {
+            "title": "清單保存整串，變數保護待插入的值",
+            "text": "把新的數字放進已排好的部分前，先把它存到變數。較大的數字逐項右移，最後再把保存的值寫入空位。否則右移可能蓋掉原本要插入的數字。"
+          },
+          {
+            "title": "條件決定繼續右移，還是停下來",
+            "text": "前一個值比待插入的值大，才需要右移；找到位置或已到最前面就停止。實作前先確認項目編號在清單範圍內；右移、插入和交換是不同動作，不能直接當成同一種次數比較。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "variables",
+            "reason": "先保存要插入的值，避免資料被覆寫。"
+          },
+          {
+            "lesson": "lists",
+            "reason": "依項目位置讀取與替換，完成後保留原本數量和所有值。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "每次判斷是否繼續右移，以及何時停止。"
+          },
+          {
+            "lesson": "algorithm-why",
+            "reason": "把整理卡牌的目標寫成可執行、可檢查的方法。"
+          }
+        ]
+      },
       "site": "series/sorting/index.html#insertion",
       "video": "series/sorting/videos/insertion-sort.mp4",
       "poster": "posters/insertion-sort.jpg"
