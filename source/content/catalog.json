@@ -166,7 +166,7 @@
         "變數"
       ],
       "videoSource": "docs/series/scratch/videos/scratch-variables-yunjhe-v1.mp4",
-      "subtitleSource": "docs/series/scratch/subtitles/variables-yunjhe-v1.zh-TW.srt",
+      "subtitleSource": "docs/subtitles/variables.zh-TW.srt",
       "posterSource": "docs/posters/variables.jpg",
       "siteAnchor": "variables",
       "question": "金幣是 7，先「改變 3」，再「設為 2」，最後是多少？",
@@ -201,7 +201,7 @@
         "刪除"
       ],
       "videoSource": "docs/series/scratch/videos/scratch-lists-yunjhe-v1.mp4",
-      "subtitleSource": "docs/series/scratch/subtitles/lists-yunjhe-v1.zh-TW.srt",
+      "subtitleSource": "docs/subtitles/lists.zh-TW.srt",
       "posterSource": "docs/posters/lists.jpg",
       "siteAnchor": "lists",
       "question": "清單是「藥水、火把、繩子、鑰匙」。刪除第 2 項後，第 3 項是什麼？",
@@ -478,6 +478,11 @@
       "lesson": "bubble-sort",
       "label": "想看數字動起來",
       "reason": "用 30 秒，看相鄰的數字如何比較、交換。"
+    },
+    {
+      "lesson": "hanoi-rules",
+      "label": "新單元：河內塔三部曲",
+      "reason": "先認識搬盤規則，再看遞迴怎麼拆解問題，最後探索步數為何爆炸。"
     }
   ],
   "paths": [

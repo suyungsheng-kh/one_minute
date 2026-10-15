@@ -10,7 +10,7 @@ await new Promise((ok,fail)=>{server.once('error',fail);server.listen(0,'127.0.0
 browser=await puppeteer().launch({executablePath:browserPath(),headless:true});const page=await browser.newPage();page.setDefaultTimeout(20000);page.on('pageerror',e=>result.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)result.errors.push(`${r.status()} ${r.url()}`);});
 async function go(url){await page.goto(url,{waitUntil:'networkidle0'});await page.evaluate(()=>document.fonts.ready);}
 async function clickNavigate(selector){await Promise.all([page.waitForNavigation({waitUntil:'networkidle0'}),page.click(selector)]);}
-async function viewportChecks(name){for(const width of [1440,768,390,320]){await page.setViewport({width,height:1000,deviceScaleFactor:1});await page.evaluate(()=>scrollTo({top:0,left:0,behavior:'instant'}));const state=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:document.documentElement.scrollWidth>innerWidth,images:[...document.images].every(i=>i.complete&&i.naturalWidth>0)}));assert.equal(state.overflow,false,`${name} overflows at ${width}`);assert.equal(state.images,true,`${name} missing image`);result.viewports.push({page:name,...state});if(width===390&&['home','variables','scratch'].includes(name))await page.screenshot({path:path.join(review,name+'-mobile.png'),fullPage:true});}await page.setViewport({width:1440,height:1000,deviceScaleFactor:1});}
+async function viewportChecks(name){for(const width of [1440,768,390,320]){await page.setViewport({width,height:1000,deviceScaleFactor:1});await page.evaluate(()=>scrollTo({top:0,left:0,behavior:'instant'}));const state=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,overflow:document.documentElement.scrollWidth>innerWidth,images:[...document.images].every(i=>i.complete&&i.naturalWidth>0)}));assert.equal(state.overflow,false,`${name} overflows at ${width}`);assert.equal(state.images,true,`${name} missing image`);result.viewports.push({page:name,...state});if(width===390&&['home','variables','conditions','scratch','hanoi','hanoi-steps'].includes(name))await page.screenshot({path:path.join(review,name+'-mobile.png'),fullPage:true});}await page.setViewport({width:1440,height:1000,deviceScaleFactor:1});}
 await go(base);await page.evaluate(()=>localStorage.removeItem('one-minute-watched-v1'));await go(base);
 assert.equal(await page.$$eval('.lesson-card',e=>e.length),catalog.lessons.length);assert.equal(await page.$$eval('[data-path]',e=>e.length),catalog.paths.length);assert.equal(await page.$$eval('[data-recommendation]',e=>e.length),catalog.recommendations.length);
 await viewportChecks('home');await page.screenshot({path:path.join(review,'desktop.png'),fullPage:true});
@@ -19,7 +19,7 @@ await page.click('.filter-button[data-series="all"]');await page.type('#search',
 const coinLessons=catalog.lessons.filter(l=>[l.title,l.subtitle,l.summary,l.openingQuestion||'',catalog.series.find(s=>s.id===l.series).title,...(l.tags||[])].join(' ').includes('金幣'));
 assert.equal(await page.$$eval('.lesson-card',e=>e.length),coinLessons.length);assert.ok(coinLessons.length>0);
 await page.$eval('#search',i=>{i.value='找不到的主題';i.dispatchEvent(new Event('input',{bubbles:true}));});assert.equal(await page.$eval('#empty-state',e=>e.hidden),false);await page.click('#reset-search');assert.equal(await page.$$eval('.lesson-card',e=>e.length),catalog.lessons.length);result.searchAndFilters=true;
-await clickNavigate('[data-recommendation="variables"]');assert.equal(await page.$eval('#course-title',e=>e.textContent),'變數');assert.equal(new URL(page.url()).searchParams.get('id'),'variables');result.recommendationNavigation=true;
+for(const r of catalog.recommendations){await go(base);await clickNavigate(`[data-recommendation="${r.lesson}"]`);assert.equal(new URL(page.url()).searchParams.get('id'),r.lesson);assert.equal(await page.$eval('#course-title',e=>e.textContent),published.find(l=>l.id===r.lesson).title);}result.recommendationNavigation=true;
 for(const l of published){await go(base+'lesson.html?id='+encodeURIComponent(l.id));assert.equal(await page.$eval('#course-title',e=>e.textContent),l.title);assert.equal(await page.$eval('#course-opening',e=>e.textContent),l.openingQuestion);assert.equal(await page.$$eval('#course-goals li',e=>e.length),l.learningGoals.length);assert.equal(await page.$eval('#course-takeaway',e=>e.textContent),l.keyTakeaway);
 await page.waitForFunction(()=>document.querySelector('#lesson-video').readyState>=1);assert.equal(await page.$eval('#lesson-video',v=>v.paused),true);
 const media=await page.evaluate(async()=>{const v=document.getElementById('lesson-video');v.muted=true;await v.play();await new Promise(r=>setTimeout(r,300));v.pause();const played=v.currentTime;await new Promise((ok,fail)=>{const timer=setTimeout(()=>fail(new Error('seek timeout')),10000);v.addEventListener('seeked',()=>{clearTimeout(timer);ok();},{once:true});v.currentTime=v.duration-3;});return{duration:v.duration,width:v.videoWidth,height:v.videoHeight,played,seek:v.currentTime,src:v.getAttribute('src')};});assert.ok(Math.abs(media.duration-l.seconds)<1);assert.ok(media.width>0&&media.played>0&&Math.abs(media.seek-(media.duration-3))<.2);result.media.push({id:l.id,...media});
@@ -29,16 +29,18 @@ await page.click('.practice summary');assert.equal(await page.$eval('.practice d
 const p=catalog.paths.find(p=>p.lessonIds.includes(l.id)),index=p.lessonIds.indexOf(l.id),next=await page.$eval('#next-lesson',e=>e.href);assert.equal(new URL(next).pathname.endsWith(index===p.lessonIds.length-1?'path.html':'lesson.html'),true);assert.equal(new URL(next).searchParams.get('id'),p.lessonIds[index+1]||p.id);assert.equal(await page.$eval('#previous-lesson',e=>!e.hidden),index>0);
 }result.courseTemplate=true;result.practiceKeyboard=true;
 // Verify the algorithm trilogy through real next/previous navigation and resume state.
-const trilogy=catalog.paths.find(p=>p.id==='algorithms');
-await go(base+'lesson.html?id='+trilogy.lessonIds[0]+'&path=algorithms');
+for(const pathId of ['algorithms','hanoi']){
+const trilogy=catalog.paths.find(p=>p.id===pathId);
+await go(base+'lesson.html?id='+trilogy.lessonIds[0]+'&path='+pathId);
 for(let i=0;i<trilogy.lessonIds.length;i++){
 assert.equal(new URL(page.url()).searchParams.get('id'),trilogy.lessonIds[i]);
 if(i>0){await clickNavigate('#previous-lesson');assert.equal(new URL(page.url()).searchParams.get('id'),trilogy.lessonIds[i-1]);await clickNavigate('#next-lesson');}
 await page.click('#mark-complete');
 if(i<trilogy.lessonIds.length-1){await clickNavigate('#view-path');assert.equal(new URL(await page.$eval('#path-start',e=>e.href)).searchParams.get('id'),trilogy.lessonIds[i+1]);await clickNavigate('#path-start');}
-else{await clickNavigate('#next-lesson');assert.equal(new URL(page.url()).searchParams.get('id'),'algorithms');assert.equal(await page.$eval('#path-progress',e=>e.textContent),`已看過 ${trilogy.lessonIds.length} / ${trilogy.lessonIds.length} 集`);}
+else{await clickNavigate('#next-lesson');assert.equal(new URL(page.url()).searchParams.get('id'),pathId);assert.equal(await page.$eval('#path-progress',e=>e.textContent),`已看過 ${trilogy.lessonIds.length} / ${trilogy.lessonIds.length} 集`);}
 }
-result.algorithmTrilogy={order:trilogy.lessonIds,previousNext:true,resume:true,finalReturn:true};
+result[pathId+'Trilogy']={order:trilogy.lessonIds,previousNext:true,resume:true,finalReturn:true};
+}
 await page.evaluate(()=>localStorage.removeItem('one-minute-watched-v1'));
 // Exercise continuation, final-step return and persisted watched state across real navigation.
 await go(base+'lesson.html?id=variables&path=scratch');await page.click('#mark-complete');await clickNavigate('#next-lesson');assert.equal(await page.$eval('#course-title',e=>e.textContent),'清單');assert.equal(await page.$eval('.path-step-list .completed',e=>e.textContent),'✓ 已看過');

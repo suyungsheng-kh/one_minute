@@ -17,6 +17,11 @@ window.ONE_MINUTE_CATALOG = {
       "lesson": "bubble-sort",
       "label": "想看數字動起來",
       "reason": "用 30 秒，看相鄰的數字如何比較、交換。"
+    },
+    {
+      "lesson": "hanoi-rules",
+      "label": "新單元：河內塔三部曲",
+      "reason": "先認識搬盤規則，再看遞迴怎麼拆解問題，最後探索步數為何爆炸。"
     }
   ],
   "paths": [
