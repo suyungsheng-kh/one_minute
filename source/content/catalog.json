@@ -17,7 +17,7 @@
     {
       "id": "scratch",
       "title": "Scratch",
-      "subtitle": "從遊戲裡的金幣與背包，逐集認識變數、清單。",
+      "subtitle": "從金幣、背包到森林商店，逐集認識變數、清單與條件判斷。",
       "color": "green",
       "icon": "code",
       "siteSource": "docs/series/scratch",
@@ -219,6 +219,41 @@
         "鑰匙"
       ],
       "correctChoice": 2
+    },
+    {
+      "id": "conditions",
+      "series": "scratch",
+      "title": "條件判斷",
+      "subtitle": "讓遊戲選擇下一步",
+      "summary": "金幣夠不夠買藥水？用「如果」與「否則」選擇動作，觀察 3 枚、7 枚和剛好 5 枚的結果。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "金幣",
+        "條件",
+        "如果",
+        "否則",
+        "商店"
+      ],
+      "videoSource": "docs/series/scratch/videos/scratch-conditions.mp4",
+      "subtitleSource": "docs/subtitles/conditions.zh-TW.srt",
+      "posterSource": "docs/posters/conditions.jpg",
+      "siteAnchor": "conditions",
+      "openingQuestion": "藥水要 5 枚金幣，程式怎麼判斷勇者買不買得起？",
+      "learningGoals": [
+        "分辨條件的真與假",
+        "看懂「如果」與「否則」如何選擇一條分支"
+      ],
+      "keyTakeaway": "先判斷條件，再選動作；同一次執行只走一條分支，下次執行才重新判斷。",
+      "question": "金幣剛好是 5，「金幣 < 5」會走哪一邊？買完剩多少？",
+      "answer": "走「否則」，買完剩 0 枚。5 沒有小於 5，所以條件是假，扣掉 5 枚並得到藥水。",
+      "challenge": "建立金幣變數、背包清單與商店判斷。每次測試前清空背包，分別把金幣設為 3、7、5，觀察分支與結果。",
+      "choices": [
+        "走「如果」，維持 5 枚",
+        "走「否則」，剩 0 枚",
+        "先走「否則」，再回頭走「如果」"
+      ],
+      "correctChoice": 1
     },
     {
       "id": "bubble-sort",
@@ -465,18 +500,20 @@
     {
       "id": "scratch",
       "series": "scratch",
-      "title": "讓遊戲記住一件事，或很多件事",
-      "description": "先用變數記住金幣，再用清單整理背包。從一個值走向多個項目。",
-      "goal": "能依遊戲需要，選擇用變數記住一個值，或用清單保存多個項目。",
+      "title": "讓遊戲記住事情，也會選擇動作",
+      "description": "先用變數記住金幣，用清單整理背包，再用條件判斷能不能買藥水。",
+      "goal": "能用變數與清單保存資料，再根據條件選擇下一個動作。",
       "lessonIds": [
         "variables",
-        "lists"
+        "lists",
+        "conditions"
       ],
       "stepNotes": {
         "variables": "先讓遊戲記住一個會改變的值。",
-        "lists": "接著把多個道具依序收進背包。"
+        "lists": "接著把多個道具依序收進背包。",
+        "conditions": "第三集：用「如果」與「否則」，決定能不能買藥水。"
       },
-      "reflection": "生命值與背包道具，各適合用哪一種方式記住？試著說出理由。"
+      "reflection": "藥水售價 5 枚，用「金幣 < 5」判斷時，3、7、5 枚各會走哪一條分支？"
     },
     {
       "id": "sorting",
