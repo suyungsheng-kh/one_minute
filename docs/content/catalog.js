@@ -261,7 +261,7 @@ window.ONE_MINUTE_CATALOG = {
       ],
       "correctChoice": 1,
       "site": "series/scratch/index.html#variables",
-      "video": "series/scratch/videos/scratch-variables.mp4",
+      "video": "series/scratch/videos/scratch-variables-yunjhe-v1.mp4",
       "subtitleFile": "subtitles/variables.zh-TW.srt",
       "poster": "posters/variables.jpg"
     },
@@ -296,7 +296,7 @@ window.ONE_MINUTE_CATALOG = {
       ],
       "correctChoice": 2,
       "site": "series/scratch/index.html#lists",
-      "video": "series/scratch/videos/scratch-lists.mp4",
+      "video": "series/scratch/videos/scratch-lists-yunjhe-v1.mp4",
       "subtitleFile": "subtitles/lists.zh-TW.srt",
       "poster": "posters/lists.jpg"
     },

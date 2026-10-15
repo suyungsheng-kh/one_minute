@@ -165,8 +165,8 @@
         "增減",
         "變數"
       ],
-      "videoSource": "docs/series/scratch/videos/scratch-variables.mp4",
-      "subtitleSource": "docs/subtitles/variables.zh-TW.srt",
+      "videoSource": "docs/series/scratch/videos/scratch-variables-yunjhe-v1.mp4",
+      "subtitleSource": "docs/series/scratch/subtitles/variables-yunjhe-v1.zh-TW.srt",
       "posterSource": "docs/posters/variables.jpg",
       "siteAnchor": "variables",
       "question": "金幣是 7，先「改變 3」，再「設為 2」，最後是多少？",
@@ -200,8 +200,8 @@
         "新增",
         "刪除"
       ],
-      "videoSource": "docs/series/scratch/videos/scratch-lists.mp4",
-      "subtitleSource": "docs/subtitles/lists.zh-TW.srt",
+      "videoSource": "docs/series/scratch/videos/scratch-lists-yunjhe-v1.mp4",
+      "subtitleSource": "docs/series/scratch/subtitles/lists-yunjhe-v1.zh-TW.srt",
       "posterSource": "docs/posters/lists.jpg",
       "siteAnchor": "lists",
       "question": "清單是「藥水、火把、繩子、鑰匙」。刪除第 2 項後，第 3 項是什麼？",

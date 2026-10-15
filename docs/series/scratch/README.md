@@ -2,7 +2,7 @@
 
 給國中生的「一分鐘認識」。每課依序是白話說明、遊戲例子、中文動畫、想一想與動手挑戰。保留影片的紙雕 RPG 配色與角色。
 
-目前三課：變數 → 清單 → 條件判斷。三部都是 60 秒，附中文旁白、畫面字幕、背景音樂與操作音效。第三集以森林商店示範「如果」與「否則」，使用台灣男聲雲哲；前兩集保留原聲。
+目前三課：變數 → 清單 → 條件判斷。三部都是 60 秒，統一使用 Azure 台灣男聲「雲哲」，附繁體中文字幕、背景音樂與操作音效。第三集以森林商店示範「如果」與「否則」。2026-10-16 更新前兩集配音，依實際原速語音重新對齊字幕與動畫；舊聲音版本保存在製作專案與歷史交付包。
 
 ## 直接觀看
 
@@ -24,17 +24,19 @@ site/
 │   ├── *-poster.jpg           影片封面
 │   └── *.svg                  本系列紙雕插圖
 ├── videos/
-│   ├── scratch-variables.mp4  變數篇，中文旁白版
-│   └── scratch-lists.mp4      清單篇，中文旁白版
+│   ├── scratch-variables-yunjhe-v1.mp4  變數篇，雲哲版
+│   ├── scratch-lists-yunjhe-v1.mp4      清單篇，雲哲版
+│   └── scratch-conditions.mp4           條件判斷篇，雲哲版
 ├── subtitles/
-│   ├── variables.zh-TW.srt
-│   └── lists.zh-TW.srt
+│   ├── variables-yunjhe-v1.zh-TW.srt
+│   ├── lists-yunjhe-v1.zh-TW.srt
+│   └── conditions.zh-TW.srt
 ├── README.md
 ├── SOURCES.md
 └── .nojekyll
 ```
 
-影片保留原本內嵌字幕。變數篇的畫面字幕與旁白一致；清單篇的畫面字幕是重點摘要。兩份 SRT 都是逐句旁白字幕，可下載供另行使用。網頁不再疊加第二層字幕，以免擋住教學畫面。
+三部影片皆有與旁白同步的內嵌字幕及可下載的繁體 SRT；畫面中的積木、標題與補充標籤不全數逐字口述。網頁不再疊加第二層字幕，以免擋住教學畫面。
 
 ## 上傳 GitHub Pages
 
@@ -42,11 +44,11 @@ site/
 2. 建立儲存庫，把 **site 裡的所有檔案與子資料夾** 放進儲存庫根目錄，讓 `index.html` 在最外層。影片資料夾也要一併上傳。
 3. 到儲存庫 **Settings → Pages**，在 **Source** 選擇 **Deploy from a branch**。
 4. 選擇實際存放檔案的分支（通常為 `main`）與 **/(root)**，儲存。
-5. 發布後，從 Pages 頁面開啟網站網址，確認兩部影片都能播放。
+5. 發布後，從 Pages 頁面開啟網站網址，確認三部影片都能播放。
 
 若已有其他網站，也可把 site 資料夾放進現有 Pages 發布來源，以 `/site/` 路徑存取。若使用 `/docs` 作為發布來源，請將本資料夾內容放在 `docs` 裡，並選擇 `/docs`。所有資源使用相對路徑，支援儲存庫名稱與子資料夾網址。
 
-參考：[GitHub 官方發布來源說明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。此交付只包含本機資料夾與 ZIP，尚未推送或發布到 GitHub。
+參考：[GitHub 官方發布來源說明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)。正式網站使用 [一分鐘認識](https://suyungsheng-kh.github.io/one_minute/)，本資料夾及 ZIP 也可獨立離線觀看。
 
 ## 新增一個主題
 

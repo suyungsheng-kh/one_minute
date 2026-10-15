@@ -3,8 +3,8 @@ window.SCRATCH_LESSONS = [
   {
     id: 'variables', title: '變數', subtitle: '讓遊戲記住一個值', icon: 'assets/coin.svg',
     summary: '記住金幣、生命值或分數，讓數值跟著遊戲改變。',
-    duration: '1 分鐘', video: 'videos/scratch-variables.mp4', poster: 'assets/variables-poster.jpg',
-    subtitleFile: 'subtitles/variables.zh-TW.srt',
+    duration: '1 分鐘', video: 'videos/scratch-variables-yunjhe-v1.mp4', poster: 'assets/variables-poster.jpg',
+    subtitleFile: 'subtitles/variables-yunjhe-v1.zh-TW.srt',
     intro: ['你玩遊戲時，畫面會顯示目前的金幣或生命值。程式怎麼記住這些數字？可以用「變數」！', '把變數想成一個貼著名字的小盒子。例如，盒子叫「金幣」，裡面放的是目前的金幣數量。盒子裡的值可以換成新的。'],
     concept: '名稱是「金幣」，目前的值是 7。',
     example: [{label:'遊戲開始', value:'0'}, {label:'撿到 10 枚', value:'10'}, {label:'花掉 3 枚', value:'7'}],
@@ -23,8 +23,8 @@ window.SCRATCH_LESSONS = [
   {
     id: 'lists', title: '清單', subtitle: '把多個道具排好、收好', icon: 'assets/bag.svg',
     summary: '把藥水、繩子和鑰匙放進背包，練習管理多個項目。',
-    duration: '1 分鐘', video: 'videos/scratch-lists.mp4', poster: 'assets/lists-poster.jpg',
-    subtitleFile: 'subtitles/lists.zh-TW.srt',
+    duration: '1 分鐘', video: 'videos/scratch-lists-yunjhe-v1.mp4', poster: 'assets/lists-poster.jpg',
+    subtitleFile: 'subtitles/lists-yunjhe-v1.zh-TW.srt',
     intro: ['如果要記住背包裡的每一件道具，一個變數就不方便了。這時可以用「清單」，把多個項目依序放在一起。', '清單像一張有編號的道具表。每一項都有位置：第 1 項、第 2 項、第 3 項……你可以新增、刪除、替換，也可以找出某一項。'],
     concept: '清單叫「背包」，每件道具都是一個項目。',
     example: [{label:'第 1 項',value:'藥水'}, {label:'第 2 項',value:'火把'}, {label:'第 3 項',value:'繩子'}, {label:'第 4 項',value:'鑰匙'}],
