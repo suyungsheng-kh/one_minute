@@ -78,13 +78,15 @@ window.ONE_MINUTE_CATALOG = {
       "id": "hanoi",
       "series": "hanoi",
       "title": "把大問題，交給同樣的方法",
-      "description": "先學會河內塔的規則，觀察第四步。後兩集「遞迴的想法」與「步數爆炸」準備中。",
-      "goal": "說出三條規則，看懂三個圓盤的七步搬法。",
+      "description": "先學會河內塔的規則，再用「一疊＋最大的」理解遞迴與停止條件。第三集「步數爆炸」準備中。",
+      "goal": "說出三條規則，用同樣的方法拆解更小的問題，並指出只剩一個時直接搬。",
       "lessonIds": [
-        "hanoi-rules"
+        "hanoi-rules",
+        "hanoi-recursion"
       ],
       "stepNotes": {
-        "hanoi-rules": "第一集：先學會規則，觀察第四步為什麼能搬最大的圓盤。"
+        "hanoi-rules": "第一集：先學會規則，觀察第四步為什麼能搬最大的圓盤。",
+        "hanoi-recursion": "第二集：用一疊加最大的拆解問題，一路縮小到一個就停。"
       },
       "reflection": "如果增加一個圓盤，你會先搬哪一個？哪些小圓盤需要先讓開？"
     }
@@ -478,7 +480,7 @@ window.ONE_MINUTE_CATALOG = {
         "拆解問題",
         "停止條件"
       ],
-      "status": "coming-soon",
+      "status": "published",
       "openingQuestion": "四個圓盤，要怎麼想才不會亂？",
       "learningGoals": [
         "用一疊加最大的說明搬法",
@@ -494,7 +496,9 @@ window.ONE_MINUTE_CATALOG = {
       "correctChoice": 1,
       "answer": "把上面四個當成一疊先搬開。最大的上面空了，才能搬到目標。",
       "challenge": "排隊時問前面的人自己排第幾，他再問更前面的人。這個方法在哪裡停下來？",
-      "poster": "assets/mark.svg"
+      "video": "media/hanoi-recursion.mp4",
+      "subtitleFile": "subtitles/hanoi-recursion.zh-TW.srt",
+      "poster": "posters/hanoi-recursion.jpg"
     },
     {
       "id": "hanoi-steps",
