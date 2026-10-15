@@ -14,6 +14,12 @@ for(const p of catalog.paths||[]){if(!safeId.test(p.id)||pathIds.has(p.id)||!sid
 for(const r of catalog.recommendations||[])if(!publishedIds.has(r.lesson))throw new Error('Recommendation must reference a published lesson.');
 for(const id of publishedIds)if(catalog.paths&&!catalog.paths.some(p=>p.lessonIds.includes(id)))throw new Error(`Published lesson must belong to a learning path: ${id}`);
 for(const l of catalog.lessons)if(l.choices&&(!Array.isArray(l.choices)||l.choices.length<2||!Number.isInteger(l.correctChoice)||l.correctChoice<0||l.correctChoice>=l.choices.length))throw new Error(`Invalid practice choices: ${l.id}`);
+for(const owner of [...catalog.lessons,...(catalog.paths||[])]){
+const c=owner.connections;if(c===undefined)continue;
+if(!c||typeof c!=='object'||typeof c.title!=='string'||!c.title.trim()||!Array.isArray(c.notes)||!Array.isArray(c.relatedLessons))throw new Error(`Invalid concept connections: ${owner.id}`);
+for(const n of c.notes)if(!n||typeof n.title!=='string'||!n.title.trim()||typeof n.text!=='string'||!n.text.trim())throw new Error(`Invalid concept note: ${owner.id}`);
+const relatedIds=new Set();for(const r of c.relatedLessons){if(!r||!publishedIds.has(r.lesson)||relatedIds.has(r.lesson)||typeof r.reason!=='string'||!r.reason.trim()||(catalog.lessons.includes(owner)&&r.lesson===owner.id))throw new Error(`Invalid related lesson: ${owner.id}`);relatedIds.add(r.lesson);}
+}
 // Only the generated dist directory is replaced; all sources and series projects remain intact.
 inside(root,dist);if(fs.existsSync(dist)){if(fs.lstatSync(dist).isSymbolicLink())throw new Error('dist must not be a symlink');fs.rmSync(dist,{recursive:true});}fs.mkdirSync(dist,{recursive:true});
 for(const name of ['index.html','lesson.html','path.html'])put(path.join(root,name),path.join(dist,name));fs.cpSync(path.join(root,'assets'),path.join(dist,'assets'),{recursive:true});

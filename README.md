@@ -488,3 +488,9 @@ git -C .github-publish/one_minute diff
 河內塔第二集〈遞迴的想法〉與第三集〈步數爆炸〉均已完成，三集依序串接。既有課程網址與瀏覽器觀看紀錄繼續使用。
 
 正式入口：[一分鐘認識](https://suyungsheng-kh.github.io/one_minute/)。動畫原始專案、歷史成品與聲音仍保留在本機；本次整合只重用正式影片與字幕，未重新產生配音。
+
+## 河內塔與演算法的銜接
+
+有效性、有限性與效率的區分，以及建議觀看順序，見[河內塔與演算法](guides/hanoi-algorithms.md)。六個課程頁與兩條觀看路線提供相關單元連結，沿用既有影片及觀看紀錄。
+
+跨單元資料放在課程或路線的 connections：title 是區塊標題，notes 每筆含 title、text，relatedLessons 每筆含 lesson（已發布課程 id）、reason。沒有導讀可省略整個欄位；建置會檢查連結目標及重複項目。

@@ -15,3 +15,5 @@
 
 /* Hanoi: same warm accent, darker ink for small text. */
 .tone-orange{--tone:#995012;--tone-light:#fff0d9;--tone-cover:#f7dfb8}.orange{background:#F28C28}
+
+.concept-connections{margin:26px 0;padding:26px 0;border-top:1px solid var(--line)}.concept-connections h2{font-size:24px;line-height:1.6;margin:12px 0 20px}.concept-note{margin:20px 0}.concept-note h3,.related-heading{font-size:16px;line-height:1.7;margin:0 0 7px}.concept-note p{font-size:14px;line-height:1.95;color:var(--muted);margin:0}.related-heading{margin-top:25px}.related-lesson-list{display:grid;gap:12px;list-style:none;padding:0;margin:13px 0 0}.related-lesson-link{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:#fffdf7;text-decoration:none}.related-lesson-link:hover{border-color:var(--green);background:#f0f3e8}.related-lesson-link:focus-visible{outline:3px solid var(--green);outline-offset:3px}.related-lesson-link strong{display:block;font-size:16px;line-height:1.7;margin:7px 0}.related-reason{display:block;font-size:13px;line-height:1.9;color:var(--muted)}

@@ -28,5 +28,10 @@
     "選項二",
     "選項三"
   ],
-  "correctChoice": 0
+  "correctChoice": 0,
+  "connections": {
+    "title": "和其他概念連起來",
+    "notes": [],
+    "relatedLessons": []
+  }
 }

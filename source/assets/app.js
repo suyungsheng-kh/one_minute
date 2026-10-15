@@ -19,6 +19,15 @@
   function remember(l){if(!completed.includes(l.id))completed.push(l.id);try{localStorage.setItem('one-minute-watched-v1',JSON.stringify(completed));}catch{}}
   function setLink(id,href){$(id).hidden=!href;if(href)$(id).href=href;else $(id).removeAttribute('href');}
   function total(p){return members(p).reduce((sum,l)=>sum+l.seconds,0);}
+  function renderConnections(data,id){
+    const section=$(id);if(!data||!section)return;
+    section.hidden=false;section.append(el('p','eyebrow','從這個概念，連到下一個問題'));
+    const title=el('h2','',data.title);title.id=id+'-title';section.append(title);
+    for(const note of data.notes||[]){const block=el('div','concept-note');block.append(el('h3','',note.title),el('p','',note.text));section.append(block);}
+    if(data.relatedLessons?.length){section.append(el('h3','related-heading','相關單元'));const list=el('ul','related-lesson-list');
+      for(const item of data.relatedLessons){const target=lessonMap.get(item.lesson);if(!target)continue;const row=el('li'),a=link(courseUrl(target.id,pathFor(target)),'related-lesson-link','');a.dataset.relatedLesson=target.id;a.append(el('span','eyebrow',`${series.get(target.series).title} · ${target.seconds} 秒`),el('strong','',target.title+' →'),el('span','related-reason',item.reason));row.append(a);list.append(row);}section.append(list);
+    }
+  }
   const icons={hanoi:'<path d="M6 5v21m10-21v21m10-21v21M2 27h28M2 23h8M3 19h6M4 15h4"/>',steps:'<path d="M5 9h6v6H5zM21 9h6v6h-6zM13 22h6v6h-6zM11 12h10M24 15v5H16v2"/>',code:'<path d="m11 10-6 6 6 6m10-12 6 6-6 6m-3-15-4 22"/>',bars:'<path d="M5 28V18h5v10M14 28V11h5v17M23 28V4h5v24M3 28h27"/>'};
   function home(){
     function legacy(){if(location.hash.startsWith('#lesson/'))try{const id=decodeURIComponent(location.hash.slice(8));if(lessonMap.has(id)){location.replace(courseUrl(id));return true;}}catch{}return false;}
@@ -52,6 +61,7 @@
     const s=series.get(l.series),p=pathFor(l,params.get('path')),list=members(p),index=list.findIndex(x=>x.id===l.id);
     document.title=`${l.title}｜一分鐘認識`;$('course-content').hidden=false;$('course-crumb').textContent=l.title;$('course-path-link').textContent=s.title;$('course-path-link').href=pathUrl(p);$('course-meta').textContent=`${s.title} / ${l.seconds} 秒 · ${l.type}`;$('course-title').textContent=l.title;$('course-opening').textContent=l.openingQuestion||l.subtitle;
     for(const goal of l.learningGoals||[l.summary])$('course-goals').append(el('li','',goal));$('course-takeaway').textContent=l.keyTakeaway||l.summary;$('practice-question').textContent=l.question||'試著用自己的話說明這個概念。';$('practice-answer').textContent=l.answer||'從動畫中的例子開始說說看。';$('practice-challenge').textContent=l.challenge||'找一個生活例子，試試這個概念。';
+    renderConnections(l.connections,'course-connections');
     if(Array.isArray(l.choices)&&Number.isInteger(l.correctChoice))for(const [i,choice] of l.choices.entries()){const b=el('button','answer-choice',choice);b.type='button';b.dataset.choice=i;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{document.querySelectorAll('.answer-choice').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const correct=i===l.correctChoice;$('practice-feedback').hidden=false;$('practice-feedback').dataset.correct=correct;$('practice-feedback').textContent=correct?`答對了！${l.answer}`:'再想一下：回想動畫中的操作，或展開下方的答案與原因。';});$('practice-choices').append(b);}
     setLink('full-lesson',l.site);setLink('download-subtitle',l.subtitleFile);const video=$('lesson-video');video.src=l.video;video.poster=l.poster;video.setAttribute('aria-label',`${l.title}教學影片`);video.addEventListener('error',()=>{$('video-error').hidden=false;});
     $('course-path-title').textContent=p.title;$('course-step').textContent=`第 ${index+1} / ${list.length} 集 · 動畫共 ${timeLabel(total(p))}`;$('view-path').href=pathUrl(p);
@@ -64,6 +74,7 @@
     const s=series.get(p.series),list=members(p);$('path-content').hidden=false;document.title=`${s.title}觀看路線｜一分鐘認識`;$('path-heading').classList.add(tone(s));$('path-label').textContent=`${s.title} / 觀看路線`;$('path-title').textContent=p.title;$('path-description').textContent=p.description||s.subtitle;$('path-duration').textContent=`${list.length} 集 · 動畫共 ${timeLabel(total(p))} · 可隨時暫停與重看`;$('path-goal').textContent=p.goal||s.subtitle;$('path-reflection').textContent=p.reflection||'用自己的話說說這些概念之間的關係。';
     function refresh(){loadCompleted();const seen=list.filter(l=>completed.includes(l.id)).length,first=list.find(l=>!completed.includes(l.id))||list[0];$('path-progress').textContent=`已看過 ${seen} / ${list.length} 集`;$('path-start').href=courseUrl(first.id,p);$('path-start').textContent=seen===list.length?'再看一次 →':seen?`接著認識${first.title} →`:'從第一集開始 →';$('path-lessons').replaceChildren();
       for(const [i,l] of list.entries()){const row=el('li',`journey-step ${tone(s)}`);row.dataset.lesson=l.id;const number=el('span','journey-number',String(i+1).padStart(2,'0'));number.setAttribute('aria-hidden','true');const a=link(courseUrl(l.id,p),'journey-lesson',''),img=el('img');img.src=l.poster;img.alt=`${l.title}動畫畫面`;img.width=320;img.height=180;const body=el('div','journey-body');body.append(el('p','eyebrow',`${l.seconds} 秒 · ${l.type}`),el('h3','',l.title),el('p','',p.stepNotes?.[l.id]||l.subtitle),el('span',completed.includes(l.id)?'completed':'journey-action',completed.includes(l.id)?'✓ 已看過 · 再看一次 ↗':'認識這個概念 ↗'));a.append(img,body);row.append(number,a);$('path-lessons').append(row);}}
+    renderConnections(p.connections,'path-connections');
     refresh();window.addEventListener('pageshow',refresh);window.addEventListener('storage',refresh);
   }
   const page=document.body.dataset.page;if(page==='lesson')lessonPage();else if(page==='path')pathPage();else home();
