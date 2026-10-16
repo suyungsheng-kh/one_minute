@@ -32,6 +32,19 @@
   function home(){
     function legacy(){if(location.hash.startsWith('#lesson/'))try{const id=decodeURIComponent(location.hash.slice(8));if(lessonMap.has(id)){location.replace(courseUrl(id));return true;}}catch{}return false;}
     if(legacy())return;window.addEventListener('hashchange',legacy);
+    const map=catalog.conceptMap,diagram=$('concept-map-diagram');
+    if(map&&diagram){
+      const ns='http://www.w3.org/2000/svg',svgNode=(tag,attrs)=>{const node=document.createElementNS(ns,tag);for(const [key,value] of Object.entries(attrs||{}))node.setAttribute(key,value);return node;};
+      diagram.style.setProperty('--map-ratio',`${map.width} / ${map.height}`);
+      const svg=svgNode('svg',{viewBox:`0 0 ${map.width} ${map.height}`,'aria-hidden':'true',focusable:'false',class:'map-lines'}),defs=svgNode('defs'),marker=svgNode('marker',{id:'concept-arrow',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:7,markerHeight:7,orient:'auto'});marker.append(svgNode('path',{d:'M 1 1 L 9 5 L 1 9',fill:'none',stroke:'context-stroke','stroke-width':1.5}));defs.append(marker);svg.append(defs);
+      for(const edge of map.edges){const line=svgNode('path',{d:edge.points.map(([x,y],i)=>`${i?'L':'M'} ${x} ${y}`).join(' '),class:edge.dashed?'map-edge map-edge-dashed':'map-edge'});if(edge.arrow!==false)line.setAttribute('marker-end',`url("${new URL('#concept-arrow',location.href).href}")`);svg.append(line);}
+      for(const edge of map.edges){const label=svgNode('text',{x:edge.labelX,y:edge.labelY,class:'map-edge-label','text-anchor':'middle'});label.textContent=edge.label;svg.append(label);}
+      diagram.append(svg);
+      for(const item of map.nodes){const lesson=lessonMap.get(item.lesson),a=link(courseUrl(lesson.id,pathFor(lesson)),`map-node map-node-${item.id} tone-${item.color}`,'');a.dataset.concept=item.id;a.setAttribute('aria-label',`${item.title}：前往${lesson.title}課程`);for(const [key,value] of Object.entries({left:item.x/map.width*100,top:item.y/map.height*100,width:item.width/map.width*100,height:item.height/map.height*100}))a.style.setProperty('--node-'+key,value+'%');
+        const heading=el('div','map-node-heading'),icon=el('span','map-node-icon');icon.setAttribute('aria-hidden','true');icon.innerHTML=`<svg viewBox="0 0 32 32">${icons[item.icon]||icons.steps}</svg>`;heading.append(icon,el('h3','',item.title));a.append(el('span','map-node-role',item.role),heading,el('p','',item.summary),el('span','map-node-action','前往課程 ↗'));diagram.append(a);
+      }
+      for(const sentence of map.summary)$('concept-map-relations').append(el('li','',sentence));
+    }else if($('concept-map')){$('concept-map').hidden=true;document.querySelectorAll('a[href$="#concept-map"]').forEach(a=>a.hidden=true);}
     $('series-count').textContent=catalog.series.length;$('lesson-count').textContent=published.length;
     $('start-first').href=courseUrl(lessonMap.has(catalog.startLesson)?catalog.startLesson:published[0]?.id);
     function recommendations(){

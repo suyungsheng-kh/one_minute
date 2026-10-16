@@ -20,6 +20,14 @@ if(!c||typeof c!=='object'||typeof c.title!=='string'||!c.title.trim()||!Array.i
 for(const n of c.notes)if(!n||typeof n.title!=='string'||!n.title.trim()||typeof n.text!=='string'||!n.text.trim())throw new Error(`Invalid concept note: ${owner.id}`);
 const relatedIds=new Set();for(const r of c.relatedLessons){if(!r||!publishedIds.has(r.lesson)||relatedIds.has(r.lesson)||typeof r.reason!=='string'||!r.reason.trim()||(catalog.lessons.includes(owner)&&r.lesson===owner.id))throw new Error(`Invalid related lesson: ${owner.id}`);relatedIds.add(r.lesson);}
 }
+const map=catalog.conceptMap;
+if(map){
+if(!Number.isFinite(map.width)||map.width<=0||!Number.isFinite(map.height)||map.height<=0||!Array.isArray(map.nodes)||!map.nodes.length||!Array.isArray(map.edges)||!Array.isArray(map.summary)||!map.summary.length||map.summary.some(s=>typeof s!=='string'||!s.trim()))throw new Error('Invalid concept map.');
+const nodeIds=new Set(),pointValid=([x,y])=>Number.isFinite(x)&&Number.isFinite(y)&&x>=0&&y>=0&&x<=map.width&&y<=map.height;
+for(const n of map.nodes){if(!safeId.test(n.id)||nodeIds.has(n.id)||!publishedIds.has(n.lesson)||!['green','coral','blue','orange'].includes(n.color)||!['title','role','summary'].every(key=>typeof n[key]==='string'&&n[key].trim())||!Number.isFinite(n.width)||n.width<=0||!Number.isFinite(n.height)||n.height<=0||!pointValid([n.x,n.y])||!pointValid([n.x+n.width,n.y+n.height]))throw new Error('Invalid concept map node.');nodeIds.add(n.id);}
+for(const e of map.edges)if(!nodeIds.has(e.from)||!nodeIds.has(e.to)||e.from===e.to||typeof e.label!=='string'||!e.label.trim()||!pointValid([e.labelX,e.labelY])||!Array.isArray(e.points)||e.points.length<2||e.points.some(p=>!Array.isArray(p)||p.length!==2||!pointValid(p)))throw new Error('Invalid concept map edge.');
+const reached=new Set([map.nodes[0].id]);let previous=0;while(previous!==reached.size){previous=reached.size;for(const e of map.edges)if(reached.has(e.from)||reached.has(e.to)){reached.add(e.from);reached.add(e.to);}}if(reached.size!==nodeIds.size)throw new Error('Concept map must connect all nodes.');
+}
 // Only the generated dist directory is replaced; all sources and series projects remain intact.
 inside(root,dist);if(fs.existsSync(dist)){if(fs.lstatSync(dist).isSymbolicLink())throw new Error('dist must not be a symlink');fs.rmSync(dist,{recursive:true});}fs.mkdirSync(dist,{recursive:true});
 for(const name of ['index.html','lesson.html','path.html'])put(path.join(root,name),path.join(dist,name));fs.cpSync(path.join(root,'assets'),path.join(dist,'assets'),{recursive:true});
@@ -27,7 +35,7 @@ fs.writeFileSync(path.join(dist,'.nojekyll'),'');
 let ffmpeg=process.env.FFMPEG_PATH;
 if(!ffmpeg){const probe=spawnSync('where.exe',['ffmpeg'],{encoding:'utf8'});if(probe.status===0)ffmpeg=probe.stdout.trim().split(/\r?\n/)[0];}
 if(!ffmpeg){const cache=path.join(process.env.LOCALAPPDATA||'','npm-cache','_npx');if(fs.existsSync(cache))for(const dir of fs.readdirSync(cache)){const candidate=path.join(cache,dir,'node_modules','ffmpeg-static','ffmpeg.exe');if(fs.existsSync(candidate)){ffmpeg=candidate;break;}}}
-const browser={title:catalog.title,description:catalog.description,startLesson:catalog.startLesson||'variables',recommendations:catalog.recommendations,paths:catalog.paths,series:[],lessons:[]};
+const browser={title:catalog.title,description:catalog.description,startLesson:catalog.startLesson||'variables',recommendations:catalog.recommendations,paths:catalog.paths,conceptMap:catalog.conceptMap,series:[],lessons:[]};
 for(const s of catalog.series){const {siteSource,...publicSeries}=s;if(siteSource){const dest=path.join(dist,'series',s.id);fs.cpSync(source(siteSource),dest,{recursive:true});publicSeries.site=`series/${s.id}/index.html`;
 const entry=path.join(dest,'index.html');let html=fs.readFileSync(entry,'utf8');const returnLink='<a href="../../index.html" style="position:fixed;right:16px;bottom:16px;z-index:10000;background:#f8f6ef;color:#24382f;border:1px solid #c7d2bc;border-radius:8px;padding:10px 16px;font:700 13px/1.5 system-ui,sans-serif;text-decoration:none;box-shadow:0 4px 15px #0002" aria-label="回到一分鐘認識入口">← 回到一分鐘認識</a>';if(!html.includes('aria-label="回到一分鐘認識入口"'))html=html.replace('</body>',`${returnLink}</body>`);fs.writeFileSync(entry,html);
 if(!/rel=["']icon["']/.test(html)){html=html.replace('</head>','<link rel="icon" href="../../assets/mark.svg" type="image/svg+xml"></head>');fs.writeFileSync(entry,html);}

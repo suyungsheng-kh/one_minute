@@ -222,6 +222,284 @@ window.ONE_MINUTE_CATALOG = {
       }
     }
   ],
+  "conceptMap": {
+    "width": 1120,
+    "height": 610,
+    "nodes": [
+      {
+        "id": "algorithms",
+        "title": "演算法",
+        "lesson": "algorithm-bread",
+        "role": "安排解題步驟",
+        "summary": "清楚、做得到，而且會結束",
+        "color": "coral",
+        "icon": "steps",
+        "x": 390,
+        "y": 16,
+        "width": 260,
+        "height": 132
+      },
+      {
+        "id": "variables",
+        "title": "變數",
+        "lesson": "variables",
+        "role": "保存資料",
+        "summary": "記住目前的值、位置或暫存值",
+        "color": "green",
+        "icon": "code",
+        "x": 20,
+        "y": 250,
+        "width": 240,
+        "height": 132
+      },
+      {
+        "id": "lists",
+        "title": "清單",
+        "lesson": "lists",
+        "role": "保存資料",
+        "summary": "依序保存多個項目",
+        "color": "green",
+        "icon": "code",
+        "x": 300,
+        "y": 250,
+        "width": 240,
+        "height": 132
+      },
+      {
+        "id": "conditions",
+        "title": "條件判斷",
+        "lesson": "conditions",
+        "role": "控制流程",
+        "summary": "先比較，再決定下一步",
+        "color": "green",
+        "icon": "steps",
+        "x": 580,
+        "y": 250,
+        "width": 240,
+        "height": 132
+      },
+      {
+        "id": "sorting",
+        "title": "排序",
+        "lesson": "bubble-sort",
+        "role": "應用：整理資料",
+        "summary": "比較、交換、右移與插入",
+        "color": "blue",
+        "icon": "bars",
+        "x": 300,
+        "y": 475,
+        "width": 240,
+        "height": 120
+      },
+      {
+        "id": "hanoi",
+        "title": "河內塔",
+        "lesson": "hanoi-rules",
+        "role": "應用：拆小問題",
+        "summary": "從遞迴延伸到步數與時間成本",
+        "color": "orange",
+        "icon": "hanoi",
+        "x": 870,
+        "y": 250,
+        "width": 230,
+        "height": 132
+      }
+    ],
+    "edges": [
+      {
+        "from": "algorithms",
+        "to": "variables",
+        "label": "保存執行中的值",
+        "labelX": 140,
+        "labelY": 220,
+        "points": [
+          [
+            520,
+            148
+          ],
+          [
+            520,
+            190
+          ],
+          [
+            140,
+            190
+          ],
+          [
+            140,
+            250
+          ]
+        ]
+      },
+      {
+        "from": "algorithms",
+        "to": "lists",
+        "label": "保存多筆資料",
+        "labelX": 420,
+        "labelY": 220,
+        "points": [
+          [
+            520,
+            148
+          ],
+          [
+            520,
+            190
+          ],
+          [
+            420,
+            190
+          ],
+          [
+            420,
+            250
+          ]
+        ]
+      },
+      {
+        "from": "algorithms",
+        "to": "conditions",
+        "label": "依條件選動作",
+        "labelX": 700,
+        "labelY": 220,
+        "points": [
+          [
+            520,
+            148
+          ],
+          [
+            520,
+            190
+          ],
+          [
+            700,
+            190
+          ],
+          [
+            700,
+            250
+          ]
+        ]
+      },
+      {
+        "from": "algorithms",
+        "to": "hanoi",
+        "label": "用同樣方法拆小問題",
+        "labelX": 846,
+        "labelY": 65,
+        "points": [
+          [
+            650,
+            82
+          ],
+          [
+            985,
+            82
+          ],
+          [
+            985,
+            250
+          ]
+        ]
+      },
+      {
+        "from": "variables",
+        "to": "sorting",
+        "label": "暫存與記位置",
+        "labelX": 184,
+        "labelY": 408,
+        "points": [
+          [
+            140,
+            382
+          ],
+          [
+            140,
+            440
+          ],
+          [
+            420,
+            440
+          ],
+          [
+            420,
+            475
+          ]
+        ]
+      },
+      {
+        "from": "lists",
+        "to": "sorting",
+        "label": "保存整串資料",
+        "labelX": 420,
+        "labelY": 421,
+        "points": [
+          [
+            420,
+            382
+          ],
+          [
+            420,
+            475
+          ]
+        ]
+      },
+      {
+        "from": "conditions",
+        "to": "sorting",
+        "label": "比較後選動作",
+        "labelX": 658,
+        "labelY": 408,
+        "points": [
+          [
+            700,
+            382
+          ],
+          [
+            700,
+            440
+          ],
+          [
+            420,
+            440
+          ],
+          [
+            420,
+            475
+          ]
+        ]
+      },
+      {
+        "from": "sorting",
+        "to": "hanoi",
+        "label": "都能思考步數與時間成本",
+        "labelX": 781,
+        "labelY": 518,
+        "points": [
+          [
+            540,
+            535
+          ],
+          [
+            985,
+            535
+          ],
+          [
+            985,
+            382
+          ]
+        ],
+        "dashed": true,
+        "arrow": false
+      }
+    ],
+    "summary": [
+      "演算法安排步驟；變數、清單保存資料，條件判斷選擇動作。",
+      "排序可以組合這些工具，完成比較、交換、右移與插入。",
+      "河內塔用同樣的方法處理更小的問題，認識遞迴。",
+      "排序與河內塔都能延伸思考步數和時間成本。"
+    ]
+  },
   "series": [
     {
       "id": "algorithms",

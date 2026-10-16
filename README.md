@@ -489,6 +489,10 @@ git -C .github-publish/one_minute diff
 
 正式入口：[一分鐘認識](https://suyungsheng-kh.github.io/one_minute/)。動畫原始專案、歷史成品與聲音仍保留在本機；本次整合只重用正式影片與字幕，未重新產生配音。
 
+## 首頁概念關聯圖
+
+首頁 #concept-map 串起演算法、變數、清單、條件判斷、排序與河內塔；點選節點直接前往相關課程。手機提供卡片和文字關係說明，連線不是必要先修順序。資料集中在 source/content/catalog.json 的 conceptMap：nodes 的 lesson 指向已發布課程，edges 使用 from、to、points、label 描述關係；調整節點座標時也同步線段與標籤位置。更新後建置並檢查節點連結、鍵盤操作、手機版、離線導覽與觀看進度。
+
 ## Scratch、演算法與排序的銜接
 
 變數保存狀態，清單保存多筆資料，條件判斷決定動作；完整對照、常見混淆與相關單元連結見 [Scratch 與排序](guides/scratch-algorithms-sorting.md)。十二個課程與四條觀看路線都有跨單元導讀，保留既有河內塔連結、原影片與觀看進度。
