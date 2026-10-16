@@ -4,8 +4,8 @@
 
 - 主標題「把好奇，變成理解」，副標「一分鐘，認識一個概念」。國中生是內容與難度的背景設定，不反覆強調年齡。
 - 網站骨架、樣式與互動修改 source/index.html、source/assets；課程修改 source/content/catalog.json。不要直接改生成的 docs/index.html 或 docs/content/catalog.js。
-- 影片、字幕、封面及系列完整教學頁的素材來源位於 docs。catalog 的來源路徑以儲存庫根目錄為基準。
-- 更新系列教學時可修改 docs/series 下的原始教學頁和課程資料，再執行 build。返回入口連結只保留一份。
+- 影片、字幕、封面及舊網址所需素材位於 docs。catalog 的來源路徑以儲存庫根目錄為基準。
+- 補充教學維護 source/content/catalog.json 的 guide／comparisons；docs/series 下的 index.html 是生成的舊網址轉接，不作為教學編輯來源。
 - npm run build 先生成 source/dist，再同步 docs；source/dist、review、exports 不提交。
 - 提交前確認課程目錄及素材引用完整。版面或互動變更後執行 npm run check。
 - 既有排序影片保留 30 秒，字幕依現有正式版本提供。每集 id 應保持固定。
@@ -28,6 +28,8 @@
 6. 推送後確認 GitHub Pages 已顯示本次更新、相關頁面及素材可用，再回報交付。正式網站與預覽入口固定為 https://suyungsheng-kh.github.io/one_minute/，不得改用 Sites 網址。
 
 若使用者當次明確要求只做草稿、只預覽或暫不發布，依當次要求辦理，並清楚記錄尚未完成的整合／發布步驟。檢查失敗時先修復，不將失敗版本宣稱為已完成。
+
+- 正式動線統一為首頁 → 觀看路線 → 課程頁。Scratch／排序補充內容編輯 catalog 的 guide／comparisons；舊系列 index.html 由 tools/legacy-series.cjs 產生轉接，不能恢復成重複教學入口。保留 siteAnchor／legacySections 對應與舊素材網址；更新後檢查播放器提示、補充練習及 HTTP／離線舊網址轉接。
 
 - 首頁概念關聯圖由 source/content/catalog.json 的 conceptMap 維護。更新單元時同步核對節點、連線與課程頁 connections 一致，目標須已發布；保留手機文字說明、鍵盤及離線導航，不以點選節點標為已看過。
 

@@ -12,7 +12,7 @@
 
 ## 目錄
 
-- docs：完整網站與正式影片、字幕、封面、Scratch／排序教學頁；可直接作為靜態網站發布來源。
+- docs：完整網站與正式影片、字幕、封面、舊系列網址轉接與保留素材；可直接作為靜態網站發布來源。
 - source：首頁骨架、樣式、互動程式、課程目錄與產製工具。
 - source/content/catalog.json：新增系列或集數主要修改這裡。
 
@@ -29,7 +29,7 @@ npm run preview
 
 預覽預設 http://127.0.0.1:3037/，可用 PORT 指定其他連接埠。建置不需要套件安裝；現有影片皆已有封面，不需要 ffmpeg。新影片若不提供 posterSource，需安裝 ffmpeg 或設定 FFMPEG_PATH。
 
-source/dist 是暫存產物，build 會同步到 docs。影片與系列頁的來源存放在 docs，請先新增／更新素材，再重新建置；不要在建置前刪除 docs。
+source/dist 是暫存產物，build 會同步到 docs。影片與舊網址所需素材存放在 docs，請先新增／更新素材，再重新建置；不要在建置前刪除 docs。
 
 瀏覽器驗證可執行 npm run check：需要可用的 puppeteer-core 與 Chrome／Edge，可用 PORTAL_PUPPETEER_MODULE、CHROME_PATH 指定。離線 ZIP 可用 npm run package 產生，需要 Python 3；ZIP 存在 source/exports。
 
@@ -39,7 +39,7 @@ source/dist 是暫存產物，build 會同步到 docs。影片與系列頁的來
 2. 在 source/content/catalog.json 的 lessons 新增資料，可參考 lesson-template.json。series 須對應既有系列 id；seconds 填實際片長。
 3. videoSource、posterSource、subtitleSource 以儲存庫根目錄為基準，例如 docs/media/new-lesson.mp4。
 4. 填寫生活例子、小問題、答案與挑戰；沒有字幕可填 null。
-5. 新增系列時，在 series 陣列新增 title、subtitle、color、icon 等資料。有完整教學頁則設定 siteSource，例如 docs/series/science，否則填 null。
+5. 新增系列時，在 series 陣列新增 title、subtitle、color、icon 等資料。新系列的 siteSource 預設填 null；只有需保留既有系列網址與素材時才設定目錄，例如 docs/series/science。補充教學放在 guide／comparisons，不另建系列學生網站。
 6. 執行 npm run build；首頁、搜尋、分類和數量會依目錄自動更新。完成確認後提交 source 與 docs。
 
 保持既有課程 id 不變，分享連結與已看過紀錄才能延續。status: draft 不顯示；coming-soon 顯示準備中。
@@ -488,6 +488,10 @@ git -C .github-publish/one_minute diff
 河內塔第二集〈遞迴的想法〉與第三集〈步數爆炸〉均已完成，三集依序串接。既有課程網址與瀏覽器觀看紀錄繼續使用。
 
 正式入口：[一分鐘認識](https://suyungsheng-kh.github.io/one_minute/)。動畫原始專案、歷史成品與聲音仍保留在本機；本次整合只重用正式影片與字幕，未重新產生配音。
+
+## 統一網站入口
+
+正式動線為首頁 → 觀看路線 → 課程頁，Scratch 與排序的說明、步驟、提醒、比較、練習及排序影片同步提示均已整合在課程中。維護 guide、comparisons 及舊網址映射的方式見 [網站入口與相容連結](guides/website-navigation.md)。舊系列網址會轉到對應路線或課程，影片與字幕路徑保留。
 
 ## 首頁概念關聯圖
 

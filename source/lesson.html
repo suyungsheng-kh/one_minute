@@ -16,17 +16,21 @@
     <div id="course-content" class="course-layout" hidden>
       <article>
         <header class="course-heading"><p id="course-meta" class="eyebrow"></p><h1 id="course-title"></h1><p id="course-opening" class="opening-question"></p><div class="learning-goals"><span>看完這集，你會知道</span><ul id="course-goals"></ul></div></header>
-        <section class="course-video" aria-label="教學動畫"><video id="lesson-video" controls playsinline preload="metadata"></video><p id="video-error" hidden>影片暫時無法播放，請重新整理，或進入系列教學頁。</p></section>
-        <div class="course-tools"><button id="mark-complete" class="text-button">標示已看過 ✓</button><a id="download-subtitle" class="subtitle-link" download hidden>下載旁白字幕 ↓</a><a id="full-lesson" class="subtitle-link" hidden>進入完整教學 ↗</a></div>
+        <section id="course-guide" class="course-guide" hidden aria-labelledby="guide-title"><h2 id="guide-title">先讀懂，再看動畫</h2><div id="guide-intro"></div><div class="guide-example"><h3 id="guide-example-title"></h3><div id="guide-example-items" class="guide-example-items"></div></div><ol id="guide-steps" class="guide-steps"></ol><div id="guide-reminders"></div><p class="guide-watch"><strong>觀看任務：</strong><span id="guide-watch"></span></p></section>
+        <section class="course-video" aria-label="教學動畫"><video id="lesson-video" controls playsinline preload="metadata"></video><p id="video-error" hidden>影片暫時無法播放，請重新整理，或使用下載影片連結觀看。</p></section>
+        <div id="video-enhancements" class="video-enhancements" hidden><div class="course-tools"><button id="replay-video" class="text-button" type="button">重看一次</button><button id="slow-video" class="text-button" type="button" aria-pressed="false">慢慢看：0.75 倍</button></div><p class="video-cue"><strong>現在在做什麼？</strong><span id="video-cue" role="status" aria-live="polite"></span></p></div>
+        <div class="course-tools"><button id="mark-complete" class="text-button">標示已看過 ✓</button><a id="download-video" class="subtitle-link" download>下載影片 ↓</a><a id="download-subtitle" class="subtitle-link" download hidden>下載旁白字幕 ↓</a></div>
         <section class="takeaway" aria-labelledby="takeaway-title"><p class="eyebrow">01 / 一句話記住</p><h2 id="takeaway-title">把概念帶走</h2><p id="course-takeaway"></p></section>
         <section id="course-connections" class="concept-connections" hidden aria-labelledby="course-connections-title"></section>
         <section class="practice course-practice" aria-labelledby="practice-question"><p class="eyebrow">02 / 換你試試看</p><h2 id="practice-question"></h2><div id="practice-choices" class="practice-choices" role="group" aria-labelledby="practice-question"></div><p id="practice-feedback" class="practice-feedback" role="status" hidden></p><details><summary>看看答案與原因</summary><p id="practice-answer"></p></details><p class="challenge"><b>動手試試</b><span id="practice-challenge"></span></p></section>
+        <section id="extra-practice" class="practice course-practice extra-practice" hidden aria-labelledby="extra-question"><p class="eyebrow">再認一次方法</p><h2 id="extra-question"></h2><div id="extra-choices" class="practice-choices" role="group" aria-labelledby="extra-question"></div><p id="extra-feedback" class="practice-feedback" role="status" hidden></p></section>
+        <section id="method-comparison" class="method-comparison" hidden aria-labelledby="comparison-title"><h2 id="comparison-title"></h2><div class="comparison-scroll" tabindex="0" role="region" aria-label="方法比較表，可左右捲動"><table id="comparison-table"></table></div><p id="comparison-note"></p></section>
         <section class="next-lesson" aria-labelledby="next-title"><p class="eyebrow">03 / 接著認識</p><h2 id="next-title"></h2><p id="next-description"></p><a id="next-lesson" class="button primary"></a><a id="previous-lesson" class="text-button" hidden>← 回到上一集</a></section>
       </article>
       <aside class="course-sidebar" aria-labelledby="course-path-title"><p class="eyebrow">你的觀看路線</p><h2 id="course-path-title"></h2><p id="course-step"></p><ol id="course-path-steps" class="path-step-list"></ol><a id="view-path" class="text-button">查看完整路線 →</a><p class="storage-note">已看過紀錄只存在這個瀏覽器，不需登入。</p></aside>
     </div>
   </main>
   <footer class="wrap footer"><a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="28" height="28"><span>一分鐘認識</span></a><p>一分鐘，認識一個概念。</p><a href="index.html#paths">探索其他路線 →</a></footer>
-  <noscript><p class="wrap">請啟用 JavaScript 以觀看課程。也可開啟 <a href="series/scratch/index.html">Scratch 教學</a>或<a href="series/sorting/index.html">排序教學</a>。</p></noscript>
+  <noscript><p class="wrap">請啟用 JavaScript 以瀏覽觀看路線與課程內容。</p></noscript>
 </body>
 </html>
