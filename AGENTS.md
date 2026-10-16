@@ -8,7 +8,7 @@
 - 補充教學維護 source/content/catalog.json 的 guide／comparisons；docs/series 下的 index.html 是生成的舊網址轉接，不作為教學編輯來源。
 - npm run build 先生成 source/dist，再同步 docs；source/dist、review、exports 不提交。
 - 提交前確認課程目錄及素材引用完整。版面或互動變更後執行 npm run check。
-- 既有排序影片保留 30 秒，字幕依現有正式版本提供。每集 id 應保持固定。
+- 排序預設為 60 秒雲哲配音版，originalVersion 保存 30 秒原版的影片來源與同步提示，兩版皆保留。每集 id 應保持固定。
 - 保留原有提交歷史，正常推送 main，不使用強制推送。
 - 本儲存庫不儲存 Sites 的網站身分、憑證、備份或動畫製作素材。
 

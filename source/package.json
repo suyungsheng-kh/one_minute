@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "node tools/build.cjs && node tools/sync-docs.cjs",
-    "check": "node tools/check.cjs",
+    "check": "node tools/check.cjs && node tools/check-narrated.cjs",
     "preview": "node tools/serve.cjs",
     "package": "python tools/package.py"
   }

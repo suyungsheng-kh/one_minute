@@ -28,7 +28,7 @@
     const table=catalog.comparisons[g.comparison];$('method-comparison').hidden=false;$('comparison-title').textContent=table.title;$('comparison-note').textContent=table.note;
     const caption=el('caption','',table.caption),head=el('thead'),header=el('tr'),body=el('tbody');for(const text of table.headers){const cell=el('th','',text);cell.scope='col';header.append(cell);}head.append(header);
     for(const row of table.rows){const tr=el('tr');for(const [i,text] of row.cells.entries()){const cell=el('td');cell.append(i===0&&row.lesson&&row.lesson!==l.id?link(courseUrl(row.lesson,pathFor(lessonMap.get(row.lesson))),'',text):document.createTextNode(text));tr.append(cell);}body.append(tr);}$('comparison-table').append(caption,head,body);
-    if(g.cues){$('video-enhancements').hidden=false;const update=()=>{let current=g.cues[0].text;for(const cue of g.cues){if(cue.t>video.currentTime+.001)break;current=cue.text;}$('video-cue').textContent=current;};for(const event of ['timeupdate','seeked','loadedmetadata'])video.addEventListener(event,update);update();
+    if(g.cues){$('video-enhancements').hidden=false;const update=()=>{const cues=video.dataset.version==='original'?l.originalVersion.cues:g.cues;let current=cues[0].text;for(const cue of cues){if(cue.t>video.currentTime+.001)break;current=cue.text;}$('video-cue').textContent=current;};for(const event of ['timeupdate','seeked','loadedmetadata'])video.addEventListener(event,update);update();
       $('replay-video').addEventListener('click',()=>{video.currentTime=0;update();video.play().catch(()=>{$('video-cue').textContent='請按影片上的播放按鈕，再試一次。';});});
       $('slow-video').addEventListener('click',()=>{video.playbackRate=video.playbackRate===.75?1:.75;});video.addEventListener('ratechange',()=>{const slow=video.playbackRate===.75;$('slow-video').setAttribute('aria-pressed',String(slow));$('slow-video').textContent=slow?'恢復正常速度':'慢慢看：0.75 倍';});
     }
@@ -79,7 +79,7 @@
       $('lesson-grid').replaceChildren();$('empty-state').hidden=shown.length>0;$('results-count').textContent=`${shown.length} 個概念`;
       for(const l of shown){const s=series.get(l.series),pending=l.status==='coming-soon',card=el('article',`lesson-card ${tone(s)}`);card.dataset.lesson=l.id;
         const cover=pending?el('div','lesson-cover'):link(courseUrl(l.id,pathFor(l)),'lesson-cover','');cover.setAttribute('aria-label',pending?`${l.title}準備中`:`認識${l.title}`);const img=el('img');img.src=l.poster;img.alt=`${l.title}動畫畫面`;img.loading='lazy';img.width=640;img.height=360;cover.append(img,el('span','play-icon'),el('span','duration',pending?'準備中':duration(l.seconds)));
-        const body=el('div','lesson-body'),category=el('div','lesson-category',`${s.title} / ${l.type}`);if(completed.includes(l.id))category.append(el('span','completed','✓ 已看過'));const h3=el('h3');h3.append(pending?el('span','',l.title):link(courseUrl(l.id,pathFor(l)),'',l.title));const bottom=el('div','lesson-bottom');bottom.append(el('span','',pending?'新的探索正在準備':`${l.seconds} 秒 · ${l.type==='實作動畫'?'有聲動畫':'中文旁白'}`),pending?el('span','','即將推出'):link(courseUrl(l.id,pathFor(l)),'','認識這個概念 ↗'));body.append(category,h3,el('p','lesson-subtitle',l.subtitle),el('p','lesson-summary',l.summary),bottom);card.append(cover,body);$('lesson-grid').append(card);}
+        const body=el('div','lesson-body'),category=el('div','lesson-category',`${s.title} / ${l.type}`);if(completed.includes(l.id))category.append(el('span','completed','✓ 已看過'));const h3=el('h3');h3.append(pending?el('span','',l.title):link(courseUrl(l.id,pathFor(l)),'',l.title));const bottom=el('div','lesson-bottom');bottom.append(el('span','',pending?'新的探索正在準備':`${l.seconds} 秒 · ${l.subtitleFile?'中文旁白':'有聲動畫'}`),pending?el('span','','即將推出'):link(courseUrl(l.id,pathFor(l)),'','認識這個概念 ↗'));body.append(category,h3,el('p','lesson-subtitle',l.subtitle),el('p','lesson-summary',l.summary),bottom);card.append(cover,body);$('lesson-grid').append(card);}
     }
     $('search').addEventListener('input',render);$('reset-search').addEventListener('click',()=>{$('search').value='';filter('all');$('search').focus();});
     function refresh(){loadCompleted();recommendations();routes();render();}window.addEventListener('pageshow',refresh);window.addEventListener('storage',refresh);refresh();if(location.hash==='#series')$('paths').scrollIntoView();
@@ -92,6 +92,17 @@
     renderConnections(l.connections,'course-connections');
     if(Array.isArray(l.choices)&&Number.isInteger(l.correctChoice))for(const [i,choice] of l.choices.entries()){const b=el('button','answer-choice',choice);b.type='button';b.dataset.choice=i;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{$('practice-choices').querySelectorAll('.answer-choice').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const correct=i===l.correctChoice;$('practice-feedback').hidden=false;$('practice-feedback').dataset.correct=correct;$('practice-feedback').textContent=correct?`答對了！${l.answer}`:'再想一下：回想動畫中的操作，或展開下方的答案與原因。';});$('practice-choices').append(b);}
     setLink('download-subtitle',l.subtitleFile);setLink('download-video',l.video);const video=$('lesson-video');video.src=l.video;video.poster=l.poster;video.setAttribute('aria-label',`${l.title}教學影片`);video.addEventListener('error',()=>{$('video-error').hidden=false;});renderGuide(l,video);
+    if(l.originalVersion){
+      $('video-version-control').hidden=false;video.dataset.version='narrated';
+      $('video-version').addEventListener('change',()=>{
+        const original=$('video-version').value==='original';video.pause();video.dataset.version=original?'original':'narrated';
+        video.src=original?l.originalVersion.video:l.video;video.currentTime=0;video.playbackRate=1;
+        $('video-error').hidden=true;setLink('download-video',video.getAttribute('src'));setLink('download-subtitle',original?null:l.subtitleFile);
+        $('course-meta').textContent=`${s.title} / ${original?l.originalVersion.seconds:l.seconds} 秒 · ${l.type}`;
+        video.setAttribute('aria-label',`${l.title}${original?'30 秒實作原版':'60 秒配音教學版'}`);
+        video.load();video.dispatchEvent(new Event('timeupdate'));
+      });
+    }
     $('course-path-title').textContent=p.title;$('course-step').textContent=`第 ${index+1} / ${list.length} 集 · 動畫共 ${timeLabel(total(p))}`;$('view-path').href=pathUrl(p);
     function progress(){$('mark-complete').textContent=completed.includes(l.id)?'已看過 ✓':'標示已看過 ✓';$('course-path-steps').replaceChildren();for(const [i,item] of list.entries()){const row=el('li'),a=link(courseUrl(item.id,p),'',`${String(i+1).padStart(2,'0')} ${item.title}`);if(item.id===l.id)a.setAttribute('aria-current','step');if(completed.includes(item.id))a.append(el('span','completed','✓ 已看過'));row.append(a);$('course-path-steps').append(row);}}
     function complete(){remember(l);progress();}video.addEventListener('ended',complete);$('mark-complete').addEventListener('click',complete);progress();window.addEventListener('pageshow',()=>{loadCompleted();progress();});window.addEventListener('storage',()=>{loadCompleted();progress();});
