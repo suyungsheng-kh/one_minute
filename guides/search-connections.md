@@ -8,4 +8,10 @@
 
 二分搜尋與條件判斷互相銜接：太小就保留右側、太大保留左側、相等就停止。每次對目前範圍重新判斷，不能沿用上一輪的中間值。16 筆最多 5 次、100 筆最多 7 次，和本次示範的 4 次分開說明。
 
-正式 id：search-linear、search-binary、lists、algorithm-control-flow、selection-sort、conditions。對應導讀、反向連結、搜尋觀看路線及首頁概念圖由 portal/content/catalog.json 維護，不改變既有觀看紀錄。第三集尚未製作；河內塔與二分搜尋的成本對照保留於 CONNECTIONS-DRAFT.md，等第三集完成再整合。
+第三集「誰比較快？」已完成。100 筆最多 100／7 次；1,000 筆最多 1,000／10 次。資料翻倍時，循序搜尋最多次數翻倍、二分最多次數加一。只計已排序資料的搜尋比較，不含事先排序；影片兩側刻意使用不同節奏方便看清，不能拿動畫耗時當成速度實測。
+
+河內塔 20 個圓盤最少要搬 1,048,575 步；同樣 1,048,575 筆已排序資料，二分搜尋最多比較 20 次。這裡連結的是成本成長：最少搬動步數、最多搜尋次數，各自的操作與條件不同。不能直接以數字大小推論兩件事的實際秒數。
+
+「為什麼需要演算法」延伸到方法效率：能完成是基本要求，選擇方法時還要考慮前置整理和使用頻率。只找一次與反覆查找，排序成本的影響不同。
+
+正式 id：search-linear、search-binary、search-race、lists、algorithm-control-flow、selection-sort、conditions、hanoi-steps、algorithm-why。導讀、反向連結、搜尋三集路線及首頁概念圖由 portal/content/catalog.json 維護；河內塔路線亦連到第三集。點選關聯不改變觀看紀錄。CONNECTIONS-DRAFT.md 保留原始規劃歷史。
