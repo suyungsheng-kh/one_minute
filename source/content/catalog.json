@@ -59,6 +59,16 @@
       }
     },
     {
+      "id": "search",
+      "title": "搜尋",
+      "subtitle": "排好之後，怎麼找得快？兩種方法比一比。",
+      "color": "blue",
+      "icon": "search",
+      "siteSource": null,
+      "siteAnchor": "",
+      "recommended": "search-linear"
+    },
+    {
       "id": "hanoi",
       "title": "河內塔",
       "subtitle": "三根柱子、幾個圓盤，認識遞迴的想法。",
@@ -202,6 +212,10 @@
           {
             "lesson": "bubble-sort",
             "reason": "觀察三種流程如何一起整理一串數字。"
+          },
+          {
+            "lesson": "search-linear",
+            "reason": "觀察循序前進、重複比較與找到就停止如何一起完成搜尋。"
           }
         ]
       }
@@ -439,6 +453,10 @@
           {
             "lesson": "insertion-sort",
             "reason": "把新值放進已排好的部分，完成後仍保留所有項目。"
+          },
+          {
+            "lesson": "search-linear",
+            "reason": "清單可以依位置逐一檢查，找出指定數字，不必先排序。"
           }
         ]
       },
@@ -1022,6 +1040,10 @@
           {
             "lesson": "algorithm-control-flow",
             "reason": "看找最小值如何結合循序、選擇與重複。"
+          },
+          {
+            "lesson": "search-linear",
+            "reason": "找最小值要看完剩餘資料；找指定目標則能找到就停。"
           }
         ]
       },
@@ -1885,6 +1907,253 @@
           }
         ]
       }
+    },
+    {
+      "id": "search-linear",
+      "series": "search",
+      "status": "published",
+      "title": "循序搜尋",
+      "subtitle": "一個一個比，總會找到",
+      "summary": "在還沒排好的 16 個數字裡找 11，看看最少和最多要比幾次。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "搜尋",
+        "循序搜尋",
+        "比較"
+      ],
+      "openingQuestion": "沒排好的數字，要怎麼找到 11？",
+      "learningGoals": [
+        "說出循序搜尋怎麼找",
+        "分辨最好和最差的次數"
+      ],
+      "keyTakeaway": "循序搜尋從頭依序比較，數字不用排好；最多要比完全部。",
+      "question": "20 個沒排好的數字，用循序搜尋最多要比幾次？",
+      "choices": [
+        "1",
+        "10",
+        "20"
+      ],
+      "correctChoice": 2,
+      "answer": "20。目標在最後一個或不在裡面，就要比完全部。",
+      "challenge": "把 10 張撲克牌洗亂蓋著，找出紅心 7，記錄翻了幾張。玩三次，看看最少和最多各幾次。",
+      "connections": {
+        "title": "從清單走到搜尋",
+        "notes": [
+          {
+            "title": "先分清楚位置與數值",
+            "text": "目標是數字 11；這組資料剛好把 11 放在第十一個位置。換一組排列，數值相同，位置和比較次數也可能改變。"
+          },
+          {
+            "title": "找到指定值，和找最小值不同",
+            "text": "循序搜尋一找到目標就能停；選擇排序要看完這一輪未排序的數字，才能確定最小值。循序搜尋不要求先排序。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "lists",
+            "reason": "清單保存數字；項目位置和數值不同。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "用循序、重複與條件安排逐一比較。"
+          },
+          {
+            "lesson": "selection-sort",
+            "reason": "比較「找到指定數字就停」和「找完剩下的數字才知道最小值」。"
+          }
+        ]
+      },
+      "videoSource": "docs/media/search-linear.mp4",
+      "subtitleSource": "docs/subtitles/search-linear.zh-TW.srt",
+      "posterTime": 20.5,
+      "guide": {
+        "intro": [
+          "在一疊沒排好的卡牌裡找出 11，最直接的方法就是從第一張開始，一張一張看。",
+          "每比較一個數字，計數加一。相等就找到；不同才繼續。數字不用先排好。"
+        ],
+        "exampleTitle": "16 個數字裡找 11",
+        "example": [
+          {
+            "label": "資料順序",
+            "value": "9、4、14、1、7、16、3、12、6、15、11、2、13、5、10、8"
+          },
+          {
+            "label": "本次結果",
+            "value": "11 在第十一個位置，所以比較 11 次。"
+          }
+        ],
+        "steps": [
+          {
+            "title": "從第一個開始",
+            "text": "先拿目前看到的數字，和目標 11 比較。"
+          },
+          {
+            "title": "不同就繼續",
+            "text": "不是 11，就把位置往右移一格，再比較下一個。"
+          },
+          {
+            "title": "找到就停",
+            "text": "第十一個是 11，這次比較 11 次便找到，不需要再看後面的數字。"
+          },
+          {
+            "title": "看完仍沒有，就不在裡面",
+            "text": "目標在最後一個，或整串都沒有目標，最多都要比較全部 16 個。"
+          }
+        ],
+        "reminders": [
+          "本次 11 次是這組排列的示範結果，沒有說每次都要 11 次。",
+          "最好目標在第一個，只要 1 次；最差在最後或不在裡面，要看完全部。",
+          "搜尋次數和排序的交換、右移次數是不同動作，不混在一起計算。"
+        ],
+        "watch": "注意黃色長條與比較次數如何同步；快轉仍逐個比較。綠色表示找到，暗色表示已排除。",
+        "cues": [
+          {
+            "t": 0,
+            "text": "未排序的 16 個數字，目標是 11。"
+          },
+          {
+            "t": 6.5,
+            "text": "從第一個開始，一個一個比。"
+          },
+          {
+            "t": 11.5,
+            "text": "每比較一個，計數加一；不是目標才排除。"
+          },
+          {
+            "t": 19.61,
+            "text": "第十一個找到 11，本次共比較 11 次。"
+          },
+          {
+            "t": 27,
+            "text": "最好在第一個：1 次；最差在最後：16 次。"
+          },
+          {
+            "t": 39.5,
+            "text": "循序搜尋不需要數字先排好。"
+          },
+          {
+            "t": 48.8,
+            "text": "100 個數字，最多要比較 100 次。"
+          }
+        ],
+        "comparison": "search-current",
+        "extraPractice": {
+          "question": "同一組 16 個數字，目標不在裡面，最多要比較幾次？",
+          "choices": [
+            "1 次",
+            "11 次",
+            "16 次"
+          ],
+          "correctChoice": 2,
+          "answer": "要比較 16 次。看完全部，才能確定不在裡面。"
+        }
+      },
+      "posterSource": "docs/posters/search-linear.jpg"
+    },
+    {
+      "id": "search-binary",
+      "series": "search",
+      "status": "coming-soon",
+      "title": "二分搜尋",
+      "subtitle": "先排好，每次比中間",
+      "summary": "同樣找 11，排好之後每次比中間，只要 4 次。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "搜尋",
+        "二分搜尋",
+        "排序"
+      ],
+      "openingQuestion": "排好的數字，能不能找得更快？",
+      "learningGoals": [
+        "說出「比中間、砍一半」",
+        "理解為什麼要先排好"
+      ],
+      "keyTakeaway": "二分搜尋每次比中間、砍掉一半，前提是數字要先排好。",
+      "question": "排好的 1～16 裡找 11，第一次比中間的 8，結果比 11 小。下一步呢？",
+      "choices": [
+        "繼續找左邊",
+        "左邊不用找，只找 9～16",
+        "從頭重新找"
+      ],
+      "correctChoice": 1,
+      "answer": "只找 9～16。數字排好了，比 8 小的都在左邊，不可能是 11。",
+      "challenge": "和同學玩猜數字 1～100，只能回答「太大」或「太小」，試試看能不能在 7 次內猜到。",
+      "connections": {
+        "title": "排序讓整段排除有根據",
+        "notes": [
+          {
+            "title": "比較範圍",
+            "text": "示範次數與最多次數分開說明；不混用平均次數。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "selection-sort",
+            "reason": "先排好，才能按大小排除整段。"
+          },
+          {
+            "lesson": "conditions",
+            "reason": "依比較結果決定找左側、右側或停止。"
+          }
+        ]
+      },
+      "videoSource": null,
+      "subtitleSource": null,
+      "posterSource": "docs/assets/mark.svg"
+    },
+    {
+      "id": "search-race",
+      "series": "search",
+      "status": "coming-soon",
+      "title": "誰比較快？",
+      "subtitle": "資料翻倍，二分搜尋只多一次",
+      "summary": "從 100 筆到一百萬筆，比較兩種方法最多要比幾次。",
+      "seconds": 60,
+      "type": "概念解說",
+      "tags": [
+        "搜尋",
+        "效率",
+        "河內塔"
+      ],
+      "openingQuestion": "資料變多一倍，要多找幾次？",
+      "learningGoals": [
+        "說出「×2」與「＋1」的差別",
+        "對照河內塔的步數"
+      ],
+      "keyTakeaway": "資料多一倍，循序搜尋多一倍，二分搜尋只多一次。",
+      "question": "二分搜尋找 100 筆最多 7 次，找 200 筆最多幾次？",
+      "choices": [
+        "14",
+        "8",
+        "200"
+      ],
+      "correctChoice": 1,
+      "answer": "8。資料多一倍，只要多砍一次一半。",
+      "challenge": "查字典時，你用的是哪一種方法？為什麼字典要照注音或部首排好？",
+      "connections": {
+        "title": "資料變多，成本怎麼變？",
+        "notes": [
+          {
+            "title": "比較範圍",
+            "text": "只比較已備妥資料的搜尋次數；二分資料已排序，未計事先排序成本。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "hanoi-steps",
+            "reason": "對照盤數增加和資料量翻倍時，不同的成本變化。"
+          },
+          {
+            "lesson": "algorithm-why",
+            "reason": "比較搜尋次數，並分清楚事先排序的成本。"
+          }
+        ]
+      },
+      "videoSource": null,
+      "subtitleSource": null,
+      "posterSource": "docs/assets/mark.svg"
     }
   ],
   "startLesson": "variables",
@@ -1908,6 +2177,11 @@
       "lesson": "hanoi-rules",
       "label": "新單元：河內塔三部曲",
       "reason": "從演算法接到搬盤規則、遞迴與步數：方法會結束，為什麼仍可能等很久？"
+    },
+    {
+      "lesson": "search-linear",
+      "label": "新系列：搜尋三部曲",
+      "reason": "在沒排好的數字裡找 11，從一個一個比開始。第一集已上線，後兩集準備中。"
     }
   ],
   "paths": [
@@ -2033,7 +2307,7 @@
         "selection-sort": "再看看先找最小值的做法。",
         "insertion-sort": "最後把新數字插進已排好的部分。"
       },
-      "reflection": "三種方法各在何時比較、何時交換或右移？你會用哪些變數記進度、位置或暫存值？完成後如何確認沒有遺失項目？",
+      "reflection": "三種方法各在何時比較、何時交換或右移？你會用哪些變數記進度、位置或暫存值？完成後如何確認沒有遺失項目？ 下一站：搜尋，看看找指定數字和找最小值有什麼不同。",
       "connections": {
         "title": "排序背後的三個基本工具",
         "notes": [
@@ -2062,6 +2336,43 @@
           {
             "lesson": "algorithm-control-flow",
             "reason": "把基本工具組成有順序與停止條件的方法。"
+          },
+          {
+            "lesson": "search-linear",
+            "reason": "從整理數字，延伸到查找目標；循序搜尋不要求先排序。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "search",
+      "series": "search",
+      "title": "找得快的秘密",
+      "description": "先學會一個一個找。二分搜尋與兩種方法的比較正在準備中。",
+      "goal": "先說出循序搜尋的做法，以及最好、最差需要比較幾次。",
+      "lessonIds": [
+        "search-linear"
+      ],
+      "stepNotes": {
+        "search-linear": "第一集：從頭逐一比較，看最好一次、最差全部。"
+      },
+      "reflection": "生活中什麼時候會一個一個找？如果你在第一個位置就找到，還需要看完嗎？",
+      "connections": {
+        "title": "先保存資料，再安排查找步驟",
+        "notes": [
+          {
+            "title": "資料不必先排序",
+            "text": "循序搜尋能直接檢查未排序的資料。排序與搜尋解決不同問題；後續二分搜尋會介紹如何利用大小順序。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "lists",
+            "reason": "先用清單保存多個項目，再按位置檢查。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "用循序、重複與選擇安排查找。"
           }
         ]
       }
@@ -2110,7 +2421,7 @@
   ],
   "conceptMap": {
     "width": 1120,
-    "height": 610,
+    "height": 800,
     "nodes": [
       {
         "id": "algorithms",
@@ -2188,6 +2499,19 @@
         "x": 870,
         "y": 250,
         "width": 230,
+        "height": 132
+      },
+      {
+        "id": "search",
+        "title": "搜尋",
+        "lesson": "search-linear",
+        "role": "應用：查找目標",
+        "summary": "循序檢查，不必先排序",
+        "color": "blue",
+        "icon": "search",
+        "x": 20,
+        "y": 650,
+        "width": 260,
         "height": 132
       }
     ],
@@ -2377,13 +2701,40 @@
         ],
         "dashed": true,
         "arrow": false
+      },
+      {
+        "from": "sorting",
+        "to": "search",
+        "label": "比較：整理與查找",
+        "labelX": 280,
+        "labelY": 641,
+        "points": [
+          [
+            420,
+            595
+          ],
+          [
+            420,
+            620
+          ],
+          [
+            150,
+            620
+          ],
+          [
+            150,
+            650
+          ]
+        ],
+        "arrow": false
       }
     ],
     "summary": [
       "演算法安排步驟；變數、清單保存資料，條件判斷選擇動作。",
       "排序可以組合這些工具，完成比較、交換、右移與插入。",
       "河內塔用同樣的方法處理更小的問題，認識遞迴。",
-      "排序與河內塔都能延伸思考步數和時間成本。"
+      "排序與河內塔都能延伸思考步數和時間成本。",
+      "排序整理順序，搜尋查找目標；循序搜尋一個一個檢查，不必先排序。"
     ]
   },
   "comparisons": {
@@ -2462,6 +2813,34 @@
         }
       ],
       "note": "次數只代表這一組例子，換一組數字可能不同。「右移」與「交換」是不同動作，不能只看 7 次和 3 次，就認定哪一種比較快。"
+    },
+    "search-current": {
+      "title": "找指定目標，和找最小值不同",
+      "caption": "同樣會比較數字，但停止的條件不同。",
+      "headers": [
+        "單元",
+        "要找什麼",
+        "什麼時候能停"
+      ],
+      "rows": [
+        {
+          "lesson": "search-linear",
+          "cells": [
+            "循序搜尋",
+            "指定的目標，例如 11",
+            "找到就停；沒有找到就看完全部"
+          ]
+        },
+        {
+          "lesson": "selection-sort",
+          "cells": [
+            "選擇排序的一輪",
+            "未排序部分的最小值",
+            "看完這一輪，才能確定最小值"
+          ]
+        }
+      ],
+      "note": "本集搜尋不用先排序；二分搜尋尚未上線，不把它當成現在可觀看的課程。"
     }
   }
 }
