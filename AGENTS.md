@@ -38,3 +38,5 @@
 - README 的動畫製作手冊與 workflows/一分鐘認識系列.md 由完整工作區匯出。修改時同步本機 one_minute/README.md 與 workflows，避免下次匯出覆蓋；只有此儲存庫時先保留修改，回到完整工作區再合併。文件包含動畫製作指令，但動畫原始專案並未隨此儲存庫提供。
 
 - 首頁與路線使用生成的品牌 cover，播放器使用原影片 poster。修改 coverDesign 與 tools/brand-covers.cjs，Logo 沿用 assets/mark.svg，不直接編輯 docs/covers；公開署名維持「一分鐘認識」。封面變更須檢查全部課程與離線版。
+
+- 動畫製作技術是獨立的文章系列，不虛增動畫集數。編輯 source/content/production.json、production.html、article.html、assets/production.js；技能來源在 source/production/skill。更新文章時同步 skill references（node source/tools/build-production.cjs --sync-skill），建置產生 Markdown、提示詞及 ZIP；檢查案例連結、複製與離線下載，保留影片觀看進度。不要上傳原始對話或私人資料。

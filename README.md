@@ -252,7 +252,7 @@ animation/
 核心目標是【看完後要理解的一件事】。
 觀眾以國中生的先備知識為背景，用生活或遊戲例子說明，
 不在標題反覆強調「給國中生」。預設繁體中文、60 秒、
-1920×1080、30fps，中文男聲沿用已選定的 HeyGen James Gao，
+1920×1080、30fps，中文男聲沿用已確認聲線；目前正式系列多用 Azure 雲哲，所有 Azure 呼叫走共用額度入口，
 自然原速、逐字中文字幕、低音量配樂與適量音效。
 先整理已知需求，只問缺少的資訊，提供風格選單、分鏡及旁白稿。
 確認後製作配音與動畫，檢視全片動作、文字、教學內容及聲音，
@@ -476,6 +476,12 @@ git -C .github-publish/one_minute diff
 
 氣泡、選擇、插入排序各新增 60 秒雲哲版，沿用已確認講稿、深藍底五長條與操作音效，附繁體 SRT。各集原 30 秒版本保留，可在正式課程頁的「選擇影片版本」切換。新版製作來源為 sorting/projects/<project>/narrated-v1；選片由 sorting/site-source/release.json 管理。詳見 sorting/README.md。
 
+## 動畫製作技術系列
+
+除了五個動畫教材系列，另有[動畫製作技術](portal/dist/production.html)閱讀系列，提供八篇文章、八組提示詞及 one-minute-production skill。正式網站入口為 [製作技術](https://suyungsheng-kh.github.io/one_minute/docs/production.html)；技術文章不計入動畫集數。
+
+來源為 portal/content/production.json；技能原始檔在 production/skill/one-minute-production，來源稽核記錄在 production/review。更新與產製見 [技術系列維護說明](production/README.md)。
+
 ## 2026-10-18：搜尋三部曲完成
 
 第三集〈誰比較快？〉上線：60 秒雲哲旁白、24 段繁體字幕。100 筆最多 100 次對 7 次，1,000 筆最多 1,000 次對 10 次；資料翻倍，循序最多次數翻倍、二分加一。二分資料已排序，不含排序成本，動畫節奏不是實測時間。河內塔 20 盤最少 1,048,575 步，對照同樣筆數已排序資料的二分最多 20 次。
@@ -546,3 +552,7 @@ git -C .github-publish/one_minute diff
 ## 共用課程封面
 
 首頁與觀看路線的品牌封面由 source/tools/brand-covers.cjs 生成；文案維護 source/content/catalog.json 的 coverDesign（titleLines、subtitle），品牌圖示取自 source/assets/mark.svg。生成圖位於 docs/covers，播放器仍使用原本的 poster。執行 npm run check 會一併檢查封面、手機、離線及課程連結。
+
+## 動畫製作技術系列
+
+[網站技術文章與提示詞庫](https://suyungsheng-kh.github.io/one_minute/docs/production.html) 收錄八篇從五系列經驗整理的技術文章，附提示詞、技術手冊與 one-minute-production skill ZIP。來源為 source/content/production.json；技能來源在 source/production/skill，建置會產生下載檔，不包含對話原文、私人帳本或動畫原始製作專案。

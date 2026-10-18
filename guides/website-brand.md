@@ -34,3 +34,9 @@
 新增單元沿用 lesson.html、path.html 與 catalog，可複製 lesson-template.json 的 guide 骨架；comparison 範例預設 scratch-data，必須改為該課程適用的整理表。保留固定課程 id、舊網址及觀看進度。共用結構修改後執行 build、check、package，確認十五集（及後續新增集數）的區塊順序、共同導覽、影片工具與手機版；排序另檢查兩個版本的片長、字幕和提示切換。
 
 各系列的首頁、路線及課程內容須在同次更新整合；檢查通過後匯出並正常推送 GitHub，確認 Pages 已更新。自動檢查結果保存在 review/qa.json 與 review/narrated-check.json，品牌代表頁截圖為 review/brand-<series>.png。
+
+## 動畫製作技術閱讀系列
+
+同品牌新增技術文章、提示詞與 one-minute-production skill，沿用背景、Logo、字體、卡片與導覽。首頁入口為 production 區塊，完整閱讀路線在 production.html，文章模板為 article.html。技術文章不計入已完成動畫集數；案例指向已發布課程，並提供適合的反向入口，觀看紀錄維持原意。
+
+正文與提示詞維護 content/production.json，技能來源在 ../production/skill；同步後由 build 產生可離線閱讀的資料、Markdown 與技能 ZIP。保持公開署名「一分鐘認識」，引用案例與現行規則，不公開原始對話或私人資訊。

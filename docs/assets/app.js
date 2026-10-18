@@ -64,6 +64,7 @@
       }
       for(const sentence of map.summary)$('concept-map-relations').append(el('li','',sentence));
     }else if($('concept-map')){$('concept-map').hidden=true;document.querySelectorAll('a[href$="#concept-map"]').forEach(a=>a.hidden=true);}
+    if($('production-count')&&window.ONE_MINUTE_PRODUCTION)$('production-count').textContent=window.ONE_MINUTE_PRODUCTION.articles.length;
     $('series-count').textContent=catalog.series.length;$('lesson-count').textContent=published.length;
     $('start-first').href=courseUrl(lessonMap.has(catalog.startLesson)?catalog.startLesson:published[0]?.id);
     function recommendations(){
@@ -94,6 +95,7 @@
     document.title=`${l.title}｜一分鐘認識`;$('course-content').hidden=false;$('course-crumb').textContent=l.title;$('course-path-link').textContent=s.title;$('course-path-link').href=pathUrl(p);$('course-meta').textContent=`${s.title} / ${l.seconds} 秒 · ${l.type}`;$('course-title').textContent=l.title;$('course-opening').textContent=l.openingQuestion||l.subtitle;
     for(const goal of l.learningGoals||[l.summary])$('course-goals').append(el('li','',goal));$('course-takeaway').textContent=l.keyTakeaway||l.summary;$('practice-question').textContent=l.question||'試著用自己的話說明這個概念。';$('practice-answer').textContent=l.answer||'從動畫中的例子開始說說看。';$('practice-challenge').textContent=l.challenge||'找一個生活例子，試試這個概念。';
     renderConnections(l.connections,'course-connections');
+    const production=window.ONE_MINUTE_PRODUCTION?.articles.filter(a=>a.cases.some(c=>c.lesson===l.id))||[];if(production.length){$('course-production').hidden=false;for(const a of production){const li=el('li');li.append(link('article.html?id='+encodeURIComponent(a.id),'',a.title+' →'));$('course-production-links').append(li);}}
     if(Array.isArray(l.choices)&&Number.isInteger(l.correctChoice))for(const [i,choice] of l.choices.entries()){const b=el('button','answer-choice',choice);b.type='button';b.dataset.choice=i;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{$('practice-choices').querySelectorAll('.answer-choice').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const correct=i===l.correctChoice;$('practice-feedback').hidden=false;$('practice-feedback').dataset.correct=correct;$('practice-feedback').textContent=correct?`答對了！${l.answer}`:'再想一下：回想動畫中的操作，或展開下方的答案與原因。';});$('practice-choices').append(b);}
     setLink('download-subtitle',l.subtitleFile);setLink('download-video',l.video);const video=$('lesson-video');video.src=l.video;video.poster=l.poster;video.setAttribute('aria-label',`${l.title}教學影片`);video.addEventListener('error',()=>{$('video-error').hidden=false;});renderGuide(l,video);renderPlayback(video);
     if(l.originalVersion){

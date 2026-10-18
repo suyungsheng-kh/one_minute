@@ -1,0 +1,4 @@
+interface:
+  display_name: "一分鐘認識｜動畫製作"
+  short_description: "將繁體中文教學概念轉成可驗證、可對時、可重複製作的短動畫"
+  default_prompt: "使用 $one-minute-production，先閱讀目前專案，再依我的目標選擇分鏡、製作、審查或交付流程。"

@@ -35,7 +35,7 @@ const q=g.extraPractice;if(q&&(typeof q.question!=='string'||typeof q.answer!=='
 for(const s of catalog.series)for(const [key,target] of Object.entries(s.legacySections||{}))if(!safeId.test(key)||!target||!publishedIds.has(target.lesson)||catalog.lessons.find(l=>l.id===target.lesson).series!==s.id||(target.anchor&&!safeId.test(target.anchor)))throw new Error('Invalid legacy section target.');
 // Only the generated dist directory is replaced; all sources and series projects remain intact.
 inside(root,dist);if(fs.existsSync(dist)){if(fs.lstatSync(dist).isSymbolicLink())throw new Error('dist must not be a symlink');fs.rmSync(dist,{recursive:true});}fs.mkdirSync(dist,{recursive:true});
-for(const name of ['index.html','lesson.html','path.html'])put(path.join(root,name),path.join(dist,name));fs.cpSync(path.join(root,'assets'),path.join(dist,'assets'),{recursive:true});
+for(const name of ['index.html','lesson.html','path.html','production.html','article.html'])put(path.join(root,name),path.join(dist,name));fs.cpSync(path.join(root,'assets'),path.join(dist,'assets'),{recursive:true});
 fs.writeFileSync(path.join(dist,'.nojekyll'),'');
 let ffmpeg=process.env.FFMPEG_PATH;
 if(!ffmpeg){const probe=spawnSync('where.exe',['ffmpeg'],{encoding:'utf8'});if(probe.status===0)ffmpeg=probe.stdout.trim().split(/\r?\n/)[0];}
@@ -60,4 +60,5 @@ const route=catalog.paths.find(p=>p.series===lesson.series&&p.lessonIds.includes
 browser.lessons.push(l);
 }
 fs.mkdirSync(path.join(dist,'content'),{recursive:true});fs.writeFileSync(path.join(dist,'content/catalog.js'),'window.ONE_MINUTE_CATALOG = '+JSON.stringify(browser,null,2)+';\n');
-console.log(JSON.stringify({output:dist,series:browser.series.length,lessons:browser.lessons.length,offline:true}));
+const technical=require('./build-production.cjs').buildProduction(root,dist,publishedIds);
+console.log(JSON.stringify({output:dist,series:browser.series.length,lessons:browser.lessons.length,technical,offline:true}));

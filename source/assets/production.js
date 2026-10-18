@@ -1,0 +1,25 @@
+'use strict';
+(() => {
+ const data=window.ONE_MINUTE_PRODUCTION,catalog=window.ONE_MINUTE_CATALOG,$=id=>document.getElementById(id),articleUrl=id=>'article.html?id='+encodeURIComponent(id),articles=new Map(data.articles.map(a=>[a.id,a]));
+ const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;},link=(url,cls,text)=>{const a=el('a',cls,text);a.href=url;return a;};
+ const prompt=a=>data.commonPrompt+a.prompt;
+ async function copy(text,label){try{if(!navigator.clipboard?.writeText)throw Error();await navigator.clipboard.writeText(text);$('copy-status').textContent='已複製：'+label;}catch{const box=el('textarea','manual-copy',text);box.setAttribute('aria-label','請手動複製提示詞');$('copy-status').replaceChildren(el('span','','無法自動複製，請選取下方內容手動複製。'),box);box.focus();box.select();let copied=false;try{copied=document.execCommand('copy');}catch{}if(copied)$('copy-status').textContent='已複製：'+label;}}
+ function card(a){const i=data.articles.indexOf(a),item=link(articleUrl(a.id),'technical-card','');item.dataset.article=a.id;item.append(el('p','eyebrow',`製作技術 / ${String(i+1).padStart(2,'0')}`),el('h3','',a.title),el('p','',a.summary),el('span','technical-card-tags',a.tags.join(' · ')),el('span','technical-card-action','閱讀文章與提示詞 →'));return item;}
+ if(document.body.dataset.productionPage==='index'){
+  $('technical-count').textContent=data.articles.length;$('technical-start').href=articleUrl(data.articles[0].id);$('technical-updated').textContent=data.updated;
+  function render(){const q=$('technical-search').value.trim().toLocaleLowerCase(),matches=data.articles.filter(a=>[a.title,a.summary,...a.tags].join(' ').toLocaleLowerCase().includes(q));$('technical-grid').replaceChildren(...matches.map(card));$('technical-empty').hidden=matches.length>0;}render();$('technical-search').addEventListener('input',render);
+  for(const a of data.articles){const row=el('details','prompt-item'),summary=el('summary','',a.title),pre=el('pre'),code=el('code','',prompt(a)),button=el('button','text-button','複製完整提示詞');button.type='button';button.dataset.copyPrompt=a.id;button.addEventListener('click',()=>copy(prompt(a),a.title));pre.append(code);row.append(summary,pre,button,link(articleUrl(a.id),'prompt-read','看案例與驗收方式 →'));$('prompt-library').append(row);}
+  for(const [key,id]of [['skill','download-skill'],['handbook','download-handbook'],['prompts','download-prompts']])$(id).href=data.downloads[key];
+  for(const s of data.officialSources){const li=el('li'),a=link(s.url,'',s.title+' ↗');a.target='_blank';a.rel='noopener noreferrer';li.append(a);$('technical-official').append(li);}
+ }else{
+  const a=articles.get(new URLSearchParams(location.search).get('id'));if(!a){$('article-error').hidden=false;return;}
+  document.title=a.title+'｜動畫製作技術｜一分鐘認識';$('article-content').hidden=false;$('article-crumb').textContent=a.title;$('article-label').textContent=`一分鐘認識 / 製作技術 ${String(data.articles.indexOf(a)+1).padStart(2,'0')} · ${a.tags.join(' / ')}`;$('article-title').textContent=a.title;$('article-summary').textContent=a.summary;$('article-updated').textContent=data.updated;$('article-download').href='downloads/production/'+a.id+'.md';
+  for(const s of a.sections){const section=el('section','technical-section');section.append(el('h2','',s.title));for(const p of s.body)section.append(el('p','article-paragraph',p));if(s.code){const pre=el('pre'),code=el('code','',s.code);pre.append(code);section.append(pre);}$('article-sections').append(section);}
+  for(const step of a.steps)$('article-steps').append(el('li','',step));for(const item of a.acceptance)$('article-acceptance').append(el('li','',item));$('article-pitfall').textContent=a.pitfall;$('article-prompt').textContent=prompt(a);$('copy-article-prompt').addEventListener('click',()=>copy(prompt(a),a.title));
+  for(const item of a.cases){const lesson=catalog.lessons.find(l=>l.id===item.lesson),route=catalog.paths.find(p=>p.lessonIds.includes(item.lesson)),li=el('li'),target=link('lesson.html?id='+encodeURIComponent(item.lesson)+'&path='+encodeURIComponent(route.id),'related-lesson-link','');target.dataset.caseLesson=item.lesson;target.append(el('span','eyebrow','已完成的動畫教材'),el('strong','',lesson.title+' →'),el('span','related-reason',item.reason));li.append(target);$('article-cases').append(li);}
+  for(const s of a.sources){const li=el('li');li.append(el('strong','',s.label),el('code','',s.path));$('article-sources').append(li);}
+  for(const id of a.related)$('article-related').append(card(articles.get(id)));
+  for(const item of data.articles){const li=el('li'),target=link(articleUrl(item.id),'',item.title);if(item.id===a.id)target.setAttribute('aria-current','page');li.append(target);$('article-route').append(li);}
+  function restoreAnchor(){let id;try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}if(id)requestAnimationFrame(()=>$(id)?.scrollIntoView());}restoreAnchor();window.addEventListener('hashchange',restoreAnchor);
+ }
+})();
