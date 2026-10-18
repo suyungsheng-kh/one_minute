@@ -42,7 +42,7 @@ if(!ffmpeg){const probe=spawnSync('where.exe',['ffmpeg'],{encoding:'utf8'});if(p
 if(!ffmpeg){const cache=path.join(process.env.LOCALAPPDATA||'','npm-cache','_npx');if(fs.existsSync(cache))for(const dir of fs.readdirSync(cache)){const candidate=path.join(cache,dir,'node_modules','ffmpeg-static','ffmpeg.exe');if(fs.existsSync(candidate)){ffmpeg=candidate;break;}}}
 const browser={title:catalog.title,description:catalog.description,startLesson:catalog.startLesson||'variables',recommendations:catalog.recommendations,paths:catalog.paths,conceptMap:catalog.conceptMap,comparisons:catalog.comparisons,series:[],lessons:[]};
 for(const s of catalog.series){const {siteSource,legacySections,...publicSeries}=s;if(siteSource){const dest=path.join(dist,'series',s.id);fs.cpSync(source(siteSource),dest,{recursive:true});const {legacySeries}=require('./legacy-series.cjs');fs.writeFileSync(path.join(dest,'index.html'),legacySeries(s,catalog.lessons.filter(l=>l.series===s.id&&publishedIds.has(l.id))));fs.writeFileSync(path.join(dest,'README.md'),`# ${s.title} 舊網址相容目錄\n\n正式入口為 ../../path.html?id=${s.id}，各集補充教學均在 ../../lesson.html 的對應課程。index.html 是生成的相容轉接，不作為教學編輯來源。影片、字幕與素材路徑保留，請在網站 source/content/catalog.json 維護 guide、comparisons 及 legacySections。\n`);}browser.series.push(publicSeries);}
-for(const lesson of catalog.lessons){if(lesson.status==='draft')continue;const {videoSource,subtitleSource,posterSource,posterTime,siteAnchor,...l}=lesson;const s=browser.series.find(s=>s.id===lesson.series);
+for(const lesson of catalog.lessons){if(lesson.status==='draft')continue;const {videoSource,subtitleSource,posterSource,posterTime,siteAnchor,coverDesign,...l}=lesson;const s=browser.series.find(s=>s.id===lesson.series);
 
 if(lesson.status!=='coming-soon'){
 const original=source(videoSource),existingSite=catalog.series.find(s=>s.id===lesson.series&&s.siteSource);
@@ -56,6 +56,7 @@ else if(videoSource&&lesson.status!=='coming-soon'){
 l.poster=`posters/${l.id}.jpg`;const destination=path.join(dist,l.poster);fs.mkdirSync(path.dirname(destination),{recursive:true});
 if(!ffmpeg)throw new Error('Set FFMPEG_PATH to create the video cover.');const result=spawnSync(ffmpeg,['-hide_banner','-loglevel','error','-ss',String(posterTime||3),'-i',source(videoSource),'-frames:v','1','-vf','scale=960:-2','-y',destination],{encoding:'utf8'});if(result.status!==0)throw new Error(result.stderr||'Poster extraction failed.');
 }else{l.poster='assets/mark.svg';}
+const route=catalog.paths.find(p=>p.series===lesson.series&&p.lessonIds.includes(lesson.id));const peers=route?route.lessonIds:catalog.lessons.filter(x=>x.series===lesson.series&&x.status!=='draft').map(x=>x.id);l.cover=`covers/${l.id}.svg`;const {brandCover}=require('./brand-covers.cjs');fs.mkdirSync(path.join(dist,'covers'),{recursive:true});fs.writeFileSync(path.join(dist,l.cover),brandCover(s,lesson,peers.indexOf(lesson.id)+1,peers.length));
 browser.lessons.push(l);
 }
 fs.mkdirSync(path.join(dist,'content'),{recursive:true});fs.writeFileSync(path.join(dist,'content/catalog.js'),'window.ONE_MINUTE_CATALOG = '+JSON.stringify(browser,null,2)+';\n');

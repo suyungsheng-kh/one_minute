@@ -542,3 +542,7 @@ git -C .github-publish/one_minute diff
 ## 搜尋三部曲
 
 三集「循序搜尋」「二分搜尋」「誰比較快？」已完成：各 60 秒雲哲旁白與繁體字幕；觀看路線依序串起三集，並連到河內塔的成本成長。教學銜接見 [搜尋與既有單元](guides/search-connections.md)。
+
+## 共用課程封面
+
+首頁與觀看路線的品牌封面由 source/tools/brand-covers.cjs 生成；文案維護 source/content/catalog.json 的 coverDesign（titleLines、subtitle），品牌圖示取自 source/assets/mark.svg。生成圖位於 docs/covers，播放器仍使用原本的 poster。執行 npm run check 會一併檢查封面、手機、離線及課程連結。

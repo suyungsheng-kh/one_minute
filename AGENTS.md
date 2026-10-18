@@ -36,3 +36,5 @@
 - 首頁概念關聯圖由 source/content/catalog.json 的 conceptMap 維護。更新單元時同步核對節點、連線與課程頁 connections 一致，目標須已發布；保留手機文字說明、鍵盤及離線導航，不以點選節點標為已看過。
 
 - README 的動畫製作手冊與 workflows/一分鐘認識系列.md 由完整工作區匯出。修改時同步本機 one_minute/README.md 與 workflows，避免下次匯出覆蓋；只有此儲存庫時先保留修改，回到完整工作區再合併。文件包含動畫製作指令，但動畫原始專案並未隨此儲存庫提供。
+
+- 首頁與路線使用生成的品牌 cover，播放器使用原影片 poster。修改 coverDesign 與 tools/brand-covers.cjs，Logo 沿用 assets/mark.svg，不直接編輯 docs/covers；公開署名維持「一分鐘認識」。封面變更須檢查全部課程與離線版。

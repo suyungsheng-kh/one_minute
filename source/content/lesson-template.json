@@ -60,5 +60,12 @@
     ],
     "watch": "看影片時，要留意的動作或變化。",
     "comparison": "scratch-data"
+  },
+  "coverDesign": {
+    "titleLines": [
+      "新概念",
+      "從這裡開始"
+    ],
+    "subtitle": "用一句話，說出這一集的用途"
   }
 }

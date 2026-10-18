@@ -1008,7 +1008,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/algorithm-bread.mp4",
       "subtitleFile": "subtitles/algorithm-bread.zh-TW.srt",
-      "poster": "posters/algorithm-bread.jpg"
+      "poster": "posters/algorithm-bread.jpg",
+      "cover": "covers/algorithm-bread.svg"
     },
     {
       "id": "algorithm-control-flow",
@@ -1112,7 +1113,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/algorithm-control-flow.mp4",
       "subtitleFile": "subtitles/algorithm-control-flow.zh-TW.srt",
-      "poster": "posters/algorithm-control-flow.jpg"
+      "poster": "posters/algorithm-control-flow.jpg",
+      "cover": "covers/algorithm-control-flow.svg"
     },
     {
       "id": "algorithm-why",
@@ -1211,7 +1213,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/algorithm-why.mp4",
       "subtitleFile": "subtitles/algorithm-why.zh-TW.srt",
-      "poster": "posters/algorithm-why.jpg"
+      "poster": "posters/algorithm-why.jpg",
+      "cover": "covers/algorithm-why.svg"
     },
     {
       "id": "variables",
@@ -1319,7 +1322,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "series/scratch/videos/scratch-variables-yunjhe-v1.mp4",
       "subtitleFile": "subtitles/variables.zh-TW.srt",
-      "poster": "posters/variables.jpg"
+      "poster": "posters/variables.jpg",
+      "cover": "covers/variables.svg"
     },
     {
       "id": "lists",
@@ -1436,7 +1440,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "series/scratch/videos/scratch-lists-yunjhe-v1.mp4",
       "subtitleFile": "subtitles/lists.zh-TW.srt",
-      "poster": "posters/lists.jpg"
+      "poster": "posters/lists.jpg",
+      "cover": "covers/lists.svg"
     },
     {
       "id": "conditions",
@@ -1553,7 +1558,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "series/scratch/videos/scratch-conditions.mp4",
       "subtitleFile": "subtitles/conditions.zh-TW.srt",
-      "poster": "posters/conditions.jpg"
+      "poster": "posters/conditions.jpg",
+      "cover": "covers/conditions.svg"
     },
     {
       "id": "bubble-sort",
@@ -1913,7 +1919,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "series/sorting/videos/bubble-sort.mp4",
       "subtitleFile": "subtitles/bubble-sort.zh-TW.srt",
-      "poster": "posters/bubble-sort.jpg"
+      "poster": "posters/bubble-sort.jpg",
+      "cover": "covers/bubble-sort.svg"
     },
     {
       "id": "selection-sort",
@@ -2288,7 +2295,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "series/sorting/videos/selection-sort.mp4",
       "subtitleFile": "subtitles/selection-sort.zh-TW.srt",
-      "poster": "posters/selection-sort.jpg"
+      "poster": "posters/selection-sort.jpg",
+      "cover": "covers/selection-sort.svg"
     },
     {
       "id": "insertion-sort",
@@ -2665,7 +2673,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "series/sorting/videos/insertion-sort.mp4",
       "subtitleFile": "subtitles/insertion-sort.zh-TW.srt",
-      "poster": "posters/insertion-sort.jpg"
+      "poster": "posters/insertion-sort.jpg",
+      "cover": "covers/insertion-sort.svg"
     },
     {
       "id": "hanoi-rules",
@@ -2760,7 +2769,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/hanoi-rules.mp4",
       "subtitleFile": "subtitles/hanoi-rules.zh-TW.srt",
-      "poster": "posters/hanoi-rules.jpg"
+      "poster": "posters/hanoi-rules.jpg",
+      "cover": "covers/hanoi-rules.svg"
     },
     {
       "id": "hanoi-recursion",
@@ -2856,7 +2866,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/hanoi-recursion.mp4",
       "subtitleFile": "subtitles/hanoi-recursion.zh-TW.srt",
-      "poster": "posters/hanoi-recursion.jpg"
+      "poster": "posters/hanoi-recursion.jpg",
+      "cover": "covers/hanoi-recursion.svg"
     },
     {
       "id": "hanoi-steps",
@@ -2964,7 +2975,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/hanoi-steps.mp4",
       "subtitleFile": "subtitles/hanoi-steps.zh-TW.srt",
-      "poster": "posters/hanoi-steps.jpg"
+      "poster": "posters/hanoi-steps.jpg",
+      "cover": "covers/hanoi-steps.svg"
     },
     {
       "id": "search-linear",
@@ -3118,7 +3130,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/search-linear.mp4",
       "subtitleFile": "subtitles/search-linear.zh-TW.srt",
-      "poster": "posters/search-linear.jpg"
+      "poster": "posters/search-linear.jpg",
+      "cover": "covers/search-linear.svg"
     },
     {
       "id": "search-binary",
@@ -3277,7 +3290,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/search-binary.mp4",
       "subtitleFile": "subtitles/search-binary.zh-TW.srt",
-      "poster": "posters/search-binary.jpg"
+      "poster": "posters/search-binary.jpg",
+      "cover": "covers/search-binary.svg"
     },
     {
       "id": "search-race",
@@ -3433,7 +3447,8 @@ window.ONE_MINUTE_CATALOG = {
       },
       "video": "media/search-race.mp4",
       "subtitleFile": "subtitles/search-race.zh-TW.srt",
-      "poster": "posters/search-race.jpg"
+      "poster": "posters/search-race.jpg",
+      "cover": "covers/search-race.svg"
     }
   ]
 };

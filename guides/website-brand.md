@@ -23,6 +23,14 @@
 
 ## 後續維護與檢查
 
+### 共用課程封面（2026-10-18）
+
+首頁與觀看路線使用同一套 1280×720 向量封面：左上為「一分鐘認識」與共用品牌圖示，左側是課程大標題與一句說明，右側為統一筆觸的概念插圖，系列配色、標籤與集數協助辨認；頁底固定「把好奇，變成理解。」。目前公開署名維持「一分鐘認識」。
+
+來源為 catalog 的 coverDesign（titleLines、subtitle）及 tools/brand-covers.cjs，Logo 直接取自 assets/mark.svg。標題最多兩行、每行最多七字，說明最多二十三字；新系列可沿用預設插圖，再按教學概念擴充。建置產生 covers/<id>.svg，公開 catalog 的 cover 指向該檔；不要手改生成圖檔。
+
+影片 poster 仍保存原始畫面，供播放器使用；cover 專供課程卡片與觀看路線，讓封面視覺保持一致。封面不遮上中央播放鈕，片長保留在課程卡片文字區。tools/check-covers.cjs 檢查全部封面、文字界線、搜尋分類、手機、離線與課程導航。
+
 新增單元沿用 lesson.html、path.html 與 catalog，可複製 lesson-template.json 的 guide 骨架；comparison 範例預設 scratch-data，必須改為該課程適用的整理表。保留固定課程 id、舊網址及觀看進度。共用結構修改後執行 build、check、package，確認十五集（及後續新增集數）的區塊順序、共同導覽、影片工具與手機版；排序另檢查兩個版本的片長、字幕和提示切換。
 
 各系列的首頁、路線及課程內容須在同次更新整合；檢查通過後匯出並正常推送 GitHub，確認 Pages 已更新。自動檢查結果保存在 review/qa.json 與 review/narrated-check.json，品牌代表頁截圖為 review/brand-<series>.png。
