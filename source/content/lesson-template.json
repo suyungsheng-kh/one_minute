@@ -33,5 +33,32 @@
     "title": "和其他概念連起來",
     "notes": [],
     "relatedLessons": []
+  },
+  "guide": {
+    "intro": [
+      "用一個生活例子說明本集概念。"
+    ],
+    "exampleTitle": "把概念放進一個具體例子",
+    "example": [
+      {
+        "label": "例子中的資料或動作",
+        "value": "用簡單文字描述。"
+      }
+    ],
+    "steps": [
+      {
+        "title": "先觀察什麼？",
+        "text": "說明讀者可以先找出的線索。"
+      },
+      {
+        "title": "再理解什麼？",
+        "text": "說明本集核心概念如何運作。"
+      }
+    ],
+    "reminders": [
+      "指出一個容易混淆的地方。"
+    ],
+    "watch": "看影片時，要留意的動作或變化。",
+    "comparison": "scratch-data"
   }
 }

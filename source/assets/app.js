@@ -19,6 +19,12 @@
   function remember(l){if(!completed.includes(l.id))completed.push(l.id);try{localStorage.setItem('one-minute-watched-v1',JSON.stringify(completed));}catch{}}
   function setLink(id,href){$(id).hidden=!href;if(href)$(id).href=href;else $(id).removeAttribute('href');}
   function total(p){return members(p).reduce((sum,l)=>sum+l.seconds,0);}
+  function renderPlayback(video){
+    $('video-enhancements').hidden=false;
+    $('replay-video').addEventListener('click',()=>{video.currentTime=0;video.dispatchEvent(new Event('timeupdate'));video.play().catch(()=>video.focus());});
+    $('slow-video').addEventListener('click',()=>{video.playbackRate=video.playbackRate===.75?1:.75;});
+    video.addEventListener('ratechange',()=>{const slow=video.playbackRate===.75;$('slow-video').setAttribute('aria-pressed',String(slow));$('slow-video').textContent=slow?'恢復正常速度':'慢慢看：0.75 倍';});
+  }
   function renderGuide(l,video){
     const g=l.guide;if(!g)return;$('course-guide').hidden=false;
     for(const text of g.intro)$('guide-intro').append(el('p','',text));$('guide-example-title').textContent=g.exampleTitle;
@@ -28,9 +34,7 @@
     const table=catalog.comparisons[g.comparison];$('method-comparison').hidden=false;$('comparison-title').textContent=table.title;$('comparison-note').textContent=table.note;
     const caption=el('caption','',table.caption),head=el('thead'),header=el('tr'),body=el('tbody');for(const text of table.headers){const cell=el('th','',text);cell.scope='col';header.append(cell);}head.append(header);
     for(const row of table.rows){const tr=el('tr');for(const [i,text] of row.cells.entries()){const cell=el('td');cell.append(i===0&&row.lesson&&row.lesson!==l.id?link(courseUrl(row.lesson,pathFor(lessonMap.get(row.lesson))),'',text):document.createTextNode(text));tr.append(cell);}body.append(tr);}$('comparison-table').append(caption,head,body);
-    if(g.cues){$('video-enhancements').hidden=false;const update=()=>{const cues=video.dataset.version==='original'?l.originalVersion.cues:g.cues;let current=cues[0].text;for(const cue of cues){if(cue.t>video.currentTime+.001)break;current=cue.text;}$('video-cue').textContent=current;};for(const event of ['timeupdate','seeked','loadedmetadata'])video.addEventListener(event,update);update();
-      $('replay-video').addEventListener('click',()=>{video.currentTime=0;update();video.play().catch(()=>{$('video-cue').textContent='請按影片上的播放按鈕，再試一次。';});});
-      $('slow-video').addEventListener('click',()=>{video.playbackRate=video.playbackRate===.75?1:.75;});video.addEventListener('ratechange',()=>{const slow=video.playbackRate===.75;$('slow-video').setAttribute('aria-pressed',String(slow));$('slow-video').textContent=slow?'恢復正常速度':'慢慢看：0.75 倍';});
+    if(g.cues){$('video-cue-panel').hidden=false;const update=()=>{const cues=video.dataset.version==='original'?l.originalVersion.cues:g.cues;let current=cues[0].text;for(const cue of cues){if(cue.t>video.currentTime+.001)break;current=cue.text;}$('video-cue').textContent=current;};for(const event of ['timeupdate','seeked','loadedmetadata'])video.addEventListener(event,update);update();
     }
     if(g.extraPractice){const q=g.extraPractice;$('extra-practice').hidden=false;$('extra-question').textContent=q.question;for(const [i,text] of q.choices.entries()){const b=el('button','answer-choice extra-answer-choice',text);b.type='button';b.dataset.extraChoice=i;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{$('extra-choices').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const correct=i===q.correctChoice;$('extra-feedback').hidden=false;$('extra-feedback').dataset.correct=correct;$('extra-feedback').textContent=correct?`答對了！${q.answer}`:'再想想：回顧上方的操作步驟，或比較三種方法的差異。';});$('extra-choices').append(b);}}
   }
@@ -91,7 +95,7 @@
     for(const goal of l.learningGoals||[l.summary])$('course-goals').append(el('li','',goal));$('course-takeaway').textContent=l.keyTakeaway||l.summary;$('practice-question').textContent=l.question||'試著用自己的話說明這個概念。';$('practice-answer').textContent=l.answer||'從動畫中的例子開始說說看。';$('practice-challenge').textContent=l.challenge||'找一個生活例子，試試這個概念。';
     renderConnections(l.connections,'course-connections');
     if(Array.isArray(l.choices)&&Number.isInteger(l.correctChoice))for(const [i,choice] of l.choices.entries()){const b=el('button','answer-choice',choice);b.type='button';b.dataset.choice=i;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{$('practice-choices').querySelectorAll('.answer-choice').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));const correct=i===l.correctChoice;$('practice-feedback').hidden=false;$('practice-feedback').dataset.correct=correct;$('practice-feedback').textContent=correct?`答對了！${l.answer}`:'再想一下：回想動畫中的操作，或展開下方的答案與原因。';});$('practice-choices').append(b);}
-    setLink('download-subtitle',l.subtitleFile);setLink('download-video',l.video);const video=$('lesson-video');video.src=l.video;video.poster=l.poster;video.setAttribute('aria-label',`${l.title}教學影片`);video.addEventListener('error',()=>{$('video-error').hidden=false;});renderGuide(l,video);
+    setLink('download-subtitle',l.subtitleFile);setLink('download-video',l.video);const video=$('lesson-video');video.src=l.video;video.poster=l.poster;video.setAttribute('aria-label',`${l.title}教學影片`);video.addEventListener('error',()=>{$('video-error').hidden=false;});renderGuide(l,video);renderPlayback(video);
     if(l.originalVersion){
       $('video-version-control').hidden=false;video.dataset.version='narrated';
       $('video-version').addEventListener('change',()=>{

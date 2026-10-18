@@ -9,7 +9,7 @@
 </head>
 <body data-page="lesson">
   <a class="skip" href="#main">跳到主要內容</a>
-  <header class="topbar"><div class="wrap nav-inner"><a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="34" height="34"><span>一分鐘認識<span class="brand-sub">從好奇開始</span></span></a><nav aria-label="主要導覽"><a href="index.html#paths">觀看路線</a><a href="index.html#lessons">全部課程</a></nav></div></header>
+  <header class="topbar"><div class="wrap nav-inner"><a class="brand" href="index.html"><img src="assets/mark.svg" alt="" width="34" height="34"><span>一分鐘認識<span class="brand-sub">從好奇開始</span></span></a><nav aria-label="主要導覽"><a href="index.html#concept-map">概念關聯圖</a><a href="index.html#paths">觀看路線</a><a href="index.html#lessons">全部課程</a></nav></div></header>
   <main id="main" class="wrap course-main">
     <nav class="breadcrumbs" aria-label="目前位置"><a href="index.html">首頁</a><span aria-hidden="true">/</span><a id="course-path-link"></a><span aria-hidden="true">/</span><span id="course-crumb"></span></nav>
     <section id="course-error" class="empty-state" hidden><h1>這個概念還沒準備好</h1><p>先從已完成的課程開始探索。</p><a href="index.html#lessons" class="button primary">回到全部課程</a></section>
@@ -19,7 +19,7 @@
         <section id="course-guide" class="course-guide" hidden aria-labelledby="guide-title"><h2 id="guide-title">先讀懂，再看動畫</h2><div id="guide-intro"></div><div class="guide-example"><h3 id="guide-example-title"></h3><div id="guide-example-items" class="guide-example-items"></div></div><ol id="guide-steps" class="guide-steps"></ol><div id="guide-reminders"></div><p class="guide-watch"><strong>觀看任務：</strong><span id="guide-watch"></span></p></section>
         <div id="video-version-control" class="video-version-control" hidden><label for="video-version">選擇影片版本</label><select id="video-version"><option value="narrated">60 秒配音教學版・雲哲</option><option value="original">30 秒實作原版</option></select><p>先聽說明，再觀察操作；切換版本會從頭開始。</p></div>
         <section class="course-video" aria-label="教學動畫"><video id="lesson-video" controls playsinline preload="metadata"></video><p id="video-error" hidden>影片暫時無法播放，請重新整理，或使用下載影片連結觀看。</p></section>
-        <div id="video-enhancements" class="video-enhancements" hidden><div class="course-tools"><button id="replay-video" class="text-button" type="button">重看一次</button><button id="slow-video" class="text-button" type="button" aria-pressed="false">慢慢看：0.75 倍</button></div><p class="video-cue"><strong>現在在做什麼？</strong><span id="video-cue" role="status" aria-live="polite"></span></p></div>
+        <div id="video-enhancements" class="video-enhancements" hidden><div class="course-tools"><button id="replay-video" class="text-button" type="button">重看一次</button><button id="slow-video" class="text-button" type="button" aria-pressed="false">慢慢看：0.75 倍</button></div><p id="video-cue-panel" class="video-cue" hidden><strong>現在在做什麼？</strong><span id="video-cue" role="status" aria-live="polite"></span></p></div>
         <div class="course-tools"><button id="mark-complete" class="text-button">標示已看過 ✓</button><a id="download-video" class="subtitle-link" download>下載影片 ↓</a><a id="download-subtitle" class="subtitle-link" download hidden>下載旁白字幕 ↓</a></div>
         <section class="takeaway" aria-labelledby="takeaway-title"><p class="eyebrow">01 / 一句話記住</p><h2 id="takeaway-title">把概念帶走</h2><p id="course-takeaway"></p></section>
         <section id="course-connections" class="concept-connections" hidden aria-labelledby="course-connections-title"></section>

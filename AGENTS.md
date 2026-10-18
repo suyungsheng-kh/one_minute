@@ -29,6 +29,8 @@
 
 若使用者當次明確要求只做草稿、只預覽或暫不發布，依當次要求辦理，並清楚記錄尚未完成的整合／發布步驟。檢查失敗時先修復，不將失敗版本宣稱為已完成。
 
+- 所有系列沿用共同課程結構與品牌；每集提供 guide、connections 與 comparison，共用導覽及播放工具。主品牌、字體、背景、按鈕與操作一致；僅依內容增加提示、補充題或影片版本。修改後核對全部課程與路線，參照 guides/website-brand.md。
+
 - 正式動線統一為首頁 → 觀看路線 → 課程頁。Scratch／排序補充內容編輯 catalog 的 guide／comparisons；舊系列 index.html 由 tools/legacy-series.cjs 產生轉接，不能恢復成重複教學入口。保留 siteAnchor／legacySections 對應與舊素材網址；更新後檢查播放器提示、補充練習及 HTTP／離線舊網址轉接。
 
 - 首頁概念關聯圖由 source/content/catalog.json 的 conceptMap 維護。更新單元時同步核對節點、連線與課程頁 connections 一致，目標須已發布；保留手機文字說明、鍵盤及離線導航，不以點選節點標為已看過。

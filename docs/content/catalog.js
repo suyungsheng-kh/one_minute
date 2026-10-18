@@ -782,6 +782,78 @@ window.ONE_MINUTE_CATALOG = {
         }
       ],
       "note": "最多比較次數不是實測秒數。河內塔 20 盤的 1,048,575 指最少搬動步數，不能和搜尋比較直接視為相同動作。"
+    },
+    "algorithm-journey": {
+      "title": "把演算法的三個問題串起來",
+      "caption": "沿著三集，從步驟到流程，再到檢查修正",
+      "headers": [
+        "相關課程",
+        "這一集問什麼？",
+        "帶走的觀念"
+      ],
+      "rows": [
+        {
+          "lesson": "algorithm-bread",
+          "cells": [
+            "演算法是什麼？",
+            "步驟要符合哪些特性？",
+            "清楚、可執行，而且會結束"
+          ]
+        },
+        {
+          "lesson": "algorithm-control-flow",
+          "cells": [
+            "循序、選擇、重複",
+            "步驟要怎麼安排？",
+            "依序做、看條件、重複到停止"
+          ]
+        },
+        {
+          "lesson": "algorithm-why",
+          "cells": [
+            "為什麼需要演算法？",
+            "方法能幫上什麼忙？",
+            "讓別人執行、重用，並檢查修正"
+          ]
+        }
+      ],
+      "note": "方法是否正確，要檢查結果；是否有效率，則要看時間、步數等成本。"
+    },
+    "hanoi-journey": {
+      "title": "從合法搬盤，走到步數成長",
+      "caption": "河內塔三集，分別回答規則、方法與成本",
+      "headers": [
+        "相關課程",
+        "這一集問什麼？",
+        "帶走的觀念"
+      ],
+      "rows": [
+        {
+          "lesson": "hanoi-rules",
+          "cells": [
+            "河內塔怎麼玩？",
+            "每一步怎樣才合法？",
+            "一次一個、拿最上面、大的不壓小的"
+          ]
+        },
+        {
+          "lesson": "hanoi-recursion",
+          "cells": [
+            "遞迴的想法",
+            "如何安排更多圓盤的搬法？",
+            "用同樣方法解決更小問題，並有停止條件"
+          ]
+        },
+        {
+          "lesson": "hanoi-steps",
+          "cells": [
+            "步數爆炸",
+            "圓盤增加，需要多少步？",
+            "最少步數翻倍再加一；有限也可能很耗時"
+          ]
+        }
+      ],
+      "note": "最少搬動步數與搜尋的最多比較次數是在計算不同動作，不能直接當成同一種成本。"
     }
   },
   "series": [
@@ -899,6 +971,41 @@ window.ONE_MINUTE_CATALOG = {
           }
         ]
       },
+      "guide": {
+        "intro": [
+          "輸入、輸出、明確性、有限性、有效性，用早餐裡的步驟一次看懂。"
+        ],
+        "exampleTitle": "用早餐認識輸入與輸出",
+        "example": [
+          {
+            "label": "輸入",
+            "value": "準備好的麵包與材料"
+          },
+          {
+            "label": "輸出",
+            "value": "依步驟完成的吐司"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先確定輸入與輸出",
+            "text": "分清楚需要什麼，以及要得到什麼結果。"
+          },
+          {
+            "title": "把每個動作寫清楚",
+            "text": "「烤到差不多」不夠明確；要讓執行的人知道具體怎麼做。"
+          },
+          {
+            "title": "檢查能執行、會結束",
+            "text": "每一步是做得到的基本動作，整套方法也要在有限步數後停止。"
+          }
+        ],
+        "reminders": [
+          "有效性關心每一步做得到；效率關心需要多少時間或步數。兩者不能混為一談。"
+        ],
+        "watch": "找出影片中的輸入、輸出，再觀察明確性、有限性與有效性。",
+        "comparison": "algorithm-journey"
+      },
       "video": "media/algorithm-bread.mp4",
       "subtitleFile": "subtitles/algorithm-bread.zh-TW.srt",
       "poster": "posters/algorithm-bread.jpg"
@@ -964,6 +1071,45 @@ window.ONE_MINUTE_CATALOG = {
           }
         ]
       },
+      "guide": {
+        "intro": [
+          "照順序烤吐司、看條件選果醬、重複做三片早餐，認識安排步驟的三種基本流程。"
+        ],
+        "exampleTitle": "三種安排步驟的方法",
+        "example": [
+          {
+            "label": "循序",
+            "value": "照順序烤吐司"
+          },
+          {
+            "label": "選擇",
+            "value": "看口味決定是否塗果醬"
+          },
+          {
+            "label": "重複",
+            "value": "完成三份早餐"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先安排動作順序",
+            "text": "想一想哪些動作要先做，哪些要等前面的動作完成。"
+          },
+          {
+            "title": "遇到條件，選一條路",
+            "text": "如果想吃甜的，就塗果醬；否則保留原味。一次依條件走其中一條路。"
+          },
+          {
+            "title": "重複也要知道何時停止",
+            "text": "同一組動作做滿三次就結束，而不是一直做下去。"
+          }
+        ],
+        "reminders": [
+          "選擇不是把兩條路都做完；重複也不是永遠不停。"
+        ],
+        "watch": "分別找出小廚師依序做、看條件選擇，以及重複製作的地方。",
+        "comparison": "algorithm-journey"
+      },
       "video": "media/algorithm-control-flow.mp4",
       "subtitleFile": "subtitles/algorithm-control-flow.zh-TW.srt",
       "poster": "posters/algorithm-control-flow.jpg"
@@ -1027,6 +1173,41 @@ window.ONE_MINUTE_CATALOG = {
             "reason": "比較兩種搜尋方法的最多次數，並考慮排序前提與成本。"
           }
         ]
+      },
+      "guide": {
+        "intro": [
+          "把「做好早餐」的目標拆成可執行的方法，讓別人照著做、再次使用，也能逐步找出錯誤。"
+        ],
+        "exampleTitle": "分清楚目標與方法",
+        "example": [
+          {
+            "label": "目標",
+            "value": "完成一份吐司"
+          },
+          {
+            "label": "方法",
+            "value": "準備材料、依序操作，再檢查成品"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先說出想完成的事",
+            "text": "確定要得到什麼結果，才知道方法是否達成目標。"
+          },
+          {
+            "title": "把方法交給別人試做",
+            "text": "請對方照步驟操作或口頭演練，看看是否有不清楚的地方。"
+          },
+          {
+            "title": "檢查結果，再修正",
+            "text": "漏了果醬，就找出漏掉的步驟；補上後再測試。"
+          }
+        ],
+        "reminders": [
+          "步驟寫得清楚，不代表結果一定正確；確認正確後，還可以再討論效率。"
+        ],
+        "watch": "觀察「只有目標」和「有清楚方法」的差別，再找出如何檢查與修正。",
+        "comparison": "algorithm-journey"
       },
       "video": "media/algorithm-why.mp4",
       "subtitleFile": "subtitles/algorithm-why.zh-TW.srt",
@@ -2538,6 +2719,45 @@ window.ONE_MINUTE_CATALOG = {
           }
         ]
       },
+      "guide": {
+        "intro": [
+          "一次搬一個、只拿最上面、大的不壓小的，看三個圓盤怎麼搬到目標柱。"
+        ],
+        "exampleTitle": "先記住三條規則",
+        "example": [
+          {
+            "label": "一次的動作",
+            "value": "一次只能搬一個圓盤"
+          },
+          {
+            "label": "能拿哪個",
+            "value": "只能拿柱子最上面的圓盤"
+          },
+          {
+            "label": "能放哪裡",
+            "value": "大的不能壓在小的上面"
+          }
+        ],
+        "steps": [
+          {
+            "title": "確認起點與目標",
+            "text": "看清楚整座塔要從哪根柱子，移到哪根柱子。"
+          },
+          {
+            "title": "每一步先檢查是否合法",
+            "text": "只拿最上面的一個，並確認目標柱上沒有比它小的圓盤。"
+          },
+          {
+            "title": "留意最大的圓盤何時移動",
+            "text": "三盤示範的第四步搬最大盤；先觀察上面的圓盤如何讓路。"
+          }
+        ],
+        "reminders": [
+          "規則說明哪些動作合法；搬盤方法則說明依什麼順序完成目標。"
+        ],
+        "watch": "逐步核對三條規則，特別看看第四步之前，上面的圓盤搬到哪裡。",
+        "comparison": "hanoi-journey"
+      },
       "video": "media/hanoi-rules.mp4",
       "subtitleFile": "subtitles/hanoi-rules.zh-TW.srt",
       "poster": "posters/hanoi-rules.jpg"
@@ -2594,6 +2814,45 @@ window.ONE_MINUTE_CATALOG = {
             "reason": "回顧有限性：整套解題方法需要能結束。"
           }
         ]
+      },
+      "guide": {
+        "intro": [
+          "把上面的圓盤當成一疊，用同樣的三大步解決越來越小的問題。"
+        ],
+        "exampleTitle": "把大問題拆成三大步",
+        "example": [
+          {
+            "label": "第一大步",
+            "value": "把上面一疊搬到輔助柱"
+          },
+          {
+            "label": "第二大步",
+            "value": "把最大盤搬到目標柱"
+          },
+          {
+            "label": "第三大步",
+            "value": "把上面一疊搬回最大盤上"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先把上面一疊搬開",
+            "text": "這一疊也要用合法的方法逐個搬，不是一次拿起整疊。"
+          },
+          {
+            "title": "搬最大盤，再搬回一疊",
+            "text": "最大的上面空了才能搬，接著把那一疊搬到它上面。"
+          },
+          {
+            "title": "遇到更小的一疊，使用同樣想法",
+            "text": "每次少一個圓盤；只剩一個時直接搬，不再繼續拆。"
+          }
+        ],
+        "reminders": [
+          "遞迴包含更小的同類問題與停止條件，不能只理解成一直重複。"
+        ],
+        "watch": "跟著「一疊＋最大的」觀察三大步，再找出只剩一個圓盤時如何停止。",
+        "comparison": "hanoi-journey"
       },
       "video": "media/hanoi-recursion.mp4",
       "subtitleFile": "subtitles/hanoi-recursion.zh-TW.srt",
@@ -2663,6 +2922,45 @@ window.ONE_MINUTE_CATALOG = {
             "reason": "20 盤最少 1,048,575 步；同樣筆數的已排序資料，二分搜尋最多 20 次。比較成長，並分清不同操作。"
           }
         ]
+      },
+      "guide": {
+        "intro": [
+          "從一、三、七、十五找出規律，再看六十四個圓盤要搬多久。"
+        ],
+        "exampleTitle": "每多一盤，最少步數翻倍再加一",
+        "example": [
+          {
+            "label": "1、2 個圓盤",
+            "value": "1、3 步"
+          },
+          {
+            "label": "3、4 個圓盤",
+            "value": "7、15 步"
+          },
+          {
+            "label": "5 個圓盤",
+            "value": "15 × 2 ＋ 1 ＝ 31 步"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先觀察四組示範",
+            "text": "分別看一、二、三、四盤，注意每組從零重新計步。"
+          },
+          {
+            "title": "用前一個答案推下一個",
+            "text": "先後要搬同樣大小的一疊，中間再搬一次最大盤。"
+          },
+          {
+            "title": "再分清楚有限和快速",
+            "text": "固定有限盤數的方法會結束，但盤數增加後，最少步數仍可能大到難以等待。"
+          }
+        ],
+        "reminders": [
+          "影片的大盤數是計算結果，不代表實際搬完整座塔；六十四盤的故事屬於傳說。"
+        ],
+        "watch": "比較 1、3、7、15 的規律，並分清每一步做得到、整體會結束，以及需要多少時間。",
+        "comparison": "hanoi-journey"
       },
       "video": "media/hanoi-steps.mp4",
       "subtitleFile": "subtitles/hanoi-steps.zh-TW.srt",
