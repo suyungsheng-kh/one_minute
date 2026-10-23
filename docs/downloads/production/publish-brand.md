@@ -2,7 +2,7 @@
 
 正式版本、課程目錄、路線、封面、相關單元與離線包一起交付。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 製作來源與公開交付分開
 
@@ -32,6 +32,12 @@ node one_minute/portal/tools/export-github.cjs
 # 提交／推送與正式網址依目標專案 AGENTS 及本次授權
 ```
 
+## 影片完成與可上架，是兩個要分開核對的狀態
+
+布林邏輯三集交接時已具有成功配音、字幕與 HTML 預覽，文件仍明確標示正式 MP4 尚未完成。接手先核對檔案與本次檢查，再在既有授權內補做正式輸出，不能把預覽包當作成片上架。
+
+動畫專案保留在原本的 Scratch 製作目錄，公開網站則使用獨立的布林邏輯系列與觀看路線。公開分類不需要為了資料夾位置而綁在一起；正式版本清單記錄實際來源，避免多份來源各自修改。
+
 ## 可重複的步驟
 
 1. 選定 release 的正式影片、字幕與實際片長
@@ -49,6 +55,7 @@ node one_minute/portal/tools/export-github.cjs
 同步首頁、課程頁、觀看路線與概念關聯圖；檢查有意義的反向連結及舊網址。
 品牌封面沿用共同生成規格，不修改原始動畫或歷史輸出。
 完成本次 build、check、離線打包與檔案核對。是否提交、推送與發布依【本次授權／既有 AGENTS 規則】；若已授權就完成並確認線上版本。
+交接時分別確認成功音訊、HTML 預覽、正式 MP4 與公開發布狀態；公開系列分類可獨立於原始專案所在資料夾，但正式版本清單與素材路徑必須一致。
 ```
 
 ## 驗收
@@ -64,6 +71,8 @@ node one_minute/portal/tools/export-github.cjs
 
 - [conditions](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=conditions)：影片、課程與路線一起整合。
 - [search-race](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=search-race)：新集數與既有單元關聯同步交付。
+- [boolean-and](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-and)：先完成正式成片，再以獨立的布林邏輯系列整合課程。
 - 網站維護規則：`portal/AGENTS.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 品牌與封面規格：`portal/content/brand-guide.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 網站產製工具：`portal/tools/build.cjs`（完整動畫工作區相對路徑，非網站下載檔）。
+- 布林邏輯系列正式交付與關聯：`one_minute/scratch/BOOLEAN-LOGIC.md`（完整動畫工作區相對路徑，非網站下載檔）。

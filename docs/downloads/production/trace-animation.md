@@ -2,7 +2,7 @@
 
 先產生動作追蹤，再把比較、交換、搬盤與搜尋範圍對到時間軸。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 追蹤紀錄是動作與統計的共同依據
 
@@ -30,6 +30,12 @@
 
 大數用 BigInt 等合適型別；標註最少搬動步數、最多比較次數，以及是否計入事先排序。不同操作不能直接當成同一種成本。
 
+## 布林邏輯：先把真假組合列完整
+
+布林邏輯三集把輸入狀態、各條件的真／假、合成結果與動作分開。且與或各列四種輸入組合；非固定原判斷「警報已啟動？」並列兩種真假。兩個都真也符合或，非運算則不會改變警報本身。
+
+每個示範是一個獨立情境。換情境先重設角色、門與狀態，再重新求值；不要把前一關的能量門檻加到下一關的密碼規則。最後才用（有鑰匙 或 知道密碼）且 非（警報已啟動）驗證八種組合，其中三種可以通過。
+
 ## 可重複的步驟
 
 1. 定義初始資料、規則與計數單位
@@ -47,6 +53,7 @@
 先產生事件的 before／after、動作與順序，獨立驗證資料守恆、操作是否合法及最後結果。
 再把事件對到畫面、計數、音效與提示；快轉仍保留所有必要操作。
 明確區分本例次數、最好／最差上限、實際示範與計算結果。這次先完成 trace 與驗證，不重新配音或輸出 MP4。
+若是條件或布林邏輯動畫，列完整真假組合，固定原判斷，分開記錄輸入狀態、判斷結果與動作。驗證或包含兩者皆真、非不改變原狀態；每個獨立示範重新設置狀態。
 ```
 
 ## 驗收
@@ -55,6 +62,7 @@
 - 同一份資料驅動畫面與計數
 - 示範次數與上下限分開
 - 可指出哪些動作縮時、哪些只作計算
+- 條件動畫涵蓋全部真假組合，運算不會偷偷改變輸入狀態。
 
 常見問題：只檢查最後排好了，卻沒有驗證過程；或把顯示的數字直接寫死成「正確統計」。
 
@@ -63,6 +71,10 @@
 - [insertion-sort](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=insertion-sort)：右移與交換分開計數的實作。
 - [hanoi-steps](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=hanoi-steps)：實際四組搬法與大數計算分開。
 - [search-binary](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=search-binary)：閉區間與比較順序都有驗證。
+- [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：四種組合完整列出，特別驗證兩個都真也可以。
+- [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：反轉一個判斷，警報狀態保持不變。
 - 河內塔第三集審查：`hanoi/projects/hanoi-steps/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 搜尋驗證程式：`search/projects/search-binary/verify.mjs`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序驗證紀錄：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
+- 布林邏輯示範與驗證：`one_minute/scratch/projects/scratch-boolean-or/scenes.json`（完整動畫工作區相對路徑，非網站下載檔）。
+- 組合條件八種狀態：`one_minute/scratch/projects/scratch-boolean-not/combined-challenge.json`（完整動畫工作區相對路徑，非網站下載檔）。

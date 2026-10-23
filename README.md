@@ -1,8 +1,8 @@
 # 一分鐘認識
 
-**把好奇，變成理解。** 以「一分鐘，認識一個概念」為主軸，用生活與遊戲例子探索演算法、Scratch、排序、搜尋與河內塔。內容難度以國中生為背景設定。
+**把好奇，變成理解。** 以「一分鐘，認識一個概念」為主軸，用生活與遊戲例子探索演算法、Scratch、排序、搜尋、河內塔與布林邏輯。內容難度以國中生為背景設定。
 
-目前收錄 5 個系列、15 支已完成動畫、0 集準備中；12 支概念解說各 60 秒，3 支排序配音教學各 60 秒，另可切換 30 秒實作原版。支援搜尋、分類、播放、字幕下載、練習及瀏覽器中的已看過紀錄。
+目前收錄 6 個系列、18 支已完成動畫、0 集準備中；15 支概念解說各 60 秒，3 支排序配音教學各 60 秒，另可切換 30 秒實作原版。支援搜尋、分類、播放、字幕下載、練習及瀏覽器中的已看過紀錄。
 
 ## 觀看
 
@@ -478,9 +478,13 @@ git -C .github-publish/one_minute diff
 
 ## 動畫製作技術系列
 
-除了五個動畫教材系列，另有[動畫製作技術](portal/dist/production.html)閱讀系列，提供八篇文章、八組提示詞及 one-minute-production skill。正式網站入口為 [製作技術](https://suyungsheng-kh.github.io/one_minute/docs/production.html)；技術文章不計入動畫集數。
+除了六個動畫教材系列，另有[動畫製作技術](portal/dist/production.html)閱讀系列，提供八篇文章、八組提示詞及 one-minute-production skill。正式網站入口為 [製作技術](https://suyungsheng-kh.github.io/one_minute/docs/production.html)；技術文章不計入動畫集數。
 
 來源為 portal/content/production.json；技能原始檔在 production/skill/one-minute-production，來源稽核記錄在 production/review。更新與產製見 [技術系列維護說明](production/README.md)。
+
+## 布林邏輯三部曲（2026-10-23）
+
+「且」「或」「非」以獨立 boolean 網站系列上架，原始專案保留在 scratch/projects；正式版本由 scratch/tools/boolean-release.json 選定。完整教學關聯與組合挑戰見 scratch/BOOLEAN-LOGIC.md。入口現有六系列十八支動畫，技術文章、提示詞與 skill 同步本次新經驗。
 
 ## 2026-10-18：搜尋三部曲完成
 
@@ -523,9 +527,13 @@ git -C .github-publish/one_minute diff
 
 排序仍與清單、暫存變數、條件判斷及循序／重複相互銜接，沿用已核對的相關單元與比較說明。這組 5、2、4、1、3 的比較／動作統計不代表各方法的一般效率排名，插入排序的右移與插入不混算交換。
 
+## 2026-10-23 布林邏輯三部曲
+
+新增獨立「布林邏輯」系列：且、或、非，各 60 秒雲哲配音。共六系列十八支動畫；首頁推薦、品牌封面、課程、路線、概念圖與相關單元同步。第三集附組合條件挑戰；技術文章、提示詞與 skill 補入完整真假組合、動態遮擋檢查及交接狀態核對。
+
 ## 共同品牌與課程結構
 
-五系列共用首頁、觀看路線與課程模板，所有課程都有導讀、例子、提醒、觀看任務、影片、重點、關聯、練習及概念整理。視覺與擴充規則見 [網站品牌與共同結構](guides/website-brand.md)。
+各系列共用首頁、觀看路線與課程模板，所有課程都有導讀、例子、提醒、觀看任務、影片、重點、關聯、練習及概念整理。視覺與擴充規則見 [網站品牌與共同結構](guides/website-brand.md)。
 
 ## 統一網站入口
 
@@ -533,11 +541,11 @@ git -C .github-publish/one_minute diff
 
 ## 首頁概念關聯圖
 
-首頁 #concept-map 串起演算法、變數、清單、條件判斷、排序、搜尋與河內塔；點選節點直接前往相關課程。手機提供卡片和文字關係說明，連線不是必要先修順序。資料集中在 source/content/catalog.json 的 conceptMap：nodes 的 lesson 指向已發布課程，edges 使用 from、to、points、label 描述關係；調整節點座標時也同步線段與標籤位置。更新後建置並檢查節點連結、鍵盤操作、手機版、離線導覽與觀看進度。
+首頁 #concept-map 串起演算法、變數、清單、條件判斷、排序、搜尋、河內塔與布林邏輯；點選節點直接前往相關課程。手機提供卡片和文字關係說明，連線不是必要先修順序。資料集中在 source/content/catalog.json 的 conceptMap：nodes 的 lesson 指向已發布課程，edges 使用 from、to、points、label 描述關係；調整節點座標時也同步線段與標籤位置。更新後建置並檢查節點連結、鍵盤操作、手機版、離線導覽與觀看進度。
 
 ## Scratch、演算法與排序的銜接
 
-變數保存狀態，清單保存多筆資料，條件判斷決定動作；完整對照、常見混淆與相關單元連結見 [Scratch 與排序](guides/scratch-algorithms-sorting.md)。十五個課程與五條觀看路線都有跨單元導讀，保留既有河內塔連結、原影片與觀看進度。
+變數保存狀態，清單保存多筆資料，條件判斷決定動作；完整對照、常見混淆與相關單元連結見 [Scratch 與排序](guides/scratch-algorithms-sorting.md)。各課程與觀看路線都有跨單元導讀，保留既有河內塔連結、原影片與觀看進度。
 
 ## 河內塔與演算法的銜接
 
@@ -555,4 +563,8 @@ git -C .github-publish/one_minute diff
 
 ## 動畫製作技術系列
 
-[網站技術文章與提示詞庫](https://suyungsheng-kh.github.io/one_minute/docs/production.html) 收錄八篇從五系列經驗整理的技術文章，附提示詞、技術手冊與 one-minute-production skill ZIP。來源為 source/content/production.json；技能來源在 source/production/skill，建置會產生下載檔，不包含對話原文、私人帳本或動畫原始製作專案。
+[網站技術文章與提示詞庫](https://suyungsheng-kh.github.io/one_minute/docs/production.html) 收錄八篇從各系列經驗整理的技術文章，附提示詞、技術手冊與 one-minute-production skill ZIP。來源為 source/content/production.json；技能來源在 source/production/skill，建置會產生下載檔，不包含對話原文、私人帳本或動畫原始製作專案。
+
+## 布林邏輯三部曲
+
+三集「且」「或」「非」各 60 秒，獨立觀看路線銜接條件判斷。完整規則、與變數／演算法的關聯及八種組合挑戰見 [布林邏輯](guides/boolean-logic.md)。首頁、課程、路線與概念圖同步整合；技術文章、提示詞與 skill 補入完整真假組合和動態遮擋檢查。

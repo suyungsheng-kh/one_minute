@@ -2,7 +2,7 @@
 
 緩動、物件連續性、文字層級與閱讀時間，一開始就納入設計。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 動作要有因果，文字要有閱讀時間
 
@@ -32,6 +32,12 @@ window.__timelines["scene"] = tl;
 
 自動檢查有零錯誤，不等於全片每格都已看過。先清 lint 錯誤，再確認 runtime、layout 與對比確實有執行及足夠樣本；把未修建議與有意裁切分別記錄。
 
+## 文字靜止時清楚，不代表角色經過時仍可讀
+
+布林邏輯第二、三集首次實際瀏覽器檢查發現：城門下方的規則文字會被走動角色遮住，背景顏色也使對比不足。將文字移至城門上方的固定淺色區，再重新檢查各時間點，保留原有配音與動作時序。
+
+畫面檢查要包含角色穿越、開門、狀態重置與倒回。只在開場截圖，容易漏掉動作中才出現的遮擋。預覽播放、隨機跳段後回到同一時間點，也要得到相同物件狀態。
+
 ## 可重複的步驟
 
 1. 列出影響理解的問題並排優先度
@@ -49,6 +55,7 @@ window.__timelines["scene"] = tl;
 進場依目的選 ease-out 或自訂曲線；等速動作可保留 linear，不為展示效果添加無關回彈。
 確認 paused timeline、固定狀態、媒體時間與字幕區安全。測試前進、倒回及場景邊界。
 只修本次指定問題，保留原素材和成功音訊；先提供修正版預覽與實際驗證紀錄，是否正式渲染依既有授權。
+加入角色跨過文字區、開門、狀態重置等動態時點，檢查遮擋與對比；將時間軸先往後再倒回同一時間，比對物件狀態與音訊位置。
 ```
 
 ## 驗收
@@ -57,6 +64,7 @@ window.__timelines["scene"] = tl;
 - 物件不憑空改名或跳位
 - 字幕和重點文字有閱讀空間
 - 同一時間的前進／倒回狀態一致
+- 角色移動與重置時文字仍可讀，倒回同一時點可重建同一狀態。
 
 常見問題：只換掉所有緩動名稱，卻沒有修掉遮擋、跳位或看不懂的因果。
 
@@ -64,6 +72,9 @@ window.__timelines["scene"] = tl;
 
 - [lists](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=lists)：由清單動作與開箱因果檢查動畫連續性。
 - [hanoi-rules](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=hanoi-rules)：字幕、搬盤路徑與規則提示的配置。
+- [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：移動規則標籤，避免角色走進城門時遮擋文字。
+- [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：警報保持原狀，重新求值與倒回不改變示範語義。
 - Scratch 動畫審查：`scratch/projects/scratch-list-adventure/review/ANIMATION-REVIEW.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - HyperFrames 時間契約：`../.agents/skills/hyperframes-core/SKILL.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 河內塔第一集審查：`hanoi/projects/hanoi-rules/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
+- 本次實際播放與跳段檢查：`one_minute/scratch/review/boolean-browser-release.json`（完整動畫工作區相對路徑，非網站下載檔）。

@@ -1,6 +1,6 @@
 # 動畫製作技術手冊
 
-依據五個動畫系列的對話與製作文件整理，現行政策優先於歷史案例。來源更新：2026-10-18。
+依據動畫系列的對話與製作文件整理，現行政策優先於歷史案例。來源更新：2026-10-23。
 
 <a id="brief-storyboard"></a>
 
@@ -8,7 +8,7 @@
 
 從教學目標、生活比喻到逐幕講稿；先把要懂的事說清楚，再決定畫面。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 先定義觀眾要懂的一件事
 
@@ -65,7 +65,7 @@ SOURCES.md     素材來源與使用條件
 
 分清技能、CLI、專案與生成器；保留版本，換電腦或換對話也能接著做。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 技能與製作工具是不同層
 
@@ -131,7 +131,7 @@ npm run check
 
 先產生動作追蹤，再把比較、交換、搬盤與搜尋範圍對到時間軸。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 追蹤紀錄是動作與統計的共同依據
 
@@ -159,6 +159,12 @@ npm run check
 
 大數用 BigInt 等合適型別；標註最少搬動步數、最多比較次數，以及是否計入事先排序。不同操作不能直接當成同一種成本。
 
+## 布林邏輯：先把真假組合列完整
+
+布林邏輯三集把輸入狀態、各條件的真／假、合成結果與動作分開。且與或各列四種輸入組合；非固定原判斷「警報已啟動？」並列兩種真假。兩個都真也符合或，非運算則不會改變警報本身。
+
+每個示範是一個獨立情境。換情境先重設角色、門與狀態，再重新求值；不要把前一關的能量門檻加到下一關的密碼規則。最後才用（有鑰匙 或 知道密碼）且 非（警報已啟動）驗證八種組合，其中三種可以通過。
+
 ## 可重複的步驟
 
 1. 定義初始資料、規則與計數單位
@@ -172,6 +178,7 @@ npm run check
 - 同一份資料驅動畫面與計數
 - 示範次數與上下限分開
 - 可指出哪些動作縮時、哪些只作計算
+- 條件動畫涵蓋全部真假組合，運算不會偷偷改變輸入狀態。
 
 常見問題：只檢查最後排好了，卻沒有驗證過程；或把顯示的數字直接寫死成「正確統計」。
 
@@ -180,9 +187,13 @@ npm run check
 - [insertion-sort](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=insertion-sort)：右移與交換分開計數的實作。
 - [hanoi-steps](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=hanoi-steps)：實際四組搬法與大數計算分開。
 - [search-binary](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=search-binary)：閉區間與比較順序都有驗證。
+- [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：四種組合完整列出，特別驗證兩個都真也可以。
+- [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：反轉一個判斷，警報狀態保持不變。
 - 河內塔第三集審查：`hanoi/projects/hanoi-steps/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 搜尋驗證程式：`search/projects/search-binary/verify.mjs`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序驗證紀錄：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
+- 布林邏輯示範與驗證：`one_minute/scratch/projects/scratch-boolean-or/scenes.json`（完整動畫工作區相對路徑，非網站下載檔）。
+- 組合條件八種狀態：`one_minute/scratch/projects/scratch-boolean-not/combined-challenge.json`（完整動畫工作區相對路徑，非網站下載檔）。
 
 ---
 
@@ -192,7 +203,7 @@ npm run check
 
 凍結成功旁白，用真實長度及詞組時間對齊；同時保留用量與審音界線。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 保留自然語速與完整句尾
 
@@ -253,7 +264,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 
 緩動、物件連續性、文字層級與閱讀時間，一開始就納入設計。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 動作要有因果，文字要有閱讀時間
 
@@ -283,6 +294,12 @@ window.__timelines["scene"] = tl;
 
 自動檢查有零錯誤，不等於全片每格都已看過。先清 lint 錯誤，再確認 runtime、layout 與對比確實有執行及足夠樣本；把未修建議與有意裁切分別記錄。
 
+## 文字靜止時清楚，不代表角色經過時仍可讀
+
+布林邏輯第二、三集首次實際瀏覽器檢查發現：城門下方的規則文字會被走動角色遮住，背景顏色也使對比不足。將文字移至城門上方的固定淺色區，再重新檢查各時間點，保留原有配音與動作時序。
+
+畫面檢查要包含角色穿越、開門、狀態重置與倒回。只在開場截圖，容易漏掉動作中才出現的遮擋。預覽播放、隨機跳段後回到同一時間點，也要得到相同物件狀態。
+
 ## 可重複的步驟
 
 1. 列出影響理解的問題並排優先度
@@ -296,6 +313,7 @@ window.__timelines["scene"] = tl;
 - 物件不憑空改名或跳位
 - 字幕和重點文字有閱讀空間
 - 同一時間的前進／倒回狀態一致
+- 角色移動與重置時文字仍可讀，倒回同一時點可重建同一狀態。
 
 常見問題：只換掉所有緩動名稱，卻沒有修掉遮擋、跳位或看不懂的因果。
 
@@ -303,9 +321,12 @@ window.__timelines["scene"] = tl;
 
 - [lists](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=lists)：由清單動作與開箱因果檢查動畫連續性。
 - [hanoi-rules](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=hanoi-rules)：字幕、搬盤路徑與規則提示的配置。
+- [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：移動規則標籤，避免角色走進城門時遮擋文字。
+- [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：警報保持原狀，重新求值與倒回不改變示範語義。
 - Scratch 動畫審查：`scratch/projects/scratch-list-adventure/review/ANIMATION-REVIEW.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - HyperFrames 時間契約：`../.agents/skills/hyperframes-core/SKILL.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 河內塔第一集審查：`hanoi/projects/hanoi-rules/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
+- 本次實際播放與跳段檢查：`one_minute/scratch/review/boolean-browser-release.json`（完整動畫工作區相對路徑，非網站下載檔）。
 
 ---
 
@@ -315,7 +336,7 @@ window.__timelines["scene"] = tl;
 
 把專案檢查、數據驗證、實際成片檢查分開，留下可追溯證據。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 三個層次，回答不同問題
 
@@ -374,7 +395,7 @@ ffmpeg -v error -i renders/<專案>-v2.mp4 -f null -
 
 正式版本、課程目錄、路線、封面、相關單元與離線包一起交付。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 製作來源與公開交付分開
 
@@ -404,6 +425,12 @@ node one_minute/portal/tools/export-github.cjs
 # 提交／推送與正式網址依目標專案 AGENTS 及本次授權
 ```
 
+## 影片完成與可上架，是兩個要分開核對的狀態
+
+布林邏輯三集交接時已具有成功配音、字幕與 HTML 預覽，文件仍明確標示正式 MP4 尚未完成。接手先核對檔案與本次檢查，再在既有授權內補做正式輸出，不能把預覽包當作成片上架。
+
+動畫專案保留在原本的 Scratch 製作目錄，公開網站則使用獨立的布林邏輯系列與觀看路線。公開分類不需要為了資料夾位置而綁在一起；正式版本清單記錄實際來源，避免多份來源各自修改。
+
 ## 可重複的步驟
 
 1. 選定 release 的正式影片、字幕與實際片長
@@ -424,9 +451,11 @@ node one_minute/portal/tools/export-github.cjs
 
 - [conditions](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=conditions)：影片、課程與路線一起整合。
 - [search-race](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=search-race)：新集數與既有單元關聯同步交付。
+- [boolean-and](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-and)：先完成正式成片，再以獨立的布林邏輯系列整合課程。
 - 網站維護規則：`portal/AGENTS.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 品牌與封面規格：`portal/content/brand-guide.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 網站產製工具：`portal/tools/build.cjs`（完整動畫工作區相對路徑，非網站下載檔）。
+- 布林邏輯系列正式交付與關聯：`one_minute/scratch/BOOLEAN-LOGIC.md`（完整動畫工作區相對路徑，非網站下載檔）。
 
 ---
 
@@ -436,7 +465,7 @@ node one_minute/portal/tools/export-github.cjs
 
 提示詞描述這次要做什麼；skill 保存可重用方法、來源與操作界線。
 
-技術文章；不代表新影片。更新：2026-10-18。
+技術文章；不代表新影片。更新：2026-10-23。
 
 ## 先拆階段，再組合成完整工作流
 

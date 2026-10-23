@@ -31,7 +31,7 @@
 
 影片 poster 仍保存原始畫面，供播放器使用；cover 專供課程卡片與觀看路線，讓封面視覺保持一致。封面不遮上中央播放鈕，片長保留在課程卡片文字區。tools/check-covers.cjs 檢查全部封面、文字界線、搜尋分類、手機、離線與課程導航。
 
-新增單元沿用 lesson.html、path.html 與 catalog，可複製 lesson-template.json 的 guide 骨架；comparison 範例預設 scratch-data，必須改為該課程適用的整理表。保留固定課程 id、舊網址及觀看進度。共用結構修改後執行 build、check、package，確認十五集（及後續新增集數）的區塊順序、共同導覽、影片工具與手機版；排序另檢查兩個版本的片長、字幕和提示切換。
+新增單元沿用 lesson.html、path.html 與 catalog，可複製 lesson-template.json 的 guide 骨架；comparison 範例預設 scratch-data，必須改為該課程適用的整理表。保留固定課程 id、舊網址及觀看進度。共用結構修改後執行 build、check、package，確認所有已發布課程的區塊順序、共同導覽、影片工具與手機版；排序另檢查兩個版本的片長、字幕和提示切換。
 
 各系列的首頁、路線及課程內容須在同次更新整合；檢查通過後匯出並正常推送 GitHub，確認 Pages 已更新。自動檢查結果保存在 review/qa.json 與 review/narrated-check.json，品牌代表頁截圖為 review/brand-<series>.png。
 
