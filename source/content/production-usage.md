@@ -49,3 +49,7 @@ node tools/export-github.cjs
 ```
 
 網站維護儲存庫的對應來源是 `source/content/production.json`；同步參考檔使用 `node source/tools/build-production.cjs --sync-skill`，再執行根目錄的 build、check、package。不要只修改生成的網站資料、下載 Markdown 或 ZIP。發布前核對網站複製文字、下載檔、技能參考及已安裝版本一致，並依 AGENTS.md 的流程推送及驗證。
+
+## 自訂積木與參數草稿（2026-10-24）
+
+本次補充 trace-animation 的呼叫、參數與落地計數驗收，以及 project-environment 的零瀏覽器樣本判讀。new-series 與 update-unit 已檢視：原有製作、品牌、同步及發布授權仍適用，完整工作流正文不需修改。新課程尚未完成配音與實際畫面檢查，不加入公開案例；網站與已安裝技能版本的正式發布仍待完整驗證。
