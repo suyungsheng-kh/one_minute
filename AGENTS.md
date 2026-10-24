@@ -43,3 +43,5 @@
 - 動畫製作技術是獨立的文章系列，不虛增動畫集數。編輯 source/content/production.json、production.html、article.html、assets/production.js；技能來源在 source/production/skill。更新文章時同步 skill references（node source/tools/build-production.cjs --sync-skill），建置產生 Markdown、提示詞及 ZIP；檢查案例連結、複製與離線下載，保留影片觀看進度。不要上傳原始對話或私人資料。
 
 - 2026-10-24 使用者最新確認「原版的活潑構圖＋新版的品牌配色」：霧白與墨綠為品牌，恢復藍、黃輔色、圓形襯底、傾斜紙卡、星芒、手繪箭頭與圓角標籤。依 guides/website-brand.md 同步首頁、課程、路線與封面，裝飾不得遮擋內容與操作；歷史影片與 poster 保留，不恢復橘色主導。
+
+- 技術首頁、文章、提示詞庫與 skill 下載區沿用相同活潑教材品牌，依 guides/website-brand.md 維護圓形襯底、白紙卡、綠藍黃編號、星芒、手繪箭頭、筆記區及閱讀目錄。長文與提示詞保持水平可讀；修改 source/production.html、article.html、assets/style.css、assets/production.js 後執行 check-production，確認完整複製、下載、案例、鍵盤、手機與離線。
