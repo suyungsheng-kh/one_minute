@@ -545,7 +545,7 @@ git -C .github-publish/one_minute diff
 
 ## 首頁概念關聯圖
 
-首頁 #concept-map 串起演算法、變數、清單、條件判斷、排序、搜尋、河內塔與布林邏輯；點選節點直接前往相關課程。手機提供卡片和文字關係說明，連線不是必要先修順序。資料集中在 source/content/catalog.json 的 conceptMap：nodes 的 lesson 指向已發布課程，edges 使用 from、to、points、label 描述關係；調整節點座標時也同步線段與標籤位置。更新後建置並檢查節點連結、鍵盤操作、手機版、離線導覽與觀看進度。
+首頁 #concept-map 串起演算法、變數、清單、條件判斷、排序、搜尋、河內塔、布林邏輯與迴圈；點選節點直接前往相關課程。手機提供卡片和文字關係說明，連線不是必要先修順序。資料集中在 source/content/catalog.json 的 conceptMap：nodes 的 lesson 指向已發布課程，edges 使用 from、to、points、label 描述關係；調整節點座標時也同步線段與標籤位置。更新後建置並檢查節點連結、鍵盤操作、手機版、離線導覽與觀看進度。
 
 ## Scratch、演算法與排序的銜接
 
@@ -572,3 +572,7 @@ git -C .github-publish/one_minute diff
 ## 布林邏輯三部曲
 
 三集「且」「或」「非」各 60 秒，獨立觀看路線銜接條件判斷。完整規則、與變數／演算法的關聯及八種組合挑戰見 [布林邏輯](guides/boolean-logic.md)。首頁、課程、路線與概念圖同步整合；技術文章、提示詞與 skill 補入完整真假組合和動態遮擋檢查。
+
+## 迴圈與停止條件三部曲
+
+三集「重複幾次」「什麼時候停」「為什麼停不下來」各 60 秒；[觀看路線](https://suyungsheng-kh.github.io/one_minute/docs/path.html?id=loops)銜接變數、條件判斷、布林邏輯與演算法流程。規則、零次執行及計數差異見 [迴圈與停止條件](guides/loops.md)。首頁概念圖提供迴圈節點；技術文章、提示詞與 skill 已同步。
