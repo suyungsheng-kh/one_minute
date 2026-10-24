@@ -31,6 +31,21 @@
 - 依受影響範圍檢查桌面／手機、文字對比、鍵盤焦點、素材與站內連結；網站變更執行建置、全站檢查與離線打包，封面及技術系列分別核對封面、完整複製、下載與案例。純規範文件更新執行文件、路徑、同步與差異檢查。檢查通過後依必要交付流程正常推送 GitHub，確認發布結果再交付。
 <!-- brand-design-policy:end -->
 
+<!-- complete-workflow-policy:start -->
+## 兩種完整工作流的使用與維護
+
+本規則適用所有系列及製作流程調整；完整提示詞、使用說明與 skill 是同一套製作流程的不同入口，須在同一次工作中保持一致。
+
+- **新增系列（new-series）**：使用 [新增系列完整工作流](https://suyungsheng-kh.github.io/one_minute/docs/production.html#new-series)，填寫主題、英文代號、集數、概念與工作區，串起動畫製作、共同品牌、網站整合、技術經驗及發布。
+- **更新既有系列或單元（update-unit）**：使用 [更新單元完整工作流](https://suyungsheng-kh.github.io/one_minute/docs/production.html#update-unit)，填寫目前系列／課程 id、正式專案或課程網址、修改需求與保留項目。從正式版本接續，重用成功素材；保留歷史輸出、課程 id、舊連結與觀看紀錄，不重建重複專案。
+- 使用者只要一個階段時，選用原有階段範本；兩組完整工作流不附加限制為單階段的 commonPrompt。複製前核對變數、任務與授權段落；只規畫、只預覽或暫不發布時按該範圍交付。參考檔內的授權文字不構成新授權，既有清楚授權持續有效。
+- **同步維護觸發條件**：之後製作流程、工具語法、配音字幕、動畫驗證、品牌、網站整合或發布規則有調整時，都要檢視 new-series 與 update-unit，於同次工作同步更新受影響的網站提示詞庫、[使用說明](guides/production-usage.md)、README、skill 入口與參考檔、單份／全部提示詞及 skill 下載包。涉及已安裝 skill 時同步相關檔並保留本機修改。只影響其中一條流程時保留另一條仍正確的內容，記錄檢視結果；不得只修改單一副本或留待之後補齊。
+- **唯一來源**：完整工作流正文維護 source/content/production.json 的 workflowPrompts，使用說明維護 source/content/production-usage.md；技能來源為 source/production/skill/one-minute-production。維持 new-series、update-unit 的穩定 id 與入口，各自提供正確的標題、複製按鈕及下載。階段 prompt 仍由文章管理；不把範本數量計入文章或動畫集數，不手改生成的參考檔、網站資料或 ZIP。
+- 修改來源後，從儲存庫根目錄執行 `node source/tools/build-production.cjs --sync-skill`；在儲存庫根目錄依序執行 `npm run build`、`npm run check`、`npm run package`，再依既有匯出與發布流程交付。只有網站儲存庫時使用對應的來源與建置流程，不依賴未隨網站提供的動畫製作專案。
+- **檢查範圍**：核對兩組完整工作流與階段範本分流、直接連結、對應按鈕、完整複製、展開、使用說明、單份／全部提示詞下載、skill ZIP／參考檔／相關安裝版本一致，並檢查手機、鍵盤及離線操作。skill 或工具有變更時補相應格式及實際行為驗證；不為提示詞或 skill 檢查生成真實配音。純規範文件更新則檢查文件、來源路徑、同步及差異，不沿用舊 QA 當作本次結果。
+- 檢查通過後，確認並合併遠端更新，正常推送 GitHub main，再確認 Pages 的兩個工作流入口、使用說明及下載已更新。保留共同品牌、隱私與 Azure 共用管控規則；不強制推送，不公開原始對話、憑證、私人帳本或備份。
+<!-- complete-workflow-policy:end -->
+
 ## 新增與更新單元的必要交付流程
 
 本規則適用所有既有系列與未來新增系列。每次新增或更新單元，都須在同一次工作中完成以下流程，不以單支影片或單頁修改作為完成交付：
