@@ -2,13 +2,15 @@
 
 凍結成功旁白，用真實長度及詞組時間對齊；同時保留用量與審音界線。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 保留自然語速與完整句尾
 
 先分段確認講稿，再取得成功音訊的實際時長。畫面與字幕依實際語音安排，不按字數平均切割，也不為湊 60 秒加速或裁掉詞尾。
 
 字幕應逐字對應核准旁白；同音轉寫、數字形式與辨識差異留在 audit。ASR 提供時間與差異線索，不能當成百分之百正確的聽審結果。
+
+數數比操作動畫快時，可在已確認沒有語音的句間加入停頓，保留原音與原速；重新生成逐字時間戳、字幕與畫面事件。迴圈第三集在兩個數數間隙加入1.6秒與1.3秒，讓前進、扣能量、再檢查可辨識；這是本例對時，不是固定通用節拍。
 
 ## 成功音訊是可重用資產
 
@@ -49,6 +51,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 如需 Azure，先讀 tools/azure-speech/README.md，僅用共用 guard；未知用量先停止生成，不自動重試。
 依實際音訊及詞組時間安排字幕與畫面，保留自然速度和完整句尾。字幕逐字接回核准稿，保留 ASR 差異。
 交付音檔／字幕對照、最後語音結尾時間、實際做過的檢查及尚待聽審事項；不輸出金鑰或帳本私密內容。
+若計數語句快於操作，先核對無語音間隙，再加入必要停頓並重算字幕與動作，不用加速或重配掩蓋對時問題。
 ```
 
 ## 驗收
@@ -57,6 +60,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 - 字幕連接後對應核准稿且不重疊
 - 音訊結尾在影片範圍內，沒有裁句
 - 用量與 ASR／人工聽審限制如實記錄
+- 若插入停頓，確認不切斷語音，並同步更新字幕與動作事件。
 
 常見問題：把字幕改寫造成的差異誤判成漏讀，或把 ASR／波形檢查說成人工逐字聽審。
 
@@ -64,6 +68,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 
 - [variables](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=variables)：前後版本換聲後重新對時的案例。
 - [lists](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=lists)：字幕與旁白不一致，未必是 60 秒截字。
+- [loop-energy](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-energy)：保留原速，以句間停頓對齊三次能量更新。
 - 共用 Azure 管控：`../tools/azure-speech/README.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - Scratch 雲哲版審查：`scratch/projects/scratch-list-adventure/review/yunjhe-v1/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序配音版審查：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。

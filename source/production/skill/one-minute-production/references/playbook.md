@@ -1,6 +1,6 @@
 # 動畫製作技術手冊
 
-依據動畫系列的對話與製作文件整理，現行政策優先於歷史案例。來源更新：2026-10-23。
+依據動畫系列的對話與製作文件整理，現行政策優先於歷史案例。來源更新：2026-10-24。
 
 <a id="brief-storyboard"></a>
 
@@ -8,7 +8,7 @@
 
 從教學目標、生活比喻到逐幕講稿；先把要懂的事說清楚，再決定畫面。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 先定義觀眾要懂的一件事
 
@@ -65,7 +65,7 @@ SOURCES.md     素材來源與使用條件
 
 分清技能、CLI、專案與生成器；保留版本，換電腦或換對話也能接著做。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 技能與製作工具是不同層
 
@@ -131,7 +131,7 @@ npm run check
 
 先產生動作追蹤，再把比較、交換、搬盤與搜尋範圍對到時間軸。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 追蹤紀錄是動作與統計的共同依據
 
@@ -165,6 +165,16 @@ npm run check
 
 每個示範是一個獨立情境。換情境先重設角色、門與狀態，再重新求值；不要把前一關的能量門檻加到下一關的密碼規則。最後才用（有鑰匙 或 知道密碼）且 非（警報已啟動）驗證八種組合，其中三種可以通過。
 
+## 迴圈：把檢查、輪數與本體指令分開
+
+固定次數示範先定義一輪的範圍：前進加收星共兩個指令，整組做四輪，本體指令共八次。統計不包含迴圈控制與迴圈外指令。
+
+重複直到示範每輪先檢查，不成立才前進；三個獨立情境前進 3／1／0 次，條件檢查分別為 4／2／1 次。最後一次成立的檢查不再執行本體。起初已成立時直接離開，再執行外面的下一個指令。
+
+動畫使用同一份事件時間表驅動角色位置、檢查結果與計數，並驗證倒回後狀態相同。視覺碰到寶箱的時刻也必須與條件為真一致，不能只靠文字宣告已碰到。
+
+示範停不下來時，有限影片只能展示前幾步，必須標明教學暫停，不能讓片段結束看起來像程式自然停止。每輪前進與扣能量分開：缺少更新時能量維持3；補上減1後到零，下一次檢查成立才離開。更新後用「待再檢查」取代過時真假結果，避免與目前數值矛盾。
+
 ## 可重複的步驟
 
 1. 定義初始資料、規則與計數單位
@@ -179,6 +189,8 @@ npm run check
 - 示範次數與上下限分開
 - 可指出哪些動作縮時、哪些只作計算
 - 條件動畫涵蓋全部真假組合，運算不會偷偷改變輸入狀態。
+- 迴圈檢查、本體動作與輪數各自計數；零次案例、畫面接觸與成立結果一致。
+- 不停止案例有有限展示標示；更新後到重新檢查之間不顯示過時結果為目前判斷。
 
 常見問題：只檢查最後排好了，卻沒有驗證過程；或把顯示的數字直接寫死成「正確統計」。
 
@@ -189,11 +201,16 @@ npm run check
 - [search-binary](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=search-binary)：閉區間與比較順序都有驗證。
 - [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：四種組合完整列出，特別驗證兩個都真也可以。
 - [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：反轉一個判斷，警報狀態保持不變。
+- [loop-repeat](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-repeat)：兩個本體指令做四輪，輪數與指令次數分開。
+- [loop-until](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-until)：3／1／0 次前進與 4／2／1 次檢查，並驗證倒回。
+- [loop-energy](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-energy)：缺少能量更新與修正後三輪對照，教學暫停不冒充程式終止。
 - 河內塔第三集審查：`hanoi/projects/hanoi-steps/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 搜尋驗證程式：`search/projects/search-binary/verify.mjs`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序驗證紀錄：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 布林邏輯示範與驗證：`one_minute/scratch/projects/scratch-boolean-or/scenes.json`（完整動畫工作區相對路徑，非網站下載檔）。
 - 組合條件八種狀態：`one_minute/scratch/projects/scratch-boolean-not/combined-challenge.json`（完整動畫工作區相對路徑，非網站下載檔）。
+- 迴圈狀態與正式成片審查：`one_minute/scratch/projects/scratch-loop-until/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
+- 停止條件更新與語音對時：`one_minute/scratch/projects/scratch-loop-energy/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 
 ---
 
@@ -203,13 +220,15 @@ npm run check
 
 凍結成功旁白，用真實長度及詞組時間對齊；同時保留用量與審音界線。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 保留自然語速與完整句尾
 
 先分段確認講稿，再取得成功音訊的實際時長。畫面與字幕依實際語音安排，不按字數平均切割，也不為湊 60 秒加速或裁掉詞尾。
 
 字幕應逐字對應核准旁白；同音轉寫、數字形式與辨識差異留在 audit。ASR 提供時間與差異線索，不能當成百分之百正確的聽審結果。
+
+數數比操作動畫快時，可在已確認沒有語音的句間加入停頓，保留原音與原速；重新生成逐字時間戳、字幕與畫面事件。迴圈第三集在兩個數數間隙加入1.6秒與1.3秒，讓前進、扣能量、再檢查可辨識；這是本例對時，不是固定通用節拍。
 
 ## 成功音訊是可重用資產
 
@@ -245,6 +264,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 - 字幕連接後對應核准稿且不重疊
 - 音訊結尾在影片範圍內，沒有裁句
 - 用量與 ASR／人工聽審限制如實記錄
+- 若插入停頓，確認不切斷語音，並同步更新字幕與動作事件。
 
 常見問題：把字幕改寫造成的差異誤判成漏讀，或把 ASR／波形檢查說成人工逐字聽審。
 
@@ -252,6 +272,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 
 - [variables](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=variables)：前後版本換聲後重新對時的案例。
 - [lists](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=lists)：字幕與旁白不一致，未必是 60 秒截字。
+- [loop-energy](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-energy)：保留原速，以句間停頓對齊三次能量更新。
 - 共用 Azure 管控：`../tools/azure-speech/README.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - Scratch 雲哲版審查：`scratch/projects/scratch-list-adventure/review/yunjhe-v1/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序配音版審查：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
@@ -264,7 +285,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 
 緩動、物件連續性、文字層級與閱讀時間，一開始就納入設計。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 動作要有因果，文字要有閱讀時間
 
@@ -336,7 +357,7 @@ window.__timelines["scene"] = tl;
 
 把專案檢查、數據驗證、實際成片檢查分開，留下可追溯證據。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 三個層次，回答不同問題
 
@@ -395,7 +416,7 @@ ffmpeg -v error -i renders/<專案>-v2.mp4 -f null -
 
 正式版本、課程目錄、路線、封面、相關單元與離線包一起交付。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 製作來源與公開交付分開
 
@@ -465,7 +486,7 @@ node one_minute/portal/tools/export-github.cjs
 
 提示詞描述這次要做什麼；skill 保存可重用方法、來源與操作界線。
 
-技術文章；不代表新影片。更新：2026-10-23。
+技術文章；不代表新影片。更新：2026-10-24。
 
 ## 先拆階段，再組合成完整工作流
 

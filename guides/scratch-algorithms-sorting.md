@@ -51,3 +51,9 @@
 網站導讀與連結統一在 `portal/content/catalog.json` 的 `connections` 維護。更新相關單元時一併核對說明與目標；不因點擊相關連結而標示看完，也不重設觀看進度。本次只補文件與網站導讀，重用已完成影片、字幕及音訊。
 
 概念依據：[Scratch Foundation：Variables and Lists](https://www.scratchfoundation.org/learn/learning-library/variables-lists)、[Conditional Statements](https://www.scratchfoundation.org/learn/learning-library/conditional-statements)；排序方法參考 [Princeton：Elementary Sorts](https://algs4.cs.princeton.edu/21elementary/)，並與本系列既有排序示範對照。文中的遊戲到排序對照是本系列的教學安排，不是來源文件原有的課程序列。
+
+## 迴圈與停止條件（2026-10-24）
+
+loop-repeat 將 algorithm-control-flow 的重複拆成整組動作，並連到 variables 的狀態累計。loop-until 將 conditions 的真假判斷放在每輪開始：成立就離開，不成立才執行。與 boolean-or 的延伸關係是組合停止條件，並非本集額外實作。路線先固定次數，再停止條件；不將關聯當作必修先後，也不連到未完成的第三集。
+
+第三集 loop-energy：條件看能量，前進只改變位置，必須另外更新能量。能量3→2→1→0後再檢查成立才離開。它與 variables 銜接資料更新，與 conditions 銜接真假求值，並承接 loop-until 的先檢查順序。課程／路線已補上雙向連結與5起步、每次減2的延伸題；刻意持續執行和不符合任務的迴圈錯誤分開說明。
