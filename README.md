@@ -569,6 +569,10 @@ git -C .github-publish/one_minute diff
 
 [網站技術文章與提示詞庫](https://suyungsheng-kh.github.io/one_minute/docs/production.html) 收錄八篇從各系列經驗整理的技術文章，附提示詞、技術手冊與 one-minute-production skill ZIP。來源為 source/content/production.json；技能來源在 source/production/skill，建置會產生下載檔，不包含對話原文、私人帳本或動畫原始製作專案。
 
+### 新增系列直接複製
+
+使用 [新增系列完整工作流](https://suyungsheng-kh.github.io/one_minute/docs/production.html#new-series)，填入主題、英文代號、集數、概念與工作區後貼到新對話。範本包含製作、共同品牌、網站整合、技術經驗與檢查後發布；若只規畫或預覽，先修改任務及授權段落。使用與安裝見 [新增系列及 skill 說明](guides/production-usage.md)。正文維護 source/content/production.json 的 workflowPrompts，並以 node source/tools/build-production.cjs --sync-skill 同步技能參考，再建置檢查；不要單改生成的網站或下載檔。
+
 ## 布林邏輯三部曲
 
 三集「且」「或」「非」各 60 秒，獨立觀看路線銜接條件判斷。完整規則、與變數／演算法的關聯及八種組合挑戰見 [布林邏輯](guides/boolean-logic.md)。首頁、課程、路線與概念圖同步整合；技術文章、提示詞與 skill 補入完整真假組合和動態遮擋檢查。

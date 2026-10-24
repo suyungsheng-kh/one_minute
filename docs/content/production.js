@@ -1,7 +1,7 @@
 window.ONE_MINUTE_PRODUCTION = {
   "title": "動畫製作技術",
   "subtitle": "把製作過程，也變成可複用的方法。",
-  "description": "從六個動畫系列的製作對話與實作紀錄，整理教學設計、時間軸、聲音、驗證與交付；每篇都有可複用提示詞。",
+  "description": "從各動畫系列的製作對話與實作紀錄，整理教學設計、時間軸、聲音、驗證與交付；每篇都有可複用提示詞。",
   "updated": "2026-10-24",
   "format": "技術文章與提示詞",
   "commonPrompt": "請先閱讀工作區與目標專案的 AGENTS.md、README、版本設定及既有審查紀錄，沿用已確認需求。區分規劃、已生成、已驗證與未完成；保留原素材及歷史輸出。只執行本次指定階段，不因有提示詞而自行消耗配音額度、渲染或發布。對已授權事項不要重複詢問。\n\n",
@@ -731,9 +731,24 @@ window.ONE_MINUTE_PRODUCTION = {
       "url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/text-to-speech"
     }
   ],
+  "workflowPrompts": [
+    {
+      "id": "new-series",
+      "title": "新增系列｜從動畫製作到網站上架",
+      "summary": "一次串起動畫製作、共同品牌、網站整合、技術經驗、提示詞與 skill 更新，檢查後推送 GitHub。",
+      "steps": [
+        "填入主題、英文代號、集數、概念及 animation 工作區的絕對路徑。",
+        "下方範本包含完整製作與 GitHub 發布授權；若只要規畫、預覽或暫不發布，先修改任務範圍與最後的授權段落。",
+        "複製到新對話。先確認可使用 $one-minute-production；尚未安裝時，從本頁下載 skill ZIP 並依使用說明安裝。"
+      ],
+      "prompt": "請使用 `$one-minute-production` skill，為「一分鐘認識」新增教學動畫系列，完成製作、網站整合與發布。\n\n系列主題：【主題名稱】\n系列英文代號：【資料夾名稱】\n預計集數：【集數】\n希望涵蓋的概念或情境：【簡述；未指定部分請提出建議】\n工作區：【animation 工作區絕對路徑】\n\n請先閱讀工作區、one_minute、所屬系列及 portal 的 AGENTS.md、品牌規範與製作工作流，確認現有專案和工具，再於 one_minute 正式位置製作。\n\n請完成以下工作：\n\n1. 動畫製作：每集約一分鐘、聚焦一個核心概念，使用繁體中文，以適合國中生理解的生活或遊戲情境說明。完成分集規畫、分鏡、講稿、動畫、配音、字幕、實際影片檢查與交付文件。配音遵守共用 Azure 用量管控，重用成功音訊；保留原始專案與歷史輸出。\n\n2. 品牌一致：沿用「原版的活潑構圖＋新版的品牌配色」：霧白、墨綠為主，藍黃輔色，搭配圓形襯底、白紙卡、星芒、手繪箭頭及圓角標籤。網站、封面、技術文章與提示詞庫共用既有模板；影片依共同品牌與教學情境設計。署名維持「一分鐘認識」，主軸為「一分鐘，認識一個概念」。\n\n3. 網站整合：同步更新首頁推薦、課程目錄、觀看路線、課程頁與品牌封面；檢查概念關聯圖是否需要擴充。整理與既有單元的合理關聯，補入文件、課程頁及觀看路線，加入相關課程連結，必要時補反向連結。保留既有網址與觀看紀錄，維持「首頁 → 觀看路線 → 課程頁」動線。\n\n4. 技術經驗整理：將本次可重複使用的製作方法、問題與修正、適用條件及實際驗證結果，整理進技術文章、提示詞庫與 one-minute-production skill，並同步技能參考檔、案例及下載內容。正文維護唯一來源，區分已驗證方法與待驗證想法；沒有新經驗時記錄原因，不重複堆疊文章。\n\n5. 檢查與發布：完成動畫內容、聲畫字幕對時、素材引用、影片播放與跳轉、課程導航、搜尋篩選、觀看進度、手機、鍵盤、提示詞複製、下載及離線檢查。依規範完成建置與打包，修正問題後再發布。\n\n本次授權完成上述製作、整合及正常推送至 https://github.com/suyungsheng-kh/one_minute 的 main。推送前確認並妥善合併遠端更新，不強制推送，不上傳憑證、私人帳本、備份或動畫原始製作專案。確認 GitHub Pages 已更新後，提供正式系列入口、各集連結、檢查結果與提交紀錄。正式網站固定使用 https://suyungsheng-kh.github.io/one_minute/。",
+      "download": "downloads/prompts/new-series.md"
+    }
+  ],
   "downloads": {
     "handbook": "downloads/production-handbook.md",
     "prompts": "downloads/production-prompts.md",
-    "skill": "downloads/one-minute-production-skill.zip"
+    "skill": "downloads/one-minute-production-skill.zip",
+    "usage": "downloads/production-usage.md"
   }
 };
