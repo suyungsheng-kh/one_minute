@@ -31,24 +31,26 @@
 @media(max-width:900px){.production-hero{gap:28px;grid-template-columns:1fr}.article-layout{grid-template-columns:minmax(0,1fr);gap:20px}.article-sidebar{position:static}.production-feature{gap:25px;padding:28px}.skill-panel{gap:25px}}
 @media(max-width:640px){.production-feature,.skill-panel{grid-template-columns:1fr;padding:23px;gap:25px}.production-feature h2{font-size:25px}.production-hero{padding-top:5px}.production-hero h1{font-size:32px}.production-lead{font-size:16px}.production-intro{padding:22px}.technical-grid{grid-template-columns:1fr}.technical-card{padding:21px}.technical-card h3{font-size:20px}.article-heading h1{font-size:30px}.technical-section h2{font-size:22px}.article-paragraph{font-size:15px}.production-main pre{padding:17px;font-size:12px}.prompt-item summary{font-size:16px}.prompt-read{display:block;margin:15px 0 0}.technical-section .section-heading{display:block}.technical-section .search{width:100%;margin-top:20px}}
 
-/* Paper textbook identity: quiet surfaces, forest ink, pencil emphasis. */
-:root{--surface:#ffffff;--surface-soft:#e9ede7;--pencil:#c6a34c;--pencil-light:#f1eddf}
-nav a:hover{color:var(--green)}
-.underlined{color:var(--ink)}.underlined:after{height:6px;bottom:1px;border-radius:0;background:#c6a34c70;transform:none}
-.serif-word{font-family:var(--font);font-weight:800}.live-dot{background:var(--pencil)}
-.button,.nav-cta{border-radius:4px}.primary:hover{background:#244635}.secondary{background:var(--surface-soft)}
-.world-circle{background:none;box-shadow:none;border:1px solid var(--line);border-radius:6px;left:4%;top:28px;width:92%;height:380px;max-width:none}
-.concept-card{background:var(--surface);border-color:var(--line);border-radius:4px;box-shadow:0 3px 0 #d8ded766}
-.card-steps,.card-score,.card-sort,.label-top,.label-bottom{transform:none}
-.world-spark,.doodle-arrow{display:none}.world-label{border-radius:3px;background:var(--surface-soft)}.label-bottom{background:var(--pencil-light)}
-.recipe>span{color:var(--green);background:var(--surface-soft)}.demo-bars span{background:#66806e}.demo-bars span:nth-child(2n){background:#7b9080}.sort-note b{color:var(--green)}
-.series-section{background:var(--paper)}
-.series-card,.recommendation-card,.lesson-card,.technical-card{background:var(--surface);border-color:var(--line);border-radius:4px}
-.series-card:hover,.lesson-card:hover,.recommendation-card:hover,.technical-card:hover{box-shadow:0 3px 0 #d8ded799;transform:translateY(-2px)}
-.series-icon{background:none;border:1px solid var(--line);border-radius:4px;color:var(--green)}
-.filter-button{border-radius:4px}.filter-button .mini-dot{display:none}
-.concept-map-diagram{background:#edf0eb;border-radius:4px}.map-node{border-top:2px solid var(--tone);border-radius:4px;box-shadow:none}.map-edge-label{stroke:#edf0eb}
-.closing,.production-feature,.production-intro,.skill-panel{background:var(--surface-soft);border-radius:4px}
-.closing-star{color:var(--pencil)}.course-sidebar,.article-sidebar{border-radius:4px}
+/* Playful workbook: original composition, forest brand, blue/yellow notes. */
+:root{--surface:#ffffff;--surface-soft:#e9ede7;--pencil:#c6a34c;--pencil-light:#fbf1cb;--work-blue:#34688b;--work-blue-light:#e2eff7}
+.tone-coral{--tone:#735e46;--tone-light:#fbf1cb}.tone-green{--tone:#315b47;--tone-light:#e3eddf}.tone-blue{--tone:#34688b;--tone-light:#e2eff7}.tone-orange{--tone:#725619;--tone-light:#fbf1cb}
+nav a:hover{color:var(--green)}.underlined{color:var(--ink)}.underlined:after{background:#c6a34c65;height:8px;border-radius:50%;transform:rotate(-4deg)}
+.live-dot{background:var(--pencil)}.button,.nav-cta{border-radius:7px}.primary:hover{background:#244635}.secondary{background:var(--work-blue-light);color:var(--ink)}
+.world-circle{background:#e3eddf;box-shadow:0 0 0 19px #f4edcf,0 0 0 20px #d7e3db}
+.concept-card{background:var(--surface);border-color:#d4dfd9;border-radius:11px;box-shadow:0 13px 24px #23372e14}
+.recipe>span{color:var(--green);background:#fbf1cb}.recipe i{color:var(--work-blue)}.world-spark{color:var(--pencil)}.world-spark.spark-b{color:var(--work-blue)}
+.world-label{background:var(--work-blue-light);color:var(--work-blue)}.label-bottom{background:var(--pencil-light);color:#725619}.doodle-arrow path{stroke:var(--work-blue)}
+.demo-bars span{background:#7096ad;color:#17271f}.demo-bars span:nth-child(2n){background:#90b3c7}.demo-bars span:last-child{background:var(--green);color:#ffffff}.sort-note b{color:var(--green)}
+.series-section{background:#edf4f8}.series-card,.lesson-card,.technical-card{background:var(--surface);border-color:var(--line);border-radius:11px}
+.recommendation-card{background:var(--surface);border-color:var(--line);border-top:3px solid var(--tone);border-radius:10px}
+.series-icon{background:var(--tone-light);color:var(--tone);border-radius:13px}.filter-button{border-radius:30px}
+.concept-map-diagram{background:#eef3e8;border-radius:13px}.map-node{border-top:3px solid var(--tone);border-radius:10px}.map-edge-label{stroke:#eef3e8}
+.closing{background:#e5eedf;border-radius:15px}.closing-star{color:var(--pencil)}.production-feature,.production-intro{background:var(--work-blue-light);border-radius:13px}.skill-panel{background:#eef3e8;border-radius:13px}
+.course-heading,.path-intro{position:relative}.course-heading .eyebrow,.path-intro .eyebrow{padding-right:40px}.page-spark{position:absolute;top:0;right:3px;width:28px;height:28px;color:var(--pencil);pointer-events:none;transform:rotate(12deg)}
+.page-spark .spark-blue{stroke:var(--work-blue)}.path-intro{min-width:0}.path-goal{background:var(--work-blue-light);border-color:#c9dce8;border-radius:14px;position:relative}.path-goal:after{content:"";position:absolute;right:22px;bottom:13px;width:55px;border-bottom:4px solid var(--pencil);border-radius:50%;transform:rotate(-4deg)}
+.guide-example{background:var(--work-blue-light);border-color:#c9dce8;border-radius:12px}.guide-watch{background:var(--pencil-light);border-left:3px solid var(--pencil);border-radius:0 9px 9px 0;padding:14px 18px}
+.takeaway{background:#fbf5df;border-top:0;border-left:4px solid var(--pencil);border-radius:0 12px 12px 0;padding:23px 25px;margin:20px 0 26px}.takeaway h2{margin-top:9px}.course-sidebar,.article-sidebar{border-radius:12px}
+.journey-number{background:var(--work-blue-light);border-color:#c9dce8;color:var(--work-blue)}
+@media(max-width:640px){.learning-world .card-score{right:40px}.learning-world .card-steps{left:5%}.learning-world .card-sort{left:15%}.page-spark{width:24px;height:24px}.takeaway{padding:20px}.guide-watch{padding:12px 15px}}
 
-@media(max-width:640px){.learning-world .card-score{right:52px}}
+@media(max-width:360px){.learning-world .card-score{right:80px}.learning-world .card-sort{left:13%}.learning-world .label-top{right:75px}.learning-world .label-bottom{right:70px}}
