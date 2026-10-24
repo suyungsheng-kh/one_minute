@@ -569,7 +569,7 @@ git -C .github-publish/one_minute diff
 
 [網站技術文章與提示詞庫](https://suyungsheng-kh.github.io/one_minute/docs/production.html) 收錄八篇從各系列經驗整理的技術文章，附提示詞、技術手冊與 one-minute-production skill ZIP。來源為 source/content/production.json；技能來源在 source/production/skill，建置會產生下載檔，不包含對話原文、私人帳本或動畫原始製作專案。
 
-### 新增系列直接複製
+### 新增與更新系列直接複製
 
 使用 [新增系列完整工作流](https://suyungsheng-kh.github.io/one_minute/docs/production.html#new-series)，填入主題、英文代號、集數、概念與工作區後貼到新對話。範本包含製作、共同品牌、網站整合、技術經驗與檢查後發布；若只規畫或預覽，先修改任務及授權段落。使用與安裝見 [新增系列及 skill 說明](guides/production-usage.md)。正文維護 source/content/production.json 的 workflowPrompts，並以 node source/tools/build-production.cjs --sync-skill 同步技能參考，再建置檢查；不要單改生成的網站或下載檔。
 
@@ -580,3 +580,5 @@ git -C .github-publish/one_minute diff
 ## 迴圈與停止條件三部曲
 
 三集「重複幾次」「什麼時候停」「為什麼停不下來」各 60 秒；[觀看路線](https://suyungsheng-kh.github.io/one_minute/docs/path.html?id=loops)銜接變數、條件判斷、布林邏輯與演算法流程。規則、零次執行及計數差異見 [迴圈與停止條件](guides/loops.md)。首頁概念圖提供迴圈節點；技術文章、提示詞與 skill 已同步。
+
+已有教材要修改時，使用 [更新既有系列或單元](https://suyungsheng-kh.github.io/one_minute/docs/production.html#update-unit)，填入更新目標、修改需求與保留項目；從正式版本接續，保留歷史素材、課程 id、舊連結與觀看紀錄。兩組完整工作流與八組階段範本分開選用，使用說明及 skill 同步更新。

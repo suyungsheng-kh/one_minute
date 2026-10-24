@@ -55,7 +55,7 @@
 
 - 首頁與路線使用生成的品牌 cover，播放器使用原影片 poster。修改 coverDesign 與 tools/brand-covers.cjs，Logo 沿用 assets/mark.svg，不直接編輯 docs/covers；公開署名維持「一分鐘認識」。封面變更須檢查全部課程與離線版。
 
-- 新增系列完整範本維護 source/content/production.json 的 workflowPrompts，與文章階段 prompt 分開，不附加單階段 commonPrompt。同步網站複製、提示詞下載及 skill references/prompts.md；使用說明維護 source/content/production-usage.md，再建置生成下載副本。新增範本不算新文章或動畫。
+- 新增／更新系列完整範本維護 source/content/production.json 的 workflowPrompts，與文章階段 prompt 分開，不附加單階段 commonPrompt。同步網站複製、提示詞下載及 skill references/prompts.md；使用說明維護 source/content/production-usage.md，再建置生成下載副本。新增範本不算新文章或動畫。
 
 - 動畫製作技術是獨立的文章系列，不虛增動畫集數。編輯 source/content/production.json、production.html、article.html、assets/production.js；技能來源在 source/production/skill。更新文章時同步 skill references（node source/tools/build-production.cjs --sync-skill），建置產生 Markdown、提示詞及 ZIP；檢查案例連結、複製與離線下載，保留影片觀看進度。不要上傳原始對話或私人資料。
 
