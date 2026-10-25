@@ -38,6 +38,12 @@ window.__timelines["scene"] = tl;
 
 畫面檢查要包含角色穿越、開門、狀態重置與倒回。只在開場截圖，容易漏掉動作中才出現的遮擋。預覽播放、隨機跳段後回到同一時間點，也要得到相同物件狀態。
 
+## 尺規正確，標籤仍可能被地面遮住
+
+跳躍動畫以角色實際腳底與同一地面校準最高點，仍須檢查尺規標籤的文字框。本次 0 刻度與地面共用區域，造成標籤遮擋與容器溢出；將尺規移至地面右側、加高標籤容器並延長水平導線後，三集重新取得有效瀏覽器樣本與成片抽圖。
+
+不要用忽略標記掩蓋真正遮擋，也不要把修正前報告當成修正後證據。狀態文字的單字換行與裝飾符號對比，也要在實際畫面中確認。
+
 ## 可重複的步驟
 
 1. 列出影響理解的問題並排優先度
@@ -56,6 +62,7 @@ window.__timelines["scene"] = tl;
 確認 paused timeline、固定狀態、媒體時間與字幕區安全。測試前進、倒回及場景邊界。
 只修本次指定問題，保留原素材和成功音訊；先提供修正版預覽與實際驗證紀錄，是否正式渲染依既有授權。
 加入角色跨過文字區、開門、狀態重置等動態時點，檢查遮擋與對比；將時間軸先往後再倒回同一時間，比對物件狀態與音訊位置。
+有尺規與地面時，同時檢查角色腳底的數值基準及尺規標籤的實際文字框，避免標籤被地面遮擋。修正後重新產生有效瀏覽器報告並檢視新 MP4，不沿用舊報告。
 ```
 
 ## 驗收
@@ -74,6 +81,7 @@ window.__timelines["scene"] = tl;
 - [hanoi-rules](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=hanoi-rules)：字幕、搬盤路徑與規則提示的配置。
 - [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：移動規則標籤，避免角色走進城門時遮擋文字。
 - [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：警報保持原狀，重新求值與倒回不改變示範語義。
+- [custom-block-height](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=custom-block-height)：高度尺與地面：數值及文字遮擋一起檢查
 - Scratch 動畫審查：`scratch/projects/scratch-list-adventure/review/ANIMATION-REVIEW.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - HyperFrames 時間契約：`../.agents/skills/hyperframes-core/SKILL.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 河內塔第一集審查：`hanoi/projects/hanoi-rules/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。

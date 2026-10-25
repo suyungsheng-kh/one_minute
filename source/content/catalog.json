@@ -97,6 +97,16 @@
       "siteSource": null,
       "siteAnchor": "",
       "recommended": "loop-repeat"
+    },
+    {
+      "id": "custom-blocks",
+      "title": "自訂積木與參數",
+      "subtitle": "跟著勇者，把動作取名字，再用輸入調整高度與次數。",
+      "color": "blue",
+      "icon": "code",
+      "siteSource": null,
+      "siteAnchor": "",
+      "recommended": "custom-block-jump"
     }
   ],
   "lessons": [
@@ -286,6 +296,10 @@
           {
             "lesson": "loop-repeat",
             "reason": "進一步拆解重複的本體與輪數。"
+          },
+          {
+            "lesson": "custom-block-jump",
+            "reason": "將一段循序動作封裝，呼叫後回到原流程。"
           }
         ]
       },
@@ -513,6 +527,10 @@
           {
             "lesson": "loop-energy",
             "reason": "能量是變數，前進與更新能量是不同的動作。"
+          },
+          {
+            "lesson": "custom-block-height",
+            "reason": "參數提供一次呼叫的輸入，與保存角色狀態的變數比較。"
           }
         ]
       },
@@ -3337,6 +3355,10 @@
           {
             "lesson": "loop-until",
             "reason": "換成由條件成立決定何時停止。"
+          },
+          {
+            "lesson": "custom-block-repeat",
+            "reason": "把跳躍包成自訂積木，再由迴圈重複呼叫。"
           }
         ]
       },
@@ -3742,6 +3764,429 @@
           }
         ]
       }
+    },
+    {
+      "id": "custom-block-jump",
+      "series": "custom-blocks",
+      "title": "把跳躍，變成一個積木",
+      "subtitle": "把動作取名字",
+      "summary": "分清定義與呼叫，理解自訂積木封裝一組動作。",
+      "seconds": 60,
+      "type": "概念解說",
+      "status": "published",
+      "tags": [
+        "Scratch",
+        "自訂積木",
+        "參數",
+        "跳躍"
+      ],
+      "videoSource": "docs/media/custom-block-jump.mp4",
+      "subtitleSource": "docs/subtitles/custom-block-jump.zh-TW.srt",
+      "posterSource": "docs/posters/custom-block-jump.jpg",
+      "posterTime": 25,
+      "siteAnchor": "custom-block-jump",
+      "question": "只有「定義跳一下」，沒有任何呼叫，角色會跳幾次？",
+      "answer": "0 次。定義只是說明怎麼做，還需要呼叫才能執行。",
+      "challenge": "定義「跳一下」，在綠旗事件後呼叫兩次，再說出「完成」。觀察執行順序。",
+      "openingQuestion": "相同的跳躍，要重寫嗎？",
+      "learningGoals": [
+        "分清定義與呼叫，理解自訂積木封裝一組動作。"
+      ],
+      "keyTakeaway": "定義把動作取名字；呼叫才會執行，完成後繼續下一個指令。",
+      "choices": [
+        "0 次",
+        "1 次",
+        "一直跳"
+      ],
+      "correctChoice": 0,
+      "connections": {
+        "title": "把動作、輸入與重複連起來",
+        "notes": [
+          {
+            "title": "自訂積木與迴圈",
+            "text": "自訂積木替動作命名；迴圈決定重複次數。定義內可使用迴圈，迴圈內也可呼叫自訂積木。"
+          },
+          {
+            "title": "參數與狀態變數",
+            "text": "參數提供這次呼叫的輸入；角色的能量、位置等變數則保存與更新狀態，兩者用途不同。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "loop-repeat",
+            "reason": "回顧整組做完才算一次。"
+          },
+          {
+            "lesson": "variables",
+            "reason": "比較呼叫輸入與保存角色狀態的變數。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "觀察循序執行與重複如何組合。"
+          }
+        ]
+      },
+      "guide": {
+        "intro": [
+          "分清定義與呼叫，理解自訂積木封裝一組動作。",
+          "定義把動作取名字；呼叫才會執行，完成後繼續下一個指令。"
+        ],
+        "exampleTitle": "觀察勇者的跳躍",
+        "example": [
+          {
+            "label": "定義",
+            "value": "上升 40，再下降 40"
+          },
+          {
+            "label": "呼叫兩次",
+            "value": "完整跳兩次"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先看呼叫",
+            "text": "找到「跳一下」的呼叫位置。定義只是說明做法，還需要呼叫才會執行。"
+          },
+          {
+            "title": "再看定義",
+            "text": "追蹤定義內依序執行的指令；第三集還要觀察迴圈的次數。"
+          },
+          {
+            "title": "確認完成與返回",
+            "text": "上升再下降、完整落地才算一次；定義完成後回到呼叫處繼續執行。"
+          }
+        ],
+        "reminders": [
+          "定義本身不會自動執行。畫面為教學簡化積木，動作以放慢示範呈現。",
+          "本例在同一角色內使用自訂積木，地面以角色原本的位置為基準。",
+          "參數不是全域變數；有可見動畫時不勾選「執行時不更新畫面」。"
+        ],
+        "watch": "同時觀察呼叫、程式高亮、上升下降與落地後返回。",
+        "comparison": "custom-blocks",
+        "cues": [
+          {
+            "t": 0,
+            "text": "相同的跳躍，要重寫嗎？"
+          },
+          {
+            "t": 6,
+            "text": "重複的動作，整理在一起"
+          },
+          {
+            "t": 13,
+            "text": "定義：幫動作取名字"
+          },
+          {
+            "t": 21,
+            "text": "呼叫：現在執行這組動作"
+          },
+          {
+            "t": 30,
+            "text": "落地後，回到呼叫處"
+          },
+          {
+            "t": 38,
+            "text": "呼叫兩次，就跳兩次"
+          },
+          {
+            "t": 46,
+            "text": "想一想：只有定義，會跳嗎？"
+          },
+          {
+            "t": 53.4,
+            "text": "取好名字，需要時再呼叫"
+          }
+        ]
+      },
+      "coverDesign": {
+        "titleLines": [
+          "把跳躍",
+          "變成一個積木"
+        ],
+        "subtitle": "把動作取名字"
+      }
+    },
+    {
+      "id": "custom-block-height",
+      "series": "custom-blocks",
+      "title": "同一個積木，跳得不一樣",
+      "subtitle": "用參數改變高度",
+      "summary": "理解呼叫時傳入的高度，如何改變同一組跳躍動作。",
+      "seconds": 60,
+      "type": "概念解說",
+      "status": "published",
+      "tags": [
+        "Scratch",
+        "自訂積木",
+        "參數",
+        "跳躍"
+      ],
+      "videoSource": "docs/media/custom-block-height.mp4",
+      "subtitleSource": "docs/subtitles/custom-block-height.zh-TW.srt",
+      "posterSource": "docs/posters/custom-block-height.jpg",
+      "posterTime": 25,
+      "siteAnchor": "custom-block-height",
+      "question": "想把高度從 40 改成 80，最直接要改哪裡？",
+      "answer": "將呼叫的高度輸入改成 80。同一個定義會使用這次傳入的值，落地仍回到原點。",
+      "challenge": "依序呼叫「跳躍 40」、「跳躍 80」、「跳躍 40」。預測三次最高點並驗證。",
+      "openingQuestion": "同一個動作，能跳得不同嗎？",
+      "learningGoals": [
+        "理解呼叫時傳入的高度，如何改變同一組跳躍動作。"
+      ],
+      "keyTakeaway": "參數是這次呼叫提供的輸入；流程相同，輸入不同，結果就能不同。",
+      "choices": [
+        "複製整個定義",
+        "將呼叫的高度輸入改成 80",
+        "把角色永久放到半空中"
+      ],
+      "correctChoice": 1,
+      "connections": {
+        "title": "把動作、輸入與重複連起來",
+        "notes": [
+          {
+            "title": "自訂積木與迴圈",
+            "text": "自訂積木替動作命名；迴圈決定重複次數。定義內可使用迴圈，迴圈內也可呼叫自訂積木。"
+          },
+          {
+            "title": "參數與狀態變數",
+            "text": "參數提供這次呼叫的輸入；角色的能量、位置等變數則保存與更新狀態，兩者用途不同。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "loop-repeat",
+            "reason": "回顧整組做完才算一次。"
+          },
+          {
+            "lesson": "variables",
+            "reason": "比較呼叫輸入與保存角色狀態的變數。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "觀察循序執行與重複如何組合。"
+          }
+        ]
+      },
+      "guide": {
+        "intro": [
+          "理解呼叫時傳入的高度，如何改變同一組跳躍動作。",
+          "參數是這次呼叫提供的輸入；流程相同，輸入不同，結果就能不同。"
+        ],
+        "exampleTitle": "觀察勇者的跳躍",
+        "example": [
+          {
+            "label": "輸入 40",
+            "value": "最高點 40，回到地面 0"
+          },
+          {
+            "label": "輸入 80",
+            "value": "最高點 80，回到地面 0"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先看呼叫",
+            "text": "找到呼叫的名稱，以及這次填入的輸入。"
+          },
+          {
+            "title": "再看定義",
+            "text": "追蹤定義內依序執行的指令；第三集還要觀察迴圈的次數。"
+          },
+          {
+            "title": "確認完成與返回",
+            "text": "上升再下降、完整落地才算一次；定義完成後回到呼叫處繼續執行。"
+          }
+        ],
+        "reminders": [
+          "定義本身不會自動執行。畫面為教學簡化積木，動作以放慢示範呈現。",
+          "本例在同一角色內使用自訂積木，地面以角色原本的位置為基準。",
+          "參數不是全域變數；有可見動畫時不勾選「執行時不更新畫面」。"
+        ],
+        "watch": "同時觀察呼叫、參數、程式高亮、最高點與落地計數。",
+        "comparison": "custom-blocks",
+        "cues": [
+          {
+            "t": 0,
+            "text": "同一個動作，能跳得不同嗎？"
+          },
+          {
+            "t": 6,
+            "text": "幫積木加上一個輸入"
+          },
+          {
+            "t": 13,
+            "text": "填入 40，傳給高度"
+          },
+          {
+            "t": 22,
+            "text": "定義內，使用這次的高度"
+          },
+          {
+            "t": 31,
+            "text": "只改輸入：40 → 80"
+          },
+          {
+            "t": 40,
+            "text": "每次呼叫，都帶入自己的值"
+          },
+          {
+            "t": 47,
+            "text": "想一想：要更高，改哪裡？"
+          },
+          {
+            "t": 52.8,
+            "text": "同一流程，不同輸入"
+          }
+        ]
+      },
+      "coverDesign": {
+        "titleLines": [
+          "同一個積木",
+          "跳得不一樣"
+        ],
+        "subtitle": "用參數改變高度"
+      }
+    },
+    {
+      "id": "custom-block-repeat",
+      "series": "custom-blocks",
+      "title": "高度與次數，各管一件事",
+      "subtitle": "兩個參數分工",
+      "summary": "分清高度與次數的角色，連結自訂積木、參數與迴圈。",
+      "seconds": 60,
+      "type": "概念解說",
+      "status": "published",
+      "tags": [
+        "Scratch",
+        "自訂積木",
+        "參數",
+        "跳躍"
+      ],
+      "videoSource": "docs/media/custom-block-repeat.mp4",
+      "subtitleSource": "docs/subtitles/custom-block-repeat.zh-TW.srt",
+      "posterSource": "docs/posters/custom-block-repeat.jpg",
+      "posterTime": 25,
+      "siteAnchor": "custom-block-repeat",
+      "question": "從「高度 40、次數 3」改為更高、仍跳三次，哪組輸入正確？",
+      "answer": "高度 80、次數 3。只改高度，跳躍次數仍由第二個輸入控制。",
+      "challenge": "先預測再執行「連續跳 40 3」與「連續跳 80 2」。分別記錄外層呼叫數與完整跳躍數。",
+      "openingQuestion": "跳多高？跳幾次？",
+      "learningGoals": [
+        "分清高度與次數的角色，連結自訂積木、參數與迴圈。"
+      ],
+      "keyTakeaway": "自訂積木封裝動作，參數提供輸入，迴圈依次數重複；三者各有用途。",
+      "choices": [
+        "高度 40、次數 6",
+        "高度 80、次數 3",
+        "高度 80、次數 2"
+      ],
+      "correctChoice": 1,
+      "connections": {
+        "title": "把動作、輸入與重複連起來",
+        "notes": [
+          {
+            "title": "自訂積木與迴圈",
+            "text": "自訂積木替動作命名；迴圈決定重複次數。定義內可使用迴圈，迴圈內也可呼叫自訂積木。"
+          },
+          {
+            "title": "參數與狀態變數",
+            "text": "參數提供這次呼叫的輸入；角色的能量、位置等變數則保存與更新狀態，兩者用途不同。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "loop-repeat",
+            "reason": "回顧整組做完才算一次。"
+          },
+          {
+            "lesson": "variables",
+            "reason": "比較呼叫輸入與保存角色狀態的變數。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "觀察循序執行與重複如何組合。"
+          }
+        ]
+      },
+      "guide": {
+        "intro": [
+          "分清高度與次數的角色，連結自訂積木、參數與迴圈。",
+          "自訂積木封裝動作，參數提供輸入，迴圈依次數重複；三者各有用途。"
+        ],
+        "exampleTitle": "觀察勇者的跳躍",
+        "example": [
+          {
+            "label": "高度 40、次數 3",
+            "value": "外層呼叫 1 次，完整跳 3 次"
+          },
+          {
+            "label": "高度 80、次數 2",
+            "value": "外層呼叫 1 次，完整跳 2 次"
+          }
+        ],
+        "steps": [
+          {
+            "title": "先看呼叫",
+            "text": "找到呼叫的名稱，以及這次填入的輸入。"
+          },
+          {
+            "title": "再看定義",
+            "text": "追蹤定義內依序執行的指令；第三集還要觀察迴圈的次數。"
+          },
+          {
+            "title": "確認完成與返回",
+            "text": "上升再下降、完整落地才算一次；定義完成後回到呼叫處繼續執行。"
+          }
+        ],
+        "reminders": [
+          "定義本身不會自動執行。畫面為教學簡化積木，動作以放慢示範呈現。",
+          "本例在同一角色內使用自訂積木，地面以角色原本的位置為基準。",
+          "參數不是全域變數；有可見動畫時不勾選「執行時不更新畫面」。"
+        ],
+        "watch": "同時觀察呼叫、參數、程式高亮、最高點與落地計數。",
+        "comparison": "custom-blocks",
+        "cues": [
+          {
+            "t": 0,
+            "text": "跳多高？跳幾次？"
+          },
+          {
+            "t": 6,
+            "text": "兩個輸入，分別控制"
+          },
+          {
+            "t": 14,
+            "text": "次數交給迴圈，高度交給跳躍"
+          },
+          {
+            "t": 22,
+            "text": "高度 40，完整跳 3 次"
+          },
+          {
+            "t": 32,
+            "text": "高度 80，完整跳 2 次"
+          },
+          {
+            "t": 42,
+            "text": "外層呼叫 1 次，裡面跳多次"
+          },
+          {
+            "t": 49,
+            "text": "想一想：更高，但仍跳 3 次？"
+          },
+          {
+            "t": 54.3,
+            "text": "高度管多高，次數管幾次"
+          }
+        ]
+      },
+      "coverDesign": {
+        "titleLines": [
+          "高度與次數",
+          "各管一件事"
+        ],
+        "subtitle": "兩個參數分工"
+      }
     }
   ],
   "startLesson": "variables",
@@ -3780,6 +4225,11 @@
       "lesson": "loop-repeat",
       "label": "迴圈與停止條件三部曲",
       "reason": "整組做幾輪？起初成立可以不做？為什麼又會停不下來？跟著勇者看懂三種問題。"
+    },
+    {
+      "lesson": "custom-block-jump",
+      "label": "自訂積木與參數三部曲",
+      "reason": "同一個勇者，從替跳躍取名字，到改變高度與次數，看懂定義、呼叫與輸入。"
     }
   ],
   "paths": [
@@ -3840,6 +4290,10 @@
           {
             "lesson": "loop-repeat",
             "reason": "將重複流程展開成逐輪執行。"
+          },
+          {
+            "lesson": "custom-block-jump",
+            "reason": "把一段循序動作命名，呼叫後繼續下一步。"
           }
         ]
       }
@@ -3901,6 +4355,10 @@
           {
             "lesson": "loop-until",
             "reason": "把條件判斷接到迴圈的停止規則。"
+          },
+          {
+            "lesson": "custom-block-height",
+            "reason": "比較參數輸入與狀態變數。"
           }
         ]
       }
@@ -4142,6 +4600,55 @@
           {
             "lesson": "boolean-or",
             "reason": "用「或」組合可能的停止條件。"
+          },
+          {
+            "lesson": "custom-block-repeat",
+            "reason": "把跳躍包成自訂積木，再由迴圈重複。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "custom-blocks",
+      "series": "custom-blocks",
+      "title": "動作取名字，輸入讓它更靈活",
+      "description": "三集各一分鐘，從跳一下，到改變高度，再加入重複次數。",
+      "goal": "能區分定義、呼叫、參數與迴圈，預測角色的跳躍結果。",
+      "lessonIds": [
+        "custom-block-jump",
+        "custom-block-height",
+        "custom-block-repeat"
+      ],
+      "stepNotes": {
+        "custom-block-jump": "分清定義與呼叫，理解自訂積木封裝一組動作。",
+        "custom-block-height": "理解呼叫時傳入的高度，如何改變同一組跳躍動作。",
+        "custom-block-repeat": "分清高度與次數的角色，連結自訂積木、參數與迴圈。"
+      },
+      "reflection": "外層只呼叫一次「連續跳 80 3」，為什麼角色會跳三次？",
+      "connections": {
+        "title": "把動作、輸入與重複連起來",
+        "notes": [
+          {
+            "title": "自訂積木與迴圈",
+            "text": "自訂積木替動作命名；迴圈決定重複次數。定義內可使用迴圈，迴圈內也可呼叫自訂積木。"
+          },
+          {
+            "title": "參數與狀態變數",
+            "text": "參數提供這次呼叫的輸入；角色的能量、位置等變數則保存與更新狀態，兩者用途不同。"
+          }
+        ],
+        "relatedLessons": [
+          {
+            "lesson": "loop-repeat",
+            "reason": "回顧整組做完才算一次。"
+          },
+          {
+            "lesson": "variables",
+            "reason": "比較呼叫輸入與保存角色狀態的變數。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "觀察循序執行與重複如何組合。"
           }
         ]
       }
@@ -4149,7 +4656,7 @@
   ],
   "conceptMap": {
     "width": 1120,
-    "height": 800,
+    "height": 1000,
     "nodes": [
       {
         "id": "algorithms",
@@ -4267,6 +4774,19 @@
         "y": 475,
         "width": 240,
         "height": 120
+      },
+      {
+        "id": "custom-blocks",
+        "title": "自訂積木與參數",
+        "lesson": "custom-block-jump",
+        "role": "命名動作，提供輸入",
+        "summary": "一次呼叫，依高度與次數執行",
+        "color": "blue",
+        "icon": "code",
+        "x": 360,
+        "y": 850,
+        "width": 400,
+        "height": 132
       }
     ],
     "edges": [
@@ -4552,6 +5072,44 @@
             475
           ]
         ]
+      },
+      {
+        "from": "loops",
+        "to": "custom-blocks",
+        "label": "迴圈內也能呼叫自訂積木",
+        "labelX": 510,
+        "labelY": 816,
+        "points": [
+          [
+            260,
+            535
+          ],
+          [
+            280,
+            535
+          ],
+          [
+            280,
+            610
+          ],
+          [
+            320,
+            610
+          ],
+          [
+            320,
+            830
+          ],
+          [
+            560,
+            830
+          ],
+          [
+            560,
+            850
+          ]
+        ],
+        "arrow": false
       }
     ],
     "summary": [
@@ -4561,7 +5119,8 @@
       "排序與河內塔都能延伸思考步數和時間成本。",
       "排序整理順序，搜尋查找目標；循序搜尋一個一個檢查，不必先排序。",
       "且、或、非組合判斷結果；條件判斷再依真或假選擇動作，運算本身不會改變狀態。",
-      "迴圈重複一組動作；變數記錄每輪狀態，條件判斷決定繼續或離開。先檢查的停止條件，起初已成立時可以一次都不執行。"
+      "迴圈重複一組動作；變數記錄每輪狀態，條件判斷決定繼續或離開。先檢查的停止條件，起初已成立時可以一次都不執行。",
+      "自訂積木替一組動作命名；呼叫時傳入參數。迴圈可重複呼叫，完整動作的次數與外層呼叫數分開計算。"
     ]
   },
   "comparisons": {
@@ -4934,6 +5493,42 @@
         }
       ],
       "note": "本體動作次數與條件檢查次數分開計算；離開迴圈不代表整個程式停止。持續執行也可能是設計，需依任務判斷。"
+    },
+    "custom-blocks": {
+      "title": "自訂積木、參數與迴圈",
+      "caption": "三者各有不同工作",
+      "headers": [
+        "概念",
+        "負責什麼",
+        "跳躍例子"
+      ],
+      "rows": [
+        {
+          "lesson": "custom-block-jump",
+          "cells": [
+            "自訂積木",
+            "封裝一組動作並命名",
+            "跳一下：上升後下降"
+          ]
+        },
+        {
+          "lesson": "custom-block-height",
+          "cells": [
+            "參數",
+            "提供這次呼叫的輸入",
+            "高度 40 或 80"
+          ]
+        },
+        {
+          "lesson": "custom-block-repeat",
+          "cells": [
+            "迴圈",
+            "依次數重複本體",
+            "重複 3 次，每次呼叫跳躍"
+          ]
+        }
+      ],
+      "note": "定義不會自行執行；參數不會自動變成全域變數；外層呼叫數與內部跳躍數分開計算。"
     }
   }
 }

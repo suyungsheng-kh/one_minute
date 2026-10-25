@@ -52,7 +52,7 @@
 
 連續跳的外層呼叫次數、內部迴圈次數及完整跳躍次數分開記錄。角色完整落地才完成一次；高度 40 與 80 的位移比例是 1：2，使用同一地面基準，避免把 SVG 畫布底部誤當成角色腳底。
 
-檢查應分成來源與事件排程、瀏覽器狀態、正式影片三層。自訂積木三集已完成來源、真實 GSAP 數值目標的順逆向時間軸，以及 24 段原速旁白和字幕對時；數值目標檢查不能代替 DOM 畫面。實際瀏覽器與 MP4 尚待驗證，不能當成已發布成功案例。
+檢查應分成來源與事件排程、瀏覽器狀態、正式影片三層。自訂積木三集完成 44 次瀏覽器最高點／落地驗證、36 個倒回抽樣，各集另有 18 個版面檢查樣本；三支 MP4 皆為 60 秒、1920×1080、30fps，並完成解碼與原混音比對。數值目標檢查不能代替 DOM 與成片檢查。
 
 ## 可重複的步驟
 
@@ -100,6 +100,7 @@
 - [loop-repeat](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-repeat)：兩個本體指令做四輪，輪數與指令次數分開。
 - [loop-until](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-until)：3／1／0 次前進與 4／2／1 次檢查，並驗證倒回。
 - [loop-energy](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-energy)：缺少能量更新與修正後三輪對照，教學暫停不冒充程式終止。
+- [custom-block-repeat](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=custom-block-repeat)：自訂積木：外層呼叫與內部跳躍分開計數
 - 河內塔第三集審查：`hanoi/projects/hanoi-steps/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 搜尋驗證程式：`search/projects/search-binary/verify.mjs`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序驗證紀錄：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。

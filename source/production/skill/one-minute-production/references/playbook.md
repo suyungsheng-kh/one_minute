@@ -187,7 +187,7 @@ npm run check
 
 連續跳的外層呼叫次數、內部迴圈次數及完整跳躍次數分開記錄。角色完整落地才完成一次；高度 40 與 80 的位移比例是 1：2，使用同一地面基準，避免把 SVG 畫布底部誤當成角色腳底。
 
-檢查應分成來源與事件排程、瀏覽器狀態、正式影片三層。自訂積木三集已完成來源、真實 GSAP 數值目標的順逆向時間軸，以及 24 段原速旁白和字幕對時；數值目標檢查不能代替 DOM 畫面。實際瀏覽器與 MP4 尚待驗證，不能當成已發布成功案例。
+檢查應分成來源與事件排程、瀏覽器狀態、正式影片三層。自訂積木三集完成 44 次瀏覽器最高點／落地驗證、36 個倒回抽樣，各集另有 18 個版面檢查樣本；三支 MP4 皆為 60 秒、1920×1080、30fps，並完成解碼與原混音比對。數值目標檢查不能代替 DOM 與成片檢查。
 
 ## 可重複的步驟
 
@@ -219,6 +219,7 @@ npm run check
 - [loop-repeat](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-repeat)：兩個本體指令做四輪，輪數與指令次數分開。
 - [loop-until](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-until)：3／1／0 次前進與 4／2／1 次檢查，並驗證倒回。
 - [loop-energy](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=loop-energy)：缺少能量更新與修正後三輪對照，教學暫停不冒充程式終止。
+- [custom-block-repeat](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=custom-block-repeat)：自訂積木：外層呼叫與內部跳躍分開計數
 - 河內塔第三集審查：`hanoi/projects/hanoi-steps/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 搜尋驗證程式：`search/projects/search-binary/verify.mjs`（完整動畫工作區相對路徑，非網站下載檔）。
 - 排序驗證紀錄：`sorting/review/NARRATED-QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
@@ -271,7 +272,7 @@ node tools/azure-speech/index.mjs synthesize --project one_minute/<系列>/proje
 
 本次三集結尾旁白包含尾端靜音後，最晚完整音檔在 59.658 秒結束。將前一題的留白與答案段落邊界調整，再用逐詞時間戳安排字幕及動作，保持 60 秒且不加速、不裁句。
 
-ASR 文字不同時，不直接修改原音或重新配音。保存原轉寫、重辨識結果與核准稿；等長單字差異可保留詞組時間並恢復核准字幕，但發音判斷仍待聽審，不宣稱逐字一致。第一集「同一個定義」目前有一字辨識差異，尚未作為正式發布案例。
+ASR 文字不同時，不直接修改原音或重新配音。保存原轉寫、重辨識結果與核准稿；等長單字差異可保留詞組時間並恢復核准字幕，但發音判斷仍須聽審，不宣稱逐字一致。原音雜湊與混音比對能驗證檔案沿用和時間一致，不能代替發音判斷。
 
 ## 可重複的步驟
 
@@ -343,6 +344,12 @@ window.__timelines["scene"] = tl;
 
 畫面檢查要包含角色穿越、開門、狀態重置與倒回。只在開場截圖，容易漏掉動作中才出現的遮擋。預覽播放、隨機跳段後回到同一時間點，也要得到相同物件狀態。
 
+## 尺規正確，標籤仍可能被地面遮住
+
+跳躍動畫以角色實際腳底與同一地面校準最高點，仍須檢查尺規標籤的文字框。本次 0 刻度與地面共用區域，造成標籤遮擋與容器溢出；將尺規移至地面右側、加高標籤容器並延長水平導線後，三集重新取得有效瀏覽器樣本與成片抽圖。
+
+不要用忽略標記掩蓋真正遮擋，也不要把修正前報告當成修正後證據。狀態文字的單字換行與裝飾符號對比，也要在實際畫面中確認。
+
 ## 可重複的步驟
 
 1. 列出影響理解的問題並排優先度
@@ -366,6 +373,7 @@ window.__timelines["scene"] = tl;
 - [hanoi-rules](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=hanoi-rules)：字幕、搬盤路徑與規則提示的配置。
 - [boolean-or](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-or)：移動規則標籤，避免角色走進城門時遮擋文字。
 - [boolean-not](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=boolean-not)：警報保持原狀，重新求值與倒回不改變示範語義。
+- [custom-block-height](https://suyungsheng-kh.github.io/one_minute/docs/lesson.html?id=custom-block-height)：高度尺與地面：數值及文字遮擋一起檢查
 - Scratch 動畫審查：`scratch/projects/scratch-list-adventure/review/ANIMATION-REVIEW.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - HyperFrames 時間契約：`../.agents/skills/hyperframes-core/SKILL.md`（完整動畫工作區相對路徑，非網站下載檔）。
 - 河內塔第一集審查：`hanoi/projects/hanoi-rules/review/QA.md`（完整動畫工作區相對路徑，非網站下載檔）。
