@@ -582,3 +582,7 @@ git -C .github-publish/one_minute diff
 三集「重複幾次」「什麼時候停」「為什麼停不下來」各 60 秒；[觀看路線](https://suyungsheng-kh.github.io/one_minute/docs/path.html?id=loops)銜接變數、條件判斷、布林邏輯與演算法流程。規則、零次執行及計數差異見 [迴圈與停止條件](guides/loops.md)。首頁概念圖提供迴圈節點；技術文章、提示詞與 skill 已同步。
 
 已有教材要修改時，使用 [更新既有系列或單元](https://suyungsheng-kh.github.io/one_minute/docs/production.html#update-unit)，填入更新目標、修改需求與保留項目；從正式版本接續，保留歷史素材、課程 id、舊連結與觀看紀錄。兩組完整工作流與八組階段範本分開選用，使用說明及 skill 同步更新。
+
+## 互動冒險系列
+
+從 [紙境冒險系列首頁](docs/adventure.html) 進入遊戲、官方攻略與動畫概念對照。主站觀看路線之後及共用主導覽皆有入口；互動系列與八個動畫系列、二十四課分開計數。修改 source/tools/build-adventure.cjs 與 source/assets/adventure.css，更新遊戲時一併建置並執行 check:adventure。

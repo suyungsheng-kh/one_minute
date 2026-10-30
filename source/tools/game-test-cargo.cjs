@@ -1,0 +1,1 @@
+module.exports=function solveCargo(R,s,visit){for(const [good,side]of [['wood','left'],['heavy','left'],['medicine','right'],['food','right']]){visit(s,'cargo-'+good);visit(s,'cargo-'+side);}return visit(s,'cargo-lock');};

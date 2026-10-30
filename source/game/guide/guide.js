@@ -1,0 +1,19 @@
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id),key='paper-rpg-official-guide-v1',checks=[...document.querySelectorAll('[data-check]')],cards=[...document.querySelectorAll('[data-search],main>section')],answers=[...document.querySelectorAll('details[data-spoiler]')];
+let progress={};try{const raw=JSON.parse(localStorage.getItem(key)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))progress=raw;}catch{}
+function updateProgress(){$('check-progress').textContent='攻略勾選 '+checks.filter(c=>c.checked).length+' / '+checks.length;}
+function save(){const next=Object.fromEntries(checks.filter(c=>c.checked).map(c=>[c.dataset.check,true]));try{localStorage.setItem(key,JSON.stringify(next));}catch{}updateProgress();}
+for(const c of checks){c.checked=Object.hasOwn(progress,c.dataset.check)&&progress[c.dataset.check]===true;c.addEventListener('change',save);}updateProgress();
+$('reset-checks').addEventListener('click',()=>{if(!window.confirm('清除本攻略的勾選記錄？遊戲存檔不受影響。'))return;for(const c of checks)c.checked=false;save();});
+const normalize=s=>s.toLocaleLowerCase().replace(/\s+/g,' ').trim();
+function search(){const query=normalize($('guide-search').value),host=$('search-results');host.replaceChildren();if(!query){host.hidden=true;return;}host.hidden=false;const terms=query.split(' '),matches=cards.filter(c=>terms.every(t=>normalize((c.dataset.search||'')+' '+(c.dataset.title||'')+' '+c.textContent).includes(t))),p=document.createElement('p');p.textContent=matches.length?'找到 '+matches.length+' 筆，點選前往對應段落：':'找不到相符內容。可試試地名、人物或道具，例如「露米」「渡船」。';host.append(p);if(matches.length){const list=document.createElement('ul');for(const card of matches.slice(0,12)){const li=document.createElement('li'),a=document.createElement('a');a.href='#'+card.id;a.textContent=card.dataset.title||card.querySelector('h2')?.textContent||'攻略段落';a.addEventListener('click',()=>{if(card.tagName==='DETAILS')card.open=true;});li.append(a);list.append(li);}host.append(list);}}
+$('guide-search').addEventListener('input',search);$('clear-search').addEventListener('click',()=>{$('guide-search').value='';search();$('guide-search').focus();});
+function setAnswers(open){for(const d of answers)d.open=open;$('spoilers-toggle').textContent=open?'收起所有解答':'展開所有解答';$('spoilers-toggle').setAttribute('aria-pressed',String(open));}
+$('spoilers-toggle').addEventListener('click',()=>setAnswers(!answers.every(d=>d.open)));
+let printState=[];window.addEventListener('beforeprint',()=>{printState=[...document.querySelectorAll('details')].map(d=>[d,d.open]);for(const [d]of printState)d.open=true;});window.addEventListener('afterprint',()=>{for(const [d,open]of printState)d.open=open;printState=[];});$('print-guide').addEventListener('click',()=>window.print());
+const dialog=$('image-dialog');let returnFocus=null;
+for(const link of document.querySelectorAll('[data-zoom]'))link.addEventListener('click',e=>{if(typeof dialog.showModal!=='function')return;e.preventDefault();const img=link.querySelector('img');$('zoom-image').src=img.src;$('zoom-image').alt=img.alt;$('image-dialog-title').textContent=img.alt;$('image-original').href=link.href;returnFocus=link;dialog.showModal();});
+$('close-image').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});dialog.addEventListener('close',()=>returnFocus?.focus());
+if('IntersectionObserver'in window){const links=[...document.querySelectorAll('.toc a')],observer=new IntersectionObserver(entries=>{const entry=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];if(!entry)return;for(const a of links){if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');}},{rootMargin:'-5% 0px -65% 0px'});for(const section of document.querySelectorAll('main>section'))observer.observe(section);}
+})();

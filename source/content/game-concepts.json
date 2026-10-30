@@ -1,0 +1,534 @@
+{
+  "version": "3.1",
+  "reviewedDate": "2026-10-31",
+  "gameVersion": "20261031.39",
+  "reviewedGameHash": "91454cd3ff33808a1d1bc7f8109c462c25ec4851d988aa9e6304a10a92b4c841",
+  "reviewedCatalogHash": "914b417505ce5f27d3d307176d96df5c562daf057f9a3df8bb733d81dfe3cd76",
+  "principle": "遊戲維持 RPG 的故事與操作語言，動畫概念在這份對照頁閱讀；新增劇情先討論，再決定實作。",
+  "statuses": {
+    "A": {
+      "label": "可直接對照",
+      "description": "玩家已有可操作、可辨識的代表情境；不代表完整涵蓋課程目標或已驗證學習成效。"
+    },
+    "B": {
+      "label": "部分相近",
+      "description": "有相近狀態、流程或局部操作，仍缺少該課的關鍵操作與觀察。"
+    },
+    "C": {
+      "label": "核心待加入",
+      "description": "現有機關不能合理取代該課核心機制；需要新增對應玩法。"
+    }
+  },
+  "scenes": [
+    {
+      "id": "guardian",
+      "title": "餘火迷廊的守路石像",
+      "chapter": "第二章",
+      "map": "ashland-2",
+      "image": "guardian",
+      "guide": "guardian-solution",
+      "description": "在石碑刻下最多十二枚行動，喚醒石像，觀察它前進、轉向、推石；遇阻可回去改寫再執行。"
+    },
+    {
+      "id": "cargo",
+      "title": "漂木長廊的貨物升降台",
+      "chapter": "第一章",
+      "map": "tide-cargo",
+      "image": "cargo",
+      "guide": "cargo-solution",
+      "description": "逐件搬運重 1、2、2、3 的貨物，調整左右重量；四件全安置且等重後，拉桿接通石路。"
+    },
+    {
+      "id": "rings",
+      "title": "守護者門庭的三環石盤",
+      "chapter": "第三章",
+      "map": "sanctuary-1",
+      "image": "rings",
+      "guide": "rings-solution",
+      "description": "找齊誓印後轉動連動石環，讓外日、中月、內星對齊。這是狀態與連動機關，並非河內塔。"
+    },
+    {
+      "id": "resources",
+      "title": "商店、補給與技能",
+      "chapter": "三章共通",
+      "image": "village",
+      "guide": "equipment",
+      "description": "購買扣金幣、受擊改生命，補給檢查資源是否不足；技能依加入的夥伴與取得的星片開放。"
+    },
+    {
+      "id": "recovery",
+      "title": "藥屋、渡船與公共糧棚",
+      "chapter": "三章共通",
+      "map": "river",
+      "image": "river",
+      "guide": "recovery",
+      "description": "工具事件與原委託回報共同改變地圖：藥屋重新開門、渡船恢復、糧棚開伙。"
+    },
+    {
+      "id": "branches",
+      "title": "故事分歧與結局條件",
+      "chapter": "三章共通",
+      "image": "world-3",
+      "guide": "quests",
+      "description": "每章可選一條分歧；結局再檢查夥伴、回報與信物等條件。劇情二選一不等同布林「或」。"
+    },
+    {
+      "id": "navigation",
+      "title": "原野尋路與找線索",
+      "chapter": "三章共通",
+      "image": "world-1",
+      "guide": "exploration",
+      "description": "玩家探索位置、追查足跡，點地面可自動尋路；這些行動不等於在有序資料中進行二分搜尋。"
+    },
+    {
+      "id": "survival",
+      "title": "日夜、體力與營地",
+      "chapter": "三章共通",
+      "image": "daynight",
+      "guide": "survival",
+      "description": "時間與資源持續改變，營地每八個遊戲小時可恢復。計時、恢復或連續攻擊本身不等於玩家設定迴圈。"
+    },
+    {
+      "id": "tools",
+      "title": "三種工具的多種用途",
+      "chapter": "三章共通",
+      "image": "harbor",
+      "guide": "recovery-ferry",
+      "description": "提燈照足跡、星索鉤拉高處吊架、手甲移開水渠落石。已有共用操作，但玩家尚未定義帶參數的組合動作。"
+    },
+    {
+      "id": "cargo-order",
+      "title": "藥船出港前的三批貨",
+      "chapter": "第二章",
+      "map": "harbor-cargo-shed",
+      "image": "harbor-cargo",
+      "guide": "cargo-orders",
+      "description": "渡船恢復後，玩家在窄軌、吊架、接貨桌依序核對與搬箱，完成三種不同的收貨站整理方式；回報後收到沿岸回信與補給。"
+    },
+    {
+      "id": "teacher-index",
+      "title": "老師留下的兩套索引",
+      "chapter": "第二章",
+      "map": "ashland-archive",
+      "image": "teacher-index",
+      "guide": "teacher-records",
+      "description": "老師第三頁回報後，逐頁查散頁記錄，或從有序索引的中間站號縮小範圍。確認八十三號救援站後，可探訪東岸避風所，並重查同資料的兩種方法。"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "algorithm-bread",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "guardian"
+      ],
+      "evidence": "石像符石由玩家安排，步驟明確、可執行且有有限枚數，執行結果能直接觀察。",
+      "limit": "足以舉出清楚步驟的例子；五項特性與輸入／輸出的完整說明仍由動畫或討論補充。",
+      "proposals": [
+        "patrol"
+      ]
+    },
+    {
+      "id": "algorithm-control-flow",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "guardian",
+        "branches"
+      ],
+      "evidence": "符石按序執行；每章依選擇進入其中一條分歧，最後匯回主線。",
+      "limit": "循序與選擇較直接；固定次數重複目前沒有可設定的整組行動。",
+      "proposals": [
+        "patrol"
+      ]
+    },
+    {
+      "id": "algorithm-why",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "guardian"
+      ],
+      "evidence": "「讓石像到踏板」是目標；玩家必須給出實際步驟。走錯可改寫、重新執行與檢查，方案可保留重跑。",
+      "limit": "能觀察目標與方法的差別；跨地點重用同一套方案仍可再擴充。",
+      "proposals": [
+        "patrol",
+        "named-plan"
+      ]
+    },
+    {
+      "id": "variables",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "cargo",
+        "rings",
+        "resources",
+        "survival"
+      ],
+      "evidence": "生命與金幣、左右台重量、石環當前符號、計時與冷卻都有可觀察狀態；重置與增減帶來不同結果。",
+      "limit": "有遊戲情境，但玩家並未操作 Scratch 的「設為」與「改變」積木。",
+      "proposals": [
+        "patrol"
+      ]
+    },
+    {
+      "id": "lists",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "guardian"
+      ],
+      "evidence": "符石方案已是有順序的行動清單，可追加、抹去最後一枚、清空，並顯示目前長度。",
+      "limit": "目前只能移除末尾，沒有中段刪除後補位、逐項編號與替換操作；一般背包仍主要是道具數量。",
+      "proposals": [
+        "patrol",
+        "named-plan"
+      ]
+    },
+    {
+      "id": "conditions",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "resources",
+        "recovery",
+        "cargo"
+      ],
+      "evidence": "買得起才能扣款、貨物全部放妥且等重才能拉桿，委託回報與事件狀態共同決定設施能否使用。",
+      "limit": "課程範例的價格與遊戲不同；同次只走一條分支的原因仍需在文件中解釋。",
+      "proposals": []
+    },
+    {
+      "id": "bubble-sort",
+      "status": "A",
+      "previousStatus": "C",
+      "scenes": [
+        "cargo-order"
+      ],
+      "evidence": "窄軌貨台只允許核對相鄰兩箱；玩家依站號決定交換或保持，每輪固定末端一箱。初始 4、2、5、1、3，共十次比較、六次交換。",
+      "limit": "目前採固定五箱與完整輪次，沒有另外加入提早停止最佳化；它是可直接對照的遊戲例子，不代表所有排序目標已掌握。",
+      "proposals": [
+        "cargo-order"
+      ]
+    },
+    {
+      "id": "selection-sort",
+      "status": "A",
+      "previousStatus": "C",
+      "scenes": [
+        "cargo-order"
+      ],
+      "evidence": "挑箱吊架每輪掃描未裝妥的全部箱子，暫記最小站號，再吊到本輪前端。玩家實際選擇保留或改記候選箱。",
+      "limit": "現有五箱共十次比較、兩次吊換；不把自由挑一個箱子或只看最後排好當成完整過程。",
+      "proposals": [
+        "cargo-order"
+      ]
+    },
+    {
+      "id": "insertion-sort",
+      "status": "A",
+      "previousStatus": "C",
+      "scenes": [
+        "cargo-order"
+      ],
+      "evidence": "接貨桌先保留 2、5 的有序前段，依序取下一箱 1、4、3；玩家核對並向右挪動較大箱，再插入空位。",
+      "limit": "初始有序前段由故事設備提供。玩家仍實際完成逐項比較、挪位與插入；可觀察七次比較、五次挪位。",
+      "proposals": [
+        "cargo-order"
+      ]
+    },
+    {
+      "id": "hanoi-rules",
+      "status": "C",
+      "previousStatus": "C",
+      "scenes": [],
+      "evidence": "現有三環石盤只改變符號狀態，沒有三柱與大小圓盤堆疊。",
+      "limit": "需要一次一盤、只取頂盤、大不壓小三項規則，三盤最少七步。",
+      "proposals": [
+        "handover"
+      ]
+    },
+    {
+      "id": "hanoi-recursion",
+      "status": "C",
+      "previousStatus": "C",
+      "scenes": [],
+      "evidence": "現有多層迷宮與共用函式，沒有玩家可觀察的「同樣方法解更小同類問題」。",
+      "limit": "單有樓層、重複或函式呼叫不能算遞迴；還需小塔、最大盤與一盤停止情況。",
+      "proposals": [
+        "handover"
+      ]
+    },
+    {
+      "id": "hanoi-steps",
+      "status": "C",
+      "previousStatus": "C",
+      "scenes": [],
+      "evidence": "等級、怪物與關卡難度會增加，但沒有盤數與最少搬移步數的倍增關係。",
+      "limit": "需要 1、3、7、15、31 等步數規律；難度變高不等於步數爆炸。",
+      "proposals": [
+        "handover"
+      ]
+    },
+    {
+      "id": "search-linear",
+      "status": "A",
+      "previousStatus": "B",
+      "scenes": [
+        "teacher-index"
+      ],
+      "evidence": "散頁航記必須從第一頁逐頁核對；目前第十三頁找到八十三號站。出發單可改用相同有序資料逐頁重查，共十四次。",
+      "limit": "這次提供了可操作的逐筆比較。自由探索地圖仍不算循序搜尋；現有目標固定，未另做目標不存在的案例。",
+      "proposals": [
+        "archive"
+      ]
+    },
+    {
+      "id": "search-binary",
+      "status": "A",
+      "previousStatus": "C",
+      "scenes": [
+        "teacher-index"
+      ],
+      "evidence": "編號索引先按站號排列，顯示目前範圍與中間頁。玩家依八十三號較小或較大保留一半，依 41、69、83 三次查到目標。",
+      "limit": "有序前提與整理成本另行說明；目前為十六筆固定資料，未另設空資料或找不到目標的任務。",
+      "proposals": [
+        "archive"
+      ]
+    },
+    {
+      "id": "search-race",
+      "status": "A",
+      "previousStatus": "C",
+      "scenes": [
+        "teacher-index"
+      ],
+      "evidence": "兩名送信人使用同一份十六筆有序資料與同一個八十三號目標；逐頁查閱十四次，取中間縮範圍查閱三次，結果並列且可重查。",
+      "limit": "目前直接呈現同資料、同目標的方法差異；尚未提供資料量翻倍的互動實驗。比較的是查閱次數，不是閱讀秒數，整理成本另計。",
+      "proposals": [
+        "archive"
+      ]
+    },
+    {
+      "id": "boolean-and",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "recovery",
+        "cargo",
+        "branches"
+      ],
+      "evidence": "藥屋需要長廊接通且藥草單已回報；拉桿需要貨物全放妥且兩台等重；隱藏結局需要各組條件齊備。",
+      "limit": "可直接看見缺一不可，但不代表已做過兩條件四種組合或所有邊界測試。",
+      "proposals": []
+    },
+    {
+      "id": "boolean-or",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "resources"
+      ],
+      "evidence": "星露在主角魔力、體力或夥伴魔力任一不足時可使用；多項同時不足也可以。",
+      "limit": "劇情二選一屬互斥路線，不能拿來當作布林「或」的完整例子。",
+      "proposals": []
+    },
+    {
+      "id": "boolean-not",
+      "status": "A",
+      "previousStatus": "A",
+      "scenes": [
+        "resources"
+      ],
+      "evidence": "技能尚不可施放時按鈕停用，與可施放狀態形成可觀察的反向結果。",
+      "limit": "這是可用的對照情境；目前沒有原判斷與否定結果並列。否定不會直接讓角色學會技能。",
+      "proposals": []
+    },
+    {
+      "id": "loop-repeat",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "guardian"
+      ],
+      "evidence": "石像按清單執行多個行動，但每一枚仍由玩家逐一加入。",
+      "limit": "連放四枚前進或按住揮劍，不等於把整組動作設定為重複四輪。",
+      "proposals": [
+        "patrol"
+      ]
+    },
+    {
+      "id": "loop-until",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "navigation",
+        "guardian"
+      ],
+      "evidence": "自動移動到目的地會停止，石像到踏板也會停下。",
+      "limit": "目前沒有可設定的「每輪先檢查」；起初已成立時執行零次的差異也未呈現。",
+      "proposals": [
+        "patrol"
+      ]
+    },
+    {
+      "id": "loop-energy",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "survival",
+        "guardian"
+      ],
+      "evidence": "體力會消耗與恢復，石像也會因障礙或符石結束而停止。",
+      "limit": "尚未讓玩家修正「迴圈內狀態不更新」造成不停的問題；不能用普通揮劍當每輪扣能量的例子。",
+      "proposals": [
+        "patrol"
+      ]
+    },
+    {
+      "id": "custom-block-jump",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "guardian",
+        "tools"
+      ],
+      "evidence": "前進、轉向、使用工具等是有名稱的既定操作。",
+      "limit": "玩家還不能自行定義一組組合動作、為它命名再呼叫；既定按鈕與內部函式不足以代表自訂積木。",
+      "proposals": [
+        "named-plan"
+      ]
+    },
+    {
+      "id": "custom-block-height",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "tools",
+        "guardian"
+      ],
+      "evidence": "同一互動鍵可作用於不同工具或物件，程式也有輸入參數。",
+      "limit": "選不同工具不等於替同一組動作傳入不同參數；目前沒有玩家可調的步距或效果量。",
+      "proposals": [
+        "named-plan"
+      ]
+    },
+    {
+      "id": "custom-block-repeat",
+      "status": "B",
+      "previousStatus": "B",
+      "scenes": [
+        "guardian"
+      ],
+      "evidence": "石像可執行一串指令，但沒有玩家定義的共用動作、單次輸入與外層輪數三者分工。",
+      "limit": "須分開單次動作的參數、呼叫次數與外層重複輪數。",
+      "proposals": [
+        "named-plan"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "cargo-order",
+      "priority": 1,
+      "chapter": "第二章・風鈴港與送藥航線",
+      "title": "藥船出港前的三批貨",
+      "hook": "渡船恢復後，露米發現新的藥箱要送到不同沿岸收貨站。船夫請玩家依收貨站編號排好，避免沿途反覆翻找。",
+      "play": "現版提供三個獨立貨台：窄軌核對相鄰箱、吊架掃描並暫記最小箱、接貨桌取箱後挪位插入。先核對再動作，選錯會提示，未完成單批可免費重整；進度可存讀。",
+      "outcome": "三批全完成後向理貨員回報，得 60 G、星露 ×2；貨棚出現收貨站回信，碼頭另有一次藥水 ×2、星露 ×1。渡船沿用原解鎖條件。",
+      "boundary": "三種玩法已各自提供必要比較與搬動操作。採固定五箱分段，一批完成後封箱；尚未提供任意箱數或整段重玩。",
+      "lessons": [
+        "bubble-sort",
+        "selection-sort",
+        "insertion-sort"
+      ],
+      "effort": "中",
+      "recommendation": "已實作：可由港口理貨員接續體驗；下一輪依試玩回饋調整提示與節奏。",
+      "status": "implemented",
+      "implementedBuild": "20261031.38"
+    },
+    {
+      "id": "archive",
+      "priority": 2,
+      "chapter": "第二章・灰燼林地與老師手記",
+      "title": "老師留下的兩套索引",
+      "hook": "找回並向原旅人回報老師第三頁後，航記小屋開放；抄寫人保管伊娜帶回的兩套航道記錄，共同指向八十三號救援站。",
+      "play": "現版可逐頁查散頁航記，或在有序索引中依中間站號排除一半。核對後開放避風所探訪；送信人桌另用同一有序資料與同一目標，重查兩種方法並比較次數。",
+      "outcome": "東岸避風所的旅人補充老師封住星脈、為未上船的人爭取一夜的往事；首次交談得 45 G、月露精華 ×1。這段不增加結局門檻。",
+      "boundary": "原散頁與索引順序不同，不能直接拿兩者次數比較。送信人桌才是相同有序資料的十四次對三次；排序整理成本與閱讀秒數分開。尚無資料量翻倍的互動實驗。",
+      "lessons": [
+        "search-linear",
+        "search-binary",
+        "search-race"
+      ],
+      "effort": "中",
+      "recommendation": "已實作：先向林地旅人回報老師第三頁，再進航記小屋；避風所與同資料重查均可回訪。",
+      "status": "implemented",
+      "implementedBuild": "20261031.38"
+    },
+    {
+      "id": "handover",
+      "priority": 3,
+      "chapter": "第三章・天光聖域的可選側殿",
+      "title": "守燈者的交班儀式",
+      "hook": "聖域門庭重新回應後，側殿露出舊守燈者用來交班的三座燈柱。他不再要求一個人承擔，而是留下能交給下一人的搬燈方法。",
+      "play": "新增三柱、不同大小的燈盤：一次只搬一盤、只取頂盤、大盤不壓小盤。先用三盤完成七步，再可選四盤十五步；將小塔、主燈、小塔的同類分解與一盤停止情況呈現出來。",
+      "outcome": "完成後得到交班人的一段記憶，章末多一段共同守望的回應；沿用既有三種結局分類。",
+      "boundary": "這是新的三柱搬盤機關，不能把現有三環石盤重新命名就算河內塔。只有自由搬盤仍不足以單獨說明遞迴與步數成長。",
+      "lessons": [
+        "hanoi-rules",
+        "hanoi-recursion",
+        "hanoi-steps"
+      ],
+      "effort": "中",
+      "recommendation": "作為第三章支線，補足河內塔三課，也呼應故事主題。",
+      "status": "proposed"
+    },
+    {
+      "id": "patrol",
+      "priority": 4,
+      "chapter": "第二章・石像修復後的巡守庭院",
+      "title": "重新學會巡守的石像",
+      "hook": "巡守者希望石像能照看多段短路，而不是永遠停在同一塊踏板。玩家協助修復另一座練習庭院的巡守方案。",
+      "play": "先加入中段抽換符石與自動補位，再加入「前進＋拾回晶石」整組重複、看到標記就停，以及每輪消耗能量的路線。卡住的舊符石因能量未更新而反覆運轉，玩家需補回更新並保留急停鈴。",
+      "outcome": "石像完成巡守後，沿途路燈逐盞恢復，巡守者能到別處協助旅人。",
+      "boundary": "分階段新增，讓固定輪數、先檢查停止條件與狀態更新各有明確結果；故障採可中止的模擬，避免真的卡死遊戲。",
+      "lessons": [
+        "algorithm-bread",
+        "algorithm-control-flow",
+        "algorithm-why",
+        "variables",
+        "lists",
+        "loop-repeat",
+        "loop-until",
+        "loop-energy"
+      ],
+      "effort": "中高",
+      "recommendation": "先做清單編輯，再做兩種巡守方式與故障修復，避免一次堆入太多控制。",
+      "status": "proposed"
+    },
+    {
+      "id": "named-plan",
+      "priority": 5,
+      "chapter": "第二至三章・巡守方案與要塞接班",
+      "title": "把一段路，交給下一位守望者",
+      "hook": "伊娜把老師留下的方案改寫成能交給其他石像使用的巡守約定，讓要塞的接班人也能沿用。",
+      "play": "玩家先定義並命名一組動作；只刻寫時石像不動，喚醒呼叫後才執行並返回下一步。同一方案可帶不同步距，再由外層安排巡回輪數，分清動作本身、這次輸入與重複次數。",
+      "outcome": "第二座石像沿用方案照看另一段山道，讓「守護可以交接」成為可操作的故事結果。",
+      "boundary": "必須真的提供玩家定義、呼叫與輸入操作，不能只因程式用了函式就說已涵蓋自訂積木；它也不必在遊戲裡被稱作 Scratch 積木。",
+      "lessons": [
+        "algorithm-why",
+        "lists",
+        "custom-block-jump",
+        "custom-block-height",
+        "custom-block-repeat"
+      ],
+      "effort": "高",
+      "recommendation": "建立在巡守庭院之後，最後再加入參數與重用，保留原本十二枚符石方案。",
+      "status": "proposed"
+    }
+  ],
+  "previousGameVersion": "20261030.37"
+}

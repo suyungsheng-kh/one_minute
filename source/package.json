@@ -4,7 +4,12 @@
   "version": "1.0.0",
   "scripts": {
     "build": "node tools/build.cjs && node tools/sync-docs.cjs",
-    "check": "node tools/check.cjs && node tools/check-narrated.cjs && node tools/check-covers.cjs && node tools/check-production.cjs",
+    "check": "node tools/check.cjs && node tools/check-narrated.cjs && node tools/check-covers.cjs && node tools/check-production.cjs && node tools/check-game.cjs && node tools/check-campaign.cjs && node tools/check-exploration.cjs && node tools/check-wilderness.cjs && node tools/check-homes.cjs && node tools/check-journey.cjs && node tools/check-audio.cjs && node tools/check-experience.cjs && node tools/check-equipment.cjs && node tools/check-economy.cjs && node tools/check-checkpoints.cjs && node tools/check-onboarding.cjs && node tools/check-character.cjs",
+    "check:game": "node tools/check-game.cjs && node tools/check-campaign.cjs && node tools/check-exploration.cjs && node tools/check-wilderness.cjs && node tools/check-homes.cjs && node tools/check-journey.cjs && node tools/check-audio.cjs && node tools/check-experience.cjs && node tools/check-equipment.cjs && node tools/check-economy.cjs && node tools/check-checkpoints.cjs && node tools/check-onboarding.cjs && node tools/check-character.cjs",
+    "check:economy": "node tools/check-campaign.cjs && node tools/check-economy.cjs",
+    "check:checkpoints": "node tools/check-checkpoints.cjs",
+    "check:onboarding": "node tools/check-onboarding.cjs",
+    "check:character": "node tools/check-character.cjs",
     "preview": "node tools/serve.cjs",
     "package": "python tools/package.py"
   }

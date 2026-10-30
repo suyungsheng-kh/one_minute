@@ -1,6 +1,8 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),{spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..'),seriesRoot=path.dirname(root),dist=path.join(root,'dist');
+require('./build-game-characters.cjs').build();
+require('./build-game-guide.cjs').build();
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'content/catalog.json'),'utf8'));
 const safeId=/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
 function inside(base,target){const rel=path.relative(base,target);if(!rel||rel.startsWith('..')||path.isAbsolute(rel))throw new Error(`Unsafe path: ${target}`);return target;}
@@ -36,6 +38,7 @@ for(const s of catalog.series)for(const [key,target] of Object.entries(s.legacyS
 // Only the generated dist directory is replaced; all sources and series projects remain intact.
 inside(root,dist);if(fs.existsSync(dist)){if(fs.lstatSync(dist).isSymbolicLink())throw new Error('dist must not be a symlink');fs.rmSync(dist,{recursive:true});}fs.mkdirSync(dist,{recursive:true});
 for(const name of ['index.html','lesson.html','path.html','production.html','article.html'])put(path.join(root,name),path.join(dist,name));fs.cpSync(path.join(root,'assets'),path.join(dist,'assets'),{recursive:true});
+fs.cpSync(path.join(root,'game'),path.join(dist,'game'),{recursive:true});
 fs.writeFileSync(path.join(dist,'.nojekyll'),'');
 let ffmpeg=process.env.FFMPEG_PATH;
 if(!ffmpeg){const probe=spawnSync('where.exe',['ffmpeg'],{encoding:'utf8'});if(probe.status===0)ffmpeg=probe.stdout.trim().split(/\r?\n/)[0];}
@@ -61,4 +64,6 @@ browser.lessons.push(l);
 }
 fs.mkdirSync(path.join(dist,'content'),{recursive:true});fs.writeFileSync(path.join(dist,'content/catalog.js'),'window.ONE_MINUTE_CATALOG = '+JSON.stringify(browser,null,2)+';\n');
 const technical=require('./build-production.cjs').buildProduction(root,dist,publishedIds);
+require('./build-game-concepts.cjs').build();
+require('./build-adventure.cjs').build();
 console.log(JSON.stringify({output:dist,series:browser.series.length,lessons:browser.lessons.length,technical,offline:true}));

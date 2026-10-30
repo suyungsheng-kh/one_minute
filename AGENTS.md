@@ -77,3 +77,31 @@
 - 2026-10-24 使用者最新確認「原版的活潑構圖＋新版的品牌配色」：霧白與墨綠為品牌，恢復藍、黃輔色、圓形襯底、傾斜紙卡、星芒、手繪箭頭與圓角標籤。依 guides/website-brand.md 同步首頁、課程、路線與封面，裝飾不得遮擋內容與操作；歷史影片與 poster 保留，不恢復橘色主導。
 
 - 技術首頁、文章、提示詞庫與 skill 下載區沿用相同活潑教材品牌，依 guides/website-brand.md 維護圓形襯底、白紙卡、綠藍黃編號、星芒、手繪箭頭、筆記區及閱讀目錄。長文與提示詞保持水平可讀；修改 source/production.html、article.html、assets/style.css、assets/production.js 後執行 check-production，確認完整複製、下載、案例、鍵盤、手機與離線。
+
+<!-- rpg-guide-policy:start -->
+## 遊戲與官方攻略同步（2026-10-30 使用者要求）
+
+- 每次更新 `source/game` 的玩法、故事、任務、地圖、機關、工具、裝備、數值、操作或結局，都要在同一次工作同步核對官方網頁攻略 `source/game/guide/index.html`，包含圖解、流程、解法、道具來源與版本，不能只改遊戲後留待補攻略。
+- 攻略文案與產生器維護於 `source/tools/build-game-guide.cjs`、`source/game/guide/content.json`；介面維護於 `source/game/guide/guide.css` 與 `guide.js`。圖表直接讀取現行遊戲資料；不手改生成的攻略 HTML、`images` 或 `manifest.json`。遊戲新增模組時由遊戲入口的腳本順序取得最新資料入口。
+- 建置會比較遊戲來源指紋與攻略已審閱版本。來源有變更時，先實際核對受影響文字、流程、解法與圖表，再執行 `node tools/build-game-guide.cjs --review` 記錄本次審閱。不得只更新指紋或版本來略過內容核對；無攻略內容差異時，也要記錄已檢視及原因。
+- 執行 `npm run check:guide` 核對版本、來源指紋、三章與全部樓層／原支線／配方／材料的覆蓋、圖片與站內連結；遊戲功能改動照常執行相應遊戲檢查。完成建置、離線打包與既有 GitHub 匯出流程，讓遊戲與攻略一併交付。攻略勾選紀錄與遊戲存檔分開。
+<!-- rpg-guide-policy:end -->
+
+<!-- rpg-concepts-policy:start -->
+## 遊戲、攻略與動畫概念對照同步（2026-10-30 使用者追加要求）
+
+- 每次遊戲更新時，也要在同一次工作同步核對 `game-concepts.html` 與其 Markdown 對照文件；與官方攻略一起維護。現況分級、場景關聯與「尚未實作」提案必須如實更新，不能把新提案列成既有功能，也不能把相似機關直接算成已涵蓋動畫。
+- 唯一對照資料維護於 `source/content/game-concepts.json`；課程名稱、核心概念與連結讀取正式 `source/content/catalog.json`。`source/tools/build-game-concepts.cjs` 產生雙向網頁與 Markdown，介面由 `source/assets/game-concepts.css`、`source/assets/game-concepts.js` 維護；不要直接修改生成副本。
+- 遊戲來源或課程目錄內容變動時，實際核對受影響的概念、玩法與提案狀態，再執行 `node tools/build-game-concepts.cjs --review`；不得只更新指紋略過核對。動畫新增或更新時，也要檢視本表。沒有映射內容差異時，記錄已核對與原因。
+- 執行 `npm run check:concepts` 檢查全部已發布課程、雙向關聯、現況分類、攻略錨點、動畫連結與生成的 Markdown；建置、離線包及 GitHub 匯出需一起包含本頁。對照頁放在遊戲外，不把教學名稱或任務門檻強加進 RPG，不因開啟動畫連結改變原觀看紀錄。
+- 原對照討論稿已有 Library 文件身分。完整工作區更新時，依文件管理流程更新同一份 Markdown 文件並保留版本；本機 `reports` 中的文件識別與版本紀錄供核對，不把私人識別資料匯出到公開網站。
+<!-- rpg-concepts-policy:end -->
+
+<!-- rpg-series-policy:start -->
+## 互動冒險系列入口（2026-10-31 使用者確認）
+
+- 遊戲、官方攻略與動畫概念對照整合於 `adventure.html`，名稱為「互動冒險｜紙境冒險：星燈守望」。主站首頁放在觀看路線之後、動畫製作技術之前，保留原 `#rpg-game` 深連結。共用主導覽加入「互動冒險」，桌面與手機均須可見。
+- 系列首頁、遊戲開始畫面、攻略與對照頁提供「系列首頁／進入遊戲／官方攻略／概念對照」。角色存檔、動畫觀看紀錄及攻略勾選仍由原頁面管理，系列頁不讀寫進度；互動冒險不混入動畫的系列與課程計數。
+- 系列頁由 `source/tools/build-adventure.cjs` 與 `source/assets/adventure.css` 產生，不手改生成副本。版本從遊戲、攻略與對照資料取得；之後遊戲更新時，與本系列首頁一併同步，執行 `npm run check:adventure`。首頁、課程、路線及技術頁延續共同導覽與品牌。
+- 建置、離線 ZIP、GitHub source/docs 與根目錄首頁都要包含本入口及往返連結。正式發布沿用 GitHub Pages，不另建平行網站。
+<!-- rpg-series-policy:end -->
