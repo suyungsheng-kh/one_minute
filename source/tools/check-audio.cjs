@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const A=require('../game/audio.js'),R=require('../game/harbor-stories.js'),root=path.resolve(__dirname,'..');
+const A=require('../game/audio.js'),R=require('../game/handover.js'),root=path.resolve(__dirname,'..');
 const report={version:24,date:new Date().toISOString(),checks:[],browserListening:'not performed; deterministic media/Web Audio adapter and PCM analysis only'};
 function test(name,fn){fn();report.checks.push(name);}
 class Media{constructor(){this.paused=true;this.volume=0;this.currentTime=0;this.src='';this.calls=0;this.handlers={};Media.all.push(this);}addEventListener(k,fn){this.handlers[k]=fn;}play(){this.calls++;if(Media.reject)return {catch:fn=>fn(Error('autoplay blocked'))};this.paused=false;return Promise.resolve();}pause(){this.paused=true;}removeAttribute(){this.src='';}load(){}}

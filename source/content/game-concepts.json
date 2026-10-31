@@ -1,8 +1,8 @@
 {
-  "version": "3.2",
+  "version": "3.4",
   "reviewedDate": "2026-10-31",
-  "gameVersion": "20261031.40",
-  "reviewedGameHash": "2196194f69ec2e29b045a1c0066d47d4b901439119f595c55ef39020d1aaa0eb",
+  "gameVersion": "20261031.42",
+  "reviewedGameHash": "8fbcbc32336c17a26f9748af65de323c3eb26a1c1a92eb0bd3a580f00e68a708",
   "reviewedCatalogHash": "914b417505ce5f27d3d307176d96df5c562daf057f9a3df8bb733d81dfe3cd76",
   "principle": "遊戲維持 RPG 的故事與操作語言，動畫概念在這份對照頁閱讀；新增劇情先討論，再決定實作。",
   "statuses": {
@@ -113,6 +113,15 @@
       "image": "teacher-index",
       "guide": "teacher-records",
       "description": "老師第三頁回報後，逐頁查散頁記錄，或從有序索引的中間站號縮小範圍。確認八十三號救援站後，可探訪東岸避風所，並重查同資料的兩種方法。"
+    },
+    {
+      "id": "handover",
+      "title": "守燈者交班側殿的三柱燈盤",
+      "chapter": "第三章",
+      "map": "sanctuary-handover",
+      "image": "handover",
+      "guide": "handover-solution",
+      "description": "門庭三環解開後進側殿，一次只搬頂盤、大盤不壓小盤；依序交接一盞、兩盞、三盞，回訪可重演三盞或挑戰四盞。交班簿呈現小塔分解、一盞停止與步數倍增再加一。"
     }
   ],
   "lessons": [
@@ -203,7 +212,7 @@
     {
       "id": "bubble-sort",
       "status": "A",
-      "previousStatus": "C",
+      "previousStatus": "A",
       "scenes": [
         "cargo-order"
       ],
@@ -216,7 +225,7 @@
     {
       "id": "selection-sort",
       "status": "A",
-      "previousStatus": "C",
+      "previousStatus": "A",
       "scenes": [
         "cargo-order"
       ],
@@ -229,7 +238,7 @@
     {
       "id": "insertion-sort",
       "status": "A",
-      "previousStatus": "C",
+      "previousStatus": "A",
       "scenes": [
         "cargo-order"
       ],
@@ -241,33 +250,39 @@
     },
     {
       "id": "hanoi-rules",
-      "status": "C",
+      "status": "A",
       "previousStatus": "C",
-      "scenes": [],
-      "evidence": "現有三環石盤只改變符號狀態，沒有三柱與大小圓盤堆疊。",
-      "limit": "需要一次一盤、只取頂盤、大不壓小三項規則，三盤最少七步。",
+      "scenes": [
+        "handover"
+      ],
+      "evidence": "實際操作三柱燈盤：一次只取頂盤、大盤不能壓小盤，非法搬動不改狀態與步數；一、二、三盞分段完成，三盞最少七趟，另有四盞回訪。",
+      "limit": "現有可操作盤數為一至四盞，不提供任意大型燈塔；走遠路仍能完成，最少步數不是領獎門檻。",
       "proposals": [
         "handover"
       ]
     },
     {
       "id": "hanoi-recursion",
-      "status": "C",
+      "status": "A",
       "previousStatus": "C",
-      "scenes": [],
-      "evidence": "現有多層迷宮與共用函式，沒有玩家可觀察的「同樣方法解更小同類問題」。",
-      "limit": "單有樓層、重複或函式呼叫不能算遞迴；還需小塔、最大盤與一盤停止情況。",
+      "scenes": [
+        "handover"
+      ],
+      "evidence": "兩盞沿用一盞交法；三盞先交接上方兩盞小塔、移主燈、再接回小塔。逐段操作與四頁刻痕明示同樣方法解更小同類問題，剩一盞直接搬完並返回上一段。",
+      "limit": "有可觀察的分解、重用與停止情況，不等於玩家已能自行撰寫遞迴程式；目前沒有任意呼叫堆疊編輯器。",
       "proposals": [
         "handover"
       ]
     },
     {
       "id": "hanoi-steps",
-      "status": "C",
+      "status": "A",
       "previousStatus": "C",
-      "scenes": [],
-      "evidence": "等級、怪物與關卡難度會增加，但沒有盤數與最少搬移步數的倍增關係。",
-      "limit": "需要 1、3、7、15、31 等步數規律；難度變高不等於步數爆炸。",
+      "scenes": [
+        "handover"
+      ],
+      "evidence": "操作顯示實際搬運次數與最少趟數，一至四盞最少為 1、3、7、15；交班簿延伸到五、六盞的 31、63，說明每多一盞要搬兩回小塔再加主燈一次。",
+      "limit": "五、六盞僅在交班簿說明，不是可操作挑戰；未實際等待極大盤數，也不把搬運趟數當成實測秒數。",
       "proposals": [
         "handover"
       ]
@@ -275,7 +290,7 @@
     {
       "id": "search-linear",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "teacher-index"
       ],
@@ -288,7 +303,7 @@
     {
       "id": "search-binary",
       "status": "A",
-      "previousStatus": "C",
+      "previousStatus": "A",
       "scenes": [
         "teacher-index"
       ],
@@ -301,7 +316,7 @@
     {
       "id": "search-race",
       "status": "A",
-      "previousStatus": "C",
+      "previousStatus": "A",
       "scenes": [
         "teacher-index"
       ],
@@ -474,17 +489,18 @@
       "chapter": "第三章・天光聖域的可選側殿",
       "title": "守燈者的交班儀式",
       "hook": "聖域門庭重新回應後，側殿露出舊守燈者用來交班的三座燈柱。他不再要求一個人承擔，而是留下能交給下一人的搬燈方法。",
-      "play": "新增三柱、不同大小的燈盤：一次只搬一盤、只取頂盤、大盤不壓小盤。先用三盤完成七步，再可選四盤十五步；將小塔、主燈、小塔的同類分解與一盤停止情況呈現出來。",
-      "outcome": "完成後得到交班人的一段記憶，章末多一段共同守望的回應；沿用既有三種結局分類。",
-      "boundary": "這是新的三柱搬盤機關，不能把現有三環石盤重新命名就算河內塔。只有自由搬盤仍不足以單獨說明遞迴與步數成長。",
+      "play": "解開原三環後，從門庭（7,5）進入交班側殿。實際完成一、二、三盞頂盤交接；選來源再選目的柱，可撤回、免費歸位與看下一趟提示，進度可存讀。四頁交班簿呈現同類小塔分解與一盞停止，回訪可重演三盞或挑戰四盞。",
+      "outcome": "完成三段後向記錄者回報，一次獲得 80 G、月露精華 ×1 與交班人的記憶；留信更新，既有三種結局的末頁多一段共同守望的回應，不改結局種類或門檻。",
+      "boundary": "真正執行一次一盤、只取頂盤與大不壓小；一至四盞最少 1／3／7／15 趟。五、六盞僅在交班簿說明，沒有任意大型燈塔或遞迴程式編輯器。",
       "lessons": [
         "hanoi-rules",
         "hanoi-recursion",
         "hanoi-steps"
       ],
       "effort": "中",
-      "recommendation": "作為第三章支線，補足河內塔三課，也呼應故事主題。",
-      "status": "proposed"
+      "recommendation": "已實作：門庭三環解開後到西側側殿，完成三段交班，再回北側記錄者回報；三盞重演與四盞挑戰可免費重設。",
+      "status": "implemented",
+      "implementedBuild": "20261031.42"
     },
     {
       "id": "patrol",
@@ -530,6 +546,124 @@
       "status": "proposed"
     }
   ],
-  "previousGameVersion": "20261030.37",
-  "visualUpdate": "BUILD 20261031.40 統一三章與全部地圖的紙片輪廓、人物翻面、投影、介面與折紙戰鬥特效；本次不新增概念操作，24 課分級維持 A14、B7、C3。"
+  "previousGameVersion": "20261031.41",
+  "visualUpdate": "BUILD 20261031.42 新增第三章「守燈者的交班儀式」：真實三柱燈盤、逐段小塔交接、交班簿與最少步數成長；河內塔三課改為可直接對照。現況為 A17、B7、C0，仍不代表完整涵蓋全部課程目標或已驗證學習成效。",
+  "storyDirections": [
+    {
+      "series": "algorithms",
+      "title": "送不到的夜間補給",
+      "chapter": "第一至二章・村鎮與巡守路線",
+      "play": "送藥人照著舊路線繞回原點。玩家先觀察目的地，再安排可執行步驟、遇到斷橋時改走支線，測試後把修好的方案交給送藥人。",
+      "outcome": "完成後出現實際抵達營地的送藥人與收貨回信。",
+      "boundary": "方案必須可執行且有限；交付方案後仍要觀察結果。可與石像巡守共用劇情，不為三課拆三個委託。",
+      "status": "proposed",
+      "lessons": [
+        "algorithm-bread",
+        "algorithm-control-flow",
+        "algorithm-why"
+      ]
+    },
+    {
+      "series": "scratch",
+      "title": "被雨打亂的補給名冊",
+      "chapter": "第二章・港口藥箱送達後",
+      "play": "幾張收貨卡被雨水打亂。玩家替換錯誤站號、刪除中段重複卡，觀察後面編號向前補位，再依名冊與剩餘補給決定能否出貨。",
+      "outcome": "居民姓名與補給數量恢復正確，後續回信會提到補送結果。",
+      "boundary": "清單需要真的提供中段刪除與補位；重設數量和在原數量增減分開呈現。",
+      "status": "proposed",
+      "lessons": [
+        "variables",
+        "lists",
+        "conditions"
+      ]
+    },
+    {
+      "series": "sorting",
+      "title": "趕在潮退前的一船藥",
+      "chapter": "第二章・風鈴港回訪",
+      "play": "原三批貨已出航後，新到的貨混在已排好的藥箱中。玩家可重查相鄰箱、掃描挑最小箱，或把新箱插入原有順序，觀察各種搬法的差異。",
+      "outcome": "藥師收到新增補給，港口多一段回訪對話。",
+      "boundary": "擴充現有三種貨台，不把它當作另一項已完成任務；比較搬法時使用相同初始資料，記錄比較與搬動，潮退僅作故事動機，不增加倒數失敗。",
+      "status": "proposed",
+      "lessons": [
+        "bubble-sort",
+        "selection-sort",
+        "insertion-sort"
+      ]
+    },
+    {
+      "series": "search",
+      "title": "名冊上不存在的旅人",
+      "chapter": "第二章・老師索引後續",
+      "play": "旅人帶來一個不在舊名冊的站號。玩家完整查完或縮小到空範圍，確認舊名冊無此站，再追查另一冊航記；可回訪比較十六筆與三十二筆記錄。",
+      "outcome": "找到新航線的線索，留下另一封老師的舊信。",
+      "boundary": "查無資料必須有明確結束與後續線索；二分資料先排序，同方法比較要使用相同資料與目標，整理成本另外說明。",
+      "status": "proposed",
+      "lessons": [
+        "search-linear",
+        "search-binary",
+        "search-race"
+      ]
+    },
+    {
+      "series": "hanoi",
+      "title": "守燈者的交班儀式",
+      "chapter": "第三章・天光聖域側殿",
+      "play": "門庭三環解開後到交班側殿，實際搬動一至三盞燈盤，閱讀小塔分解、一盞停止及步數成長的四頁交班簿；可回訪重演三盞或挑戰四盞。",
+      "outcome": "向記錄者回報得 80 G、月露精華 ×1 與交班記憶；結局增加一段後日談，原條件維持。",
+      "boundary": "一次只搬頂盤且大盤不壓小盤；呈現同類小塔分解、一盤停止與 1／3／7／15 步成長，不能只做自由搬盤。",
+      "status": "implemented",
+      "lessons": [
+        "hanoi-rules",
+        "hanoi-recursion",
+        "hanoi-steps"
+      ],
+      "implementedBuild": "20261031.42"
+    },
+    {
+      "series": "boolean",
+      "title": "無人值守的避難所",
+      "chapter": "第二至三章・夜間可回訪事件",
+      "play": "風雨逼近，避難所三套裝置失靈：雙印齊備才能開門，火種或月光任一即可照明，安全燈則顯示偵測石「有怪物接近」的相反結果。",
+      "outcome": "旅人能進屋避雨，之後留下答謝與歇腳對話。",
+      "boundary": "兩種光源同時存在也必須成立；否定只翻轉判斷結果，不憑空移走怪物或改變救援狀態。",
+      "status": "proposed",
+      "lessons": [
+        "boolean-and",
+        "boolean-or",
+        "boolean-not"
+      ]
+    },
+    {
+      "series": "loops",
+      "title": "重新學會巡守的石像",
+      "chapter": "第二章・巡守庭院",
+      "play": "玩家修好不停繞路的石像：先讓「前進、拾回晶石」整組巡回固定輪數，再改為每輪先檢查標記，最後補回能量消耗，使停止條件有機會成立。",
+      "outcome": "路燈依巡守進度恢復，巡守者能到別處照看旅人。",
+      "boundary": "停止條件起初成立時執行零輪；故障可按急停並免費重設，避免真正卡住。",
+      "status": "proposed",
+      "lessons": [
+        "loop-repeat",
+        "loop-until",
+        "loop-energy"
+      ]
+    },
+    {
+      "series": "custom-blocks",
+      "title": "把一段路，交給下一位守望者",
+      "chapter": "第二至三章・要塞接班",
+      "play": "伊娜請玩家把一組巡守動作命名，交給第二座石像。先刻寫但不啟動，再呼叫執行；改變本次步距與外層巡回輪數，讓兩座石像守不同路段。",
+      "outcome": "接班石像沿用方案守住另一段山道，補完守護可以交接的故事。",
+      "boundary": "必須由玩家定義、命名、呼叫與輸入；步距只控制單次動作，外層輪數控制重複次數，不以現成按鈕替代。",
+      "status": "proposed",
+      "lessons": [
+        "custom-block-jump",
+        "custom-block-height",
+        "custom-block-repeat"
+      ]
+    }
+  ],
+  "releaseSummary": "本次新增交班側殿的三柱燈盤、一至三盞的分段操作、四盞回訪與四頁交班簿，讓河內塔三課具有可操作的代表情境。清單、迴圈與自訂積木的不足仍保留；不因 C 類歸零就宣稱 24 課全部完整實作。",
+  "scopeSummary": "8 系列、24 課；港口三批貨、老師索引與交班儀式已實作，巡守庭院與接班方案仍待討論。",
+  "implementedIntro": "港口三批貨、老師索引與守燈者交班儀式已加入本版；石像巡守與可命名方案仍待討論。成果以居民、路燈、補給與回信呈現，維持可回訪，不增加隱藏大結局的必要門檻。"
 }

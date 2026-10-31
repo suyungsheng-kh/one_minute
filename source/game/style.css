@@ -81,3 +81,20 @@
 @media(prefers-reduced-motion:reduce){.meter>span{transition:none}button{scroll-behavior:auto}}
 
 #population-count{color:#516747!important}.item-hotbar{border-color:#fff2ce}
+
+/* Build 41: the same paper actors identify dialogue speakers and companions. */
+#dialogue[data-portrait="story"] .dialogue-portrait{background:#f5e7b8;border-color:#a78d52;display:flex;align-items:center;justify-content:center}
+#dialogue[data-portrait="story"] .dialogue-portrait img{width:76%;height:76%}
+.party-mini{display:flex;align-items:center;gap:8px;background:#fff7dfed;color:#263e33;border:2px solid #314b38;outline:1px solid #fff7df;box-shadow:2px 3px 0 #a3916b}
+.party-mini>img{width:28px;height:38px;object-fit:contain;flex:0 0 auto;filter:drop-shadow(1px 2px 0 #b7a37e)}
+.party-mini-copy{min-width:0}.party-mini b,.party-mini small{color:#3c553e}.party-mini-copy>span{font-size:8px;color:#52624b;display:block;margin-top:4px;line-height:1.5}
+.party-mini.fallen{opacity:1;background:#eee8d9;border-style:dashed}.party-mini.fallen img{filter:grayscale(.8) drop-shadow(1px 2px 0 #b7a37e)}.party-mini.fallen .party-mini-copy>span{color:#794b3b;font-weight:700}
+.companion-card{background:#f6f0db;border:2px solid #8c9c7d;box-shadow:2px 3px 0 #d4c6a3;border-radius:7px}.companion-heading{display:flex;align-items:center;gap:13px;min-width:0}.companion-heading>img{width:54px;height:72px;object-fit:contain;flex-shrink:0;filter:drop-shadow(2px 3px 0 #cbb98d)}.companion-heading>div{min-width:0}.companion-heading h3{margin:4px 0!important}.companion-card .companion-condition{color:#52624b;margin:4px 0!important}
+@media(max-width:520px){.party-mini{gap:5px;padding:5px}.party-mini>img{width:23px;height:31px}.party-mini-copy>span{font-size:7px}.companion-heading{gap:9px}.companion-heading>img{width:42px;height:56px}}
+
+[data-party-mode] small{white-space:nowrap}
+
+/* Folded lamp disks retain numbers and pillar names for color-independent play. */
+.handover-board{margin:12px 0;padding:12px;border:2px solid #8c9c7d;border-radius:9px;background:#f8f1d9;box-shadow:2px 3px 0 #d4c6a3}.handover-board figcaption{font-size:12px;font-weight:700;line-height:1.7}.handover-board svg{display:block;width:100%;max-height:190px;margin:6px auto}.handover-board p{font-size:11px!important;margin:5px 0!important;line-height:1.6!important}.modal .story-page{white-space:pre-line}@media(max-width:520px),(max-height:560px){.handover-board{padding:7px}.handover-board svg{max-height:145px}}
+
+.handover-status{white-space:pre-line;font-size:12px!important;line-height:1.6!important;margin:4px 0 8px!important}.handover-instructions{border-top:1px solid #c7cfb6;padding-top:9px;margin-top:10px}.handover-instructions summary{cursor:pointer;font-size:12px;color:#315b47;font-weight:700}.handover-instructions .story-page{font-size:12px!important;line-height:1.7!important}.handover-choice .modal-actions{gap:7px;margin-top:10px}.handover-choice .modal-actions button{min-height:40px}

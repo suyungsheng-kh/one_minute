@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-stories.js');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/handover.js');
 const checks=[],test=(name,fn)=>{fn();checks.push(name);};
 const campaign=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../review/campaign-qa.json'),'utf8'));
 assert.ok(campaign.ok&&campaign.version===24&&campaign.goldMilestones?.length===3,'Run check-campaign.cjs for the current build before checking the economy.');

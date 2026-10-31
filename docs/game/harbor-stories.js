@@ -126,6 +126,6 @@ function tasks(s){const v=status(s),out=[];if(v.cargo.accepted)out.push({id:'por
 R.taskLedger=s=>[...B.taskLedger(s),...tasks(s)];
 R.trackTask=(s,id)=>{if(['port-cargo-task','port-archive-task'].includes(id)){if(!tasks(s).some(t=>t.id===id&&t.status!=='done'))return false;init(s).tracked=id;if(s.worldRecovery)s.worldRecovery.tracked=null;return true;}const ok=B.trackTask(s,id);if(ok&&s.harborStories)s.harborStories.tracked=null;return ok;};
 R.trackedQuest=s=>{const t=tasks(s).find(t=>t.id===state(s).tracked&&t.status!=='done');return t?{title:t.title,text:t.hint,progress:t.status==='ready'?.9:.35}:B.trackedQuest(s);};
-Object.assign(R,{HARBOR_BATCHES:BATCHES,HARBOR_SEARCHES:SEARCHES,HARBOR_CODES:CODES,HARBOR_SEARCH_TARGET:TARGET,HARBOR_STORY_MAPS:{shed:SHED,archive:ARCHIVE,refuge:REFUGE},harborStoriesStatus:status,BUILD:'20261031.40'});
+Object.assign(R,{HARBOR_BATCHES:BATCHES,HARBOR_SEARCHES:SEARCHES,HARBOR_CODES:CODES,HARBOR_SEARCH_TARGET:TARGET,HARBOR_STORY_MAPS:{shed:SHED,archive:ARCHIVE,refuge:REFUGE},harborStoriesStatus:status,BUILD:'20261031.41'});
 if(typeof module!=='undefined'&&module.exports)module.exports=R;
 })(typeof globalThis!=='undefined'?globalThis:this);

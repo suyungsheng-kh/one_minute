@@ -1,6 +1,6 @@
 {
-  "version": "20261031.40",
-  "sourceHash": "2196194f69ec2e29b045a1c0066d47d4b901439119f595c55ef39020d1aaa0eb",
+  "version": "20261031.42",
+  "sourceHash": "8fbcbc32336c17a26f9748af65de323c3eb26a1c1a92eb0bd3a580f00e68a708",
   "reviewedDate": "2026-10-31",
   "chapters": 3,
   "rooms": [
@@ -96,7 +96,9 @@
     "bastion",
     "harbor-cargo",
     "teacher-route",
-    "teacher-index"
+    "teacher-index",
+    "handover",
+    "handover-room"
   ],
   "reviewedSections": [
     "controls",
@@ -113,6 +115,8 @@
     "endings",
     "faq",
     "harbor-stories",
-    "paper-style"
+    "paper-style",
+    "character-identity",
+    "handover"
   ]
 }
