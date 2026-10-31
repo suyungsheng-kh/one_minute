@@ -2,6 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),{spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'..'),seriesRoot=path.dirname(root),dist=path.join(root,'dist');
 require('./build-game-characters.cjs').build();
+require('./build-paper-assets.cjs').build();
 require('./build-game-guide.cjs').build();
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'content/catalog.json'),'utf8'));
 const safeId=/^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;

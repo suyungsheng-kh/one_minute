@@ -54,3 +54,30 @@
 .story-board{margin:16px 0;padding:14px;border:1px solid #9cac93;border-radius:12px;background:#eef1e5;color:#23372e}.story-board figcaption{font-weight:700;margin-bottom:10px}.story-board ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(66px,1fr));gap:7px;padding:0;list-style:none;margin:0}.story-cell{padding:10px 4px;text-align:center;border:2px solid #a9b299;border-radius:7px;background:#fff9e9;font-weight:700;font-size:14px}.story-cell.active{border:3px double #34688b;background:#e2eff7}.story-cell.fixed{background:#dce9d4;border-color:#477251}.story-cell.muted{background:#e1e4da;color:#687162;border-style:dashed}.story-board>p{font-size:12px;margin:10px 0 0;line-height:1.6}@media(max-width:600px){.story-board{padding:10px}.story-board ol{grid-template-columns:repeat(4,minmax(0,1fr))}.story-cell{font-size:12px;padding:10px 2px}}
 
 .title-series-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 10px;margin:12px 0 0 10px;font-size:11px;line-height:1.8}.title-series-nav a,.title-series-nav span{color:#d8dec9;padding:5px 0;text-underline-offset:4px}.title-series-nav [aria-current=page]{color:#f1dba2;font-weight:700}.title-series-nav a:focus-visible{outline:2px solid #f1dba2;outline-offset:4px}
+
+/* Build 40: shared cut-paper frames; geometry and touch targets retain their layouts. */
+:root{--paper:#fff8e5;--ink:#263e33;--green:#315b47;--gold:#efd58b}
+#vignette{background:radial-gradient(ellipse at center,transparent 48%,#24432b26 100%)}
+.title-copy h1{font-weight:800;color:#fff5da;text-shadow:3px 3px 0 #284335,5px 5px 0 #9b8965}
+.title-menu>button{border:2px solid #d1dcc5;border-radius:5px;background:#f7efd9;color:#263e33;box-shadow:3px 4px 0 #9b8965;text-shadow:none;font-weight:700}
+.title-menu>button:hover{background:#fff8e5;border-color:#efd58b}
+.title-menu .menu-primary{background:#efd58b;color:#263e33;border:2px solid #fff7dc;box-shadow:3px 4px 0 #9b8965}
+.title-small-menu button,.title-series-nav a{color:#f2e8cf}
+.modal,#dialogue{border:3px solid #2f4939;outline:3px solid #fff6da;border-radius:7px;background-color:#fff8e5;box-shadow:6px 7px 0 #a18d67,10px 12px 0 #172d2455;background-image:repeating-linear-gradient(110deg,transparent 0 8px,#99865305 8px 9px)}
+.modal h2{font-weight:800;color:#263e33;text-shadow:1px 2px 0 #e8d9ae}.modal p{color:#53624c}.modal .eyebrow,#speaker{color:#6e623e;font-weight:700}
+.modal button:not(.close-button){border-width:2px;box-shadow:1px 2px 0 #c0b28e}.modal button:disabled{box-shadow:none}
+.inventory-item,.story-board,.interface-tabs.sub-tabs{border:2px solid #8c9c7d;box-shadow:2px 3px 0 #d4c6a3;background-color:#f5efd9}
+.dialogue-portrait{background:#dce8c7;border:2px solid #758c68;box-shadow:2px 3px 0 #cbbd93}
+#dialogue-next{border:2px solid #526e50;border-radius:5px;padding:5px 12px;background:#e4edce;box-shadow:2px 2px 0 #c5b78f}
+.player-card,.location-badge,.hud-button,.quest-tracker,.mini-map{color:#263e33;background:#fff7dfed;border:2px solid #314b38;box-shadow:3px 4px 0 #a3916be0;outline:1px solid #fff7df;border-radius:6px}
+.player-name>span,.location-badge small,.location-badge span,.gear-status,.quest-tracker b,.quest-tracker p,.quest-symbol,.mini-map span,.hud-button span{color:#3c553e}
+.player-card>img{filter:drop-shadow(2px 2px 0 #b4a17b)}.quest-tracker{border-left:5px solid #c6a34c}.quest-tracker p{color:#52624b}
+.meter{border:1px solid #344d3a;background:#c9c8a9}.meter>b{color:#fffbed;font-weight:800;text-shadow:1px 1px 0 #263e33,-1px -1px 0 #263e33}.health>span{background:#b86950}.mana>span{background:#527f9b}.stamina>span{background:#5c8455}.xp{background:#d6d2ae}.xp>span{background:#ae8d3f}
+.quickbar button,.skillbar button,.item-hotbar>button,.dpad button,.touch-actions button{border:2px solid #36503c;border-radius:6px;color:#263e33;background:#fff6dfeF;box-shadow:2px 3px 0 #a3916b}
+.quickbar kbd,.skillbar kbd,.item-hotbar kbd,.quickbar small,.skillbar small,.item-hotbar small,.item-hotbar b{color:#39523b}.skillbar button:disabled,.item-hotbar>button:disabled{opacity:.6}
+.quickbar button.active,.skillbar button.active{background:#d8e8c5}.item-hotbar>button:focus-visible,.skillbar button:focus-visible{outline:3px solid #34688b}
+#interact-prompt{background:#fff6df;color:#263e33;border:2px solid #314b38;box-shadow:3px 3px 0 #a3916b}#interact-prompt kbd{background:#315b47;color:#fff8df}
+#toast{border:2px solid #eadcba;box-shadow:3px 4px 0 #163a2b88}#region-announcement{text-shadow:2px 2px 0 #263e33,0 0 5px #263e33}
+@media(prefers-reduced-motion:reduce){.meter>span{transition:none}button{scroll-behavior:auto}}
+
+#population-count{color:#516747!important}.item-hotbar{border-color:#fff2ce}

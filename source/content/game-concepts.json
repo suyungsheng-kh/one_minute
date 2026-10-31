@@ -1,8 +1,8 @@
 {
-  "version": "3.1",
+  "version": "3.2",
   "reviewedDate": "2026-10-31",
-  "gameVersion": "20261031.39",
-  "reviewedGameHash": "91454cd3ff33808a1d1bc7f8109c462c25ec4851d988aa9e6304a10a92b4c841",
+  "gameVersion": "20261031.40",
+  "reviewedGameHash": "2196194f69ec2e29b045a1c0066d47d4b901439119f595c55ef39020d1aaa0eb",
   "reviewedCatalogHash": "914b417505ce5f27d3d307176d96df5c562daf057f9a3df8bb733d81dfe3cd76",
   "principle": "遊戲維持 RPG 的故事與操作語言，動畫概念在這份對照頁閱讀；新增劇情先討論，再決定實作。",
   "statuses": {
@@ -530,5 +530,6 @@
       "status": "proposed"
     }
   ],
-  "previousGameVersion": "20261030.37"
+  "previousGameVersion": "20261030.37",
+  "visualUpdate": "BUILD 20261031.40 統一三章與全部地圖的紙片輪廓、人物翻面、投影、介面與折紙戰鬥特效；本次不新增概念操作，24 課分級維持 A14、B7、C3。"
 }

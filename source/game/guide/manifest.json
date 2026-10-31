@@ -1,6 +1,6 @@
 {
-  "version": "20261031.39",
-  "sourceHash": "91454cd3ff33808a1d1bc7f8109c462c25ec4851d988aa9e6304a10a92b4c841",
+  "version": "20261031.40",
+  "sourceHash": "2196194f69ec2e29b045a1c0066d47d4b901439119f595c55ef39020d1aaa0eb",
   "reviewedDate": "2026-10-31",
   "chapters": 3,
   "rooms": [
@@ -112,6 +112,7 @@
     "equipment",
     "endings",
     "faq",
-    "harbor-stories"
+    "harbor-stories",
+    "paper-style"
   ]
 }

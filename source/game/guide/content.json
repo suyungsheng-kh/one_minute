@@ -1,6 +1,6 @@
 {
-  "reviewedGameHash": "91454cd3ff33808a1d1bc7f8109c462c25ec4851d988aa9e6304a10a92b4c841",
-  "reviewedGameVersion": "20261031.39",
+  "reviewedGameHash": "2196194f69ec2e29b045a1c0066d47d4b901439119f595c55ef39020d1aaa0eb",
+  "reviewedGameVersion": "20261031.40",
   "reviewedDate": "2026-10-31",
   "reviewedSections": [
     "controls",
@@ -16,7 +16,8 @@
     "equipment",
     "endings",
     "faq",
-    "harbor-stories"
+    "harbor-stories",
+    "paper-style"
   ],
   "chapterSteps": {
     "1": [
@@ -91,6 +92,10 @@
     [
       "貨棚或航記小屋為什麼還沒開？",
       "貨棚要先恢復原渡船；航記小屋要把老師第三頁交回原旅人。避風所還需要兩套記錄都找到八十三號站。進度可回訪補做，選錯不會失去貨物。"
+    ],
+    [
+      "紙片翻面與碎紙太明顯，可以關閉嗎？",
+      "在設定的「效果」分頁關閉「動態回饋」，會停用角色翻面、行走擺動、受擊彈動、碎紙及畫面震動；保留紙片外觀、傷害數字、敵人預備提示與飛行物，方便判讀戰況。暫停與閱讀對話時，角色動態也會暫停。"
     ],
     [
       "攻略的勾選會改變遊戲進度嗎？",

@@ -1,0 +1,62 @@
+{
+  "style": "cut-paper-origami",
+  "version": 1,
+  "actorFrame": [
+    300,
+    400
+  ],
+  "actors": [
+    "hero",
+    "person-elder",
+    "person-merchant",
+    "person-ranger",
+    "person-villager",
+    "person-artisan",
+    "person-traveler",
+    "person-ina",
+    "person-lumi"
+  ],
+  "files": [
+    "big.svg",
+    "campkit.svg",
+    "chest.svg",
+    "coin.svg",
+    "hero.svg",
+    "hero-edge.svg",
+    "hero-flash.svg",
+    "key.svg",
+    "openchest.svg",
+    "person-artisan.svg",
+    "person-artisan-edge.svg",
+    "person-artisan-flash.svg",
+    "person-elder.svg",
+    "person-elder-edge.svg",
+    "person-elder-flash.svg",
+    "person-ina.svg",
+    "person-ina-edge.svg",
+    "person-ina-flash.svg",
+    "person-lumi.svg",
+    "person-lumi-edge.svg",
+    "person-lumi-flash.svg",
+    "person-merchant.svg",
+    "person-merchant-edge.svg",
+    "person-merchant-flash.svg",
+    "person-ranger.svg",
+    "person-ranger-edge.svg",
+    "person-ranger-flash.svg",
+    "person-traveler.svg",
+    "person-traveler-edge.svg",
+    "person-traveler-flash.svg",
+    "person-villager.svg",
+    "person-villager-edge.svg",
+    "person-villager-flash.svg",
+    "potion.svg",
+    "star.svg"
+  ],
+  "generatedFrom": "original game/assets SVGs",
+  "colors": {
+    "ink": "#263e33",
+    "rim": "#fff8df",
+    "edge": "#a38a61"
+  }
+}

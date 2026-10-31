@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');const root=path.resolve(__dirname,'..'),R=require('../game/harbor-stories.js'),report={date:new Date().toISOString(),version:25,checks:[],browserVerification:'not run: local browser process unavailable in sandbox'};
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');const root=path.resolve(__dirname,'..'),R=require('../game/harbor-stories.js'),report={date:new Date().toISOString(),version:25,checks:[],browserVerification:'DOM/input harness; real Chrome verification is recorded separately in paper-style-browser-qa.json'};
 function test(name,fn){fn();report.checks.push(name);}
 function walkTo(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,id+' exists');const route=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));for(const p of route){assert.ok(R.walkable(s,p.x,p.y));s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id+' reachable');return ['exit','location','dungeon'].includes(o.type)?R.automaticTravel(s):R.interact(s,id);}
 function kill(s,id){assert.ok(!s.defeated.includes(id));s.defeated.push(id);const type=Object.values(R.MAPS).flatMap(m=>m.enemies).find(e=>e[0]===id)[1];R.awardEnemy(s,type);if(type==='boss')s.flags.boss=true;}
@@ -101,9 +101,9 @@ test('friendly actors share hero frames across village, interiors, overworld and
  const painter=win.createPaperRenderer({getContext:()=>ctx,getBoundingClientRect:()=>({width:1280,height:800,left:0,top:0})});
  for(const map of ['village','village-shop','overworld']){
   const state=R.create();state.map=map;R.recruit(state,'ina');R.recruit(state,'lumi');R.placeParty(state);drawn.length=0;painter.render(state,{mobs:[]},1);
-  const hero=drawn.find(d=>d.src==='assets/hero.svg');assert.ok(hero);const people=drawn.filter(d=>d.src.startsWith('assets/person-'));assert.equal(people.length,fixtures.length+2);
+  const hero=drawn.find(d=>d.src==='assets/paper/hero.svg');assert.ok(hero);const people=drawn.filter(d=>d.src.startsWith('assets/paper/person-')&&!/-edge\.svg$|-flash\.svg$/.test(d.src));assert.equal(people.length,fixtures.length+2);
   for(const person of people){assert.equal(person.w,hero.w);assert.equal(person.h,hero.h);}
-  for(const kind of ['elder','merchant','ranger','villager','artisan','traveler','ina','lumi'])assert.ok(people.some(d=>d.src==='assets/person-'+kind+'.svg'),kind);
+  for(const kind of ['elder','merchant','ranger','villager','artisan','traveler','ina','lumi'])assert.ok(people.some(d=>d.src==='assets/paper/person-'+kind+'.svg'),kind);
  }
  for(const kind of Object.keys(require('./build-game-characters.cjs').profiles)){
   const svg=fs.readFileSync(path.join(root,'game/assets/person-'+kind+'.svg'),'utf8');assert.ok(svg.includes('viewBox="0 0 300 400"'));assert.ok(svg.includes('m116 289-7 70-37 16h71'));assert.ok(!svg.includes('m220 163 13 83'));
