@@ -1,6 +1,6 @@
 {
-  "version": "20261101.43",
-  "sourceHash": "47193ec557299df02a3025525041cd4add4c375f27db9cbe580644cb00f94d18",
+  "version": "20261101.45",
+  "sourceHash": "bdad8e8ab561b604366cb2c025c6ac39817d83bc81509e08ec80b7f1c40753d8",
   "reviewedDate": "2026-11-01",
   "chapters": 3,
   "rooms": [
@@ -99,7 +99,12 @@
     "teacher-index",
     "handover",
     "handover-room",
-    "shelter"
+    "shelter",
+    "rune-repair",
+    "rune-repair-room",
+    "lamplighter",
+    "pact",
+    "afterword"
   ],
   "reviewedSections": [
     "controls",
@@ -119,6 +124,10 @@
     "paper-style",
     "character-identity",
     "handover",
-    "shelter"
+    "shelter",
+    "rune-repair",
+    "lamplighter",
+    "guiding-pact",
+    "harbor-afterword"
   ]
 }

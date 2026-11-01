@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm'),R=require('../game/shelter.js'),{analyze}=require('./review-gameplay.cjs');const checks=[],test=(n,f)=>{f();checks.push(n);};
+const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm'),R=require('../game/harbor-afterword.js'),{analyze}=require('./review-gameplay.cjs');const checks=[],test=(n,f)=>{f();checks.push(n);};
 function fresh(map='overworld'){const s=R.create('星路旅人');if(map!=='overworld'){s.map=map;const p=R.MAPS[map].spawn;s.x=R.center(p[0]);s.y=R.center(p[1]);}R.applyCampaign(s);return s;}
 function walk(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);const steps=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));assert.ok(steps.length||R.dist(s,o)<10,'reachable '+id);for(const p of steps){s.x=p.x;s.y=p.y;}return o;}
 function act(s,id){walk(s,id);return R.interact(s,id);}

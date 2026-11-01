@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/shelter.js'),checks=[];
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-afterword.js'),checks=[];
 const test=(name,fn)=>{fn();checks.push(name);};
 function fresh(open=true){const s=R.create('交班旅人');s.campaign.finished=[1,2];assert.ok(R.advanceChapter(s,3));s.map=R.HANDOVER_PARENT;s.x=R.center(7);s.y=R.center(6);if(open)s.campaign.rooms[R.HANDOVER_PARENT]={done:true};return s;}
 function at(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,id);const route=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));for(const p of route){assert.ok(R.walkable(s,p.x,p.y),id);s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id);return o;}

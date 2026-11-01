@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm'),R=require('../game/shelter.js');const checks=[],test=(n,f)=>{f();checks.push(n);};
+const assert=require('assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm'),R=require('../game/harbor-afterword.js');const checks=[],test=(n,f)=>{f();checks.push(n);};
 function rng(seed=17){return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
 function fresh(map='overworld'){const s=R.create('原野旅人');if(map!=='overworld'){s.map=map;const at=R.MAPS[map].spawn;s.x=R.center(at[0]);s.y=R.center(at[1]);}R.applyCampaign(s);return s;}
 function walk(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);const points=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));assert.ok(points.length||R.dist(s,o)<10,'reachable '+s.map+':'+id);for(const p of points){s.x=p.x;s.y=p.y;}return o;}
