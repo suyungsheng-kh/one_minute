@@ -33,6 +33,7 @@
     "check:concepts": "npm --prefix source run check:concepts",
     "check:harbor": "npm --prefix source run check:harbor",
     "check:adventure": "npm --prefix source run check:adventure",
-    "check:handover": "npm --prefix source run check:handover"
+    "check:handover": "npm --prefix source run check:handover",
+    "check:shelter": "npm --prefix source run check:shelter"
   }
 }

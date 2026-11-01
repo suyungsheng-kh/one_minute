@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/handover.js');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/shelter.js');
 const report={version:24,ok:true,checks:[],browserVerification:'Rules and routes only; real keyboard, visual and touch playtest remains pending.'},test=(name,fn)=>{fn();report.checks.push(name);};
 function at(s,id){s.map='village';const o=R.objects(s).find(o=>o.id===id);assert.ok(o,id);s.x=o.x;s.y=o.y;return o;}
 function talk(s,id){at(s,id);const r=R.interact(s,id);return r.onboardingTalk?R.finishOnboardingTalk(s,r.onboardingTalk):r;}

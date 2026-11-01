@@ -1,7 +1,7 @@
 {
-  "version": "20261031.42",
-  "sourceHash": "8fbcbc32336c17a26f9748af65de323c3eb26a1c1a92eb0bd3a580f00e68a708",
-  "reviewedDate": "2026-10-31",
+  "version": "20261101.43",
+  "sourceHash": "47193ec557299df02a3025525041cd4add4c375f27db9cbe580644cb00f94d18",
+  "reviewedDate": "2026-11-01",
   "chapters": 3,
   "rooms": [
     "root-approach",
@@ -98,7 +98,8 @@
     "teacher-route",
     "teacher-index",
     "handover",
-    "handover-room"
+    "handover-room",
+    "shelter"
   ],
   "reviewedSections": [
     "controls",
@@ -117,6 +118,7 @@
     "harbor-stories",
     "paper-style",
     "character-identity",
-    "handover"
+    "handover",
+    "shelter"
   ]
 }

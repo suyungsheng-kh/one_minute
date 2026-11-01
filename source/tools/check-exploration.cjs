@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),R=require('../game/handover.js');
+const assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),R=require('../game/shelter.js');
 const checks=[],test=(name,f)=>{f();checks.push(name);};
 function fresh(map){const s=R.create('探路旅人');s.map=map;s.x=R.center(R.MAPS[map].spawn[0]);s.y=R.center(R.MAPS[map].spawn[1]);s.flags.bridge=true;s.flags.gate=true;s.flags.seal=true;R.applyCampaign(s);return s;}
 function walk(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);const route=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));assert.ok(route.length||R.dist(s,o)<1,'reachable '+s.map+':'+id);for(const p of route){s.x=p.x;s.y=p.y;}return o;}

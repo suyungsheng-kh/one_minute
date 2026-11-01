@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),R=require('../game/handover.js');
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),R=require('../game/shelter.js');
 const checks=[],test=(name,fn)=>{fn();checks.push(name);};
 function state(level=1,map='forest'){const s=R.create('經驗旅人');s.map=map;if(map!=='overworld'){const [x,y]=R.MAPS[map].spawn;s.x=R.center(x);s.y=R.center(y);}R.applyCampaign(s);s.level=level;s.xp=0;s.maxHp=R.maxHealth(level);s.hp=s.maxHp;s.mp=R.maxMp(s);R.placeParty(s);return s;}
 function total(s){let xp=s.xp;for(let n=1;n<s.level;n++)xp+=R.xpToNext(n);return xp;}
