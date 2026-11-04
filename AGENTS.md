@@ -137,3 +137,21 @@
 
 本區規則由完整工作區的網站匯出工具同步至公開 AGENTS.md 並轉換為網站儲存庫的 source 路徑，避免下次匯出遺失。
 <!-- rpg-paper-style-policy:end -->
+
+<!-- github-deployment-recovery-policy:start -->
+## GitHub 部署失敗、排隊卡住與完成確認（2026-11-04 使用者要求）
+
+適用本網站所有系列、課程、遊戲、攻略、概念對照、技術內容及規範文件的 GitHub 發布。**推送成功、建置成功、接受重試或進入隊列，都不能單獨視為發布完成；必須核對本次提交的部署結果與正式網站內容。**既有正常提交、推送、重試與網站確認授權持續有效，接續工作不重複詢問是否發布。
+
+1. **先鎖定本次內容**：記錄目標儲存庫、main 分支、已檢查的提交 SHA、版本、來源指紋及交付範圍；保留其他工作的未完成變更。重試前重新確認遠端 main；若已出現新提交，先檢視並整合、重新核對發布版本，不讓舊部署覆蓋較新的內容。不強制推送，不以新增空白提交、改託管位置或變更 Pages 設定來碰運氣。
+2. **推送出錯先確認遠端**：HTTP 500、網路失敗或逾時後，先用 `git ls-remote origin refs/heads/main` 等方式確認遠端是否已收到目標 SHA，再決定是否正常重試推送。保留已檢查的檔案、提交與錯誤紀錄；已收到提交時接續部署確認，不重做遊戲、動畫或配音。
+3. **找出失敗階段**：從本次提交對應的 Actions 工作讀取 status、conclusion、run_attempt、head_sha、各 job／step 與錯誤註記。區分原始碼或建置錯誤、部署 API 的伺服器錯誤、尚未啟動的隊列及瀏覽器快取。建置通過但 Pages 建立部署回覆 HTTP 500 時，核對 GitHub 官方服務狀態，保留該工作紀錄，不把它當成遊戲程式錯誤來修改內容。
+4. **一般失敗重試**：確認該工作屬於本次提交且已失敗，再以既有 GitHub 授權重新執行失敗步驟或完整工作流；例如 `POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs`、`POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun`。接受請求後繼續追蹤，不把 HTTP 201 或 queued 當成成功。採有間隔的查詢與重試，記錄每次結果，避免密集重送。
+5. **排隊卡住要換檢查方式**：記錄等待時間、是否有新 job 建立及狀態是否推進；約 10 分鐘未啟動時重新診斷，不反覆重開相同等待程序。需要清理本次卡住的工作時先正常取消；只有正常取消失敗時，才依官方文件考慮 force-cancel。若正常與強制取消都回覆 HTTP 409／500，或出現「Cannot cancel a workflow re-run that has not yet queued」，保留異常紀錄，不持續對同一工作重送取消或失敗步驟重試。取消僅限已確認的本次工作，不中斷其他提交的部署。
+6. **改由 Pages 請求全新建置**：上述重試卡住時，先讀取現有 Pages 設定並再次核對遠端 main。對既有從分支發布的站點（build_type 為 legacy），使用 `POST /repos/{owner}/{repo}/pages/builds`，從同一份已檢查的 main 重新發起建置，保留原本的分支、目錄與網站設定。若是自訂 workflow，使用該工作流支援的重新執行方式，不直接套用分支建置程序。新的請求也可能排隊；追蹤新產生的工作 ID、head_sha 與部署結果，不再只盯著舊的卡住工作。本次成功方式為重新請求 Pages 建置，無須新增程式碼提交。
+7. **正式網站才是最後確認**：確認成功部署對應本次目標 SHA，並從 https://suyungsheng-kh.github.io/one_minute/ 實際核對首頁、受影響的系列／課程與往返連結。遊戲發布須核對系列首頁、遊戲、攻略、概念對照四頁的版本及關鍵更新檔案一致，圖片、故事稿與其他下載可取得；依變更範圍檢查實際操作、存檔接續、鍵盤與手機版面。必要時帶本次提交查詢參數或停用快取，並比較線上內容與已檢查檔案，不能只看 Actions 綠勾或 GitHub 儲存庫檔案。
+8. **分開記錄與如實交付**：本機發布紀錄分別列出 pushed、部署結果與 pagesVerified，包含 SHA、版本、舊／新工作 ID、錯誤、重試方式、核對時間、實際結果及限制；保留歷史紀錄，完成後標記原待確認紀錄已解決。尚未確認正式網站更新時維持待完成狀態，回報已推送與仍卡住的階段，依既有授權接續檢查及恢復，不宣稱已上線。**只有本次部署與正式網站內容均確認後，才回報發布完成，附正式入口、提交及成功部署紀錄。**不公開憑證、原始對話、私人 review、帳本或備份。
+9. **純規範文件更新**：只檢查本次文件、來源路徑、匯出同步及差異，再正常提交／推送；確認公開 AGENTS.md 符合本次內容、該提交的部署結果及既有正式入口可用。不提高遊戲版本、不重製未受影響的素材，也不覆寫既有遊戲發布紀錄。兩組完整製作提示詞與 skill 已要求先讀 AGENTS.md 並確認正式網站；檢視是否受影響，仍正確時記錄沿用原因，不重複堆疊相同規則。
+
+操作依 [GitHub Actions 排障](https://docs.github.com/en/actions/how-tos/troubleshoot-workflows)、[工作流重試與取消 API](https://docs.github.com/en/rest/actions/workflow-runs)、[Pages 重新建置 API](https://docs.github.com/en/rest/pages/pages#request-a-github-pages-build) 及 [GitHub 官方服務狀態](https://www.githubstatus.com/) 核對；未來使用當次真實的儲存庫、提交與工作 ID。本區由完整工作區的匯出工具同步至公開 AGENTS.md，避免下次匯出遺失。
+<!-- github-deployment-recovery-policy:end -->
