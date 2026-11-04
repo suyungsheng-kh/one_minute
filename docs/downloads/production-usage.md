@@ -20,11 +20,19 @@
 
 此工作流同步動畫修改、共同品牌、首頁／課程／路線、概念關聯、技術經驗、提示詞與 skill；只有文件或網站變更時，不重製影片。檢查本次實際變更後，依授權推送 GitHub 並確認 Pages。
 
+## GitHub 部署失敗或排隊卡住
+
+開啟 [修復 GitHub 部署提示詞](https://suyungsheng-kh.github.io/one_minute/docs/production.html#recover-deployment)，按「複製部署恢復提示詞」，填入儲存庫、目標提交／版本、正式網址、已知工作或錯誤及工作區，再貼到新對話。若只要診斷，先把最後的授權改成唯讀。它是接續發布的專用流程，不重新製作整套動畫。
+
+流程先確認遠端是否收到提交，分辨建置、部署及平台錯誤，再依目前站點設定重試。排隊約十分鐘無進展時重新診斷；若舊重試無新 job 且取消回覆 409，可依 AGENTS 在 legacy 分支發布站點重新請求 Pages 建置，改追蹤新工作。自訂 workflow 不直接套用此方法。
+
+HTTP 201、queued 與推送成功都不是完成證據。只有本次提交的部署與正式網站內容都確認，才回報上線；依影響核對入口、版本、檔案、下載、操作及進度。完整經驗在 [網站交付文章](https://suyungsheng-kh.github.io/one_minute/docs/article.html?id=publish-brand)，案例是 20261104.46 的實際恢復，不將其工作 ID 套到未來。
+
 ## 取得與更新 skill
 
 在 [技術系列下載區](https://suyungsheng-kh.github.io/one_minute/docs/production.html#skill) 下載 skill ZIP。解壓後，將完整 `one-minute-production` 資料夾放入使用環境的技能目錄，更新既有安裝時保留自己的修改並合併新版，再重新載入技能或開啟新對話。
 
-skill 的入口為 `SKILL.md`；新增系列、更新既有單元兩組完整範本與八組階段範本在 `references/prompts.md`，技術方法在 `references/playbook.md`，唯讀盤點工具在 `scripts/inspect-project.mjs`。包內不含動畫原始專案、配音金鑰或私人帳本。
+skill 的入口為 `SKILL.md`；新增系列、更新既有單元兩組完整範本、部署恢復提示詞與八組階段範本在 `references/prompts.md`，技術方法在 `references/playbook.md`，唯讀盤點工具在 `scripts/inspect-project.mjs`。包內不含動畫原始專案、配音金鑰或私人帳本。
 
 若只處理既有專案的一個階段，使用提示詞庫下方的分鏡、環境、trace、聲音、審查、輸出、網站或 skill 範本，不必要求整套新增系列工作流。
 
@@ -61,3 +69,7 @@ node tools/export-github.cjs
 ## 三集成片與網站整合（2026-10-25）
 
 24 段旁白原速沿用；三集瀏覽器、倒回、手機與正式 MP4 技術檢查完成，新增尺規標籤遮擋的修正經驗至 motion-review 並同步提示詞、skill 參考檔及下載。new-series 與 update-unit 的原有驗證／發布規則仍適用，完整工作流正文無須變更。網站來源已整合 8 系列 24 集，線上推送與 Pages 確認以發布報告為準。ASR 與音訊比對未宣稱人工逐字聽審。
+
+## GitHub 部署恢復經驗（2026-11-04）
+
+擴充 publish-brand 技術文章與階段提示詞，新增 recover-deployment 專用工作流，同步 new-series、update-unit 的發布完成條件、skill 入口及生成參考。來源維持八篇文章、兩組完整製作工作流、一組部署恢復流程與八組階段提示詞；不增加動畫課程，也不為驗證呼叫 Azure。部署恢復須沿用當地 AGENTS、使用者授權與真實站點設定。

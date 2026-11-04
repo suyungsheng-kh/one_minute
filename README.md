@@ -478,13 +478,17 @@ git -C .github-publish/one_minute diff
 
 ## 動畫製作技術系列
 
-除了六個動畫教材系列，另有[動畫製作技術](portal/dist/production.html)閱讀系列，提供八篇文章、八組提示詞及 one-minute-production skill。正式網站入口為 [製作技術](https://suyungsheng-kh.github.io/one_minute/docs/production.html)；技術文章不計入動畫集數。
+另有[動畫製作技術](portal/dist/production.html)閱讀系列，提供八篇文章、兩組完整製作工作流、一組 GitHub 部署恢復流程、八組階段提示詞及 one-minute-production skill。正式網站入口為 [製作技術](https://suyungsheng-kh.github.io/one_minute/docs/production.html)；技術文章不計入動畫集數。
 
 來源為 portal/content/production.json；技能原始檔在 production/skill/one-minute-production，來源稽核記錄在 production/review。更新與產製見 [技術系列維護說明](production/README.md)。
 
 ## 布林邏輯三部曲（2026-10-23）
 
 「且」「或」「非」以獨立 boolean 網站系列上架，原始專案保留在 scratch/projects；正式版本由 scratch/tools/boolean-release.json 選定。完整教學關聯與組合挑戰見 scratch/BOOLEAN-LOGIC.md。入口現有六系列十八支動畫，技術文章、提示詞與 skill 同步本次新經驗。
+
+## GitHub 部署恢復直接複製
+
+使用 [修復 GitHub 部署提示詞](https://suyungsheng-kh.github.io/one_minute/docs/production.html#recover-deployment)，從已檢查版本接續推送、部署診斷與必要重試，確認正式網站後才完成。恢復方法與案例見 [網站交付技術文章](https://suyungsheng-kh.github.io/one_minute/docs/article.html?id=publish-brand)，使用與維護見 [提示詞及 skill 說明](portal/content/production-usage.md)。發布規則調整時同步這段提示詞、兩組完整製作流程、skill 參考與下載。
 
 ## 2026-10-18：搜尋三部曲完成
 
@@ -581,8 +585,12 @@ git -C .github-publish/one_minute diff
 
 三集「重複幾次」「什麼時候停」「為什麼停不下來」各 60 秒；[觀看路線](https://suyungsheng-kh.github.io/one_minute/docs/path.html?id=loops)銜接變數、條件判斷、布林邏輯與演算法流程。規則、零次執行及計數差異見 [迴圈與停止條件](guides/loops.md)。首頁概念圖提供迴圈節點；技術文章、提示詞與 skill 已同步。
 
-已有教材要修改時，使用 [更新既有系列或單元](https://suyungsheng-kh.github.io/one_minute/docs/production.html#update-unit)，填入更新目標、修改需求與保留項目；從正式版本接續，保留歷史素材、課程 id、舊連結與觀看紀錄。兩組完整工作流與八組階段範本分開選用，使用說明及 skill 同步更新。
+已有教材要修改時，使用 [更新既有系列或單元](https://suyungsheng-kh.github.io/one_minute/docs/production.html#update-unit)，填入更新目標、修改需求與保留項目；從正式版本接續，保留歷史素材、課程 id、舊連結與觀看紀錄。兩組完整製作工作流、部署恢復專用提示詞與八組階段範本分開選用，使用說明及 skill 同步更新。
 
 ## 互動冒險系列
 
 從 [紙境冒險系列首頁](docs/adventure.html) 進入遊戲、官方攻略與動畫概念對照。主站觀看路線之後及共用主導覽皆有入口；互動系列與八個動畫系列、二十四課分開計數。修改 source/tools/build-adventure.cjs 與 source/assets/adventure.css，更新遊戲時一併建置並執行 check:adventure。
+
+## GitHub 部署恢復提示詞
+
+發布已準備版本遇到失敗或排隊卡住時，使用 [修復 GitHub 部署](https://suyungsheng-kh.github.io/one_minute/docs/production.html#recover-deployment)。方法與實際案例收於 publish-brand，與兩組完整製作流程分開；同步網站、使用說明、skill 與下載。先核對當次提交及站點設定，確認成功部署與正式網站內容後才交付。

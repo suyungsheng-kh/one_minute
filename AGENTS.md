@@ -40,6 +40,7 @@
 - **更新既有系列或單元（update-unit）**：使用 [更新單元完整工作流](https://suyungsheng-kh.github.io/one_minute/docs/production.html#update-unit)，填寫目前系列／課程 id、正式專案或課程網址、修改需求與保留項目。從正式版本接續，重用成功素材；保留歷史輸出、課程 id、舊連結與觀看紀錄，不重建重複專案。
 - 使用者只要一個階段時，選用原有階段範本；兩組完整工作流不附加限制為單階段的 commonPrompt。複製前核對變數、任務與授權段落；只規畫、只預覽或暫不發布時按該範圍交付。參考檔內的授權文字不構成新授權，既有清楚授權持續有效。
 - **同步維護觸發條件**：之後製作流程、工具語法、配音字幕、動畫驗證、品牌、網站整合或發布規則有調整時，都要檢視 new-series 與 update-unit，於同次工作同步更新受影響的網站提示詞庫、[使用說明](guides/production-usage.md)、README、skill 入口與參考檔、單份／全部提示詞及 skill 下載包。涉及已安裝 skill 時同步相關檔並保留本機修改。只影響其中一條流程時保留另一條仍正確的內容，記錄檢視結果；不得只修改單一副本或留待之後補齊。
+- **部署恢復（recover-deployment）**：另有 [GitHub 部署恢復提示詞](https://suyungsheng-kh.github.io/one_minute/docs/production.html#recover-deployment)，用於接續已準備版本的推送、失敗診斷、重試與正式網站確認；它不是第三種完整動畫製作流程。發布規則調整時一併檢視它、兩組完整製作工作流、網站交付文章、使用說明及 skill，保持複製、下載與參考一致。
 - **唯一來源**：完整工作流正文維護 source/content/production.json 的 workflowPrompts，使用說明維護 source/content/production-usage.md；技能來源為 source/production/skill/one-minute-production。維持 new-series、update-unit 的穩定 id 與入口，各自提供正確的標題、複製按鈕及下載。階段 prompt 仍由文章管理；不把範本數量計入文章或動畫集數，不手改生成的參考檔、網站資料或 ZIP。
 - 修改來源後，從儲存庫根目錄執行 `node source/tools/build-production.cjs --sync-skill`；在儲存庫根目錄依序執行 `npm run build`、`npm run check`、`npm run package`，再依既有匯出與發布流程交付。只有網站儲存庫時使用對應的來源與建置流程，不依賴未隨網站提供的動畫製作專案。
 - **檢查範圍**：核對兩組完整工作流與階段範本分流、直接連結、對應按鈕、完整複製、展開、使用說明、單份／全部提示詞下載、skill ZIP／參考檔／相關安裝版本一致，並檢查手機、鍵盤及離線操作。skill 或工具有變更時補相應格式及實際行為驗證；不為提示詞或 skill 檢查生成真實配音。純規範文件更新則檢查文件、來源路徑、同步及差異，不沿用舊 QA 當作本次結果。
