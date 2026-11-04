@@ -1,7 +1,7 @@
 {
-  "version": "20261101.45",
-  "sourceHash": "bdad8e8ab561b604366cb2c025c6ac39817d83bc81509e08ec80b7f1c40753d8",
-  "reviewedDate": "2026-11-01",
+  "version": "20261104.46",
+  "sourceHash": "b4964ebd65420f478912234b9e72472a67fe55374a1a64af58d40af2024592e8",
+  "reviewedDate": "2026-11-04",
   "chapters": 3,
   "rooms": [
     "root-approach",
@@ -128,6 +128,8 @@
     "rune-repair",
     "lamplighter",
     "guiding-pact",
-    "harbor-afterword"
+    "harbor-afterword",
+    "story-overview",
+    "story-closure"
   ]
 }

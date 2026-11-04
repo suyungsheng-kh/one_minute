@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-afterword.js'),checks=[];
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/story-closure.js'),checks=[];
 function test(n,f){f();checks.push(n);}function fresh(){const s=R.create('接班旅人');s.campaign.finished=[1];R.advanceChapter(s,2);s.campaign.rooms[R.RUNE_REPAIR_ROOM]={done:true};Object.assign(s.runeRepair,{accepted:true,brokenSeen:true,marked:true,proof:[...R.GUARDIAN_SOLUTION],claimed:true});s.map=R.LAMPLIGHTER_ROOM;s.x=R.center(3);s.y=R.center(12);return s;}
 function at(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);for(const p of R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48))){assert.ok(R.walkable(s,p.x,p.y));s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id);assert.ok(R.lineOfSight(s,s,o),id);return R.interact(s,id);}
 function act(s,id,a){const r=R.resolveChoice(s,id,a);assert.ok(r,id+':'+a);return r;}const lamp=(s,a)=>act(s,'lamplighter-plan',a),pact=(s,a)=>act(s,'guiding-pact-plan',a),runLamp=s=>{lamp(s,'run');lamp(s,'finish');},runPact=s=>{pact(s,'call');pact(s,'finish');};

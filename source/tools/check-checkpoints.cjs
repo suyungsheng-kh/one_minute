@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-afterword.js');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/story-closure.js');
 const report={version:24,ok:true,checks:[],points:Object.keys(R.CHECKPOINTS).length,browserVerification:'Rules, paths and actual game-loop adapter; real keyboard, visuals and touch are pending.'};
 const test=(name,fn)=>{fn();report.checks.push(name);};
 function fresh(n=1){const s=R.create('守燈旅人');s.campaign.chapter=n;s.map=R.CHAPTERS[n-1].hub;s.x=R.center(7);s.y=R.center(9);R.applyCampaign(s);R.checkpointState(s);return s;}

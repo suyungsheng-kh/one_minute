@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),R=require('../game/harbor-afterword.js'),solve=require('./game-test-mechanisms.cjs');
+const assert=require('node:assert/strict'),fs=require('node:fs'),R=require('../game/story-closure.js'),solve=require('./game-test-mechanisms.cjs');
 const checks=[],test=(name,fn)=>{fn();checks.push(name);},copy=s=>R.validate(JSON.parse(JSON.stringify(s)));
 function fresh(map){const s=R.create('Mechanism tester');s.campaign.finished=map==='ashland-2'?[1]:[1,2];s.map=map;s.x=R.center(2);s.y=R.center(8);R.objects(s);R.grid(s);return s;}
 function visit(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);const path=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));for(const p of path){assert.ok(R.walkable(s,p.x,p.y));s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id+' reachable');return ['exit','dungeon'].includes(o.type)?R.automaticTravel(s):R.interact(s,id);}

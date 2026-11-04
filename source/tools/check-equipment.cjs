@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-afterword.js');const checks=[],test=(name,fn)=>{fn();checks.push(name);};
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/story-closure.js');const checks=[],test=(name,fn)=>{fn();checks.push(name);};
 function fresh(map='village'){const s=R.create('工坊旅人');s.map=map;const at=R.MAPS[map].spawn;s.x=R.center(at[0]);s.y=R.center(at[1]);R.applyCampaign(s);return s;}
 function act(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);s.x=o.x;s.y=o.y;return R.interact(s,id);}
 function smith(s,n=1){s.map=R.ARTISANS[n].map;s.x=R.center(8);s.y=R.center(7);R.applyCampaign(s);assert.equal(act(s,'artisan').crafting,n);}

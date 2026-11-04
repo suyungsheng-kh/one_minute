@@ -1,10 +1,10 @@
 {
-  "version": "3.7",
-  "reviewedDate": "2026-11-01",
-  "gameVersion": "20261101.45",
-  "reviewedGameHash": "bdad8e8ab561b604366cb2c025c6ac39817d83bc81509e08ec80b7f1c40753d8",
+  "version": "3.8",
+  "reviewedDate": "2026-11-04",
+  "gameVersion": "20261104.46",
+  "reviewedGameHash": "b4964ebd65420f478912234b9e72472a67fe55374a1a64af58d40af2024592e8",
   "reviewedCatalogHash": "914b417505ce5f27d3d307176d96df5c562daf057f9a3df8bb733d81dfe3cd76",
-  "principle": "遊戲維持 RPG 的故事與操作語言，動畫概念在這份對照頁閱讀；新增劇情先討論，再決定實作。",
+  "principle": "遊戲以旅人、送藥、留燈與接班的故事為主。動畫概念在遊戲外閱讀；延伸內容只在能自然接上故事時加入。",
   "statuses": {
     "A": {
       "label": "可直接對照",
@@ -218,7 +218,7 @@
         "rune-repair"
       ],
       "evidence": "「讓紙模抵達踏板」是目標；編排符石才是可執行方法。錯誤副本可觀察、局部修改、重新試行，驗證過的方案能保存重跑。",
-      "limit": "能觀察目標與方法的差別；跨地點重用同一套方案仍可再擴充。",
+      "limit": "已有修正、驗證、保存及跨章交接的方法情境；不等於完整演算法課程或學習成效驗證。",
       "proposals": [
         "patrol",
         "named-plan",
@@ -445,7 +445,7 @@
     {
       "id": "loop-repeat",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "guardian",
         "lamplighter"
@@ -459,7 +459,7 @@
     {
       "id": "loop-until",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "navigation",
         "guardian",
@@ -474,7 +474,7 @@
     {
       "id": "loop-energy",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "survival",
         "guardian",
@@ -489,7 +489,7 @@
     {
       "id": "custom-block-jump",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "guardian",
         "tools",
@@ -504,7 +504,7 @@
     {
       "id": "custom-block-height",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "tools",
         "guardian",
@@ -519,7 +519,7 @@
     {
       "id": "custom-block-repeat",
       "status": "A",
-      "previousStatus": "B",
+      "previousStatus": "A",
       "scenes": [
         "guardian",
         "guiding-pact"
@@ -596,7 +596,7 @@
       "title": "補回引路燈",
       "hook": "巡守者希望石像能照看多段短路，而不是永遠停在同一塊踏板。玩家協助修復另一座練習庭院的巡守方案。",
       "play": "整組動作巡行四站；每輪先看歸路旗，旗旁起步零輪；漏掉前進時位置不變，六輪後暫停，補回前進才停止。",
-      "outcome": "回巡守者領一次40 G、星露×1；四盞引路燈保留，抄寫臺開放。",
+      "outcome": "回巡守者領一次40 G、星露×1；四盞引路燈保留，抄寫臺開放。 定稿補上沿燈回家的送藥人與沿途回信。",
       "boundary": "以位置更新對照動畫的能量更新；不是真的讓遊戲無限跑，也不消耗主角MP。 原守路石像與主線石橋保留，不新增結局門檻。",
       "lessons": [
         "algorithm-bread",
@@ -620,7 +620,7 @@
       "title": "引路約定",
       "hook": "伊娜把老師留下的方案改寫成能交給其他石像使用的巡守約定，讓要塞的接班人也能沿用。",
       "play": "玩家命名與定義動作，呼叫才執行，返回巡路安排後升旗；同一定義跨2或3格，交接3或2站，終點相同但風鈴次數不同。",
-      "outcome": "第三章向接班者回報，一次60 G、月露精華×1與回信；伊娜可有同行回應，非必要條件。",
+      "outcome": "第三章向接班者回報，一次60 G、月露精華×1與回信；伊娜可有同行回應，非必要條件。 定稿後要塞有接班石像，守路人的完成對話回應回家吃飯。",
       "boundary": "限定六個基本動作、一層定義，不提供遞迴或互相呼叫。 不改主角能力、不增加結局門檻。",
       "lessons": [
         "algorithm-why",
@@ -661,7 +661,7 @@
       "hook": "石橋已接通，巡守者卻發現另一份副本多抄了轉向符石。原守路石像仍得守橋，玩家借紙模替下一座石像找回方向。",
       "play": "試走十三枚副本，標記第一次錯誤的第5枚；任選中段刪除、替換、前後插入或追加，觀察編號與長度更新，再逐枚或整段試行。可撤回最近八次編輯、還原與存讀，最多十六枚。",
       "outcome": "驗證後回巡守者，一次得40 G、藥水×2；副本刻上旅人記號，新石像甦醒待命。原橋、原石像與原獎勵不變，回訪不重發。",
-      "boundary": "真正修改有序資料與執行結果；替換保持長度，刪除縮短並前移，插入增長並後移。仍無整組重複、命名呼叫或參數；新石像不會自動巡燈。",
+      "boundary": "本副本提供中段編輯與實際試走；整組巡行、命名呼叫與參數另由後續燈庭及引路約定提供，不把所有功能誤寫成原石碑操作。",
       "lessons": [
         "lists",
         "algorithm-bread",
@@ -710,8 +710,8 @@
       "implementedBuild": "20261101.45"
     }
   ],
-  "previousGameVersion": "20261101.44",
-  "visualUpdate": "BUILD 20261101.45 新增巡燈三段、引路約定、84號舊冊之外的信與晚到藥箱短事件。迴圈三課與自訂積木三課由B調為A；24課均有可直接對照的代表情境，仍不等於完整課程覆蓋或學習成效。",
+  "previousGameVersion": "20261101.45",
+  "visualUpdate": "BUILD 20261104.46 故事定稿收尾：巡燈送藥人、接班石像、沿途回信與結尾呼應，修正章節時序及未同行夥伴敘事。沿用紙片風格，A24／B0／C0維持；不因故事增補提高教學完成宣稱。",
   "storyDirections": [
     {
       "series": "algorithms",
@@ -830,7 +830,7 @@
       "implementedBuild": "20261101.45"
     }
   ],
-  "releaseSummary": "①④保留，②③⑤⑥核心故事已完成。玩家能定義整組巡行、在每輪前檢查停止、修復未更新的位置；也能命名並呼叫自己的動作、輸入跨距、分開設定交接站數。新航記與晚到箱只延伸原任務。",
-  "scopeSummary": "8系列、24課，A24／B0／C0。六項核心提案已實作；資料量翻倍、更多排序排列及巢狀約定等深化仍待評估。",
+  "releaseSummary": "只加入與三章主軸有關的生活回應與故事收束。資料量倍增、額外數值練習、多份巢狀約定等不列入本定稿範圍；既有代表情境與未涵蓋界線如實保留。",
+  "scopeSummary": "8系列、24課皆有直接代表情境；原六段核心故事完整，故事定稿候選版另附三章、人物、支線與結局全文。",
   "implementedIntro": "原六項核心提案均已有玩法與故事成果：符石、巡燈、引路約定、避雨處、舊冊之外的信與短篇晚到箱。各任務可回訪、無期限，不新增隱藏結局門檻。剩餘深化另列，避免把A24寫成所有課程目標都已完成。"
 }

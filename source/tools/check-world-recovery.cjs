@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),R=require('../game/harbor-afterword.js'),checks=[];
+const assert=require('node:assert/strict'),fs=require('node:fs'),R=require('../game/story-closure.js'),checks=[];
 const test=(name,fn)=>{fn();checks.push(name);},copy=s=>R.validate(JSON.parse(JSON.stringify(s))),done=(s,id)=>s.campaign.quests[id]={accepted:true,done:true};
 function fresh(map){const s=R.create('Recovery tester');s.map=map;s.x=R.center(R.MAPS[map].spawn[0]);s.y=R.center(R.MAPS[map].spawn[1]);R.objects(s);R.grid(s);return s;}
 function visit(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,s.map+':'+id);const route=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));for(const p of route){assert.ok(R.walkable(s,p.x,p.y));s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id+' reachable');return ['location','dungeon','exit'].includes(o.type)?R.automaticTravel(s):R.interact(s,id);}

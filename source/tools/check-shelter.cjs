@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-afterword.js'),checks=[];
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/story-closure.js'),checks=[];
 function test(name,fn){fn();checks.push(name);}
 function fresh(open=true){const s=R.create('避雨旅人');if(open){s.campaign.rooms['tide-cargo']={done:true};s.campaign.quests['side-2']={accepted:true,done:true};s.map=R.SHELTER_ROOM;s.x=R.center(7);s.y=R.center(7);}return s;}
 function at(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,id);const route=R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48));for(const p of route){assert.ok(R.walkable(s,p.x,p.y));s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id);assert.ok(R.lineOfSight(s,s,o),id);return R.interact(s,id);}

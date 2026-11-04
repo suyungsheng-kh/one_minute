@@ -36,6 +36,7 @@
     "check:handover": "npm --prefix source run check:handover",
     "check:shelter": "npm --prefix source run check:shelter",
     "check:rune-repair": "npm --prefix source run check:rune-repair",
-    "check:continuing": "npm --prefix source run check:continuing"
+    "check:continuing": "npm --prefix source run check:continuing",
+    "check:closure": "npm --prefix source run check:closure"
   }
 }

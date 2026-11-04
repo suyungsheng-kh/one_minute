@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),R=require('../game/harbor-afterword.js');
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),R=require('../game/story-closure.js');
 const checks=[],test=(name,fn)=>{fn();checks.push(name);},copy=s=>R.validate(JSON.parse(JSON.stringify(s)));
 let inputCount=0,reloadCount=0;
 function fresh(map='harbor'){const s=R.create('Harbor tester');s.campaign.finished=[1];s.campaign.chapter=2;s.map=map;const at=R.MAPS[map].spawn;s.x=R.center(at[0]);s.y=R.center(at[1]);R.applyCampaign(s);return s;}

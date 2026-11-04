@@ -65,6 +65,7 @@ browser.lessons.push(l);
 }
 fs.mkdirSync(path.join(dist,'content'),{recursive:true});fs.writeFileSync(path.join(dist,'content/catalog.js'),'window.ONE_MINUTE_CATALOG = '+JSON.stringify(browser,null,2)+';\n');
 const technical=require('./build-production.cjs').buildProduction(root,dist,publishedIds);
+require('./build-game-story.cjs').build();
 require('./build-game-concepts.cjs').build();
 require('./build-adventure.cjs').build();
 console.log(JSON.stringify({output:dist,series:browser.series.length,lessons:browser.lessons.length,technical,offline:true}));

@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/harbor-afterword.js'),checks=[];
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../game/story-closure.js'),checks=[];
 function test(n,f){f();checks.push(n);}function fresh(open=true){const s=R.create('符石旅人');s.campaign.finished=[1];R.advanceChapter(s,2);s.map=R.RUNE_REPAIR_ROOM;s.x=R.center(2);s.y=R.center(8);if(open)s.campaign.rooms[s.map]={done:true};return s;}
 function at(s,id){const o=R.objects(s).find(o=>o.id===id);assert.ok(o,id);for(const p of R.pathfind(s,Math.floor(o.x/48),Math.floor(o.y/48))){assert.ok(R.walkable(s,p.x,p.y));s.x=p.x;s.y=p.y;}assert.ok(R.dist(s,o)<=90,id);assert.ok(R.lineOfSight(s,s,o),id);return R.interact(s,id);}
 function act(s,v){const r=R.resolveChoice(s,'rune-repair-plan',v);assert.ok(r,v);return r;}
