@@ -1527,6 +1527,14 @@ window.ONE_MINUTE_CATALOG = {
     },
     {
       "id": "algorithm-control-flow",
+      "extension": {
+        "id": "algorithm-sequence",
+        "title": "2-1 循序｜貼餐號標籤",
+        "task": "先輸入 07，再試 12。觀察「標籤」在哪一步換成新的餐號。",
+        "video": "assets/algorithm-sequence/sequence-yunjhe.mp4",
+        "subtitles": "assets/algorithm-sequence/sequence-yunjhe.zh-TW.srt",
+        "project": "assets/algorithm-sequence/chef-sequence.sb3"
+      },
       "series": "algorithms",
       "title": "循序、選擇、重複",
       "subtitle": "小廚師的三種指令",
