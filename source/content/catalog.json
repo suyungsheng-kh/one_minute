@@ -107,6 +107,16 @@
       "siteSource": null,
       "siteAnchor": "",
       "recommended": "custom-block-jump"
+    },
+    {
+      "id": "control-structures",
+      "title": "程式三大結構",
+      "subtitle": "用 Scratch 積木看懂循序、選擇與重複。",
+      "color": "green",
+      "icon": "steps",
+      "recommended": "control-sequence",
+      "gameMapping": false,
+      "siteSource": null
     }
   ],
   "lessons": [
@@ -229,11 +239,9 @@
       "id": "algorithm-control-flow",
       "extension": {
         "id": "algorithm-sequence",
-        "title": "2-1 循序｜貼餐號標籤",
-        "task": "先輸入 07，再試 12。觀察「標籤」在哪一步換成新的餐號。",
-        "video": "assets/algorithm-sequence/sequence-yunjhe.mp4",
-        "subtitles": "assets/algorithm-sequence/sequence-yunjhe.zh-TW.srt",
-        "project": "assets/algorithm-sequence/chef-sequence.sb3"
+        "title": "程式三大結構・第 1 集〈循序〉",
+        "lesson": "control-sequence",
+        "task": "跟著同一位小廚師，把餐號變成可讀出的標籤。"
       },
       "series": "algorithms",
       "title": "循序、選擇、重複",
@@ -4195,6 +4203,190 @@
         ],
         "subtitle": "兩個參數分工"
       }
+    },
+    {
+      "id": "control-sequence",
+      "series": "control-structures",
+      "title": "循序結構",
+      "subtitle": "小廚師貼餐號標籤",
+      "summary": "先取得餐號，再更新標籤，最後讀出結果。交換兩塊積木，觀察小廚師會唸出哪一張訂單。",
+      "seconds": 60,
+      "type": "Scratch 實作",
+      "tags": [
+        "循序",
+        "演算法",
+        "Scratch"
+      ],
+      "videoSource": "docs/media/control-sequence.mp4",
+      "subtitleSource": "docs/subtitles/control-sequence.zh-TW.srt",
+      "posterTime": 24,
+      "projectFile": "assets/algorithm-sequence/chef-sequence.sb3",
+      "openingQuestion": "上一張餐號是 07，這次輸入 12，小廚師為什麼可能還是說出 07？",
+      "learningGoals": [
+        "依執行順序讀出一串 Scratch 積木",
+        "用標籤目前存的值，預測畫面會顯示哪個餐號"
+      ],
+      "keyTakeaway": "同一串積木由上往下執行。先更新標籤再讀取，才會說出這次的餐號。",
+      "question": "上次的標籤是「餐號 07」。這次輸入 12，如果先說出標籤，再更新它，小廚師會說什麼？",
+      "choices": [
+        "餐號 07",
+        "餐號 12",
+        "依序說出兩個餐號"
+      ],
+      "correctChoice": 0,
+      "answer": "餐號 07。說出標籤的那一刻，新的餐號還沒有存進去。",
+      "challenge": "下載 Scratch 範例，依序輸入 07、12。把「說出」移到更新標籤之前，重新測試並比較結果。",
+      "connections": {
+        "title": "課程地圖上的位置",
+        "notes": [],
+        "relatedLessons": [
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "回到小廚師準備早餐的例子，一次比較三種基本流程。"
+          },
+          {
+            "lesson": "variables",
+            "reason": "標籤是一個變數，它記住最近一次存入的文字。"
+          },
+          {
+            "lesson": "control-selection",
+            "reason": "下一集觀察程式遇到條件時會怎麼走。"
+          }
+        ]
+      },
+      "coverDesign": {
+        "titleLines": [
+          "循序結構"
+        ],
+        "subtitle": "先問餐號，再貼標籤"
+      },
+      "guide": {
+        "intro": [
+          "先取得餐號，再更新標籤，最後讀出結果。交換兩塊積木，觀察小廚師會唸出哪一張訂單。"
+        ],
+        "exampleTitle": "追蹤餐號標籤",
+        "example": [
+          {
+            "label": "第一份餐",
+            "value": "07"
+          },
+          {
+            "label": "第二份餐",
+            "value": "12"
+          }
+        ],
+        "steps": [
+          {
+            "title": "取得",
+            "text": "詢問餐號並等待回答。"
+          },
+          {
+            "title": "更新",
+            "text": "把「餐號」和回答接成標籤。"
+          },
+          {
+            "title": "輸出",
+            "text": "讀出變數裡的餐號。"
+          }
+        ],
+        "watch": "留意第二次執行時，標籤在哪一步從 07 變成 12。",
+        "reminders": [
+          "先讀取再更新時，角色會說出舊值。"
+        ],
+        "comparison": "scratch-control-structures"
+      },
+      "posterSource": "docs/posters/control-sequence.jpg"
+    },
+    {
+      "id": "control-selection",
+      "series": "control-structures",
+      "title": "選擇結構",
+      "subtitle": "小廚師的兩種吐司",
+      "summary": "小廚師依客人的回答，從兩種吐司選一份。看同一串 Scratch 積木如何用條件決定下一步。",
+      "seconds": 60,
+      "type": "Scratch 實作",
+      "tags": [
+        "選擇",
+        "條件",
+        "否則",
+        "演算法",
+        "Scratch"
+      ],
+      "videoSource": "docs/media/control-selection.mp4",
+      "subtitleSource": "docs/subtitles/control-selection.zh-TW.srt",
+      "posterTime": 24,
+      "projectFile": "assets/control-selection/chef-selection.sb3",
+      "openingQuestion": "輸入「不要」也包含「要」這個字，小廚師會說出哪種吐司？",
+      "learningGoals": [
+        "找出如果／否則積木中的條件與兩個分支",
+        "分別用真、假兩種輸入預測程式輸出"
+      ],
+      "keyTakeaway": "程式比較完整的回答，每次判斷只執行一條分支。",
+      "question": "如果回答「不要」，條件「答案等於要」會讓小廚師說什麼？",
+      "choices": [
+        "果醬吐司",
+        "原味吐司",
+        "先說果醬吐司，再說原味吐司"
+      ],
+      "correctChoice": 1,
+      "answer": "原味吐司。「不要」和「要」不相等，所以走「否則」。",
+      "challenge": "下載範例，點綠旗輸入「要」，再點一次輸入「不要」。預測輸入「好」會走哪一邊，再執行核對。",
+      "connections": {
+        "title": "從循序接到選擇",
+        "notes": [],
+        "relatedLessons": [
+          {
+            "lesson": "control-sequence",
+            "reason": "先取得答案，再做比較，仍有執行順序。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "回看三種基本流程的早餐例子。"
+          }
+        ]
+      },
+      "coverDesign": {
+        "titleLines": [
+          "選擇結構"
+        ],
+        "subtitle": "一個條件，兩種吐司"
+      },
+      "guide": {
+        "intro": [
+          "小廚師依客人的回答，從兩種吐司選一份。看同一串 Scratch 積木如何用條件決定下一步。"
+        ],
+        "exampleTitle": "先預測，再接單",
+        "example": [
+          {
+            "label": "回答「要」",
+            "value": "果醬吐司"
+          },
+          {
+            "label": "回答「不要」",
+            "value": "原味吐司"
+          }
+        ],
+        "steps": [
+          {
+            "title": "詢問",
+            "text": "等待客人送出完整回答。"
+          },
+          {
+            "title": "比較",
+            "text": "檢查回答是否等於「要」。"
+          },
+          {
+            "title": "分支",
+            "text": "真時走上方，假時走下方。"
+          }
+        ],
+        "watch": "沿著指標看兩次判斷，找出每次跳過的那塊積木。",
+        "reminders": [
+          "「不要」雖然包含「要」這個字，兩個字串仍不相等。"
+        ],
+        "comparison": "scratch-control-structures"
+      },
+      "posterSource": "docs/posters/control-selection.jpg"
     }
   ],
   "startLesson": "variables",
@@ -4660,6 +4852,32 @@
           }
         ]
       }
+    },
+    {
+      "id": "control-structures",
+      "series": "control-structures",
+      "title": "用 Scratch 看懂程式三大結構",
+      "description": "先用餐號標籤觀察循序，再用兩張吐司訂單觀察選擇。第 3 集「重複」規劃中。",
+      "goal": "看懂積木怎麼安排下一步，並預測舞台上的結果。",
+      "lessonIds": [
+        "control-sequence",
+        "control-selection"
+      ],
+      "stepNotes": {
+        "control-sequence": "先問餐號，再更新標籤，最後讓小廚師說出來。",
+        "control-selection": "分別輸入「要」與「不要」，比較兩條分支的輸出。"
+      },
+      "reflection": "把「說出標籤」移到更新之前。換一張訂單再執行，會讀出哪一張標籤？",
+      "connections": {
+        "title": "先備概念",
+        "notes": [],
+        "relatedLessons": [
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "回到小廚師準備早餐的例子，一次比較三種基本流程。"
+          }
+        ]
+      }
     }
   ],
   "conceptMap": {
@@ -4677,6 +4895,19 @@
         "x": 390,
         "y": 16,
         "width": 260,
+        "height": 132
+      },
+      {
+        "id": "control-structures",
+        "title": "程式三大結構",
+        "lesson": "control-sequence",
+        "role": "用積木實作",
+        "summary": "循序、選擇、重複",
+        "color": "green",
+        "icon": "steps",
+        "x": 20,
+        "y": 16,
+        "width": 240,
         "height": 132
       },
       {
@@ -5118,10 +5349,28 @@
           ]
         ],
         "arrow": false
+      },
+      {
+        "to": "control-structures",
+        "label": "用積木實作",
+        "labelX": 325,
+        "labelY": 69,
+        "points": [
+          [
+            390,
+            82
+          ],
+          [
+            260,
+            82
+          ]
+        ],
+        "from": "algorithms"
       }
     ],
     "summary": [
       "演算法安排步驟；變數、清單保存資料，條件判斷選擇動作。",
+      "從演算法延伸到程式三大結構，用 Scratch 的餐號標籤看循序，再用兩種吐司看選擇。",
       "排序可以組合這些工具，完成比較、交換、右移與插入。",
       "河內塔用同樣的方法處理更小的問題，認識遞迴。",
       "排序與河內塔都能延伸思考步數和時間成本。",
@@ -5537,6 +5786,34 @@
         }
       ],
       "note": "定義不會自行執行；參數不會自動變成全域變數；外層呼叫數與內部跳躍數分開計算。"
+    },
+    "scratch-control-structures": {
+      "title": "小廚師怎麼決定下一步？",
+      "caption": "用兩次執行比較程式與輸出",
+      "headers": [
+        "結構",
+        "先看什麼",
+        "執行結果"
+      ],
+      "rows": [
+        {
+          "lesson": "control-sequence",
+          "cells": [
+            "循序",
+            "積木的先後順序",
+            "先存標籤，再讀出新餐號"
+          ]
+        },
+        {
+          "lesson": "control-selection",
+          "cells": [
+            "選擇",
+            "答案是否等於「要」",
+            "真：果醬吐司；假：原味吐司"
+          ]
+        }
+      ],
+      "note": "按綠旗各跑一次，把回答與舞台輸出記在一起。"
     }
   }
 }

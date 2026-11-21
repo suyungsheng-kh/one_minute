@@ -32,11 +32,11 @@ test('standalone series images and styles are embedded, all offline links and gu
  assert.ok(!/<script\b|<link rel="stylesheet"/i.test(html));
 });
 test('the interactive series preserves animation counts, course routes and all independent progress stores',()=>{
- assert.equal(catalog.series.length,8);assert.equal(catalog.lessons.filter(l=>!['draft','coming-soon'].includes(l.status)).length,24);assert.ok(!catalog.series.some(s=>s.id==='adventure'));
- const sandbox={window:{}};vm.runInNewContext(fs.readFileSync(path.join(built,'content/catalog.js'),'utf8'),sandbox);assert.equal(sandbox.window.ONE_MINUTE_CATALOG.series.length,8);assert.equal(sandbox.window.ONE_MINUTE_CATALOG.lessons.length,24);
+ assert.equal(out.meta.animationSeries,8);assert.equal(out.meta.animationLessons,24);assert.ok(!catalog.series.some(s=>s.id==='adventure'));
+ const sandbox={window:{}};vm.runInNewContext(fs.readFileSync(path.join(built,'content/catalog.js'),'utf8'),sandbox);assert.equal(sandbox.window.ONE_MINUTE_CATALOG.series.length,catalog.series.length);assert.equal(sandbox.window.ONE_MINUTE_CATALOG.lessons.length,catalog.lessons.filter(l=>l.status!=='draft').length);
  assert.ok(!/localStorage|sessionStorage|paper-rpg-starwatch-v2|one-minute-watched-v1/.test(html));assert.ok(fs.readFileSync(path.join(root,'AGENTS.md'),'utf8').includes('rpg-series-policy:start'));
 });
 test('normal and root GitHub Pages homepages both resolve the new series destination',()=>{
  const entry=require('./github-entry.cjs'),folder=path.join(root,'review/adventure-root-fixture');fs.mkdirSync(path.join(folder,'docs'),{recursive:true});fs.writeFileSync(path.join(folder,'docs/index.html'),home);entry.writeEntry(folder);const exported=fs.readFileSync(path.join(folder,'index.html'),'utf8');assert.ok(exported.includes('<base href="./docs/">'));assert.ok(exported.includes('href="adventure.html"'));assert.ok(exported.includes('href="../#paths"'));assert.ok(exported.includes('id="rpg-game"'));
 });
-const report={ok:true,version:out.meta.version,checks,count:checks.length,animationSeries:8,animationLessons:24,embeddedImages:7,limitation:'Source, generated HTML, offline navigation and version checks; browser visual verification pending.'};fs.mkdirSync(path.join(root,'review'),{recursive:true});fs.writeFileSync(path.join(root,'review/adventure-qa.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+const report={ok:true,version:out.meta.version,checks,count:checks.length,animationSeries:catalog.series.length,animationLessons:catalog.lessons.filter(l=>!['draft','coming-soon'].includes(l.status)).length,embeddedImages:7,limitation:'Source, generated HTML, offline navigation and version checks; browser visual verification pending.'};fs.mkdirSync(path.join(root,'review'),{recursive:true});fs.writeFileSync(path.join(root,'review/adventure-qa.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
