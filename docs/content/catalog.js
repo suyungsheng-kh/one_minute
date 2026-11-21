@@ -469,17 +469,19 @@ window.ONE_MINUTE_CATALOG = {
       "id": "control-structures",
       "series": "control-structures",
       "title": "用 Scratch 看懂程式三大結構",
-      "description": "先用餐號標籤觀察循序，再用兩張吐司訂單觀察選擇。第 3 集「重複」規劃中。",
+      "description": "跟小廚師貼餐號、選口味、裝吐司。用三份可以執行的 Scratch 專案看懂循序、選擇與重複。",
       "goal": "看懂積木怎麼安排下一步，並預測舞台上的結果。",
       "lessonIds": [
         "control-sequence",
-        "control-selection"
+        "control-selection",
+        "control-repetition"
       ],
       "stepNotes": {
         "control-sequence": "先問餐號，再更新標籤，最後讓小廚師說出來。",
-        "control-selection": "分別輸入「要」與「不要」，比較兩條分支的輸出。"
+        "control-selection": "分別輸入「要」與「不要」，比較兩條分支的輸出。",
+        "control-repetition": "看見三輪裝盤的過程，再把次數改成二，預測吐司與「出餐」各出現幾次。"
       },
-      "reflection": "把「說出標籤」移到更新之前。換一張訂單再執行，會讀出哪一張標籤？",
+      "reflection": "觀察早餐程式，找出一定先做的步驟、依條件選的一步，以及每一輪都會做的動作。",
       "connections": {
         "title": "先備概念",
         "notes": [],
@@ -982,7 +984,7 @@ window.ONE_MINUTE_CATALOG = {
     ],
     "summary": [
       "演算法安排步驟；變數、清單保存資料，條件判斷選擇動作。",
-      "從演算法延伸到程式三大結構，用 Scratch 的餐號標籤看循序，再用兩種吐司看選擇。",
+      "從演算法延伸到程式三大結構，用餐號看循序、用口味看選擇、用逐片裝盤看重複。",
       "排序可以組合這些工具，完成比較、交換、右移與插入。",
       "河內塔用同樣的方法處理更小的問題，認識遞迴。",
       "排序與河內塔都能延伸思考步數和時間成本。",
@@ -1401,7 +1403,7 @@ window.ONE_MINUTE_CATALOG = {
     },
     "scratch-control-structures": {
       "title": "小廚師怎麼決定下一步？",
-      "caption": "用兩次執行比較程式與輸出",
+      "caption": "從積木的安排預測舞台輸出",
       "headers": [
         "結構",
         "先看什麼",
@@ -1423,9 +1425,17 @@ window.ONE_MINUTE_CATALOG = {
             "答案是否等於「要」",
             "真：果醬吐司；假：原味吐司"
           ]
+        },
+        {
+          "lesson": "control-repetition",
+          "cells": [
+            "重複",
+            "哪些積木放在框內、要做幾輪",
+            "裝三片後，框外只出餐一次"
+          ]
         }
       ],
-      "note": "按綠旗各跑一次，把回答與舞台輸出記在一起。"
+      "note": "改一個輸入或重複次數，再點綠旗，核對預測和舞台結果。"
     }
   },
   "series": [
@@ -5563,6 +5573,10 @@ window.ONE_MINUTE_CATALOG = {
           {
             "lesson": "algorithm-control-flow",
             "reason": "回看三種基本流程的早餐例子。"
+          },
+          {
+            "lesson": "control-repetition",
+            "reason": "口味決定後，觀察同一組裝盤動作如何重複。"
           }
         ]
       },
@@ -5605,6 +5619,91 @@ window.ONE_MINUTE_CATALOG = {
       "subtitleFile": "subtitles/control-selection.zh-TW.srt",
       "poster": "posters/control-selection.jpg",
       "cover": "covers/control-selection.svg"
+    },
+    {
+      "id": "control-repetition",
+      "series": "control-structures",
+      "title": "重複結構",
+      "subtitle": "小廚師的三片吐司",
+      "summary": "同一組積木跑三輪，盤裡的吐司一片一片增加。跟著指標看，哪一塊積木要等三輪結束才執行？",
+      "seconds": 60,
+      "type": "Scratch 實作",
+      "tags": [
+        "重複",
+        "迴圈",
+        "次數",
+        "演算法",
+        "Scratch"
+      ],
+      "projectFile": "assets/control-repetition/chef-repetition.sb3",
+      "openingQuestion": "裝三片吐司，小廚師會說幾次「出餐」？",
+      "learningGoals": [
+        "指出橘色迴圈裡的一輪包含哪些動作",
+        "從重複次數預測吐司片數與出餐次數"
+      ],
+      "keyTakeaway": "框裡的積木依指定次數重複。輪數做完後，程式才往下執行框外的積木。",
+      "question": "把重複次數改成 0 再點綠旗，盤中有幾片？小廚師說幾次「出餐」？",
+      "choices": [
+        "0 片，說 0 次",
+        "0 片，說 1 次",
+        "1 片，說 1 次"
+      ],
+      "correctChoice": 1,
+      "answer": "0 片，說 1 次。零輪會跳過框內的裝盤和等待，接著執行框外的「說出」。",
+      "challenge": "先預測重複次數為 2 和 0 的結果，再各點一次綠旗驗證。把「說出」移到橘色框裡，想想重複 3 次時它會執行幾次。",
+      "connections": {
+        "title": "從三大結構接到迴圈",
+        "notes": [],
+        "relatedLessons": [
+          {
+            "lesson": "loop-repeat",
+            "reason": "接著用遊戲例子追蹤固定次數迴圈的每一輪。"
+          },
+          {
+            "lesson": "algorithm-control-flow",
+            "reason": "回到早餐任務，同時辨認循序、選擇與重複。"
+          }
+        ]
+      },
+      "guide": {
+        "intro": [
+          "看橘色框開口的位置，找出會跟著每一輪回來的積木。"
+        ],
+        "exampleTitle": "比較兩張訂單",
+        "example": [
+          {
+            "label": "重複 3 次",
+            "value": "3 片吐司，出餐 1 次"
+          },
+          {
+            "label": "重複 2 次",
+            "value": "2 片吐司，出餐 1 次"
+          }
+        ],
+        "steps": [
+          {
+            "title": "歸零",
+            "text": "點綠旗，重新從空盤開始。"
+          },
+          {
+            "title": "裝盤",
+            "text": "每一輪建立一個吐司分身，再等一秒。"
+          },
+          {
+            "title": "出餐",
+            "text": "所有輪次都完成後，才說出「出餐！」。"
+          }
+        ],
+        "watch": "每次盤中多一片，找出指標回到了哪塊積木。",
+        "reminders": [
+          "Scratch 的對話泡泡會留在舞台上。要追蹤「說出」執行幾次，請看積木的位置。"
+        ],
+        "comparison": "scratch-control-structures"
+      },
+      "video": "media/control-repetition.mp4",
+      "subtitleFile": "subtitles/control-repetition.zh-TW.srt",
+      "poster": "posters/control-repetition.jpg",
+      "cover": "covers/control-repetition.svg"
     }
   ]
 };

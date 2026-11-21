@@ -7,6 +7,10 @@ const text=(x,y,value,size=28,fill='#23372e',extra='')=>`<text x="${x}" y="${y}"
 const rect=(x,y,w,h,fill,rx=20,extra='')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" ${extra}/>`;
 function diagram(s,l,accent,light){
  const id=l.id,box=(y,label,n)=>rect(846,y,300,78,'#ffffff',16)+text(868,y+49,n,24,accent,'font-weight="700"')+text(922,y+49,label,28),arrow=y=>`<path d="M996 ${y}v27m-9-9 9 9 9-9" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+ if(id==='control-repetition'){
+  const center='text-anchor="middle"';
+  return text(996,280,'重複 3 次',38,accent,center)+[0,1,2].map(i=>rect(836+i*110,325,94,78,'#ffffff',16)+text(883+i*110,374,(i+1)+' 片',27,accent,center)).join('')+arrow(422)+text(996,518,'出餐一次',36,accent,center);
+ }
  if(s.id==='control-structures')return (id==='control-selection'?['詢問口味','判斷條件','選一分支']:['取得餐號','更新標籤','說出標籤']).map((label,i)=>box(220+i*110,label,String(i+1))+(i<2?arrow(302+i*110):'')).join('');
  if(s.id==='algorithms'){const labels=id==='algorithm-bread'?['輸入','步驟','輸出']:id==='algorithm-control-flow'?['循序','選擇','重複']:['目標','方法','檢查'];return labels.map((label,i)=>box(220+i*110,label,String(i+1).padStart(2,'0'))+(i<2?arrow(302+i*110):'')).join('');}
  if(s.id==='custom-blocks'){const labels=id==='custom-block-jump'?['定義跳一下','呼叫','上升・下降']:id==='custom-block-height'?['高度 40','高度 80','同一流程']:['高度 80','次數 3','完整跳 3 次'];return labels.map((label,i)=>box(220+i*110,label,String(i+1).padStart(2,'0'))+(i<2?arrow(302+i*110):'')).join('');}
